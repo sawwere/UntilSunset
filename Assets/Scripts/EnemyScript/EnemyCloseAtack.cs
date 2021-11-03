@@ -9,8 +9,8 @@ public class EnemyCloseAtack : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         
-        Wall_1 wall = collision.GetComponent<Wall_1>();
-        if (wall != null)
+        Building b = collision.GetComponent<Building>();
+        if ((b != null)&&(b.GetType()!=typeof(MainBuilding)))
             transform.parent.gameObject.GetComponent<EnemyClose>().DoDamage(collision);
     }
 }

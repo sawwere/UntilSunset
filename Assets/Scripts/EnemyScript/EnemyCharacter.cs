@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyCharacter: MonoBehaviour
 {
     public string _name; // им€
+    public int price; // условна€ стоимость спавна
     public int maxHealth = 2; //здоровье
     public float speed = 1.0f; //скорость движени€
     public int armor = 0; //брон€
@@ -16,6 +17,8 @@ public class EnemyCharacter: MonoBehaviour
     protected int currentHealth; //текущее здоровье
     public float immunityTimer; //счетчик неу€звимости
     protected float hitTimer; //счетчик времени нанесени€ урона
+
+    private bool enterMainBuilding = false;
 
     public LayerMask aviableHitMask;
 
@@ -36,11 +39,35 @@ public class EnemyCharacter: MonoBehaviour
     }
 
     // Update is called once per frame
+    private void Update()
+    {
+        if (immunityTimer > 0)
+        {
+            immunityTimer -= Time.deltaTime;
+        }
+        if (hitTimer > 0)
+        { 
+            hitTimer -= Time.deltaTime;
+        }
+    }
+
     void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
-        position.x = position.x + Time.deltaTime * speed * direction;
+        if (enterMainBuilding)
+        {
+            position.y = position.y + Time.deltaTime * speed;
+        }
+        else
+        {
+            position.x = position.x + Time.deltaTime * speed * direction;
+            
+        }
         rigidbody2d.MovePosition(position);
+        if (position.y > 2)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void RecieveDamage(int amount)
@@ -48,13 +75,15 @@ public class EnemyCharacter: MonoBehaviour
         if (immunityTimer <= 0)
         {
             currentHealth -= amount;
-            immunityTimer = immunityPeriod;
             if (currentHealth <= 0)
                 Destroy(gameObject);
+            immunityTimer = immunityPeriod;
         }
-        else
-        {
-            immunityTimer -= Time.deltaTime;
-        }
+    }
+
+    public void EnterMainBuilding()
+    {
+        enterMainBuilding = true;
+        rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }

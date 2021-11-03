@@ -4,20 +4,32 @@ using UnityEngine;
 
 public class GameStats
 {
-    private int level;
+    private static int level;
 
-    public int Level
+    private static int encounter;
+
+    public static int Encounter
+    {
+        get { return encounter; }
+        private set { encounter = value; }
+    }
+
+    public static int Level
     {
         get { return level; }
     }
 
-    private int coins = 0;
+    private static int coins = 0;
     public static int Coins
     {
-        get;
-        set;
+        get { return coins; }
+        set { coins = value; }
     }
 
-//dfgdfgdgdf
 
+    private static void Start()
+    {
+        Encounter = 1;
+        level = 1;
+    }
 }

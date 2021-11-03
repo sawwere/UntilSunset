@@ -25,8 +25,8 @@ public class EnemyRangeAtack : MonoBehaviour
             parentEnemy.DoDamage(collision);
         else
         {
-            Wall_1 wall = collision.GetComponent<Wall_1>();
-            if (wall)
+            Building b = collision.GetComponent<Building>();
+            if ((b != null) && (b.GetType() != typeof(MainBuilding)))
                 SetTarget(collision);
         }
     }
@@ -35,7 +35,7 @@ public class EnemyRangeAtack : MonoBehaviour
     {
         if (!parentEnemy.target)
         {
-            parentEnemy.target = collision.GetComponent<Wall_1>();
+            parentEnemy.target = collision.GetComponent<Building>();
             parentEnemy.targetPoint = parentEnemy.target.transform.position;
             Debug.Log("target has been found");
             //GetComponent<BoxCollider2D>().enabled = false;

@@ -95,5 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42eb7154e2cbb1640a7e1cfcfd904915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 4323401381652340525, guid: 181613b0c1159c542afa930bf6d3ea27, type: 3}
+  enemies:
+  - {fileID: 8613662523585886793, guid: 181613b0c1159c542afa930bf6d3ea27, type: 3}
+  - {fileID: 9086097244497642073, guid: 170b855504abb0a44a1746eed274fcbc, type: 3}
+  - {fileID: 1008039035235040518, guid: 7fb7658fe3e064e4b949e3d4fc701dd2, type: 3}
+  spawnCount: 0
   spawnRate: 5

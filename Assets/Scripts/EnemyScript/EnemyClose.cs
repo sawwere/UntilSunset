@@ -6,19 +6,14 @@ public class EnemyClose : EnemyCharacter
 {
     public void DoDamage(Collider2D collision)
     {
-        Wall_1 wall = collision.GetComponent<Wall_1>();
-        if (wall != null)
+        Building b = collision.GetComponent<Building>();
+        if (b != null)
         {
             if (hitTimer <= 0)
             {
-                wall.RecieveDamage(this.damage);
-                hitTimer = hitPeriod;
+                b.RecieveDamage(this.damage);
             }
-            else
-            {
-                hitTimer -= Time.deltaTime;
-            }
-
+            hitTimer = hitPeriod;
         }
     }
 }

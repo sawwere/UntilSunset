@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static System.Random;
+using static System.Math;
 
 public class SpawnerScript : MonoBehaviour
 {
-    public GameObject enemy;
-    public int spawnCount;//максимум врагов на текущей волне
+    public List<EnemyCharacter> enemies;
+    private List<EnemyCharacter> usedEnemies;
+
+
+    public int spawnCount;//максимум общей стоимости врагов на текущей волне
     public float spawnRate = 5.0f;//счетчик времени спавна врагов
-    private int currentSpawned;  //заспанено врагов на текущей волне
+    private int encounter; //номер волны
+    private int diffictyRate; //множитель увеличения стоимости врагов
+    private int currentSpawned;  //общая стоимость заспавненных врагов
     private float spawnTime; //период спавна врагов
 
     void Start()
     {
+        usedEnemies = enemies;
         spawnTime = spawnRate;
         currentSpawned = 0;
-
-        spawnCount = 32;
+        spawnCount = 10 * (int)Pow(1.2, encounter);
     }
 
     void Update()
@@ -26,10 +31,30 @@ public class SpawnerScript : MonoBehaviour
         {
             System.Random r = new System.Random();
             int line = r.Next(0,3);
-            GameObject enemyObject = Instantiate(enemy, new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
+            GameObject enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
             spawnTime = spawnRate;
             currentSpawned++;
         }
+    }
 
+    private GameObject ChooseEnemy()
+    {
+        System.Random r = new System.Random();
+        EnemyCharacter res;
+        while (true)
+        {
+            int ind = r.Next(0, usedEnemies.Count);
+            if (usedEnemies[ind].price > spawnCount - currentSpawned)
+            {
+                usedEnemies.RemoveAt(ind);
+            }
+            else
+            {
+                res = usedEnemies[ind];
+                currentSpawned -= res.price;
+                break;
+            }
+        }
+        return res.gameObject;
     }
 }

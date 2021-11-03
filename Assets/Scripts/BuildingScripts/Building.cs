@@ -25,12 +25,15 @@ public class Building : MonoBehaviour
     {
         currentHealth = maxHealth;
         _line = (int)transform.position.y;
-        Debug.Log(this.name);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RecieveDamage(int amount)
     {
-        
+        health -= amount;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            Debug.Log(name + " has been destoyed");
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRange : EnemyCharacter
 {
-    public Wall_1 target;
+    public Building target;
     public Vector2 targetPoint;
 
     public GameObject projectilePrefab;
@@ -21,20 +21,17 @@ public class EnemyRange : EnemyCharacter
     {
         if (target)
         {
+            //Debug.Log(hitTimer);
             if (hitTimer <= 0)
             {
+
                 Debug.Log("ATACKING", target);
                 GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
                 EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
 
-                projectile.Launch(direction * CalcForce(transform.position.x, targetPoint.x));
-                hitTimer = hitPeriod;  
+                projectile.Launch(direction * CalcForce(transform.position.x, targetPoint.x), this.damage);
+                hitTimer = hitPeriod;
             }
-            else
-            {
-                hitTimer -= Time.deltaTime;
-            }
-
         }
     }
 
