@@ -7,6 +7,8 @@ public class EnemyRange : EnemyCharacter
     public Building target;
     public Vector2 targetPoint;
 
+    public Animator animator;
+
     public GameObject projectilePrefab;
 
     //Расчет скорости для снаряда
@@ -31,6 +33,8 @@ public class EnemyRange : EnemyCharacter
 
                 projectile.Launch(direction * CalcForce(transform.position.x, targetPoint.x), this.damage);
                 hitTimer = hitPeriod;
+
+                animator.Play("Hit");
             }
         }
     }
