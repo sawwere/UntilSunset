@@ -29,7 +29,6 @@ public class MainBuilding : Building
         {
             Debug.Log("base under attack");
             RecieveDamage(e.damage);
-            UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
         }
     }
 }
