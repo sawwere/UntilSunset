@@ -7,7 +7,7 @@ public class SpawnerScript : MonoBehaviour
 {
     public List<EnemyCharacter> enemies;
     private List<EnemyCharacter> usedEnemies;
-
+    public  List<EnemyCharacter> enemyOnScreen;
 
     public int spawnCount;//максимум общей стоимости врагов на текущей волне
     public float spawnRate = 5.0f;//счетчик времени спавна врагов
@@ -29,15 +29,17 @@ public class SpawnerScript : MonoBehaviour
         spawnTime -= Time.deltaTime;
         if ((currentSpawned < spawnCount) && (spawnTime <= 0))
         {
-            System.Random r = new System.Random();
-            int line = r.Next(0,3);
-            GameObject enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
+            //System.Random r = new System.Random();
+            int line = 0;// r.Next(0,3);
+            EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
+            enemyOnScreen.Add(enemyObject);
+            Debug.Log("+1 enemy");
             spawnTime = spawnRate;
             currentSpawned++;
         }
     }
 
-    private GameObject ChooseEnemy()
+    private EnemyCharacter ChooseEnemy()
     {
         System.Random r = new System.Random();
         EnemyCharacter res;
@@ -55,6 +57,6 @@ public class SpawnerScript : MonoBehaviour
                 break;
             }
         }
-        return res.gameObject;
+        return res;
     }
 }
