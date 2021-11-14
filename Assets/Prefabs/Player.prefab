@@ -150,7 +150,6 @@ MonoBehaviour:
   timeInvincible: 2
   rigidbBody2D: {fileID: 0}
   animator: {fileID: 353456340}
-  isTurning: 0
 --- !u!95 &353456340
 Animator:
   serializedVersion: 3

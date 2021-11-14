@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRangeAtack : MonoBehaviour
 {
-    EnemyRange parentEnemy; 
+    EnemyRange parentEnemy;
 
     private void Start()
     {
@@ -22,12 +22,16 @@ public class EnemyRangeAtack : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (parentEnemy.target)
+        {
             parentEnemy.DoDamage(collision);
+        }
         else
         {
             Building b = collision.GetComponent<Building>();
             if ((b != null) && (b.GetType() != typeof(MainBuilding)))
+            {
                 SetTarget(collision);
+            }
         }
     }
 
