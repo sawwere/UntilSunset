@@ -17,6 +17,7 @@ public class EnemyCharacter: MonoBehaviour
     protected int currentHealth; //текущее здоровье
     public float immunityTimer; //счетчик неу€звимости
     protected float hitTimer; //счетчик времени нанесени€ урона
+    public float firstHitPeriod = 1.5f; // врем€ до первого нанесени€ урона
 
     private bool enterMainBuilding = false;
 
@@ -35,7 +36,7 @@ public class EnemyCharacter: MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         immunityTimer = 0;
-        hitTimer = 0;
+        hitTimer = firstHitPeriod;
     }
 
     // Update is called once per frame
@@ -44,11 +45,11 @@ public class EnemyCharacter: MonoBehaviour
         if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
-        }
+        }/*
         if (hitTimer > 0)
-        { 
+        {
             hitTimer -= Time.deltaTime;
-        }
+        }*/
     }
 
     void FixedUpdate()
