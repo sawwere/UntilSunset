@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
+  - Wall1
+  - Wall2
+  - BuildPlace
   layers:
   - Default
   - TransparentFX

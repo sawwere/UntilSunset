@@ -6,7 +6,14 @@ public class Wall_1 : Wall
 {
     protected override void Start()
     {
-        maxHealth = 2;
+        if (tag == "Wall1")
+        {
+            maxHealth = 2;
+        }
+        if (tag == "Wall2")
+        {
+            maxHealth = 4;
+        }
         base.Start();
     }
 
