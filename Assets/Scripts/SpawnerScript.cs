@@ -29,8 +29,8 @@ public class SpawnerScript : MonoBehaviour
         spawnTime -= Time.deltaTime;
         if ((currentSpawned < spawnCount) && (spawnTime <= 0))
         {
-            //System.Random r = new System.Random();
-            int line = 0;// r.Next(0,3);
+            System.Random r = new System.Random();
+            int line = r.Next(0,3);
             EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
             enemyOnScreen.Add(enemyObject);
             Debug.Log("+1 enemy");
