@@ -9,6 +9,7 @@ public class BuildPlace_1 : MonoBehaviour
     public GameObject dialogBox;
     public GameObject wall;
     float timerDisplay;
+    private Resources resources;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class BuildPlace_1 : MonoBehaviour
     {
         dialogBox.SetActive(false);
         timerDisplay = -1.0f;
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
     void Update()
     {
@@ -28,6 +30,7 @@ public class BuildPlace_1 : MonoBehaviour
             }
         }
     }
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController p = collision.GetComponent<PlayerController>();
@@ -35,6 +38,22 @@ public class BuildPlace_1 : MonoBehaviour
         {
             //DisplayDialog();
             Instantiate(wall, transform.position, transform.rotation);
+        }
+    }
+    */
+
+    public void BuildWall()
+    {
+        Instantiate(wall, transform.position, transform.rotation);
+    }
+
+    public void BuildStruct(GameObject st, int value)
+    {
+        if (GameStats.Coins >= value)
+        {
+            Instantiate(st, transform.position, transform.rotation);
+            GameStats.Coins -= value;
+            resources.UpdateCoins();
         }
     }
 

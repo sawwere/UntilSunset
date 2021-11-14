@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour
         rigidbBody2D = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        animator.SetFloat("LastVertical", -1);
+    }
+
     private void Update()
     {
         if (isTurning) return;
