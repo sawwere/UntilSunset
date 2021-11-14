@@ -1457,6 +1457,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185029187}
   m_CullTransparentMesh: 1
+--- !u!95 &1305600389 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5971617933076514399, guid: 170b855504abb0a44a1746eed274fcbc, type: 3}
+  m_PrefabInstance: {fileID: 1855226389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1422027602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_1_range
       objectReference: {fileID: 0}
+    - target: {fileID: 8268790449643415833, guid: 170b855504abb0a44a1746eed274fcbc, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1305600389}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170b855504abb0a44a1746eed274fcbc, type: 3}
 --- !u!1001 &1860916052
@@ -2266,6 +2275,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1008039035235040518, guid: 7fb7658fe3e064e4b949e3d4fc701dd2, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4722983956336941154, guid: 7fb7658fe3e064e4b949e3d4fc701dd2, type: 3}
       propertyPath: m_Name
       value: Enemy_1_big

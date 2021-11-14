@@ -320,8 +320,9 @@ MonoBehaviour:
   armor: 0
   damage: 1
   immunityPeriod: 2
-  hitPeriod: 5
+  hitPeriod: 2
   immunityTimer: 0
+  firstHitPeriod: 1
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
