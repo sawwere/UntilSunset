@@ -21,10 +21,10 @@ public class EnemyRange : EnemyCharacter
 
     private void Update()
     {
-        /*if (immunityTimer > 0)
+        if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
-        }*/
+        }
         if (hitTimer > 0)
         {
             hitTimer -= Time.deltaTime;
@@ -33,15 +33,18 @@ public class EnemyRange : EnemyCharacter
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        string tag = collision.gameObject.tag;
+        if ( tag == "Wall1" || tag == "Wall2")
         {
+            Debug.Log("idle");
             animator.Play("Idle");
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        string tag = collision.gameObject.tag;
+        if (tag == "Wall1" || tag == "Wall2")
         {
             animator.Play("Movement");
         }
@@ -49,27 +52,23 @@ public class EnemyRange : EnemyCharacter
 
     public void DoDamage(Collider2D collision)
     {
-        if (target)
+        if (target && hitTimer <= 0f)
         {
-            //hitTimer -= Time.deltaTime;
-
-            //Debug.Log(hitTimer);
-            if (hitTimer <= 0)
-            {
-                this.speed = 1f;
-
-                //Debug.Log("ATACKING", target);
-                GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-                EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
-
-                projectile.Launch(direction * CalcForce(transform.position.x, targetPoint.x), this.damage);
-                hitTimer = hitPeriod;
-            }
-            else if (hitTimer <= 1f)
-            {
-                animator.Play("Hit");
-                this.speed = 0.0001f;
-            }
+            animator.Play("Hit");
+            this.speed = 0.0001f;
+            Invoke(nameof(DoThrow), 1f);
+            hitTimer = hitPeriod;
         }
+    }
+
+    public void DoThrow()
+    {
+        this.speed = 1f;
+
+        //Debug.Log("ATACKING", target);
+        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
+
+        projectile.Launch(direction * CalcForce(transform.position.x, targetPoint.x), this.damage);
     }
 }

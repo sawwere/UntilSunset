@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStats
+public class GameStats:MonoBehaviour
 {
     private static int level;
 
     private static int encounter;
+
+    public static List<SpawnerScript> spawnerList;
+
 
     public static int Encounter
     {
@@ -27,9 +30,11 @@ public class GameStats
     }
 
 
-    private static void Start()
+    void Awake()
     {
+        Debug.Log(1);
         Encounter = 1;
         level = 1;
+        spawnerList = new List<SpawnerScript>();
     }
 }
