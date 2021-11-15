@@ -1297,7 +1297,7 @@ GameObject:
   - component: {fileID: 686111838}
   - component: {fileID: 686111837}
   m_Layer: 11
-  m_Name: GameObject
+  m_Name: CameraConfiner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3708,7 +3708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314168205579124665, guid: d849d10f27b957e4fa7a349eb07786e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.08
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 314168205579124665, guid: d849d10f27b957e4fa7a349eb07786e3, type: 3}
       propertyPath: m_LocalPosition.z
