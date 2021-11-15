@@ -21,10 +21,10 @@ public class EnemyRange : EnemyCharacter
 
     private void Update()
     {
-        /*if (immunityTimer > 0)
+        if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
-        }*/
+        }
         if (hitTimer > 0)
         {
             hitTimer -= Time.deltaTime;
@@ -33,15 +33,18 @@ public class EnemyRange : EnemyCharacter
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        string tag = collision.gameObject.tag;
+        if ( tag == "Wall1" || tag == "Wall2")
         {
+            Debug.Log("idle");
             animator.Play("Idle");
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        string tag = collision.gameObject.tag;
+        if (tag == "Wall1" || tag == "Wall2")
         {
             animator.Play("Movement");
         }
