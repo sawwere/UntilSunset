@@ -7,6 +7,8 @@ TagManager:
   - Wall1
   - Wall2
   - BuildPlace
+  - Enemy
+  - Minion
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Buildings
   - Projectile
   - Confiner
-  - 
+  - NPC_Friend
   - 
   - 
   - 

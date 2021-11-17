@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1299198292}
   m_Layer: 8
   m_Name: Enemy_1_big
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,8 +249,6 @@ MonoBehaviour:
   speed: 1
   armor: 0
   damage: 3
-  immunityPeriod: 2
-  hitPeriod: 5
   immunityTimer: 0
   firstHitPeriod: 1
   aviableHitMask:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRange : EnemyCharacter
 {
-    public Building target;
+    public GameObject target;
     public Vector2 targetPoint;
 
     public Animator animator;
@@ -36,7 +36,6 @@ public class EnemyRange : EnemyCharacter
         string tag = collision.gameObject.tag;
         if ( tag == "Wall1" || tag == "Wall2")
         {
-            Debug.Log("idle");
             animator.Play("Idle");
         }
     }
@@ -50,7 +49,7 @@ public class EnemyRange : EnemyCharacter
         }
     }
 
-    public void DoDamage(Collider2D collision)
+    new public void DoDamage(IDamage obj)
     {
         if (target && hitTimer <= 0f)
         {

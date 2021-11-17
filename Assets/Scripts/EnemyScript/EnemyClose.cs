@@ -6,17 +6,15 @@ public class EnemyClose : EnemyCharacter
 {
     public Animator animator;
 
-    public void DoDamage(Collider2D collision)
+    new public void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-
-        Building b = collision.GetComponent<Building>();
-        if (b != null)
+        
+        if (obj != null)
         {
             if (hitTimer <= 0)
             {
-                b.RecieveDamage(this.damage);
-
+                obj.RecieveDamage(damage);
                 hitTimer = hitPeriod;
             }
             else if (hitTimer <= 1.25f)

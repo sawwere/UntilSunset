@@ -21,25 +21,26 @@ public class EnemyRangeAtack : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        var obj = collision.gameObject.GetComponent<IDamage>();
         if (parentEnemy.target)
         {
-            parentEnemy.DoDamage(collision);
+            parentEnemy.DoDamage(obj);
         }
         else
         {
-            Building b = collision.GetComponent<Building>();
-            if ((b != null) && (b.GetType() != typeof(MainBuilding)))
+            //Building b = collision.GetComponent<Building>();
+            if (obj != null)
             {
-                SetTarget(collision);
+                SetTarget(collision.gameObject);
             }
         }
     }
 
-    public void SetTarget(Collider2D collision)
+    public void SetTarget(GameObject obj)
     {
         if (!parentEnemy.target)
         {
-            parentEnemy.target = collision.GetComponent<Building>();
+            parentEnemy.target = obj;
             parentEnemy.targetPoint = parentEnemy.target.transform.position;
             Debug.Log("target has been found");
             //GetComponent<BoxCollider2D>().enabled = false;

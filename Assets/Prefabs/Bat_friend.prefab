@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 5061930771648164167}
   - component: {fileID: 6666238901312349557}
   - component: {fileID: 2170815276252626292}
-  - component: {fileID: 6818093420659280093}
-  - component: {fileID: 6094553504613202583}
-  m_Layer: 8
-  m_Name: Batt
-  m_TagString: Untagged
+  - component: {fileID: 258403683482955523}
+  m_Layer: 12
+  m_Name: Bat_friend
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +31,7 @@ Transform:
   m_LocalPosition: {x: -1.77, y: -0.42, z: 0}
   m_LocalScale: {x: -1.1583633, y: 1.1289, z: 1}
   m_Children:
-  - {fileID: 2065367576123841250}
+  - {fileID: 7457779727961529731}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,10 +99,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.43469155}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.34, y: 0.32}
     adaptiveTilingThreshold: 0.5
@@ -111,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.5, y: 0.4258666}
   m_EdgeRadius: 0
 --- !u!50 &2170815276252626292
 Rigidbody2D:
@@ -133,8 +132,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &6818093420659280093
+  m_Constraints: 4
+--- !u!114 &258403683482955523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,24 +145,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4155beccecb6636418c83818283beb7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mHealth: 1
   speed: 1.2
-  ss: {fileID: 0}
---- !u!114 &6094553504613202583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4286908564588651508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385e20a582c008b4a9960506f919a77f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  bat: {fileID: 0}
---- !u!1 &4874748358684735362
+  maxHealth: 2
+  damage: 1
+  immunityPeriod: 1
+  hitPeriod: 5
+  currentHealth: 0
+  immunityTimer: 0
+  firstHitPeriod: 1.5
+--- !u!1 &5800157367933056535
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,43 +161,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2065367576123841250}
-  - component: {fileID: 6235079641963061459}
-  m_Layer: 8
-  m_Name: Bat
+  - component: {fileID: 7457779727961529731}
+  - component: {fileID: 1512098093993763305}
+  - component: {fileID: 2223257745300961294}
+  m_Layer: 12
+  m_Name: hit_box
   m_TagString: Untagged
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2065367576123841250
+--- !u!4 &7457779727961529731
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4874748358684735362}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 440.37, y: 127.13, z: -21.591553}
+  m_GameObject: {fileID: 5800157367933056535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 476669934018925878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6235079641963061459
+--- !u!61 &1512098093993763305
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4874748358684735362}
+  m_GameObject: {fileID: 5800157367933056535}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.37841347, y: 0.4313983}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -218,5 +209,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7604014, y: 0.40978628}
   m_EdgeRadius: 0
+--- !u!114 &2223257745300961294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800157367933056535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385e20a582c008b4a9960506f919a77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

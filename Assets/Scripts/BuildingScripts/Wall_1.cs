@@ -21,7 +21,7 @@ public class Wall_1 : Wall
     {
         EnemyCharacter e = collision.gameObject.GetComponent<EnemyCharacter>();
         if (e != null)
-            e.RecieveDamage(1);
+            DoDamage(e);
     }
     
 }

@@ -7,14 +7,13 @@ public class SpawnerScript : MonoBehaviour
 {
     public List<EnemyCharacter> enemies;
     private List<EnemyCharacter> usedEnemies;
-    public  List<EnemyCharacter> enemyOnScreen;
 
     public int spawnCount;//максимум общей стоимости врагов на текущей волне
     public float spawnRate = 5.0f;//счетчик времени спавна врагов
     private int encounter; //номер волны
     private int diffictyRate; //множитель увеличения стоимости врагов
     private int currentSpawned;  //общая стоимость заспавненных врагов
-    private float spawnTime; //период спавна врагов
+    [SerializeField] private float spawnTime; //период спавна врагов
 
     void Start()
     {
@@ -32,8 +31,6 @@ public class SpawnerScript : MonoBehaviour
             System.Random r = new System.Random();
             int line = r.Next(0,3);
             EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
-            enemyOnScreen.Add(enemyObject);
-            Debug.Log("+1 enemy");
             spawnTime = spawnRate;
             currentSpawned++;
         }

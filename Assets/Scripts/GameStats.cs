@@ -10,6 +10,7 @@ public class GameStats:MonoBehaviour
 
     public static List<SpawnerScript> spawnerList;
 
+    public static List<EnemyCharacter> enemyOnScreen;
 
     public static int Encounter
     {
@@ -32,9 +33,9 @@ public class GameStats:MonoBehaviour
 
     void Awake()
     {
-        Debug.Log(1);
         Encounter = 1;
         level = 1;
         spawnerList = new List<SpawnerScript>();
+        enemyOnScreen = new List<EnemyCharacter>();
     }
 }
