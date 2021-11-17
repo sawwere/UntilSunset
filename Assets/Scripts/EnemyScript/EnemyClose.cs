@@ -9,7 +9,6 @@ public class EnemyClose : EnemyCharacter
     public void DoDamage(Collider2D collision)
     {
         hitTimer -= Time.deltaTime;
-        //immunityTimer -= Time.deltaTime;
 
         Building b = collision.GetComponent<Building>();
         if (b != null)
