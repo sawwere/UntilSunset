@@ -5,14 +5,14 @@ using static System.Math;
 
 public class SpawnerScript : MonoBehaviour
 {
-    [SerializeField] private List<EnemyCharacter> enemies;
-    [SerializeField] private List<EnemyCharacter> usedEnemies;
-
+    public List<EnemyCharacter> enemies;
+    private List<EnemyCharacter> usedEnemies;
+    public  List<EnemyCharacter> enemyOnScreen;
 
     public int spawnCount;//максимум общей стоимости врагов на текущей волне
     public float spawnRate = 5.0f;//счетчик времени спавна врагов
     private int encounter; //номер волны
-    private float diffictyRate = 1.2f; //множитель увеличения стоимости врагов
+    private int diffictyRate; //множитель увеличения стоимости врагов
     private int currentSpawned;  //общая стоимость заспавненных врагов
     private float spawnTime; //период спавна врагов
 
@@ -21,8 +21,7 @@ public class SpawnerScript : MonoBehaviour
         usedEnemies = enemies;
         spawnTime = spawnRate;
         currentSpawned = 0;
-        spawnCount = 10 * (int)Pow(diffictyRate, encounter);
-        GameStats.spawnerList.Add(this);
+        spawnCount = 10 * (int)Pow(1.2, encounter);
     }
 
     void Update()
@@ -32,13 +31,15 @@ public class SpawnerScript : MonoBehaviour
         {
             System.Random r = new System.Random();
             int line = r.Next(0,3);
-            GameObject enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
+            EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
+            enemyOnScreen.Add(enemyObject);
+            Debug.Log("+1 enemy");
             spawnTime = spawnRate;
             currentSpawned++;
         }
     }
 
-    private GameObject ChooseEnemy()
+    private EnemyCharacter ChooseEnemy()
     {
         System.Random r = new System.Random();
         EnemyCharacter res;
@@ -56,6 +57,6 @@ public class SpawnerScript : MonoBehaviour
                 break;
             }
         }
-        return res.gameObject;
+        return res;
     }
 }
