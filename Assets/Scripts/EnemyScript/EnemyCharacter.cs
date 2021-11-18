@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class EnemyCharacter: MonoBehaviour
+public class EnemyCharacter: MonoBehaviour, IDamage
 {
     public string _name; // имя
     public int price; // условная стоимость спавна
-    public int maxHealth = 2; //здоровье
+    [SerializeField] private int maxHealth = 2; //максимальное здоровье
     public float speed = 1.0f; //скорость движения
     public int armor = 0; //броня
     public int damage = 1; //урон
-    public float immunityPeriod = 2.0f; // периодичность получения урона
-    public float hitPeriod = 5.0f; // периодичность нанесения урона
+    protected float immunityPeriod = 2.0f; // периодичность получения урона
+    protected float hitPeriod = 5.0f; // периодичность нанесения урона
     protected int direction = 1; //направление
     protected int currentHealth; //текущее здоровье
     public float immunityTimer; //счетчик неуязвимости
@@ -33,6 +33,7 @@ public class EnemyCharacter: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameStats.enemyOnScreen.Add(this);
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         immunityTimer = 0;
@@ -71,6 +72,11 @@ public class EnemyCharacter: MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        GameStats.enemyOnScreen.Remove(this);
+    }
+
     public void RecieveDamage(int amount)
     {
         if (immunityTimer <= 0)
@@ -82,9 +88,16 @@ public class EnemyCharacter: MonoBehaviour
         }
     }
 
+    public void DoDamage(IDamage obj)
+    {
+        return;
+    }
+
     public void EnterMainBuilding()
     {
         enterMainBuilding = true;
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
+
+
 }
