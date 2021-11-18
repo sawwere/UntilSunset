@@ -50,5 +50,14 @@ public class GameStats:MonoBehaviour
         level = 1;
         spawnerList = new List<SpawnerScript>();
         enemyOnScreen = new List<EnemyCharacter>();
+        ResetStats();
     }
+
+    private void ResetStats()
+    {
+        Coins = 0;
+        Wood = 0;
+        Stone = 0;
+    }
+
 }

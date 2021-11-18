@@ -86,7 +86,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     {
         if (immunityTimer <= 0)
         {
-            Debug.Log(health);
             currentHealth -= amount;
             if (currentHealth <= 0)
                 EnemyKilled();
