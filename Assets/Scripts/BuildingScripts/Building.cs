@@ -33,6 +33,8 @@ public class Building : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            if (gameObject.name == "MainBuilding")
+                FindObjectOfType<PauseMenu>().Lose();
             Debug.Log(name + " has been destoyed");
         }
     }
