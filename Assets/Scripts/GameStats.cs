@@ -30,6 +30,19 @@ public class GameStats:MonoBehaviour
         set { coins = value; }
     }
 
+    private static int stone = 0;
+    public static int Stone
+    {
+        get { return stone; }
+        set { stone = value; }
+    }
+
+    private static int wood = 0;
+    public static int Wood
+    {
+        get { return wood; }
+        set { wood = value; }
+    }
 
     void Awake()
     {
