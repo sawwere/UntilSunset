@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         animator.SetFloat("LastVertical", -1);
-        isBat = false;
     }
 
     private void Update()
@@ -99,10 +98,5 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.Translate(moveDelta.x * Time.deltaTime, moveDelta.y * Time.deltaTime, 0);
-    }
-
-    public bool GetIsBat()
-    {
-        return isBat;
     }
 }
