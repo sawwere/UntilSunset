@@ -28,8 +28,7 @@ public class EnemyRangeAtack : MonoBehaviour
         }
         else
         {
-            //Building b = collision.GetComponent<Building>();
-            if (obj != null)
+            if (obj != null && collision.gameObject.tag != "Enemy")
             {
                 SetTarget(collision.gameObject);
             }

@@ -249,14 +249,12 @@ MonoBehaviour:
   speed: 1
   armor: 0
   damage: 1
-  immunityPeriod: 5
-  hitPeriod: 4
-  currentHealth: 0
   immunityTimer: 0
   firstHitPeriod: 1.5
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
+  coinPrefab: {fileID: 2011344550897061960, guid: f57c47a3ffced0e4586f81ba1e0ce7d0, type: 3}
   target: {fileID: 0}
   targetPoint: {x: 0, y: 0}
   animator: {fileID: 5971617933076514399}
