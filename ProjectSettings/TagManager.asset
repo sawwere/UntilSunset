@@ -9,6 +9,8 @@ TagManager:
   - BuildPlace
   - Enemy
   - Minion
+  - StoneCount
+  - WoodCount
   layers:
   - Default
   - TransparentFX
