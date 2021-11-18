@@ -254,6 +254,7 @@ MonoBehaviour:
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
+  coinPrefab: {fileID: 2011344550897061960, guid: f57c47a3ffced0e4586f81ba1e0ce7d0, type: 3}
   animator: {fileID: 1299198292}
 --- !u!95 &1299198292
 Animator:

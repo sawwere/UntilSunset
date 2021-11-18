@@ -14,7 +14,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     protected float immunityPeriod = 2.0f; // периодичность получения урона
     protected float hitPeriod = 5.0f; // периодичность нанесения урона
     protected int direction = 1; //направление
-    protected int currentHealth; //текущее здоровье
+    private int currentHealth; //текущее здоровье
     public float immunityTimer; //счетчик неуязвимости
     protected float hitTimer; //счетчик времени нанесения урона
     public float firstHitPeriod = 1.5f; // время до первого нанесения урона
@@ -24,6 +24,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public LayerMask aviableHitMask;
 
     protected Rigidbody2D rigidbody2d;
+    [SerializeField] private GameObject coinPrefab;
 
     public int health 
     { 
@@ -66,15 +67,19 @@ public class EnemyCharacter: MonoBehaviour, IDamage
             
         }
         rigidbody2d.MovePosition(position);
-        if (position.y > 2)
+        if (position.y > 2 || position.y < -1)
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnDestroy()
+    public void EnemyKilled()
     {
         GameStats.enemyOnScreen.Remove(this);
+        System.Random r = new System.Random();
+        if (r.Next(2) > 0)
+            Instantiate(coinPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     public void RecieveDamage(int amount)
@@ -83,14 +88,14 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         {
             currentHealth -= amount;
             if (currentHealth <= 0)
-                Destroy(gameObject);
+                EnemyKilled();
             immunityTimer = immunityPeriod;
         }
     }
 
     public void DoDamage(IDamage obj)
     {
-        return;
+        return; // заглушка
     }
 
     public void EnterMainBuilding()

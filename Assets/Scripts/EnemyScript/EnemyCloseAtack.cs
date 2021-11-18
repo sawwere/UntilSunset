@@ -9,7 +9,7 @@ public class EnemyCloseAtack : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         var obj = collision.gameObject.GetComponent<IDamage>();
-        if (obj != null)
+        if (obj != null && collision.gameObject.tag!="Enemy")
         {
             transform.parent.gameObject.GetComponent<EnemyClose>().DoDamage(obj);
         }
