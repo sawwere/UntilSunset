@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainBuilding : Building
 {
-    // Start is called before the first frame update
+    
     protected override void Start()
     {
         maxHealth = 3;
