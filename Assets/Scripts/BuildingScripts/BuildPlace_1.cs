@@ -11,14 +11,13 @@ public class BuildPlace_1 : MonoBehaviour
     float timerDisplay;
     private Resources resources;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         dialogBox.SetActive(false);
         timerDisplay = -1.0f;
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
+
     void Update()
     {
         if (timerDisplay >= 0)
@@ -30,30 +29,15 @@ public class BuildPlace_1 : MonoBehaviour
             }
         }
     }
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        PlayerController p = collision.GetComponent<PlayerController>();
-        if (p != null)
-        {
-            //DisplayDialog();
-            Instantiate(wall, transform.position, transform.rotation);
-        }
-    }
-    */
 
     public void BuildWall()
     {
-        Instantiate(wall, transform.position, transform.rotation);
-    }
-
-    public void BuildStruct(GameObject st, int value)
-    {
-        if (GameStats.Coins >= value)
+        if (GameStats.Coins >= 3)
         {
-            Instantiate(st, transform.position, transform.rotation);
-            GameStats.Coins -= value;
+            Instantiate(wall, transform.position, transform.rotation);
+            GameStats.Coins -= 3;
             resources.UpdateCoins();
+            HideDialog();
         }
     }
 
@@ -61,5 +45,10 @@ public class BuildPlace_1 : MonoBehaviour
     {
         timerDisplay = displayTime;
         dialogBox.SetActive(true);
+    }
+
+    public void HideDialog()
+    {
+        dialogBox.SetActive(false);
     }
 }
