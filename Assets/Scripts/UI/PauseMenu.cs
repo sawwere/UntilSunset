@@ -10,9 +10,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject loseMenuUI;
 
+    
     private void Start()
     {
         GameIsLosed = false;
+        GameIsPaused = false;
     }
 
     // Update is called once per frame
@@ -22,7 +24,14 @@ public class PauseMenu : MonoBehaviour
         {
                 if (GameIsPaused)
                 {
-                    Resume();
+                for (int i = 0; i <pauseMenuUI.transform.childCount; i++)
+                {
+                    GameObject child = pauseMenuUI.transform.GetChild(i).gameObject;
+                    Animator animator = child.GetComponent<Animator>();
+                    animator.CrossFade("Normal", 0f);
+                    animator.Update(0f);
+                }
+                Resume();
                 }
                 else
                 {
