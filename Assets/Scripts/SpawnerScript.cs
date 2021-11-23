@@ -30,7 +30,7 @@ public class SpawnerScript : MonoBehaviour
         {
             System.Random r = new System.Random();
             int line = r.Next(0,3);
-            EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
+            //EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
             spawnTime = spawnRate;
             currentSpawned++;
         }

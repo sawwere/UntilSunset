@@ -16,6 +16,11 @@ public class SpawnBat : MonoBehaviour
     {
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
+
+    private void Update()
+    {
+        Spawn();
+    }
     void Awake()
     {
         if (instance == null)
@@ -26,7 +31,7 @@ public class SpawnBat : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void OnClick()
+    /*public void OnClick()
     {
         if (GameStats.Coins >= priceOfBat)
         {
@@ -34,12 +39,14 @@ public class SpawnBat : MonoBehaviour
             GameStats.Coins -= priceOfBat;
             resources.UpdateCoins();
         }
-    }
+    }*/
 
     void Spawn()
     {
-        GameObject newbat = Instantiate(bat) as GameObject;
-        newbat.transform.position = spawnPoint.transform.position;
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject newbat = Instantiate(bat) as GameObject;
+            newbat.transform.position = spawnPoint.transform.position;
+        }
     }
 }

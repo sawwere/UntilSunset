@@ -6,7 +6,7 @@ public class Bat : MonoBehaviour, IDamage
 {
     public float speed = 1.2f;
     Vector2 position;
-
+    public GameObject spawnPoint;
 
     [SerializeField] private int maxHealth = 2; //максимальное здоровье
     public int damage = 1; //урон
@@ -34,6 +34,8 @@ public class Bat : MonoBehaviour, IDamage
     {
         if (GameStats.enemyOnScreen.Count > 0)
             FindEnemy();
+        else batt.position = Vector2.Lerp(batt.position,spawnPoint.transform.position, speed * Time.deltaTime);
+
         if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
@@ -55,11 +57,14 @@ public class Bat : MonoBehaviour, IDamage
         float minDistance = float.MaxValue;
         for (int i = 0; i < listOfEnemies.Count; i++)
         {
-            distancetoEnemy = Vector2.Distance(transform.position, listOfEnemies[i].transform.position);
-            if (minDistance > distancetoEnemy)
+            if (listOfEnemies[i] != null)
             {
-                minDistance = distancetoEnemy;
-                nearEnemy = listOfEnemies[i];
+                distancetoEnemy = Vector2.Distance(transform.position, listOfEnemies[i].transform.position);
+                if (minDistance > distancetoEnemy)
+                {
+                    minDistance = distancetoEnemy;
+                    nearEnemy = listOfEnemies[i];
+                }
             }
         }
 

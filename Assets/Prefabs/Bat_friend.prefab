@@ -146,11 +146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
+  spawnPoint: {fileID: 5373522258927709373, guid: 1698e043f50c22a4fbfc40c85f0a06d4, type: 3}
   maxHealth: 2
   damage: 1
-  immunityPeriod: 1
-  hitPeriod: 5
-  currentHealth: 0
   immunityTimer: 0
   firstHitPeriod: 1.5
 --- !u!1 &5800157367933056535
