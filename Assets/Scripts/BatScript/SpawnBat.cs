@@ -45,8 +45,13 @@ public class SpawnBat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GameObject newbat = Instantiate(bat) as GameObject;
-            newbat.transform.position = spawnPoint.transform.position;
+            if (GameStats.Coins >= priceOfBat)
+            {
+                GameObject newbat = Instantiate(bat) as GameObject;
+                GameStats.Coins -= priceOfBat;
+                resources.UpdateCoins();
+                newbat.transform.position = spawnPoint.transform.position;
+            }
         }
     }
 }

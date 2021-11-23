@@ -27,6 +27,7 @@ public class Bat : MonoBehaviour, IDamage
         currentHealth = maxHealth;
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
+        Debug.Log(spawnPoint.transform.position);
     }
 
     // Update is called once per frame
@@ -34,8 +35,7 @@ public class Bat : MonoBehaviour, IDamage
     {
         if (GameStats.enemyOnScreen.Count > 0)
             FindEnemy();
-        else batt.position = Vector2.Lerp(batt.position,spawnPoint.transform.position, speed * Time.deltaTime);
-
+        else batt.position = Vector2.Lerp(batt.position, spawnPoint.transform.position, speed * Time.deltaTime);
         if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
@@ -69,7 +69,7 @@ public class Bat : MonoBehaviour, IDamage
         }
 
         EnterBat(minDistance, nearEnemy);
-
+        Debug.Log("bat go");
     }
 
     void EnterBat(float minDistance, EnemyCharacter nearEnemy)
