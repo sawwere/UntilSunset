@@ -59,15 +59,16 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         Vector2 position = rigidbody2d.position;
         if (enterMainBuilding)
         {
-            position.y = position.y + Time.deltaTime * speed;
+            //position.y = position.y + Time.deltaTime * speed;
         }
         else
         {
             position.x = position.x + Time.deltaTime * speed * direction;
-            
+            rigidbody2d.MovePosition(position);
+
         }
-        rigidbody2d.MovePosition(position);
-        if (position.y > 2 || position.y < -1)
+        
+        if (transform.position.y > 2 || transform.position.y < -1)
         {
             Destroy(gameObject);
         }
@@ -102,6 +103,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     {
         enterMainBuilding = true;
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+        Vector2 drctn = new Vector2(-transform.position.x, -transform.position.y);
+        rigidbody2d.velocity = drctn.normalized * speed;
     }
 
 
