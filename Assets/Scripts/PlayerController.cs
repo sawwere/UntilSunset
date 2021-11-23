@@ -18,9 +18,14 @@ public class PlayerController : MonoBehaviour
     private bool isBat;
     private bool isTurning;
 
+    public GameObject Bat;
+
+    private Resources resources;
+
     private void Awake()
     {
         rigidbBody2D = GetComponent<Rigidbody2D>();
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
 
     private void Start()
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour
         if (isTurning) return;
 
         Turning();
+        SpawnBat();
     }
 
     void FixedUpdate()
@@ -104,5 +110,18 @@ public class PlayerController : MonoBehaviour
     public bool GetIsBat()
     {
         return isBat;
+    }
+
+    public void SpawnBat() // Вызов приспешника
+    {
+        if (Input.GetKeyDown(KeyCode.E) && GameStats.Coins >= 1 && !isBat)
+        {
+            isTurning = true;
+            animator.Play("InvokeHenchman");
+            Invoke(nameof(SetCharacterSettings), 0.2f);
+            GameStats.Coins -= 1;
+            resources.UpdateCoins();
+            Instantiate(Bat, transform.position, Quaternion.identity);
+        }
     }
 }
