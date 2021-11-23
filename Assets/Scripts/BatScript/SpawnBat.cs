@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnBat : Bat
+public class SpawnBat : MonoBehaviour
 {
-    public static SpawnBat instance = null;
     public GameObject spawnPoint;
-    public GameObject bat;
-    public int maxBatOnScreen;//максимальное кол-во мышей на экране
-    public int totalBat;//сколько всего за уровень должно пройти
-    public int batPerSpawn;//кол-во мышей который появляются одновременно
 
+    public static SpawnBat instance = null;
+    public GameObject bat;
+    private Resources resources;
+    public int priceOfBat = 2;
     int batOnScreen = 0;//кол-во мышей на данный момент
 
+    void Start()
+    {
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+    }
     void Awake()
     {
         if (instance == null)
@@ -23,31 +26,20 @@ public class SpawnBat : Bat
         DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnClick()
     {
-        Spawn();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (GameStats.Coins >= priceOfBat)
+        {
+            Spawn();
+            GameStats.Coins -= priceOfBat;
+            resources.UpdateCoins();
+        }
     }
 
     void Spawn()
     {
-        if(batPerSpawn>0 && batOnScreen <totalBat)
-        {
-            for(int i = 0;i< batPerSpawn; i++)
-                if(batOnScreen<maxBatOnScreen)
-                {
-                    GameObject newbat = Instantiate(bat) as GameObject;
-                    newbat.transform.position = spawnPoint.transform.position;
+        GameObject newbat = Instantiate(bat) as GameObject;
+        newbat.transform.position = spawnPoint.transform.position;
 
-                    batOnScreen+=1;
-
-                }
-        }
     }
 }

@@ -7,7 +7,6 @@ public class Bat : MonoBehaviour, IDamage
     public float speed = 1.2f;
     Vector2 position;
 
-    private bool batForEnemy = false;
 
     [SerializeField] private int maxHealth = 2; //максимальное здоровье
     public int damage = 1; //урон
@@ -18,6 +17,7 @@ public class Bat : MonoBehaviour, IDamage
     protected float hitTimer; //счетчик времени нанесения урона
     public float firstHitPeriod = 1.5f; // время до первого нанесения урона
 
+    float smoothTime = 0.3f;
 
     protected Rigidbody2D batt;
     // Start is called before the first frame update
@@ -49,7 +49,6 @@ public class Bat : MonoBehaviour, IDamage
     public void FindEnemy()
     {
 
-        batForEnemy = true;
         List<EnemyCharacter> listOfEnemies = GameStats.enemyOnScreen;
         float distancetoEnemy;
         EnemyCharacter nearEnemy = null;
@@ -70,18 +69,23 @@ public class Bat : MonoBehaviour, IDamage
 
     void EnterBat(float minDistance, EnemyCharacter nearEnemy)
     {
-        if (nearEnemy.transform.position.x < transform.position.x)
+        /*if (nearEnemy.transform.position.x < transform.position.x)
         {
             if (nearEnemy.transform.position.y < transform.position.y)
-                batt.velocity = new Vector2(-speed, 0);
-            else batt.velocity = new Vector2(-speed, 0);
+                batt.velocity = new Vector2(-speed , -speed ) ;
+            else batt.velocity = new Vector2(-speed , speed ) ;
         }
         else
         {
             if (nearEnemy.transform.position.y < transform.position.y)
-                batt.velocity = new Vector2(speed, 0);
-            else batt.velocity = new Vector2(speed, 0);
-        }
+                batt.velocity = new Vector2(speed , -speed) ;
+            else batt.velocity = new Vector2(speed , speed) ;
+        }*/
+       // Vector2 vc = new Vector2(nearEnemy.transform.position.x, nearEnemy.transform.position.y);
+        //batt.transform.Translate(Vector3.forward * Time.deltaTime);
+        
+        batt.position = Vector2.Lerp(batt.position, nearEnemy.transform.position,speed *Time.deltaTime);
+
     }
 
     public void DoDamage(IDamage obj)
