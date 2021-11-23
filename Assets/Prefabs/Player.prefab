@@ -150,6 +150,7 @@ MonoBehaviour:
   timeInvincible: 2
   rigidbBody2D: {fileID: 0}
   animator: {fileID: 353456340}
+  Bat: {fileID: 4286908564588651508, guid: 01c8a63666992f048a512c854a9481c1, type: 3}
 --- !u!95 &353456340
 Animator:
   serializedVersion: 3
