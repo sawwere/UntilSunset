@@ -6,24 +6,37 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
+    public static bool GameIsLosed= false;
     public GameObject pauseMenuUI;
+    public GameObject loseMenuUI;
+
+    
+    private void Start()
+    {
+        GameIsLosed = false;
+        GameIsPaused = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameIsLosed)
         {
-            if (pauseMenuUI.name == "PauseMenu")
-            {
                 if (GameIsPaused)
                 {
-                    Resume();
+                for (int i = 0; i <pauseMenuUI.transform.childCount; i++)
+                {
+                    GameObject child = pauseMenuUI.transform.GetChild(i).gameObject;
+                    Animator animator = child.GetComponent<Animator>();
+                    animator.CrossFade("Normal", 0f);
+                    animator.Update(0f);
+                }
+                Resume();
                 }
                 else
                 {
                     Pause();
                 }
-            }
         }
     }
 
@@ -57,7 +70,8 @@ public class PauseMenu : MonoBehaviour
     public void Lose()
     {
         Time.timeScale = 0f;
-        pauseMenuUI.SetActive(true);
+        GameIsLosed = true;
+        loseMenuUI.SetActive(true);
     }
 
     public void RestartGame()
@@ -66,4 +80,6 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }
+
+   
 }
