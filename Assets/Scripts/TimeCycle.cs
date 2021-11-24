@@ -20,12 +20,15 @@ public class TimeCycle : MonoBehaviour
     public GameObject sky2;
     public float cloudSpeed;
 
+    private PlayerController player;
+
 
     // Start is called before the first frame update
     void Start()
     {
         //spawner.SetActive(false);
         //newwave.SetActive(false);
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
     void FixedUpdate()
@@ -60,7 +63,7 @@ public class TimeCycle : MonoBehaviour
         }
         else
         {
-            if (GameTime > (NightLenght- (NightLenght / 10)))
+            if (GameTime > (NightLenght - (NightLenght / 10)))
             {
                 nw.time = 200;
                 newwave.SetActive(true);
@@ -68,6 +71,11 @@ public class TimeCycle : MonoBehaviour
             }
             if (GameTime > NightLenght)
             {
+                if (!player.GetIsBat() && !player.GetAtHome())
+                {
+                    player.TurnIntoBat();
+                }
+
                 isDay = true;
                 GameTime = 0;
                 spawner.SetActive(true);
@@ -79,5 +87,10 @@ public class TimeCycle : MonoBehaviour
         {
             sky1.transform.position = new Vector3(0, sky1.transform.position.y, sky1.transform.position.z);
         }
+    }
+
+    public bool GetIsDay()
+    {
+        return isDay;
     }
 }
