@@ -6,10 +6,25 @@ public class MainBuilding : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyCharacter e = collision.gameObject.GetComponent<EnemyCharacter>();
-        if (e)
+        EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
+        if (enemy)
         {
-            e.EnterMainBuilding();
+            enemy.EnterMainBuilding();
+        }
+
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player)
+        {
+            player.EnterMainBuilding();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player)
+        {
+            player.ExitMainBuilding();
         }
     }
 }
