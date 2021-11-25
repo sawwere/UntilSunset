@@ -30,14 +30,14 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Debug.Log(1);
         Building b = collision.collider.GetComponent<Building>();
         if ((b) &&(b.line==line))
         {
             Debug.Log("hit");
             b.RecieveDamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     void Update()

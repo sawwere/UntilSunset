@@ -9,6 +9,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public int price; // условная стоимость спавна
     [SerializeField] private int maxHealth = 2; //максимальное здоровье
     public float speed = 1.0f; //скорость движения
+    public int line;
     public int armor = 0; //броня
     public int damage = 1; //урон
     protected float immunityPeriod = 2.0f; // периодичность получения урона
@@ -34,7 +35,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        GameStats.enemyOnScreen.Add(this);
+        line = (int)transform.position.y;
+        GameStats.enemyOnScreen[line+1].Add(this);
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         immunityTimer = 0;
@@ -74,9 +76,14 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         }
     }
 
+    void OnDestroy() 
+    {
+        GameStats.enemyOnScreen[line+1].Remove(this);
+    }
+
+    //если враг умер из-за потери всего здоровья
     public void EnemyKilled()
     {
-        GameStats.enemyOnScreen.Remove(this);
         System.Random r = new System.Random();
         if (r.Next(2) > 0)
             Instantiate(coinPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
