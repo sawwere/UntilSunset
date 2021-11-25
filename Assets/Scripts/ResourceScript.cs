@@ -14,6 +14,8 @@ public class ResourceScript : MonoBehaviour
     private PlayerController pl;
     private Collider2D col;
     private bool PlayerIsNear;
+    private float DTime = 0.2f;
+    public int resLim;
 
     void Start()
     {
@@ -29,33 +31,36 @@ public class ResourceScript : MonoBehaviour
 
     void Update()
     {
-        
-    }
-
-    void OnTriggerStay2D(Collider2D col)
-    {
-        PlayerIsNear = true;
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        PlayerIsNear = false;
-    }
-
-    private void OnMouseDown()
-    {
-        if (PlayerIsNear && !pl.GetIsBat())
+        DTime += Time.deltaTime;
+        if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= 0.2 && resLim > 0)
         {
-            if(IsStone)
+            resLim--;
+
+            if (IsStone)
             {
+                DTime = 0.0f;
                 GameStats.Stone += 1;
                 tcount.SetText(GameStats.Stone.ToString());
             }
             else if (IsWood)
             {
+                DTime = 0.0f;
                 GameStats.Wood += 1;
                 tcount.SetText(GameStats.Wood.ToString());
             }
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+            PlayerIsNear = true;
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+            PlayerIsNear = false;
+    }
+
 }
