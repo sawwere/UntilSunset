@@ -6,7 +6,7 @@ public class Bat : MonoBehaviour, IDamage
 {
     public float speed = 1.2f;
     Vector2 position;
-
+    public int line;
 
     [SerializeField] private int maxHealth = 2; //максимальное здоровье
     public int damage = 1; //урон
@@ -23,6 +23,9 @@ public class Bat : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = new Vector2(transform.position.x, (float)System.Math.Round(transform.position.y));
+        line = (int)System.Math.Round(transform.position.y);
+        
         batt = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         immunityTimer = 0;
@@ -32,7 +35,7 @@ public class Bat : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (GameStats.enemyOnScreen.Count > 0)
+        if (GameStats.enemyOnScreen[line+1].Count > 0)
             FindEnemy();
         if (immunityTimer > 0)
         {
@@ -49,7 +52,7 @@ public class Bat : MonoBehaviour, IDamage
     public void FindEnemy()
     {
 
-        List<EnemyCharacter> listOfEnemies = GameStats.enemyOnScreen;
+        List<EnemyCharacter> listOfEnemies = GameStats.enemyOnScreen[line+1];
         float distancetoEnemy;
         EnemyCharacter nearEnemy = null;
         float minDistance = float.MaxValue;
@@ -63,7 +66,8 @@ public class Bat : MonoBehaviour, IDamage
             }
         }
 
-        EnterBat(minDistance, nearEnemy);
+        if (nearEnemy)
+            EnterBat(minDistance, nearEnemy);
 
     }
 
