@@ -44,6 +44,9 @@ TextureImporter:
   - first:
       213: -8946747351152938077
     second: PLayer_Walking_Backward_2
+  - first:
+      213: 6016093124021820417
+    second: PLayerWalking_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -164,8 +167,8 @@ TextureImporter:
         y: 3306
         width: 196
         height: 474
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,8 +188,8 @@ TextureImporter:
         y: 3306
         width: 196
         height: 474
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,8 +209,8 @@ TextureImporter:
         y: 3306
         width: 195
         height: 474
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,8 +230,8 @@ TextureImporter:
         y: 2367
         width: 174
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,8 +251,8 @@ TextureImporter:
         y: 2361
         width: 225
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,8 +272,8 @@ TextureImporter:
         y: 2361
         width: 166
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,8 +293,8 @@ TextureImporter:
         y: 2361
         width: 232
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -311,8 +314,8 @@ TextureImporter:
         y: 1416
         width: 173
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,8 +335,8 @@ TextureImporter:
         y: 1416
         width: 225
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -353,8 +356,8 @@ TextureImporter:
         y: 1416
         width: 166
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -374,8 +377,8 @@ TextureImporter:
         y: 1416
         width: 232
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -395,8 +398,8 @@ TextureImporter:
         y: 471
         width: 218
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -416,8 +419,8 @@ TextureImporter:
         y: 477
         width: 240
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -437,8 +440,8 @@ TextureImporter:
         y: 471
         width: 232
         height: 476
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -446,6 +449,27 @@ TextureImporter:
       bones: []
       spriteID: 3a3bc5f9fa4c6d380800000000000000
       internalID: -8946747351152938077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLayerWalking_14
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 405
+        width: 1933
+        height: 3375
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c9df852d47d7350800000000000000
+      internalID: 6016093124021820417
       vertices: []
       indices: 
       edges: []
