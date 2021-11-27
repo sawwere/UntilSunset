@@ -2,34 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainBuilding : Building
+public class MainBuilding : MonoBehaviour
 {
-    
-    protected override void Start()
-    {
-        maxHealth = 3;
-        base.Start();
-    }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyCharacter e = collision.gameObject.GetComponent<EnemyCharacter>();
-        if (e)
+        EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
+        if (enemy)
         {
-            e.EnterMainBuilding();
+            enemy.EnterMainBuilding();
+        }
+
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player)
+        {
+            player.EnterMainBuilding();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
-        EnemyCharacter e = collision.gameObject.GetComponent<EnemyCharacter>();
-        if (e)
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player)
         {
-            Debug.Log("base under attack");
-            RecieveDamage(e.damage);
-            UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
+            player.ExitMainBuilding();
         }
     }
 }
