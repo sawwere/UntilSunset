@@ -556,6 +556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f36c3edbd1f5a40b44738503b2a279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTime: 10
+  displayTime: 5
   dialogBox: {fileID: 1969080520047010924}
   wall: {fileID: 4629477879196134430, guid: 484273ae5db18074cb70bc2a33cdf7d2, type: 3}
