@@ -15,10 +15,16 @@ public class ResourceScript : MonoBehaviour
     private Collider2D col;
     private bool PlayerIsNear;
     private float DTime = 0.2f;
-    public int resLim;
+    public float resLim;
+    private float res;
+    public Sprite[] sp = new Sprite[10];
+    public GameObject resInd;
+    private SpriteRenderer resSp;
 
     void Start()
     {
+        res = resLim;
+        resInd.SetActive(false);
         if (IsStone) tg = "StoneCount";
         else if (IsWood) tg = "WoodCount";
 
@@ -26,15 +32,20 @@ public class ResourceScript : MonoBehaviour
         PlayerIsNear = false;
         tcount = GameObject.FindWithTag(tg).GetComponent<TextMeshProUGUI>();
         pl = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        resSp = resInd.GetComponent<SpriteRenderer>();
         tcount.SetText(Convert.ToString(0));
     }
 
     void Update()
     {
         DTime += Time.deltaTime;
-        if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= 0.2 && resLim > 0)
+        if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= 0.2 && res > 0)
         {
-            resLim--;
+            res--;
+            if (res != 0)
+                resSp.sprite = sp[Math.Min(8, Convert.ToInt32(10 - Math.Floor(res / resLim * 10)))];
+            else
+                resSp.sprite = sp[9];
 
             if (IsStone)
             {
@@ -54,13 +65,19 @@ public class ResourceScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
+        {
+            resInd.SetActive(true);
             PlayerIsNear = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
+        {
+            resInd.SetActive(false);
             PlayerIsNear = false;
+        }
     }
 
 }
