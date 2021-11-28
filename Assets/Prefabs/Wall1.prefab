@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 4503228161791234858}
   - component: {fileID: 8267675308317737747}
   - component: {fileID: 7064427806972286634}
+  - component: {fileID: -2245351613016529838}
   m_Layer: 9
   m_Name: Wall1
   m_TagString: Wall1
@@ -382,6 +383,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 82866295973386809}
   wall2: {fileID: 8553674981608394519, guid: e49ac42e74f40b84382022334ecbf8cc, type: 3}
+--- !u!61 &-2245351613016529838
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4629477879196134430}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.5, y: 1}
+    newSize: {x: 0.32, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6641711, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &5177983191405535749
 GameObject:
   m_ObjectHideFlags: 0
