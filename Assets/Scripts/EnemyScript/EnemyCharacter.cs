@@ -14,7 +14,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public int damage = 1; //урон
     protected float immunityPeriod = 2.0f; // периодичность получения урона
     protected float hitPeriod = 5.0f; // периодичность нанесения урона
-    protected int direction = 1; //направление
+    protected int _direction = 1; //направление
     private int currentHealth; //текущее здоровье
     public float immunityTimer; //счетчик неуязвимости
     protected float hitTimer; //счетчик времени нанесения урона
@@ -30,6 +30,12 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public int health 
     { 
         get { return currentHealth; } 
+    }
+
+    public int direction
+    {
+        get { return _direction;}
+        set { if (System.Math.Abs(value) == 1) _direction = value; }
     }
 
     // Start is called before the first frame update
@@ -114,5 +120,9 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         rigidbody2d.velocity = drctn.normalized * speed;
     }
 
-
+    public void ReturnToBase()
+    {
+        direction *= -1;
+        transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
+    }
 }
