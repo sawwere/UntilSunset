@@ -6,7 +6,7 @@ public class Bat : MonoBehaviour, IDamage
 {
     public float speed = 1.2f;
     Vector2 position;
-    public GameObject spawnPoint;
+    public int line;
 
     [SerializeField] private int maxHealth = 2; //максимальное здоровье
     public int damage = 1; //урон
@@ -23,19 +23,20 @@ public class Bat : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = new Vector2(transform.position.x, (float)System.Math.Round(transform.position.y));
+        line = (int)System.Math.Round(transform.position.y);
+        
         batt = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
-        Debug.Log(spawnPoint.transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameStats.enemyOnScreen.Count > 0)
+        if (GameStats.enemyOnScreen[line+1].Count > 0)
             FindEnemy();
-        else batt.position = Vector2.Lerp(batt.position, spawnPoint.transform.position, speed * Time.deltaTime);
         if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
@@ -51,25 +52,23 @@ public class Bat : MonoBehaviour, IDamage
     public void FindEnemy()
     {
 
-        List<EnemyCharacter> listOfEnemies = GameStats.enemyOnScreen;
+        List<EnemyCharacter> listOfEnemies = GameStats.enemyOnScreen[line+1];
         float distancetoEnemy;
         EnemyCharacter nearEnemy = null;
         float minDistance = float.MaxValue;
         for (int i = 0; i < listOfEnemies.Count; i++)
         {
-            if (listOfEnemies[i] != null)
+            distancetoEnemy = Vector2.Distance(transform.position, listOfEnemies[i].transform.position);
+            if (minDistance > distancetoEnemy)
             {
-                distancetoEnemy = Vector2.Distance(transform.position, listOfEnemies[i].transform.position);
-                if (minDistance > distancetoEnemy)
-                {
-                    minDistance = distancetoEnemy;
-                    nearEnemy = listOfEnemies[i];
-                }
+                minDistance = distancetoEnemy;
+                nearEnemy = listOfEnemies[i];
             }
         }
 
-        EnterBat(minDistance, nearEnemy);
-        Debug.Log("bat go");
+        if (nearEnemy)
+            EnterBat(minDistance, nearEnemy);
+
     }
 
     void EnterBat(float minDistance, EnemyCharacter nearEnemy)
