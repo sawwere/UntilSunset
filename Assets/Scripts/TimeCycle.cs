@@ -45,6 +45,10 @@ public class TimeCycle : MonoBehaviour
                 isDay = false;
                 GameTime = 0;
                 spawner.SetActive(false);
+                foreach (var line in GameStats.enemyOnScreen)
+                    foreach (var enemy in line)
+                        enemy.ReturnToBase();
+                Debug.Log("night");
                 fpd = true;
             }
             if (fpd)
@@ -79,6 +83,7 @@ public class TimeCycle : MonoBehaviour
                 isDay = true;
                 GameTime = 0;
                 spawner.SetActive(true);
+                GameStats.Encounter++;
             }
         }
 

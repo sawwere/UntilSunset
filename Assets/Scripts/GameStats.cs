@@ -15,7 +15,7 @@ public class GameStats:MonoBehaviour
     public static int Encounter
     {
         get { return encounter; }
-        private set { encounter = value; }
+        set { encounter = value; }
     }
 
     public static int Level
