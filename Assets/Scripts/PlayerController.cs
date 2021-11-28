@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
 
     private bool isBat;
     private bool isTurning;
+    private bool atHome;
+
+    private TimeCycle timeCycle;
 
     public GameObject Bat;
 
@@ -26,12 +29,14 @@ public class PlayerController : MonoBehaviour
     {
         rigidbBody2D = GetComponent<Rigidbody2D>();
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
     }
 
     private void Start()
     {
         animator.SetFloat("LastVertical", -1);
         isBat = false;
+        atHome = true;
     }
 
     private void Update()
@@ -39,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (isTurning) return;
 
         Turning();
+
         SpawnBat();
     }
 
@@ -51,20 +57,31 @@ public class PlayerController : MonoBehaviour
 
     private void Turning() // Превращение в мышь (из мыши)
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && (atHome || !timeCycle.GetIsDay()))
         {
-            isTurning = true;
             if (!isBat)
             {
-                animator.Play("ToBat");
-                Invoke(nameof(SetBatSettings), 0.5f);
+                TurnIntoBat();
             }
             else
             {
-                animator.Play("ToCharacter");
-                Invoke(nameof(SetCharacterSettings), 0.5f);
+                TurnIntoCharacter();
             }
         }
+    }
+
+    public void TurnIntoBat()
+    {
+        isTurning = true;
+        animator.Play("ToBat");
+        Invoke(nameof(SetBatSettings), 0.5f);
+    }
+
+    private void TurnIntoCharacter()
+    {
+        isTurning = true;
+        animator.Play("ToCharacter");
+        Invoke(nameof(SetCharacterSettings), 0.5f);
     }
 
     private void SetBatSettings() // Установка характеристик мыши
@@ -112,7 +129,12 @@ public class PlayerController : MonoBehaviour
         return isBat;
     }
 
-    public void SpawnBat() // Вызов приспешника
+    public bool GetAtHome()
+    {
+        return atHome;
+    }
+
+    private void SpawnBat() // Вызов приспешника
     {
         if (Input.GetKeyDown(KeyCode.E) && GameStats.Coins >= 1 && !isBat)
         {
@@ -122,6 +144,21 @@ public class PlayerController : MonoBehaviour
             GameStats.Coins -= 1;
             resources.UpdateCoins();
             Instantiate(Bat, transform.position, Quaternion.identity);
+        }
+    }
+
+    public void EnterMainBuilding()
+    {
+        atHome = true;
+    }
+
+    public void ExitMainBuilding()
+    {
+        atHome = false;
+
+        if (!isBat && timeCycle.GetIsDay())
+        {
+            TurnIntoBat();
         }
     }
 }
