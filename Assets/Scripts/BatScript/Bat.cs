@@ -20,6 +20,8 @@ public class Bat : MonoBehaviour, IDamage
     float smoothTime = 0.3f;
 
     protected Rigidbody2D batt;
+
+    public GameObject cofiin;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +37,9 @@ public class Bat : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (GameStats.enemyOnScreen[line+1].Count > 0)
+        if (GameStats.enemyOnScreen[line + 1].Count > 0)
             FindEnemy();
+        else GoHome();
         if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
@@ -115,5 +118,9 @@ public class Bat : MonoBehaviour, IDamage
                 Destroy(gameObject);
             immunityTimer = immunityPeriod;
         }
+    }
+    void GoHome()
+    {
+        batt.position = Vector2.Lerp(batt.position,cofiin.transform.position, speed * Time.deltaTime);
     }
 }
