@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Wall_1 : Wall
 {
+    public float displayTime = 5.0f;
     public GameObject dialogBox;
     public GameObject wall2;
     private Resources resources;
+    float timerDisplay;
 
     protected override void Start()
     {
+        timerDisplay = -1.0f;
         dialogBox.SetActive(false);
         maxHealth = 2;
         base.Start();
+    }
+
+    private void Update()
+    {
+        if (timerDisplay >= 0)
+        {
+            timerDisplay -= Time.deltaTime;
+            if (timerDisplay < 0)
+            {
+                dialogBox.SetActive(false);
+            }
+        }
     }
 
     public void UpgradeWall()
@@ -30,6 +45,7 @@ public class Wall_1 : Wall
 
     public void DisplayDialog()
     {
+        timerDisplay = displayTime;
         dialogBox.SetActive(true);
     }
 
