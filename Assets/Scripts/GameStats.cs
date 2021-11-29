@@ -44,6 +44,13 @@ public class GameStats:MonoBehaviour
         set { wood = value; }
     }
 
+    private static int henchman = 0;
+
+    public static int Henchman
+    {
+        get { return henchman; }
+        set { henchman = value; }
+    }
     void Awake()
     {
         Encounter = 1;

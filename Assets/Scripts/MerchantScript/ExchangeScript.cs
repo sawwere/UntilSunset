@@ -33,4 +33,13 @@ public class ExchangeScript : MonoBehaviour
             GameStats.Coins += 2;
         }
     }
+
+    public void BuyBatButtonPressed()
+    {
+        if (GameStats.Coins >= 2)
+        {
+            GameStats.Coins -= 2;
+            GameStats.Henchman += 1;
+        }
+    }
 }
