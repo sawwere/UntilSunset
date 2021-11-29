@@ -123,6 +123,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public void ReturnToBase()
     {
         direction *= -1;
+        transform.localScale -= new Vector3(2 * transform.localScale.x, 0, 0);
         transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
     }
 }
