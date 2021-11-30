@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bat : MonoBehaviour, IDamage
 {
-    public float speed = 1.2f;
+    public float speed = 2.5f;
     Vector2 position;
     public int line;
 
@@ -17,16 +17,20 @@ public class Bat : MonoBehaviour, IDamage
     protected float hitTimer; //счетчик времени нанесения урона
     public float firstHitPeriod = 1.5f; // время до первого нанесения урона
 
-    float smoothTime = 0.3f;
-
     protected Rigidbody2D batt;
 
     public GameObject cofiin;
+
+
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector2(transform.position.x, (float)System.Math.Round(transform.position.y));
-        line = (int)System.Math.Round(transform.position.y);
+        if(transform.position.y>-1.4 && transform.position.y<1.4)
+        {
+            line = (int)System.Math.Round(transform.position.y);
+        }
+        else line = 0;
         
         batt = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
@@ -37,25 +41,19 @@ public class Bat : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (GameStats.enemyOnScreen[line + 1].Count > 0)
-            FindEnemy();
-        else GoHome();
+         if (GameStats.enemyOnScreen[line + 1].Count > 0)
+             FindEnemy();
+         else GoHome();
+
         if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
         }
-
-        /*position = rb2d.position;
-        position.x = position.x - Time.deltaTime*  speed ;
-        rb2d.MovePosition(position);
-        if (position.x < -12)
-            Destroy(gameObject);*/
     }
 
     public void FindEnemy()
     {
-
-        List<EnemyCharacter> listOfEnemies = GameStats.enemyOnScreen[line+1];
+        List<EnemyCharacter> listOfEnemies = GameStats.enemyOnScreen[line + 1];
         float distancetoEnemy;
         EnemyCharacter nearEnemy = null;
         float minDistance = float.MaxValue;
@@ -71,6 +69,7 @@ public class Bat : MonoBehaviour, IDamage
 
         if (nearEnemy)
             EnterBat(minDistance, nearEnemy);
+
 
     }
 
@@ -88,24 +87,23 @@ public class Bat : MonoBehaviour, IDamage
                 batt.velocity = new Vector2(speed , -speed) ;
             else batt.velocity = new Vector2(speed , speed) ;
         }*/
-       // Vector2 vc = new Vector2(nearEnemy.transform.position.x, nearEnemy.transform.position.y);
-        //batt.transform.Translate(Vector3.forward * Time.deltaTime);
-        
-        batt.position = Vector2.Lerp(batt.position, nearEnemy.transform.position,speed *Time.deltaTime);
+        //batt.position = Vector2.Lerp(batt.position, nearEnemy.transform.position,speed*Time.deltaTime);
 
+        batt.position = Vector3.MoveTowards(batt.position, nearEnemy.transform.position, speed * Time.deltaTime);
+ 
     }
 
     public void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
 
-        if (obj != null)
+        if ((obj != null) && (obj.Equals(typeof(Bat))))
         {
-            if (hitTimer <= 0)
-            {
-                obj.RecieveDamage(damage);
-                hitTimer = hitPeriod;
-            }
+             if (hitTimer <= 0)
+             {
+                 obj.RecieveDamage(damage);
+                 hitTimer = hitPeriod;
+             }
         }
     }
 
@@ -121,6 +119,7 @@ public class Bat : MonoBehaviour, IDamage
     }
     void GoHome()
     {
-        batt.position = Vector2.Lerp(batt.position,cofiin.transform.position, speed * Time.deltaTime);
+        //batt.position = Vector2.Lerp(batt.position,cofiin.transform.position, speed * Time.deltaTime);
+        batt.position = Vector3.MoveTowards(batt.position, cofiin.transform.position, speed * Time.deltaTime);
     }
 }
