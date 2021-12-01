@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private Resources resources;
 
+    private Vector3 batSpawnPosition;
+
     private void Awake()
     {
         rigidbBody2D = GetComponent<Rigidbody2D>();
@@ -134,16 +136,25 @@ public class PlayerController : MonoBehaviour
         return atHome;
     }
 
+    private void CalculateBatSpawnPosition()
+    {
+        batSpawnPosition = transform.position;
+        //batSpawnPosition.y += 0.5f;
+        batSpawnPosition.y = Math.Min(batSpawnPosition.y, 1);
+        batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);
+    }
+
     private void SpawnBat() // Вызов приспешника
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 1 && !isBat)
+        if (Input.GetKeyDown(KeyCode.E) && GameStats.Coins >= 1 && !isBat && timeCycle.GetIsDay())
         {
             isTurning = true;
             animator.Play("InvokeHenchman");
             Invoke(nameof(SetCharacterSettings), 0.2f);
-            GameStats.Henchman -= 1;
+            GameStats.Coins -= 1;
             resources.UpdateCoins();
-            Instantiate(Bat, transform.position, Quaternion.identity);
+            CalculateBatSpawnPosition();
+            Instantiate(Bat, batSpawnPosition, Quaternion.identity);
         }
     }
 

@@ -5,20 +5,20 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyCharacter: MonoBehaviour, IDamage
 {
-    public string _name; // имя
-    public int price; // условная стоимость спавна
-    [SerializeField] private int maxHealth = 2; //максимальное здоровье
-    public float speed = 1.0f; //скорость движения
+    public string _name; // пїЅпїЅпїЅ
+    public int price; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    [SerializeField] private int maxHealth = 2; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    public float speed = 1.0f; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public int line;
-    public int armor = 0; //броня
-    public int damage = 1; //урон
-    protected float immunityPeriod = 2.0f; // периодичность получения урона
-    protected float hitPeriod = 5.0f; // периодичность нанесения урона
-    protected int _direction = 1; //направление
-    private int currentHealth; //текущее здоровье
-    public float immunityTimer; //счетчик неуязвимости
-    protected float hitTimer; //счетчик времени нанесения урона
-    public float firstHitPeriod = 1.5f; // время до первого нанесения урона
+    public int armor = 0; //пїЅпїЅпїЅпїЅпїЅ
+    public int damage = 1; //пїЅпїЅпїЅпїЅ
+    protected float immunityPeriod = 2.0f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    protected float hitPeriod = 5.0f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    protected int _direction = 1; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    private int currentHealth; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    public float immunityTimer; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    protected float hitTimer; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    public float firstHitPeriod = 1.5f; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
     private bool enterMainBuilding = false;
 
@@ -87,7 +87,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         GameStats.enemyOnScreen[line+1].Remove(this);
     }
 
-    //если враг умер из-за потери всего здоровья
+    //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public void EnemyKilled()
     {
         System.Random r = new System.Random();
@@ -109,7 +109,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
 
     public void DoDamage(IDamage obj)
     {
-        return; // заглушка
+        return; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     }
 
     public void EnterMainBuilding()
@@ -123,16 +123,19 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public void ReturnToBase()
     {
         direction *= -1;
+        PlayWalkAnimation();
+        transform.localScale -= new Vector3(2 * transform.localScale.x, 0, 0);
         transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
     }
+
     public virtual void PlayWalkAnimation()
     {
         return;
     }
 
+
     public int GetLine() 
     {
         return this.line;
     }
-
 }
