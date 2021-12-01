@@ -45,7 +45,7 @@ public class EnemyRange : EnemyCharacter
         string tag = collision.gameObject.tag;
         if (tag == "Wall1" || tag == "Wall2")
         {
-            animator.Play("Movement");
+            PlayWalkAnimation();
         }
     }
 
@@ -69,5 +69,10 @@ public class EnemyRange : EnemyCharacter
         EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
 
         projectile.Launch(direction * CalcForce(transform.position.x, targetPoint.x), this.damage);
+    }
+
+    public override void PlayWalkAnimation()
+    {
+        animator.Play("Movement");
     }
 }

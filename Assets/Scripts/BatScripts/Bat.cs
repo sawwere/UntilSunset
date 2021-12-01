@@ -117,6 +117,7 @@ public class Bat : MonoBehaviour, IDamage
             immunityTimer = immunityPeriod;
         }
     }
+
     void GoHome()
     {
         //batt.position = Vector2.Lerp(batt.position,cofiin.transform.position, speed * Time.deltaTime);
