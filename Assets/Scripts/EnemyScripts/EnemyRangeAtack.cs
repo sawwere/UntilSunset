@@ -28,7 +28,7 @@ public class EnemyRangeAtack : MonoBehaviour
         }
         else
         {
-            if (obj != null && collision.gameObject.tag != "Enemy")
+            if (obj != null && collision.gameObject.tag != "Enemy" && obj.GetLine() == parentEnemy.GetLine())
             {
                 SetTarget(collision.gameObject);
             }
