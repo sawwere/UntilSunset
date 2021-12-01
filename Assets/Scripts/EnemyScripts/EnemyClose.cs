@@ -24,4 +24,9 @@ public class EnemyClose : EnemyCharacter
             else animator.Play("Idle");
         }
     }
+
+    public override void PlayWalkAnimation()
+    {
+        animator.Play("Movement");
+    }
 }
