@@ -99,7 +99,7 @@ public class Bat : MonoBehaviour, IDamage
     {
         hitTimer -= Time.deltaTime;
 
-        if (obj != null)
+        if ((obj != null) && (!obj.Equals(typeof(Bat))))
         {
             if (hitTimer <= 0)
             {
@@ -122,5 +122,10 @@ public class Bat : MonoBehaviour, IDamage
     void GoHome()
     {
         batt.position = Vector2.Lerp(batt.position,cofiin.transform.position, speed * Time.deltaTime);
+    }
+
+    public int GetLine()
+    {
+        return line;
     }
 }

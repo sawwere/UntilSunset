@@ -68,6 +68,11 @@ public class EnemyRange : EnemyCharacter
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
 
+        if (target.GetComponent<Bat>())
+        {
+            Bat b = target.GetComponent<Bat>();
+            targetPoint.x = System.Math.Abs(transform.position.x - b.transform.position.x) < 1 ? b.transform.position.x : b.transform.position.x - b.speed * 1f;
+        }
         projectile.Launch(direction * CalcForce(transform.position.x, targetPoint.x), this.damage);
     }
 }

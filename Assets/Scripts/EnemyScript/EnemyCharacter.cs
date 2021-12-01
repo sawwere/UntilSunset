@@ -125,4 +125,14 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         direction *= -1;
         transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
     }
+    public virtual void PlayWalkAnimation()
+    {
+        return;
+    }
+
+    public int GetLine() 
+    {
+        return this.line;
+    }
+
 }
