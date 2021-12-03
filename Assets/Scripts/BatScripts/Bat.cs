@@ -21,7 +21,8 @@ public class Bat : MonoBehaviour, IDamage
 
     public GameObject cofiin;
 
-
+    private TimeCycle timeCycle;
+    private Resources HenchmanRes;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,14 +37,21 @@ public class Bat : MonoBehaviour, IDamage
         currentHealth = maxHealth;
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
+        timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
+        HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         if (GameStats.enemyOnScreen[line + 1].Count > 0)
-             FindEnemy();
-         else GoHome();
+        if (GameStats.enemyOnScreen[line + 1].Count > 0)
+        {
+            if (timeCycle.GetIsDay())
+                FindEnemy();
+            else  GoHome(); 
+
+        }     
+        else GoHome();
 
         if (immunityTimer > 0)
         {
@@ -121,10 +129,24 @@ public class Bat : MonoBehaviour, IDamage
     {
         //batt.position = Vector2.Lerp(batt.position,cofiin.transform.position, speed * Time.deltaTime);
         batt.position = Vector3.MoveTowards(batt.position, cofiin.transform.position, speed * Time.deltaTime);
+        if (!timeCycle.GetIsDay())
+        {
+            ReturnToPocket();
+        }
     }
 
     public int GetLine()
     {
         return line;
+    }
+
+    void ReturnToPocket()
+    {
+        if(batt.position.x == cofiin.transform.position.x && batt.position.y == cofiin.transform.position.y)
+        {
+            GameStats.Henchman+=1;
+            Destroy(gameObject);
+            HenchmanRes.UpdateHenchman();
+        }
     }
 }
