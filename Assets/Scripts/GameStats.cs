@@ -69,7 +69,7 @@ public class GameStats:MonoBehaviour
         Coins = 0;
         Wood = 0;
         Stone = 0;
-        henchman = 0;
+        Henchman = 0;
     }
 
 }
