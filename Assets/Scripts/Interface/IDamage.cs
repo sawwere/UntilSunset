@@ -7,4 +7,6 @@ public interface IDamage
     void RecieveDamage(int amount);
 
     void DoDamage(IDamage obj);
+
+    int GetLine();
 }

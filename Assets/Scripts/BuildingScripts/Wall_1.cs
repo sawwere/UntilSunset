@@ -6,11 +6,13 @@ using UnityEngine.EventSystems;
 public class Wall_1 : Wall
 {
     public float displayTime = 5.0f;
+
     private bool upgraded = false;
     public GameObject dialogBox;
     public GameObject wall2;
     private Resources resources;
     private BuildPlace_1 bp;
+
     float timerDisplay;
 
     protected override void Start()
@@ -50,6 +52,7 @@ public class Wall_1 : Wall
             bp.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
+
 
     public void UpgradeWall()
     {

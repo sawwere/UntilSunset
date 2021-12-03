@@ -101,3 +101,5 @@ MonoBehaviour:
   - {fileID: 1008039035235040518, guid: 7fb7658fe3e064e4b949e3d4fc701dd2, type: 3}
   spawnCount: 0
   spawnRate: 5
+  spawnTime: 0
+  direction: 0

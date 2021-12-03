@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 4
   m_Sprite: {fileID: 4458756592102909738, guid: 7ba8a20d0d1967440932878b08685ca1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,10 +100,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0041887984, y: 0.0048769414}
+  m_Offset: {x: 0.0067765713, y: 0.44819045}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49369463, y: -0.5920223}
     oldSize: {x: 1.14, y: 0.4}
     newSize: {x: 0.34, y: 0.32}
     adaptiveTilingThreshold: 0.5
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4916224, y: 0.41727042}
+  m_Size: {x: 1.1276169, y: 0.4217713}
   m_EdgeRadius: 0
 --- !u!50 &2170815276252626292
 Rigidbody2D:
@@ -146,12 +146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4155beccecb6636418c83818283beb7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.2
+  speed: 2.5
   line: 0
   maxHealth: 2
   damage: 1
   immunityTimer: 0
   firstHitPeriod: 1.5
+  cofiin: {fileID: 5956774385877164423, guid: 05ff443d7506a884e94568c7d0e5b95a, type: 3}
 --- !u!95 &-1986338799716144412
 Animator:
   serializedVersion: 3
@@ -216,7 +217,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.37841347, y: 0.4313983}
+  m_Offset: {x: 0.38060644, y: 0.8702108}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -227,7 +228,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7604014, y: 0.40978628}
+  m_Size: {x: 1.1244535, y: 0.3332759}
   m_EdgeRadius: 0
 --- !u!114 &2223257745300961294
 MonoBehaviour:
