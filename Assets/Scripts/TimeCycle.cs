@@ -12,7 +12,7 @@ public class TimeCycle : MonoBehaviour
     public Text TimeTXT;
     public GameObject newwave;
     public newwave nw;
-    int GameTime = 0;  
+    int GameTime = 0;
     bool isDay = true;
     bool fpd = true;
     int lightintensity;
@@ -21,6 +21,13 @@ public class TimeCycle : MonoBehaviour
     public float cloudSpeed;
 
     private PlayerController player;
+    //music
+    public GameObject DaymusObj;
+    public GameObject NightmusObj;
+    public AudioSource DayM;
+    public AudioSource NightM;
+    public float vol = 0.2f;
+    //////////////
 
 
     // Start is called before the first frame update
@@ -29,40 +36,39 @@ public class TimeCycle : MonoBehaviour
         //spawner.SetActive(false);
         //newwave.SetActive(false);
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        NightM.volume = 0;
+        DayM.volume = vol;
     }
 
     void FixedUpdate()
     {
-       
+
         GameTime += 1;
         TimeTXT.text = GameTime.ToString();
-        
+
         if (isDay)
         {
-            
+
             if (GameTime > DayLenght)
             {
                 isDay = false;
                 GameTime = 0;
                 spawner.SetActive(false);
-                foreach (var line in GameStats.enemyOnScreen)
-                    foreach (var enemy in line)
-                        enemy.ReturnToBase();
-                Debug.Log("night");
                 fpd = true;
+                StartCoroutine(SetNight());
             }
             if (fpd)
             {
-                lght.intensity = 2*((float)GameTime / (float)DayLenght) ;
-                if (GameTime> (DayLenght / 2))
+                lght.intensity = 2 * ((float)GameTime / (float)DayLenght);
+                if (GameTime > (DayLenght / 2))
                 {
                     fpd = false;
-                    
+
                 }
             }
-            if(!fpd)
+            if (!fpd)
             {
-                lght.intensity = 2 - 2*((float)GameTime / (float)DayLenght);
+                lght.intensity = 2 - 2 * ((float)GameTime / (float)DayLenght);
             }
         }
         else
@@ -71,7 +77,8 @@ public class TimeCycle : MonoBehaviour
             {
                 nw.time = 200;
                 newwave.SetActive(true);
-                
+
+
             }
             if (GameTime > NightLenght)
             {
@@ -83,7 +90,7 @@ public class TimeCycle : MonoBehaviour
                 isDay = true;
                 GameTime = 0;
                 spawner.SetActive(true);
-                GameStats.Encounter++;
+                StartCoroutine(SetDay());
             }
         }
 
@@ -98,4 +105,38 @@ public class TimeCycle : MonoBehaviour
     {
         return isDay;
     }
+    private IEnumerator SetNight()
+    {
+        DayM.volume = vol;
+        while (DayM.volume > 0.01f)
+        {
+            DayM.volume -= 0.01f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        DayM.volume = 0.0f;
+        NightM.volume = 0.0f;
+        while (NightM.volume < vol)
+        {
+            NightM.volume += 0.01f;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    private IEnumerator SetDay()
+    {
+        NightM.volume = vol;
+        while (NightM.volume > 0.01f)
+        {
+            NightM.volume -= 0.01f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        NightM.volume = 0.0f;
+        DayM.volume = 0.0f;
+        while (DayM.volume < vol)
+        {
+            DayM.volume += 0.01f;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
 }
