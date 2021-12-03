@@ -38,4 +38,9 @@ public class Building : MonoBehaviour
             Debug.Log(name + " has been destoyed");
         }
     }
+
+    public int GetLine()
+    {
+        return line;
+    }
 }
