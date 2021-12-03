@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsLosed= false;
     public GameObject pauseMenuUI;
     public GameObject loseMenuUI;
-
+    public GameObject winMenuUI;
     
     private void Start()
     {
@@ -27,9 +27,12 @@ public class PauseMenu : MonoBehaviour
                 for (int i = 0; i <pauseMenuUI.transform.childCount; i++)
                 {
                     GameObject child = pauseMenuUI.transform.GetChild(i).gameObject;
-                    Animator animator = child.GetComponent<Animator>();
-                    animator.CrossFade("Normal", 0f);
-                    animator.Update(0f);
+                    if (child.CompareTag("Button"))
+                    {
+                        Animator animator = child.GetComponent<Animator>();
+                        animator.CrossFade("Normal", 0f);
+                        animator.Update(0f);
+                    }
                 }
                 Resume();
                 }
@@ -81,5 +84,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-   
+    public void Win()
+    {
+        Time.timeScale = 0f;
+        winMenuUI.SetActive(true);
+    }
 }
