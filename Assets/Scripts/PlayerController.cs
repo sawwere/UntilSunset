@@ -146,13 +146,13 @@ public class PlayerController : MonoBehaviour
 
     private void SpawnBat() // Вызов приспешника
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameStats.Coins >= 1 && !isBat && timeCycle.GetIsDay())
+        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 1 && !isBat && timeCycle.GetIsDay())
         {
             isTurning = true;
             animator.Play("InvokeHenchman");
             Invoke(nameof(SetCharacterSettings), 0.2f);
-            GameStats.Coins -= 1;
-            resources.UpdateCoins();
+            GameStats.Henchman -= 1;
+            //resources.UpdateCoins();
             CalculateBatSpawnPosition();
             Instantiate(Bat, batSpawnPosition, Quaternion.identity);
         }

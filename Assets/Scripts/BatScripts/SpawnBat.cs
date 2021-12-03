@@ -9,17 +9,17 @@ public class SpawnBat : MonoBehaviour
     public static SpawnBat instance = null;
     public GameObject bat;
     private Resources resources;
-    public int priceOfBat = 2;
+    //public int priceOfBat = 2;
     int batOnScreen = 0;//кол-во мышей на данный момент
 
     void Start()
     {
-        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        //resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
 
     private void Update()
     {
-        Spawn();
+        //Spawn();
     }
     void Awake()
     {
@@ -45,11 +45,12 @@ public class SpawnBat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (GameStats.Coins >= priceOfBat)
+            if (GameStats.Henchman >= 1)
             {
                 GameObject newbat = Instantiate(bat) as GameObject;
-                GameStats.Coins -= priceOfBat;
-                resources.UpdateCoins();
+                GameStats.Henchman--;
+                //GameStats.Coins -= priceOfBat;
+                //resources.UpdateCoins();
                 newbat.transform.position = spawnPoint.transform.position;
             }
         }

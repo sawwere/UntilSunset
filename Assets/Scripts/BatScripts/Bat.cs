@@ -21,7 +21,7 @@ public class Bat : MonoBehaviour, IDamage
 
     public GameObject cofiin;
 
-
+    private TimeCycle timeCycle;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,14 +36,20 @@ public class Bat : MonoBehaviour, IDamage
         currentHealth = maxHealth;
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
+        timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         if (GameStats.enemyOnScreen[line + 1].Count > 0)
-             FindEnemy();
-         else GoHome();
+        if (GameStats.enemyOnScreen[line + 1].Count > 0)
+        {
+            if (timeCycle.GetIsDay())
+                FindEnemy();
+            else GoHome();
+
+        }     
+        else GoHome();
 
         if (immunityTimer > 0)
         {
