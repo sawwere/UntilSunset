@@ -8,20 +8,21 @@ public class Bat : MonoBehaviour, IDamage
     Vector2 position;
     public int line;
 
-    [SerializeField] private int maxHealth = 2; //максимальное здоровье
-    public int damage = 1; //урон
-    protected float immunityPeriod = 1.0f; // периодичность получения урона
-    protected float hitPeriod = 5.0f; // периодичность нанесения урона
-    protected int currentHealth; //текущее здоровье
-    public float immunityTimer; //счетчик неуязвимости
-    protected float hitTimer; //счетчик времени нанесения урона
-    public float firstHitPeriod = 1.5f; // время до первого нанесения урона
+    [SerializeField] private int maxHealth = 2; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    public int damage = 1; //пїЅпїЅпїЅпїЅ
+    protected float immunityPeriod = 1.0f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    protected float hitPeriod = 5.0f; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    protected int currentHealth; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    public float immunityTimer; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    protected float hitTimer; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    public float firstHitPeriod = 1.5f; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
     protected Rigidbody2D batt;
 
     public GameObject cofiin;
 
-
+    private TimeCycle timeCycle;
+    private Resources HenchmanRes;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,14 +37,21 @@ public class Bat : MonoBehaviour, IDamage
         currentHealth = maxHealth;
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
+        timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
+        HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         if (GameStats.enemyOnScreen[line + 1].Count > 0)
-             FindEnemy();
-         else GoHome();
+        if (GameStats.enemyOnScreen[line + 1].Count > 0)
+        {
+            if (timeCycle.GetIsDay())
+                FindEnemy();
+            else  GoHome(); 
+
+        }     
+        else GoHome();
 
         if (immunityTimer > 0)
         {
@@ -96,7 +104,6 @@ public class Bat : MonoBehaviour, IDamage
     public void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-
         if ((obj != null) && (obj.Equals(typeof(Bat))))
         {
              if (hitTimer <= 0)
@@ -122,5 +129,24 @@ public class Bat : MonoBehaviour, IDamage
     {
         //batt.position = Vector2.Lerp(batt.position,cofiin.transform.position, speed * Time.deltaTime);
         batt.position = Vector3.MoveTowards(batt.position, cofiin.transform.position, speed * Time.deltaTime);
+        if (!timeCycle.GetIsDay())
+        {
+            ReturnToPocket();
+        }
+    }
+
+    public int GetLine()
+    {
+        return line;
+    }
+
+    void ReturnToPocket()
+    {
+        if(batt.position.x == cofiin.transform.position.x && batt.position.y == cofiin.transform.position.y)
+        {
+            GameStats.Henchman+=1;
+            Destroy(gameObject);
+            HenchmanRes.UpdateHenchman();
+        }
     }
 }

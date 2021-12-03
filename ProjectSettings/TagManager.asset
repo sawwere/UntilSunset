@@ -11,6 +11,7 @@ TagManager:
   - Minion
   - StoneCount
   - WoodCount
+  - Button
   layers:
   - Default
   - TransparentFX
