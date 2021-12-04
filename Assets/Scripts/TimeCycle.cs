@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class TimeCycle : MonoBehaviour
 {
     public Light lght;
-    int DayLenght = 5000;
-    int NightLenght = 5000;
-    public GameObject spawner;
+    int DayLenght = 3000;
+    int NightLenght = 3000;
+    public List<GameObject> spawners;
     public Text TimeTXT;
     public GameObject newwave;
     public newwave nw;
-    int GameTime = 0;  
+    int GameTime = 3001;  
     bool isDay = true;
     bool fpd = true;
     int lightintensity;
@@ -44,7 +44,8 @@ public class TimeCycle : MonoBehaviour
             {
                 isDay = false;
                 GameTime = 0;
-                spawner.SetActive(false);
+                foreach (var spawner in spawners)
+                    spawner.SetActive(false);
                 foreach (var line in GameStats.enemyOnScreen)
                     foreach (var enemy in line)
                         enemy.ReturnToBase();
@@ -81,8 +82,10 @@ public class TimeCycle : MonoBehaviour
                 }
 
                 isDay = true;
+                Debug.Log("day");
                 GameTime = 0;
-                spawner.SetActive(true);
+                foreach (var spawner in spawners)
+                    spawner.SetActive(true);
                 GameStats.Encounter++;
             }
         }
@@ -98,4 +101,5 @@ public class TimeCycle : MonoBehaviour
     {
         return isDay;
     }
+
 }

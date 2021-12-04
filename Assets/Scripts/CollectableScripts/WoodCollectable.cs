@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinCollectable : MonoBehaviour
+public class WoodCollectable : MonoBehaviour
 {
     private Resources resources;
     private void Start()
     {
-        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        resources = GameObject.Find("WoodText").GetComponent<Resources>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -16,11 +16,9 @@ public class CoinCollectable : MonoBehaviour
 
         if (controller != null)
         {
-            GameStats.Coins += 1;
-            resources.UpdateCoins();
+            GameStats.Wood += 1;
+            resources.UpdateWood();
             Destroy(gameObject);
         }
     }
-
-
 }

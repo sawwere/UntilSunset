@@ -26,7 +26,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public LayerMask aviableHitMask;
 
     protected Rigidbody2D rigidbody2d;
-    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private GameObject resoursePrefab;
 
     public int health 
     { 
@@ -93,9 +93,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     //���� ���� ���� ��-�� ������ ����� ��������
     public void EnemyKilled()
     {
-        System.Random r = new System.Random();
-        if (r.Next(2) > 0)
-            Instantiate(coinPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        if (Random.Range(0, 2) > 0 || this._name=="enemy1_range" || this._name == "enemy1_big")
+            Instantiate(resoursePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         Destroy(gameObject);
     }
 
@@ -127,7 +126,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     {
         direction *= -1;
         PlayWalkAnimation();
-        transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.x);
         transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
     }
 
