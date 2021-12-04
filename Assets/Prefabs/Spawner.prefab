@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6479063497515502914}
   - component: {fileID: 6479063497515502915}
   - component: {fileID: 2620418447589565293}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   spawnCount: 0
   spawnRate: 5
   spawnTime: 0
-  direction: 0
+  direction: -1
 --- !u!61 &2620418447589565293
 BoxCollider2D:
   m_ObjectHideFlags: 0

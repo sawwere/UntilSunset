@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class TimeCycle : MonoBehaviour
 {
     public Light lght;
-    int DayLenght = 3000;
-    int NightLenght = 3000;
+    [SerializeField] int DayLenght = 3000;
+    [SerializeField] int NightLenght = 3000;
     public List<GameObject> spawners;
     public Text TimeTXT;
     public GameObject newwave;
     public newwave nw;
-    int GameTime = 3001;  
+    int GameTime = 0;  
     bool isDay = true;
     bool fpd = true;
     int lightintensity;
@@ -98,7 +98,10 @@ public class TimeCycle : MonoBehaviour
                 Debug.Log("day");
                 GameTime = 0;
                 foreach (var spawner in spawners)
+                {
                     spawner.SetActive(true);
+                    spawner.GetComponent<SpawnerScript>().UpdateSpawn();
+                }
                 GameStats.Encounter++;
 
                 StartCoroutine(SetDay());

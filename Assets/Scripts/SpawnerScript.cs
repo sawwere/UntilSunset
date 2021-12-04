@@ -68,7 +68,7 @@ public class SpawnerScript : MonoBehaviour
             Destroy(e.gameObject);
     }
 
-    private void UpdateSpawn()
+    public void UpdateSpawn()
     {
         int e = GameStats.Encounter;
         spawnCount = 10 * (int)Pow(diffictyRate, encounter);
