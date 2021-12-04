@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bat : MonoBehaviour, IDamage
 {
     public float speed = 2.5f;
-    private float speedInit;
     Vector2 position;
     public int line;
 
@@ -27,7 +26,6 @@ public class Bat : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        speedInit = speed;
         transform.position = new Vector2(transform.position.x, (float)System.Math.Round(transform.position.y));
         if(transform.position.y>-1.4 && transform.position.y<1.4)
         {
@@ -149,24 +147,6 @@ public class Bat : MonoBehaviour, IDamage
             GameStats.Henchman+=1;
             Destroy(gameObject);
             HenchmanRes.UpdateHenchman();
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            speed = 0;
-            Debug.Log("OnCollisionEnter2D BAT");
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            speed = speedInit;
-            Debug.Log("OnCollisionExit2D BAT");
         }
     }
 }
