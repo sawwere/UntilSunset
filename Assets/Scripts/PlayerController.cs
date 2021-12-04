@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float xSpeed = 2.5f; // скорость
+    public float xSpeed = 2.5f;
     public float ySpeed = 2f;
 
     public float timeInvincible = 2.0f; // врем€ неу€звимости
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Bat;
 
     private Resources HenchmanRes;
+    private Resources coinsRes;
 
     private Vector3 batSpawnPosition;
 
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
         rigidbBody2D = GetComponent<Rigidbody2D>();
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
+        coinsRes = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
 
     private void Start()
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        IncreaseMoney();
+
         if (isTurning) return;
 
         Turning();
@@ -170,6 +174,15 @@ public class PlayerController : MonoBehaviour
         if (!isBat && timeCycle.GetIsDay())
         {
             TurnIntoBat();
+        }
+    }
+
+    private void IncreaseMoney()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameStats.Coins += 100;
+            coinsRes.UpdateCoins();
         }
     }
 }
