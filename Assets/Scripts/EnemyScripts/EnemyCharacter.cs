@@ -47,6 +47,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         currentHealth = maxHealth;
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
+        transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
     }
 
     // Update is called once per frame
@@ -124,7 +125,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     {
         direction *= -1;
         PlayWalkAnimation();
-        transform.localScale -= new Vector3(2 * transform.localScale.x, 0, 0);
+        transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
         transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
     }
 
