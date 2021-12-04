@@ -19,7 +19,6 @@ public class SpawnerScript : MonoBehaviour
     void Start()
     {
         usedEnemies = enemies;
-        currentSpawned = 0;
         UpdateSpawn();
     }
 
@@ -53,7 +52,7 @@ public class SpawnerScript : MonoBehaviour
             }
             else
             {
-                res = usedEnemies[ind];
+                res = usedEnemies[1];
                 currentSpawned += res.price;
                 break;
             }
@@ -61,12 +60,6 @@ public class SpawnerScript : MonoBehaviour
         return res;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        EnemyCharacter e = collision.gameObject.GetComponent<EnemyCharacter>();
-        if (e)
-            Destroy(e.gameObject);
-    }
 
     public void UpdateSpawn()
     {
@@ -75,5 +68,6 @@ public class SpawnerScript : MonoBehaviour
         int nightLen = 60;
         spawnRate = nightLen / spawnCount;
         spawnTime = 0;
+        currentSpawned = 0;
     }
 }
