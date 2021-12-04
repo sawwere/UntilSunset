@@ -29,8 +29,8 @@ public class SpawnerScript : MonoBehaviour
         spawnTime -= Time.deltaTime;
         if ((currentSpawned < spawnCount) && (spawnTime <= 0))
         {
-            System.Random r = new System.Random();
-            int line = r.Next(0,3);
+            int line = Random.Range(0, 3);
+            Debug.Log(line);
             EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
             enemyObject.direction = direction;
             spawnTime = spawnRate;
@@ -40,16 +40,15 @@ public class SpawnerScript : MonoBehaviour
 
     private EnemyCharacter ChooseEnemy()
     {
-        System.Random r = new System.Random();
         EnemyCharacter res;
-        int limit = 0;
-        if (GameStats.Encounter > 4)
+        int limit = 1;
+        if (GameStats.Encounter > 2)
             limit++;
-        if (GameStats.Encounter > 10)
+        if (GameStats.Encounter > 4)
             limit++;
         while (true)
         {
-            int ind = r.Next(0, limit);
+            int ind = Random.Range(0, limit);
             if (usedEnemies[ind].price > spawnCount - currentSpawned)
             {
                 usedEnemies.RemoveAt(ind);
