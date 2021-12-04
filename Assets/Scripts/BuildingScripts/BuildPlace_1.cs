@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildPlace_1 : MonoBehaviour
 {
@@ -32,11 +33,20 @@ public class BuildPlace_1 : MonoBehaviour
         }
     }
 
+    private void OnMouseDown()
+    {
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            DisplayDialog();
+        }
+    }
+
     public void BuildWall()
     {
         if ((GameStats.Coins >= 3) && (!EnemyIsNear))
         {
-            Instantiate(wall, transform.position, transform.rotation);
+            var wallinst = Instantiate(wall, transform.position, transform.rotation);
+            wallinst.transform.SetParent(this.transform);
             GameStats.Coins -= 3;
             resources.UpdateCoins();
             HideDialog();
