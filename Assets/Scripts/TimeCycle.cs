@@ -13,7 +13,7 @@ public class TimeCycle : MonoBehaviour
     public GameObject newwave;
     public newwave nw;
     int GameTime = 0;  
-    bool isDay = true;
+    bool isDay = false;
     bool fpd = true;
     int lightintensity;
     public GameObject sky1;
@@ -29,15 +29,24 @@ public class TimeCycle : MonoBehaviour
     public float vol = 0.2f;
     //////////////
 
-
+    void Awake()
+    {
+        lght.intensity = 0;
+        newwave.SetActive(false);
+        foreach (var spawner in spawners)
+            spawner.SetActive(false);
+        foreach (var line in GameStats.enemyOnScreen)
+            foreach (var enemy in line)
+                enemy.ReturnToBase();
+    }
     // Start is called before the first frame update
     void Start()
     {
-        //spawner.SetActive(false);
-        //newwave.SetActive(false);
+        
+        
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        NightM.volume = 0;
-        DayM.volume = vol;
+        NightM.volume = vol;
+        DayM.volume = 0;
     }
 
     void FixedUpdate()
