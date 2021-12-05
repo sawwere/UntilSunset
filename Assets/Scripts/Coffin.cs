@@ -12,6 +12,7 @@ public class Coffin : Building
 
     protected override void Start()
     {
+
         HideDialog();
         timerDisplay = -1.0f;
         maxHealth = 3;
@@ -33,7 +34,8 @@ public class Coffin : Building
 
     private void OnMouseDown()
     {
-        DisplayDialog();
+        if (health != maxHealth)
+            DisplayDialog();
     }
 
     public void DisplayDialog()
