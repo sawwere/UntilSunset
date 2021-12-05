@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: c2d0a6030ae1611459569af09034147e
+guid: 2452b58dada41d74d8099b189f8b3426
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8834009192901066418
-    second: grobrr_0
-  - first:
-      213: 6110799116514195364
-    second: grobrr_1
+      213: 9162818234773452754
+    second: Bez_imeni-3 (2)_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grobrr_0
+      name: Bez_imeni-3 (2)_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 60
-        width: 88
-        height: 192
+        x: 6
+        y: 2
+        width: 164
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,29 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2be376d6e84b89a70800000000000000
-      internalID: 8834009192901066418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grobrr_1
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 60
-        width: 88
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a779998b6bedc450800000000000000
-      internalID: 6110799116514195364
+      spriteID: 2d7b42943aed82f70800000000000000
+      internalID: 9162818234773452754
       vertices: []
       indices: 
       edges: []
