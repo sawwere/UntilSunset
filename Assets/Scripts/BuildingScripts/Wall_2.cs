@@ -27,7 +27,7 @@ public class Wall_2 : Wall
 
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject() && (health != maxHealth))
         {
             DisplayDialog();
         }

@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 public class Wall_1 : Wall
 {
     public float displayTime = 5.0f;
-
     private bool upgraded = false;
     public GameObject dialogBox;
+    public GameObject dialogBox2;
     public GameObject wall2;
     private Resources resources;
     private BuildPlace_1 bp;
@@ -58,10 +58,10 @@ public class Wall_1 : Wall
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
         if ((GameStats.Wood >= 1) && (health < maxHealth))
         {
-            health = maxHealth;
             GameStats.Wood -= 1;
             resources.UpdateWood();
             HideDialog();
+            health = maxHealth;
 
         }
     }
@@ -84,12 +84,24 @@ public class Wall_1 : Wall
     public void DisplayDialog()
     {
         timerDisplay = displayTime;
-        dialogBox.SetActive(true);
+        if (health == maxHealth)
+        {
+            dialogBox.SetActive(false);
+            dialogBox2.SetActive(true);
+        }
+        else
+        {
+            dialogBox2.SetActive(false);
+            dialogBox.SetActive(true);
+        }
     }
 
     public void HideDialog()
     {
-        dialogBox.SetActive(false);
+        if (health == maxHealth)
+            dialogBox2.SetActive(false);
+        else
+            dialogBox.SetActive(false);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
