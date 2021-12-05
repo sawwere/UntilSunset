@@ -14,7 +14,7 @@ public class SpawnerScript : MonoBehaviour
     private double diffictyRate = 1.2; //множитель увеличения стоимости врагов
     private int currentSpawned;  //общая стоимость заспавненных врагов
     [SerializeField] private float spawnTime; //период спавна врагов
-    [SerializeField] private int direction;
+    [SerializeField] private int direction; // задает направление врагов после спавна
 
     void Start()
     {
@@ -31,7 +31,6 @@ public class SpawnerScript : MonoBehaviour
             EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
             enemyObject.direction = direction;
             spawnTime = spawnRate;
-            Debug.Log(currentSpawned);
         }
     }
 
@@ -52,7 +51,7 @@ public class SpawnerScript : MonoBehaviour
             }
             else
             {
-                res = usedEnemies[1];
+                res = usedEnemies[ind];
                 currentSpawned += res.price;
                 break;
             }
@@ -64,7 +63,7 @@ public class SpawnerScript : MonoBehaviour
     public void UpdateSpawn()
     {
         int e = GameStats.Encounter;
-        spawnCount = 10 * (int)Pow(diffictyRate, encounter);
+        spawnCount = 6 * (int)Pow(diffictyRate, encounter);
         int nightLen = 60;
         spawnRate = nightLen / spawnCount;
         spawnTime = 0;

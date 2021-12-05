@@ -5,20 +5,20 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyCharacter: MonoBehaviour, IDamage
 {
-    public string _name; // ���
-    public int price; // �������� ��������� ������
-    [SerializeField] private int maxHealth = 2; //������������ ��������
-    public float speed = 1.0f; //�������� ��������
-    private float speedInit;
-    public int line;
-    public int armor = 0; //�����
-    public int damage = 1; //����
-    protected float immunityPeriod = 2.0f; // ������������� ��������� �����
-    protected float hitPeriod = 5.0f; // ������������� ��������� �����
-    protected int _direction = 1; //�����������
-    private int currentHealth; //������� ��������
-    public float immunityTimer; //������� ������������
-    protected float hitTimer; //������� ������� ��������� �����
+    public string _name; // имя
+    public int price; // цена спавна(сложность врага)
+    [SerializeField] private int maxHealth = 2; //макс здоровье
+    public float speed = 1.0f; //скорость передвижения
+    private float speedInit; // для восстановления скорости после остановки
+    public int line; //на какой линни ходит враг
+    public int armor = 0; //броня на будущее
+    public int damage = 1; //урон
+    protected float immunityPeriod = 2.0f; // переодичность получения урона
+    protected float hitPeriod = 5.0f; // переодичность нанесения урона
+    protected int _direction = 1; //направление
+    private int currentHealth; //текущее здоровье
+    public float immunityTimer; //таймер иммунитета к получению урона
+    protected float hitTimer; //таймер нанесения урона
     public float firstHitPeriod = 1.5f; // ����� �� ������� ��������� �����
 
     private bool enterMainBuilding = false;
@@ -26,7 +26,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public LayerMask aviableHitMask;
 
     protected Rigidbody2D rigidbody2d;
-    [SerializeField] private GameObject resoursePrefab;
+    [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
 
     public int health 
     { 
@@ -37,6 +37,17 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     {
         get { return _direction;}
         set { if (System.Math.Abs(value) == 1) _direction = value; }
+    }
+
+    public void SpeedResetToZero()
+    {
+        speedInit = speed;
+        speed = 0;
+    }
+
+    public void SpeedRestore()
+    {
+        speed = speedInit;
     }
 
     // Start is called before the first frame update
@@ -78,7 +89,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
             rigidbody2d.MovePosition(position);
 
         }
-        
+        //Debug.Log(speed);
         if (transform.position.y > 2 || transform.position.y < -1)
         {
             Destroy(gameObject);
@@ -141,21 +152,4 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         return this.line;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Minion")
-        {
-            speed = 0;
-            Debug.Log("OnCollisionEnter2D Enemy");
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Minion")
-        {
-            speed = speedInit;
-            Debug.Log("OnCollisionExit2D Enemy");
-        }
-    }
 }

@@ -11,14 +11,6 @@ public class EnemyRangeAtack : MonoBehaviour
         parentEnemy = transform.parent.gameObject.GetComponent<EnemyRange>();
         GetComponent<BoxCollider2D>().offset = new Vector2( 2, 0.2f);
     }
-    /*
-     * private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Wall_1 wall = collision.GetComponent<Wall_1>();
-        if (wall)
-            SetTarget(collision);
-    }
-    */
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -43,7 +35,6 @@ public class EnemyRangeAtack : MonoBehaviour
             parentEnemy.target = obj;
             parentEnemy.targetPoint = parentEnemy.target.transform.position;
             Debug.Log("target has been found");
-            //GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }
