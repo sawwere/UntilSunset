@@ -17,13 +17,13 @@ public class EnemyProjectile : MonoBehaviour
     }
 
 
-    public void Launch(float force, int damage)
+    public void Launch(float force, int damage, int direction, int line)
     {
         Debug.Log("launch");
-        line = (int)transform.position.y;
+        this.line = line;
         rigidbody2d.rotation = 45;
         //rigidbody2d.AddForce(direction * force, ForceMode2D.Impulse);  
-        rigidbody2d.velocity = new Vector2( 1,1) * force;
+        rigidbody2d.velocity = new Vector2( direction, 1) * force;
         rigidbody2d.angularVelocity = - 90;
         this.damage = damage;
     }

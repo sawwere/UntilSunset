@@ -97,13 +97,12 @@ public class TimeCycle : MonoBehaviour
                 isDay = true;
                 Debug.Log("day");
                 GameTime = 0;
+                GameStats.Encounter++;
                 foreach (var spawner in spawners)
                 {
                     spawner.SetActive(true);
                     spawner.GetComponent<SpawnerScript>().UpdateSpawn();
                 }
-                GameStats.Encounter++;
-
                 StartCoroutine(SetDay());
             }
         }

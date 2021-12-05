@@ -12,6 +12,7 @@ TagManager:
   - StoneCount
   - WoodCount
   - Button
+  - GameStats
   layers:
   - Default
   - TransparentFX
