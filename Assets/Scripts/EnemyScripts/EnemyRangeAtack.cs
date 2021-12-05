@@ -9,7 +9,7 @@ public class EnemyRangeAtack : MonoBehaviour
     private void Start()
     {
         parentEnemy = transform.parent.gameObject.GetComponent<EnemyRange>();
-        GetComponent<BoxCollider2D>().offset = new Vector2( 2, 0.2f);
+        GetComponent<BoxCollider2D>().offset = new Vector2( 1.5f, 0.2f);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
