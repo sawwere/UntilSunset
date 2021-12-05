@@ -50,3 +50,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 3241634975
+    locked: 0
+  - name: Object
+    uniqueID: 4003252847
+    locked: 0
+  - name: UI
+    uniqueID: 2017701733
+    locked: 0
