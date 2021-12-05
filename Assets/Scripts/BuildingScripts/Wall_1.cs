@@ -21,6 +21,7 @@ public class Wall_1 : Wall
         bp.GetComponent<BoxCollider2D>().enabled = false;
         timerDisplay = -1.0f;
         dialogBox.SetActive(false);
+        dialogBox2.SetActive(false);
         maxHealth = 2;
         base.Start();
     }
@@ -33,6 +34,7 @@ public class Wall_1 : Wall
             if (timerDisplay < 0)
             {
                 dialogBox.SetActive(false);
+                dialogBox2.SetActive(false);
             }
         }
     }
