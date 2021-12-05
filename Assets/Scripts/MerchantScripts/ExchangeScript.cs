@@ -25,7 +25,6 @@ public class ExchangeScript : MonoBehaviour
             GameStats.Coins += 1;
             CoinsRes.UpdateCoins();
             WoodRes.UpdateWood();
-            Debug.Log(GameStats.Coins);
         }
     }
 
@@ -37,7 +36,6 @@ public class ExchangeScript : MonoBehaviour
             GameStats.Wood += 1;
             CoinsRes.UpdateCoins();
             WoodRes.UpdateWood();
-            Debug.Log(GameStats.Wood);
         }
     }
 

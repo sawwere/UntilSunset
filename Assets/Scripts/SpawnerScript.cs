@@ -10,7 +10,6 @@ public class SpawnerScript : MonoBehaviour
 
     public int spawnCount;//максимум общей стоимости врагов на текущей волне
     public float spawnRate;//счетчик времени спавна врагов
-    private int encounter; //номер волны
     private double diffictyRate = 1.2; //множитель увеличения стоимости врагов
     private int currentSpawned;  //общая стоимость заспавненных врагов
     [SerializeField] private float spawnTime; //период спавна врагов
@@ -18,7 +17,6 @@ public class SpawnerScript : MonoBehaviour
 
     void Start()
     {
-        usedEnemies = enemies;
         UpdateSpawn();
     }
 
@@ -38,13 +36,13 @@ public class SpawnerScript : MonoBehaviour
     {
         EnemyCharacter res;
         int limit = 1;
-        if (GameStats.Encounter > 2)
+        if (GameStats.Encounter > 0)
             limit++;
-        if (GameStats.Encounter > 4)
+        if (GameStats.Encounter > 0)
             limit++;
         while (true)
         {
-            int ind = Random.Range(0, limit);
+            int ind = Random.Range(0, Min(limit, usedEnemies.Count));
             if (usedEnemies[ind].price > spawnCount - currentSpawned)
             {
                 usedEnemies.RemoveAt(ind);
@@ -63,10 +61,11 @@ public class SpawnerScript : MonoBehaviour
     public void UpdateSpawn()
     {
         int e = GameStats.Encounter;
-        spawnCount = 6 * (int)Pow(diffictyRate, encounter);
+        spawnCount = (int)(6 * Pow(diffictyRate, e));
         int nightLen = 60;
         spawnRate = nightLen / spawnCount;
         spawnTime = 0;
         currentSpawned = 0;
+        usedEnemies = new List<EnemyCharacter>(enemies); ;
     }
 }
