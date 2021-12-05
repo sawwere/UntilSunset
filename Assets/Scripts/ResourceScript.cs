@@ -14,7 +14,8 @@ public class ResourceScript : MonoBehaviour
     private PlayerController pl;
     private Collider2D col;
     private bool PlayerIsNear;
-    private float DTime = 0.2f;
+    private float DTime = 0f;
+    private const float DTimeMax = 0.4f;
     public float resLim;
     private float res;
     public Sprite[] sp = new Sprite[10];
@@ -39,7 +40,7 @@ public class ResourceScript : MonoBehaviour
     void Update()
     {
         DTime += Time.deltaTime;
-        if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= 0.2 && res > 0)
+        if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= DTimeMax && res > 0)
         {
             res--;
             if (res != 0)
