@@ -5,16 +5,17 @@ using UnityEngine;
 public class Bat : MonoBehaviour, IDamage
 {
     public float speed = 2.5f;
+    private float speedInit;
     Vector2 position;
     public int line;
 
-    [SerializeField] private int maxHealth = 2; //������������ ��������
-    public int damage = 1; //����
-    protected float immunityPeriod = 1.0f; // ������������� ��������� �����
-    protected float hitPeriod = 5.0f; // ������������� ��������� �����
-    protected int currentHealth; //������� ��������
-    public float immunityTimer; //������� ������������
-    protected float hitTimer; //������� ������� ��������� �����
+    [SerializeField] private int maxHealth = 2; //макс здоровье
+    public int damage = 1; //урон
+    protected float immunityPeriod = 1.0f; // переодичность получения урона
+    protected float hitPeriod = 5.0f; // переодичность нанесения урона
+    protected int currentHealth; //текущее здоровье
+    public float immunityTimer; //таймер иммунитета к получению урона
+    protected float hitTimer; //таймер нанесения урона
     public float firstHitPeriod = 1.5f; // ����� �� ������� ��������� �����
 
     protected Rigidbody2D batt;
@@ -26,6 +27,7 @@ public class Bat : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        speedInit = speed;
         transform.position = new Vector2(transform.position.x, (float)System.Math.Round(transform.position.y));
         if(transform.position.y>-1.4 && transform.position.y<1.4)
         {
@@ -98,13 +100,12 @@ public class Bat : MonoBehaviour, IDamage
         //batt.position = Vector2.Lerp(batt.position, nearEnemy.transform.position,speed*Time.deltaTime);
 
         batt.position = Vector3.MoveTowards(batt.position, nearEnemy.transform.position, speed * Time.deltaTime);
- 
     }
 
     public void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-        if ((obj != null) && (obj.Equals(typeof(Bat))))
+        if ((obj != null) && (!obj.Equals(typeof(Bat))))
         {
              if (hitTimer <= 0)
              {
@@ -147,6 +148,24 @@ public class Bat : MonoBehaviour, IDamage
             GameStats.Henchman+=1;
             Destroy(gameObject);
             HenchmanRes.UpdateHenchman();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            speed = 0;
+            //Debug.Log("OnCollisionEnter2D BAT");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            speed = speedInit;
+            //Debug.Log("OnCollisionExit2D BAT");
         }
     }
 }

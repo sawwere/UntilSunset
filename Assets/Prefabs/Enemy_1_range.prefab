@@ -255,7 +255,7 @@ MonoBehaviour:
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
-  coinPrefab: {fileID: 2011344550897061960, guid: f57c47a3ffced0e4586f81ba1e0ce7d0, type: 3}
+  resoursePrefab: {fileID: 6299716102179050544, guid: 8bae5b2c102181d4f902346a907d89f7, type: 3}
   target: {fileID: 0}
   targetPoint: {x: 0, y: 0}
   animator: {fileID: 5971617933076514399}

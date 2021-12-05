@@ -9,19 +9,17 @@ public class SpawnerScript : MonoBehaviour
     private List<EnemyCharacter> usedEnemies;
 
     public int spawnCount;//максимум общей стоимости врагов на текущей волне
-    public float spawnRate = 5.0f;//счетчик времени спавна врагов
+    public float spawnRate;//счетчик времени спавна врагов
     private int encounter; //номер волны
     private double diffictyRate = 1.2; //множитель увеличения стоимости врагов
     private int currentSpawned;  //общая стоимость заспавненных врагов
     [SerializeField] private float spawnTime; //период спавна врагов
-    [SerializeField] private int direction;
+    [SerializeField] private int direction; // задает направление врагов после спавна
 
     void Start()
     {
         usedEnemies = enemies;
-        spawnTime = spawnRate;
-        currentSpawned = 0;
-        spawnCount = 10 * (int)Pow(diffictyRate, encounter);
+        UpdateSpawn();
     }
 
     void Update()
@@ -30,11 +28,9 @@ public class SpawnerScript : MonoBehaviour
         if ((currentSpawned < spawnCount) && (spawnTime <= 0))
         {
             int line = Random.Range(0, 3);
-            Debug.Log(line);
             EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
             enemyObject.direction = direction;
             spawnTime = spawnRate;
-            currentSpawned++;
         }
     }
 
@@ -56,10 +52,21 @@ public class SpawnerScript : MonoBehaviour
             else
             {
                 res = usedEnemies[ind];
-                currentSpawned -= res.price;
+                currentSpawned += res.price;
                 break;
             }
         }
         return res;
+    }
+
+
+    public void UpdateSpawn()
+    {
+        int e = GameStats.Encounter;
+        spawnCount = 6 * (int)Pow(diffictyRate, encounter);
+        int nightLen = 60;
+        spawnRate = nightLen / spawnCount;
+        spawnTime = 0;
+        currentSpawned = 0;
     }
 }
