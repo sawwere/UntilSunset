@@ -13,7 +13,6 @@ public class StoneCollectable : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController controller = other.GetComponent<PlayerController>();
-        Debug.Log(666);
         if (controller != null)
         {
             GameStats.Stone += 1;

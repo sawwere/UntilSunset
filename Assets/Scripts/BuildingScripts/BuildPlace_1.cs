@@ -43,12 +43,12 @@ public class BuildPlace_1 : MonoBehaviour
 
     public void BuildWall()
     {
-        if ((GameStats.Coins >= 3) && (!EnemyIsNear))
+        if ((GameStats.Wood >= 3) && (!EnemyIsNear))
         {
             var wallinst = Instantiate(wall, transform.position, transform.rotation);
             wallinst.transform.SetParent(this.transform);
-            GameStats.Coins -= 3;
-            resources.UpdateCoins();
+            GameStats.Wood -= 3;
+            resources.UpdateWood();
             HideDialog();
         }
     }
