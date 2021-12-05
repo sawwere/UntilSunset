@@ -53,17 +53,29 @@ public class Wall_1 : Wall
         }
     }
 
+    public void Recover()
+    {
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        if ((GameStats.Wood >= 1) && (health < maxHealth))
+        {
+            health = maxHealth;
+            GameStats.Wood -= 1;
+            resources.UpdateWood();
+            HideDialog();
+
+        }
+    }
 
     public void UpgradeWall()
     {
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
-        if (GameStats.Coins >= 3)
+        if (GameStats.Wood >= 3)
         {
             upgraded = true;
             var wall2inst = Instantiate(wall2, transform.position, transform.rotation);
             wall2inst.transform.SetParent(transform.parent.transform);
-            GameStats.Coins -= 3;
-            resources.UpdateCoins();
+            GameStats.Wood -= 3;
+            resources.UpdateWood();
             HideDialog();
             Destroy(gameObject);
         }
@@ -77,7 +89,7 @@ public class Wall_1 : Wall
 
     public void HideDialog()
     {
-        dialogBox.SetActive(true);
+        dialogBox.SetActive(false);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -86,5 +98,5 @@ public class Wall_1 : Wall
         if (e != null)
             DoDamage(e);
     }
-    
+
 }
