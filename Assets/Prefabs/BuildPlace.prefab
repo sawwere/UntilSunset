@@ -388,7 +388,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u041F\u043E\u0441\u0442\u0440\u043E\u0438\u0442\u044C \u0441\u0442\u0435\u043D\u0443\n3
-    coins"
+    \u0434\u0435\u0440\u0435\u0432\u0430"
 --- !u!1 &5492386445772723184
 GameObject:
   m_ObjectHideFlags: 0

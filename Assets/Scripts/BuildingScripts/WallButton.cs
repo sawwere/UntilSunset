@@ -6,6 +6,7 @@ public class WallButton : MonoBehaviour
 {
     private BuildPlace_1 bp;
     private Wall_1 wll1;
+    private Wall_2 wll2;
 
     public void WallButtonPressed()
     {
@@ -17,5 +18,17 @@ public class WallButton : MonoBehaviour
     {
         wll1 = transform.parent.GetComponent<Wall_1>();
         wll1.UpgradeWall();
+    }
+
+    public void Wall1RecoverButtonPressed()
+    {
+        wll1 = transform.parent.GetComponent<Wall_1>();
+        wll1.Recover();
+    }
+
+    public void Wall2RecoverButtonPressed()
+    {
+        wll2 = transform.parent.GetComponent<Wall_2>();
+        wll2.Recover();
     }
 }
