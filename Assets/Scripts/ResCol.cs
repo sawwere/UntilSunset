@@ -23,7 +23,7 @@ public class ResCol : MonoBehaviour
         else if (!timeCycle.GetIsDay() && count == 0)
         {
             col.isTrigger = false;
-           // Debug.Log("IsTrigger = " + count);
+
         }
     }
 
