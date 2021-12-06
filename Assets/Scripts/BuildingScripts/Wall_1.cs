@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 public class Wall_1 : Wall
 {
     public float displayTime = 5.0f;
-
     private bool upgraded = false;
     public GameObject dialogBox;
+    public GameObject dialogBox2;
     public GameObject wall2;
     private Resources resources;
     private BuildPlace_1 bp;
@@ -21,6 +21,7 @@ public class Wall_1 : Wall
         bp.GetComponent<BoxCollider2D>().enabled = false;
         timerDisplay = -1.0f;
         dialogBox.SetActive(false);
+        dialogBox2.SetActive(false);
         maxHealth = 2;
         base.Start();
     }
@@ -33,6 +34,7 @@ public class Wall_1 : Wall
             if (timerDisplay < 0)
             {
                 dialogBox.SetActive(false);
+                dialogBox2.SetActive(false);
             }
         }
     }
@@ -53,17 +55,29 @@ public class Wall_1 : Wall
         }
     }
 
+    public void Recover()
+    {
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        if ((GameStats.Wood >= 1) && (health < maxHealth))
+        {
+            GameStats.Wood -= 1;
+            resources.UpdateWood();
+            HideDialog();
+            health = maxHealth;
+
+        }
+    }
 
     public void UpgradeWall()
     {
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
-        if (GameStats.Coins >= 3)
+        if (GameStats.Wood >= 3)
         {
             upgraded = true;
             var wall2inst = Instantiate(wall2, transform.position, transform.rotation);
             wall2inst.transform.SetParent(transform.parent.transform);
-            GameStats.Coins -= 3;
-            resources.UpdateCoins();
+            GameStats.Wood -= 3;
+            resources.UpdateWood();
             HideDialog();
             Destroy(gameObject);
         }
@@ -72,12 +86,24 @@ public class Wall_1 : Wall
     public void DisplayDialog()
     {
         timerDisplay = displayTime;
-        dialogBox.SetActive(true);
+        if (health == maxHealth)
+        {
+            dialogBox.SetActive(false);
+            dialogBox2.SetActive(true);
+        }
+        else
+        {
+            dialogBox2.SetActive(false);
+            dialogBox.SetActive(true);
+        }
     }
 
     public void HideDialog()
     {
-        dialogBox.SetActive(true);
+        if (health == maxHealth)
+            dialogBox2.SetActive(false);
+        else
+            dialogBox.SetActive(false);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -86,5 +112,5 @@ public class Wall_1 : Wall
         if (e != null)
             DoDamage(e);
     }
-    
+
 }

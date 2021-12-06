@@ -14,16 +14,21 @@ public class ResourceScript : MonoBehaviour
     private PlayerController pl;
     private Collider2D col;
     private bool PlayerIsNear;
-    private float DTime = 0.2f;
+    private float DTime;
+    private const float DTimeMax = 0.4f;
     public float resLim;
     private float res;
-    public Sprite[] sp = new Sprite[10];
+    public Sprite[] sp = new Sprite[11];
     public GameObject resInd;
     private SpriteRenderer resSp;
+    private bool isRestored;
+    private TimeCycle timeCycle;
 
     void Start()
     {
+        isRestored = true;
         res = resLim;
+        DTime = DTimeMax;
         resInd.SetActive(false);
         if (IsStone) tg = "StoneCount";
         else if (IsWood) tg = "WoodCount";
@@ -34,18 +39,28 @@ public class ResourceScript : MonoBehaviour
         pl = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         resSp = resInd.GetComponent<SpriteRenderer>();
         tcount.SetText(Convert.ToString(0));
+        timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
     }
 
     void Update()
     {
+        if (IsWood && !isRestored && !timeCycle.GetIsDay())
+        {
+            res = resLim;
+            resSp.sprite = sp[0];
+            isRestored = true;
+        }
+        else if (timeCycle.GetIsDay())
+            isRestored = false;
+
         DTime += Time.deltaTime;
-        if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= 0.2 && res > 0)
+        if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= DTimeMax && res > 0)
         {
             res--;
             if (res != 0)
-                resSp.sprite = sp[Math.Min(8, Convert.ToInt32(10 - Math.Floor(res / resLim * 10)))];
+                resSp.sprite = sp[Math.Min(9, Convert.ToInt32(10 - Math.Floor(res / resLim * 10)))];
             else
-                resSp.sprite = sp[9];
+                resSp.sprite = sp[10];
 
             if (IsStone)
             {
@@ -65,10 +80,13 @@ public class ResourceScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
-        {
-            resInd.SetActive(true);
             PlayerIsNear = true;
-        }
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player" && !pl.GetIsBat())
+            resInd.SetActive(true);
     }
 
     void OnTriggerExit2D(Collider2D col)

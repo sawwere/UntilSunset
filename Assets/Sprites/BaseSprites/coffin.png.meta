@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 732d22c44e8be9e488dda4c9fe2e9e3e
+guid: c2d0a6030ae1611459569af09034147e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -213601592502135325
-    second: coffin_0
+      213: 8834009192901066418
+    second: grobrr_0
   - first:
-      213: 4679728786752610250
-    second: coffin_1
+      213: 6110799116514195364
+    second: grobrr_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coffin_0
+      name: grobrr_0
       rect:
         serializedVersion: 2
         x: 8
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e5d37bbb72290df0800000000000000
-      internalID: -213601592502135325
+      spriteID: 2be376d6e84b89a70800000000000000
+      internalID: 8834009192901066418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coffin_1
+      name: grobrr_1
       rect:
         serializedVersion: 2
         x: 144
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acf1f8b898cb1f040800000000000000
-      internalID: 4679728786752610250
+      spriteID: 4a779998b6bedc450800000000000000
+      internalID: 6110799116514195364
       vertices: []
       indices: 
       edges: []

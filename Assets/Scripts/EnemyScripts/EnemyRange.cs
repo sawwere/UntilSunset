@@ -73,7 +73,8 @@ public class EnemyRange : EnemyCharacter
             Bat b = target.GetComponent<Bat>();
             targetPoint.x = System.Math.Abs(transform.position.x - b.transform.position.x) < 1 ? b.transform.position.x : b.transform.position.x - b.speed * 1f;
         }
-        projectile.Launch(direction * CalcForce(transform.position.x, targetPoint.x), this.damage);
+
+        projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line);
     }
 
     public override void PlayWalkAnimation()

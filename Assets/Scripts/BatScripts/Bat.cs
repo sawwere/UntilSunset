@@ -9,13 +9,13 @@ public class Bat : MonoBehaviour, IDamage
     Vector2 position;
     public int line;
 
-    [SerializeField] private int maxHealth = 2; //������������ ��������
-    public int damage = 1; //����
-    protected float immunityPeriod = 1.0f; // ������������� ��������� �����
-    protected float hitPeriod = 5.0f; // ������������� ��������� �����
-    protected int currentHealth; //������� ��������
-    public float immunityTimer; //������� ������������
-    protected float hitTimer; //������� ������� ��������� �����
+    [SerializeField] private int maxHealth = 2; //макс здоровье
+    public int damage = 1; //урон
+    protected float immunityPeriod = 1.0f; // переодичность получения урона
+    protected float hitPeriod = 5.0f; // переодичность нанесения урона
+    protected int currentHealth; //текущее здоровье
+    public float immunityTimer; //таймер иммунитета к получению урона
+    protected float hitTimer; //таймер нанесения урона
     public float firstHitPeriod = 1.5f; // ����� �� ������� ��������� �����
 
     protected Rigidbody2D batt;
@@ -105,7 +105,7 @@ public class Bat : MonoBehaviour, IDamage
     public void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-        if ((obj != null) && (obj.Equals(typeof(Bat))))
+        if ((obj != null) && (!obj.Equals(typeof(Bat))))
         {
              if (hitTimer <= 0)
              {
@@ -156,7 +156,7 @@ public class Bat : MonoBehaviour, IDamage
         if (collision.gameObject.tag == "Enemy")
         {
             speed = 0;
-            Debug.Log("OnCollisionEnter2D BAT");
+            //Debug.Log("OnCollisionEnter2D BAT");
         }
     }
 
@@ -165,7 +165,7 @@ public class Bat : MonoBehaviour, IDamage
         if (collision.gameObject.tag == "Enemy")
         {
             speed = speedInit;
-            Debug.Log("OnCollisionExit2D BAT");
+            //Debug.Log("OnCollisionExit2D BAT");
         }
     }
 }
