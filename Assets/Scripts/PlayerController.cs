@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
     private void CalculateBatSpawnPosition()
     {
         batSpawnPosition = transform.position;
-        //batSpawnPosition.y += 0.5f;
+        batSpawnPosition.y -= 0.85f;
         batSpawnPosition.y = Math.Min(batSpawnPosition.y, 1);
         batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);
     }

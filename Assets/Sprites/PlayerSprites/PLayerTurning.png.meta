@@ -358,10 +358,10 @@ TextureImporter:
       name: Player_Turning_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 581
-        width: 284
-        height: 474
+        x: 58
+        y: 583
+        width: 282
+        height: 255
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -379,10 +379,10 @@ TextureImporter:
       name: Player_Bat_0
       rect:
         serializedVersion: 2
-        x: 603
+        x: 604
         y: 640
-        width: 211
-        height: 474
+        width: 207
+        height: 197
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,7 +403,7 @@ TextureImporter:
         x: 987
         y: 640
         width: 388
-        height: 474
+        height: 143
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,7 +424,7 @@ TextureImporter:
         x: 1430
         y: 663
         width: 373
-        height: 474
+        height: 120
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
