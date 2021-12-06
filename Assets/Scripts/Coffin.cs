@@ -15,7 +15,7 @@ public class Coffin : Building
 
         HideDialog();
         timerDisplay = -1.0f;
-        maxHealth = 3;
+        maxHealth = 8;
         base.Start();
     }
 
@@ -51,6 +51,7 @@ public class Coffin : Building
 
     private void Update()
     {
+        //Debug.Log(health);
         if (timerDisplay >= 0)
         {
             timerDisplay -= Time.deltaTime;
@@ -70,6 +71,18 @@ public class Coffin : Building
             //RecieveDamage(e.damage);
             UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
             Destroy(e.gameObject);
+        }
+    }
+
+    new public void RecieveDamage(int amount)
+    {
+        health -= amount;
+        UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
+        if (health <= 0)
+        {
+            Destroy(this);
+            FindObjectOfType<PauseMenu>().Lose();
+            Debug.Log(name + " has been destoyed");
         }
     }
 }
