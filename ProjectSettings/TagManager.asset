@@ -13,6 +13,8 @@ TagManager:
   - WoodCount
   - Button
   - GameStats
+  - Coffin
+  - Temp
   layers:
   - Default
   - TransparentFX

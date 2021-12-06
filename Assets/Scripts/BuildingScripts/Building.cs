@@ -29,12 +29,10 @@ public class Building : MonoBehaviour
 
     public void RecieveDamage(int amount)
     {
-        Debug.Log(health);
         health -= amount;
         if (health <= 0)
         {
-            Debug.Log(health);
-            Destroy(this);
+            Destroy(gameObject);
             if (gameObject.name == "Coffin")
                 FindObjectOfType<PauseMenu>().Lose();
             Debug.Log(name + " has been destoyed");
