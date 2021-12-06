@@ -20,9 +20,11 @@ public class ResourceScript : MonoBehaviour
     private float res;
     public Sprite[] sp = new Sprite[11];
     public GameObject resInd;
+    public GameObject helpMenuUI;
     private SpriteRenderer resSp;
     private bool isRestored;
     private TimeCycle timeCycle;
+
 
     void Start()
     {
@@ -32,7 +34,6 @@ public class ResourceScript : MonoBehaviour
         resInd.SetActive(false);
         if (IsStone) tg = "StoneCount";
         else if (IsWood) tg = "WoodCount";
-
         col = GetComponent<Collider2D>();
         PlayerIsNear = false;
         tcount = GameObject.FindWithTag(tg).GetComponent<TextMeshProUGUI>();
@@ -41,6 +42,8 @@ public class ResourceScript : MonoBehaviour
         tcount.SetText(Convert.ToString(0));
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
     }
+
+   
 
     void Update()
     {
@@ -86,7 +89,10 @@ public class ResourceScript : MonoBehaviour
     void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player" && !pl.GetIsBat())
+        {
             resInd.SetActive(true);
+            helpMenuUI.SetActive(true);
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -94,6 +100,7 @@ public class ResourceScript : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             resInd.SetActive(false);
+            helpMenuUI.SetActive(false);
             PlayerIsNear = false;
         }
     }

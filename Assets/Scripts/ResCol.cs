@@ -23,19 +23,19 @@ public class ResCol : MonoBehaviour
         else if (!timeCycle.GetIsDay() && count == 0)
         {
             col.isTrigger = false;
-            Debug.Log("IsTrigger = " + count);
+           // Debug.Log("IsTrigger = " + count);
         }
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
         count++;
-        Debug.Log("Enter = " + count);
+        //Debug.Log("Enter = " + count);
     }
 
     void OnTriggerExit2D (Collider2D coll)
     {
         count--;
-        Debug.Log("Exit = " + count);
+       // Debug.Log("Exit = " + count);
     }
 }
