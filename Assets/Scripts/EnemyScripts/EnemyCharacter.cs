@@ -25,6 +25,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage
 
     public LayerMask aviableHitMask;
 
+    public GameObject coffin;
+
     protected Rigidbody2D rigidbody2d;
     [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
 
@@ -61,6 +63,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
+        coffin = GameObject.FindWithTag("Coffin");
     }
 
     // Update is called once per frame
@@ -79,11 +82,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
-        if (enterMainBuilding)
-        {
-            //position.y = position.y + Time.deltaTime * speed;
-        }
-        else
+
         {
             position.x = position.x + Time.deltaTime * speed * direction;
             rigidbody2d.MovePosition(position);
@@ -129,13 +128,17 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     {
         enterMainBuilding = true;
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
-        Vector2 drctn = new Vector2(-transform.position.x, -transform.position.y);
-        rigidbody2d.velocity = drctn.normalized * speed;
+        //Vector2 drctn = new Vector2(-transform.position.x, -transform.position.y);
+        //rigidbody2d.velocity = drctn.normalized * speed;
+        coffin.GetComponent<Coffin>().RecieveDamage(damage);
+        //UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
+        Destroy(gameObject);
     }
 
     public void ReturnToBase()
     {
         direction *= -1;
+        SpeedRestore();
         PlayWalkAnimation();
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.x);
         transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;

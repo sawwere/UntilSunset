@@ -15,7 +15,7 @@ public class GameStats:MonoBehaviour
     public static int Encounter
     {
         get { return encounter; }
-        set { encounter = value; }
+        set { encounter = value; if (encounter == 4) FindObjectOfType<PauseMenu>().Win(); }
     }
 
     public static int Level
@@ -53,7 +53,7 @@ public class GameStats:MonoBehaviour
     }
     void Awake()
     {
-        Encounter = 1;
+        Encounter = 0;
         level = 1;
         spawnerList = new List<SpawnerScript>();
         enemyOnScreen = new List<List<EnemyCharacter>>();

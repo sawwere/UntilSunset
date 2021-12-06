@@ -255,6 +255,7 @@ MonoBehaviour:
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
+  coffin: {fileID: 5956774385877164423, guid: 05ff443d7506a884e94568c7d0e5b95a, type: 3}
   resoursePrefab: {fileID: 4722983956336941154}
   animator: {fileID: 1299198292}
 --- !u!95 &1299198292
