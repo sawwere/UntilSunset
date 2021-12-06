@@ -10,7 +10,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject loseMenuUI;
     public GameObject winMenuUI;
-    
+ 
+
+
     private void Start()
     {
         GameIsLosed = false;
@@ -89,4 +91,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         winMenuUI.SetActive(true);
     }
+
+ 
 }
