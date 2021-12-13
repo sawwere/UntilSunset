@@ -2,34 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainBuilding : MonoBehaviour
+public class Foliage : MonoBehaviour
 {
-    public GameObject facade = null;
-
     private bool isTriggered;
 
     SpriteRenderer sprite;
 
-    void Start()
+    void Awake()
     {
-        sprite = facade.GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
         Color color = sprite.material.color;
-        color.a = 0f;
+        color.a = 1f;
         sprite.material.color = color;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
-        if (enemy)
-        {
-            enemy.EnterMainBuilding();
-        }
-
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (player)
         {
-            player.EnterMainBuilding();
             isTriggered = true;
             StartCoroutine(nameof(MakeInvisible));
         }
@@ -40,7 +31,6 @@ public class MainBuilding : MonoBehaviour
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (player)
         {
-            player.ExitMainBuilding();
             isTriggered = false;
             StartCoroutine(nameof(MakeVisible));
         }
@@ -51,7 +41,7 @@ public class MainBuilding : MonoBehaviour
         float f = sprite.material.color.a;
         while (f < 1f && !isTriggered)
         {
-            f = System.Math.Min(f + 0.05f, 1f);
+            f = System.Math.Min(f + 0.03f, 1f);
             Color color = sprite.material.color;
             color.a = f;
             sprite.material.color = color;
@@ -62,9 +52,9 @@ public class MainBuilding : MonoBehaviour
     IEnumerator MakeInvisible()
     {
         float f = sprite.material.color.a;
-        while (isTriggered && f > 0f)
+        while (isTriggered && f > 0.5f)
         {
-            f = System.Math.Max(f - 0.05f, 0f);
+            f = System.Math.Max(f - 0.03f, 0.5f);
             Color color = sprite.material.color;
             color.a = f;
             sprite.material.color = color;

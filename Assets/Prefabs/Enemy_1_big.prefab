@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4096419097580870574}
   - component: {fileID: 1008039035235040518}
   - component: {fileID: 1299198292}
+  - component: {fileID: -4369212531907388151}
   m_Layer: 8
   m_Name: Enemy_1_big
   m_TagString: Enemy
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -291714449
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 2034867656617944762, guid: 017474fc932b6dd478b3ffbb410a49fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -277,6 +278,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4369212531907388151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722983956336941154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d44b31e465698468d6baf3ccc79847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 10
 --- !u!1 &5879635552182069947
 GameObject:
   m_ObjectHideFlags: 0
