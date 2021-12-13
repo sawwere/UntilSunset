@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2170815276252626292}
   - component: {fileID: 258403683482955523}
   - component: {fileID: -1986338799716144412}
+  - component: {fileID: -4333700173199587389}
   m_Layer: 12
   m_Name: Henchman
   m_TagString: Minion
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -291714449
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 4458756592102909738, guid: 7ba8a20d0d1967440932878b08685ca1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -172,6 +173,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4333700173199587389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4286908564588651508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d44b31e465698468d6baf3ccc79847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sotringOrderBase: 5000
+  offset: 0
 --- !u!1 &5800157367933056535
 GameObject:
   m_ObjectHideFlags: 0

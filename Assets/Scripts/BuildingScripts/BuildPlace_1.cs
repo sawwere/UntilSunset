@@ -45,7 +45,7 @@ public class BuildPlace_1 : MonoBehaviour
     {
         if ((GameStats.Wood >= 3) && (!EnemyIsNear))
         {
-            var wallinst = Instantiate(wall, transform.position, transform.rotation);
+            var wallinst = Instantiate(wall, new Vector3 (transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
             wallinst.transform.SetParent(this.transform);
             GameStats.Wood -= 3;
             resources.UpdateWood();

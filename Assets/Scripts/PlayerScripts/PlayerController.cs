@@ -26,10 +26,18 @@ public class PlayerController : MonoBehaviour
     private Resources HenchmanRes;
     private Resources coinsRes;
 
+    private int sotringOrderBase = 1000;
+    private Renderer myRenderer;
+    private float offset = 0.0f;
+
+    private float positionRendererTimer;
+    private float positionRendererTimerMax = .1f;
+
     private Vector3 batSpawnPosition;
 
     private void Awake()
     {
+        myRenderer = gameObject.GetComponent<Renderer>();
         rigidbBody2D = GetComponent<Rigidbody2D>();
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
@@ -59,6 +67,16 @@ public class PlayerController : MonoBehaviour
         if (isTurning) return;
 
         UpdateMotor();
+    }
+
+    private void LateUpdate()
+    {
+        positionRendererTimer -= Time.deltaTime;
+        if (positionRendererTimer <= 0f)
+        {
+            positionRendererTimer = positionRendererTimerMax;
+            myRenderer.sortingOrder = (int)(sotringOrderBase - transform.position.y * 10 - offset);
+        }
     }
 
     private void Turning() // Превращение в мышь (из мыши)
@@ -95,6 +113,7 @@ public class PlayerController : MonoBehaviour
         animator.Play("Bat");
         isTurning = false;
         isBat = true;
+        offset = 5f;
         xSpeed = 10f;
         ySpeed = 8f;
     }
@@ -106,6 +125,7 @@ public class PlayerController : MonoBehaviour
         animator.Play("Idle");
         isTurning = false;
         isBat = false;
+        offset = 0f;
         xSpeed = 2.5f;
         ySpeed = 2f;
     }
