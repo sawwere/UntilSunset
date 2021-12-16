@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private int sotringOrderBase = 1000;
     private Renderer myRenderer;
-    private float offset = 0.0f;
+    private int batOffset = 0;
 
     private float positionRendererTimer;
     private float positionRendererTimerMax = .1f;
@@ -71,11 +71,16 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        SerSortingLayer();
+    }
+
+    private void SerSortingLayer()
+    {
         positionRendererTimer -= Time.deltaTime;
         if (positionRendererTimer <= 0f)
         {
             positionRendererTimer = positionRendererTimerMax;
-            myRenderer.sortingOrder = (int)(sotringOrderBase - transform.position.y * 10 - offset);
+            myRenderer.sortingOrder = (int)(sotringOrderBase - transform.position.y * 10 - batOffset);
         }
     }
 
@@ -113,7 +118,7 @@ public class PlayerController : MonoBehaviour
         animator.Play("Bat");
         isTurning = false;
         isBat = true;
-        offset = 5f;
+        batOffset = 7;
         xSpeed = 10f;
         ySpeed = 8f;
     }
@@ -125,7 +130,7 @@ public class PlayerController : MonoBehaviour
         animator.Play("Idle");
         isTurning = false;
         isBat = false;
-        offset = 0f;
+        batOffset = 0;
         xSpeed = 2.5f;
         ySpeed = 2f;
     }
