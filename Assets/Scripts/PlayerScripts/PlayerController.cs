@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,10 +25,10 @@ public class PlayerController : MonoBehaviour
     public GameObject Bat;
 
     private Resources HenchmanRes;
-    private Resources coinsRes;
+    private Resources resources;
 
     private int sotringOrderBase = 1000;
-    private Renderer myRenderer;
+    private SortingGroup mySortingGroup;
     private int batOffset = 0;
 
     private float positionRendererTimer;
@@ -35,13 +36,21 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 batSpawnPosition;
 
+    public GameObject nimb;
+    private bool isGod;
+
+    private int coinAmount;
+    private int woodAmount;
+    private int stoneAmount;
+    private int henchmanAmount;
+
     private void Awake()
     {
-        myRenderer = gameObject.GetComponent<Renderer>();
+        mySortingGroup = gameObject.GetComponent<SortingGroup>();
         rigidbBody2D = GetComponent<Rigidbody2D>();
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
-        coinsRes = GameObject.Find("CoinsText").GetComponent<Resources>();
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
 
     private void Start()
@@ -80,7 +89,7 @@ public class PlayerController : MonoBehaviour
         if (positionRendererTimer <= 0f)
         {
             positionRendererTimer = positionRendererTimerMax;
-            myRenderer.sortingOrder = (int)(sotringOrderBase - transform.position.y * 10 - batOffset);
+            mySortingGroup.sortingOrder = (int)(sotringOrderBase - transform.position.y * 10 - batOffset);
         }
     }
 
@@ -133,6 +142,32 @@ public class PlayerController : MonoBehaviour
         batOffset = 0;
         xSpeed = 2.5f;
         ySpeed = 2f;
+    }
+
+    private void SetGodSettings() // 
+    {
+        isGod = true;
+        nimb.SetActive(true);
+        coinAmount = GameStats.Coins;
+        woodAmount = GameStats.Wood;
+        stoneAmount = GameStats.Stone;
+        henchmanAmount = GameStats.Henchman;
+        GameStats.Coins = 666;
+        GameStats.Wood = 666;
+        GameStats.Stone = 666;
+        GameStats.Henchman = 666;
+        resources.UpdateAll();
+    }
+
+    private void UnsetGodSettings() // 
+    {
+        isGod = false;
+        nimb.SetActive(false);
+        GameStats.Coins = coinAmount;
+        GameStats.Wood = woodAmount;
+        GameStats.Stone = stoneAmount;
+        GameStats.Henchman = henchmanAmount;
+        resources.UpdateAll();
     }
 
     private void UpdateMotor() // Движение игрока
@@ -206,8 +241,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            GameStats.Coins += 100;
-            coinsRes.UpdateCoins();
+            if (isGod)
+            {
+                UnsetGodSettings();
+            }
+            else
+            {
+                SetGodSettings();
+            }
         }
     }
 }
