@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float xSpeed = 2.5f;
     public float ySpeed = 2f;
 
-    public float timeInvincible = 2.0f; // âðåìÿ íåóÿçâèìîñòè
+    public float timeInvincible = 2.0f; // Ã¢Ã°Ã¥Ã¬Ã¿ Ã­Ã¥Ã³Ã¿Ã§Ã¢Ã¨Ã¬Ã®Ã±Ã²Ã¨
 
     public Rigidbody2D rigidbBody2D;
     Vector2 moveDelta;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Turning() // Ïðåâðàùåíèå â ìûøü (èç ìûøè)
+    private void Turning() // ÃÃ°Ã¥Ã¢Ã°Ã Ã¹Ã¥Ã­Ã¨Ã¥ Ã¢ Ã¬Ã»Ã¸Ã¼ (Ã¨Ã§ Ã¬Ã»Ã¸Ã¨)
     {
         if (Input.GetButtonDown("Jump") && (atHome || !timeCycle.GetIsDay()))
         {
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         Invoke(nameof(SetCharacterSettings), 0.5f);
     }
 
-    private void SetBatSettings() // Óñòàíîâêà õàðàêòåðèñòèê ìûøè
+    private void SetBatSettings() // Ã“Ã±Ã²Ã Ã­Ã®Ã¢ÃªÃ  ÃµÃ Ã°Ã ÃªÃ²Ã¥Ã°Ã¨Ã±Ã²Ã¨Ãª Ã¬Ã»Ã¸Ã¨
     {
         animator.Play("Bat");
         isTurning = false;
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
         ySpeed = 8f;
     }
 
-    private void SetCharacterSettings() // Óñòàíîâêà õàðàêòåðèñòèê ïåðñîíàæà
+    private void SetCharacterSettings() // Ã“Ã±Ã²Ã Ã­Ã®Ã¢ÃªÃ  ÃµÃ Ã°Ã ÃªÃ²Ã¥Ã°Ã¨Ã±Ã²Ã¨Ãª Ã¯Ã¥Ã°Ã±Ã®Ã­Ã Ã¦Ã 
     {
         animator.SetFloat("LastHorizontal", 0);
         animator.SetFloat("LastVertical", -1);
@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
         resources.UpdateAll();
     }
 
-    private void UpdateMotor() // Äâèæåíèå èãðîêà
+    private void UpdateMotor() // Ã„Ã¢Ã¨Ã¦Ã¥Ã­Ã¨Ã¥ Ã¨Ã£Ã°Ã®ÃªÃ 
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
         batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);
     }
 
-    private void SpawnBat() // Âûçîâ ïðèñïåøíèêà
+    private void SpawnBat() // Ã‚Ã»Ã§Ã®Ã¢ Ã¯Ã°Ã¨Ã±Ã¯Ã¥Ã¸Ã­Ã¨ÃªÃ 
     {
         if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman > 0 && !isBat && timeCycle.GetIsDay())
         {
