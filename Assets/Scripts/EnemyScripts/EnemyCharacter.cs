@@ -8,8 +8,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public string _name; // имя
     public int price; // цена спавна(сложность врага)
     [SerializeField] private int maxHealth = 2; //макс здоровье
-    public float speed = 1.0f; //скорость передвижения
-    private float speedInit; // для восстановления скорости после остановки
+    [SerializeField] public float speed = 1.0f; //скорость передвижения
+    protected float speedInit; // для восстановления скорости после остановки
     public int line; //на какой линни ходит враг
     public int armor = 0; //броня на будущее
     public int damage = 1; //урон
@@ -33,6 +33,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public int health 
     { 
         get { return currentHealth; } 
+        protected set { currentHealth = value; }
     }
 
     public int direction
@@ -53,7 +54,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         speedInit = speed;
         line = (int)transform.position.y;
@@ -108,7 +109,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         Destroy(gameObject);
     }
 
-    public void RecieveDamage(int amount)
+    virtual public void RecieveDamage(int amount)
     {
         if (immunityTimer <= 0)
         {
@@ -141,7 +142,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         SpeedRestore();
         PlayWalkAnimation();
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.x);
-        transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
+        //transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public virtual void PlayWalkAnimation()
