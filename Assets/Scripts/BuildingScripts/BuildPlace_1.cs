@@ -9,7 +9,6 @@ public class BuildPlace_1 : MonoBehaviour
     public float displayTime = 5.0f;
     public GameObject dialogBox;
     public GameObject wall;
-    public static GameObject obj_struct;
     float timerDisplay;
     private Resources resources;
     private bool EnemyIsNear;
@@ -36,21 +35,9 @@ public class BuildPlace_1 : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            BuildStrut();
-        }
-    }
-
-    public void BuildStrut()
-    {
-        if ((GameStats.Wood >= 3) && (!EnemyIsNear))
-        {
-            var structinst = Instantiate(obj_struct, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
-            structinst.transform.SetParent(this.transform);
-            GameStats.Wood -= 3;
-            resources.UpdateWood();
-            HideDialog();
+            DisplayDialog();
         }
     }
 
