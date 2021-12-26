@@ -22,6 +22,7 @@ public class TimeCycle : MonoBehaviour
 
     private PlayerController player;
     public sun sun;
+    public moon moon;
     //music
     public GameObject DaymusObj;
     public GameObject NightmusObj;
@@ -73,6 +74,7 @@ public class TimeCycle : MonoBehaviour
 
                 fpd = true;
                 StartCoroutine(SetNight());
+                StartCoroutine(moon.night());
             }
             if (fpd)
             {
@@ -81,6 +83,7 @@ public class TimeCycle : MonoBehaviour
                 {
                     fpd = false;
                     StartCoroutine(sun.night());
+                    //StartCoroutine(moon.night());
                 }
             }
             if (!fpd)
@@ -109,6 +112,7 @@ public class TimeCycle : MonoBehaviour
                 GameTime = 0;
                 GameStats.Encounter++;
                 StartCoroutine(sun.day());
+                //StartCoroutine(moon.day());
                 foreach (var spawner in spawners)
                 {
                     spawner.SetActive(true);
