@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: fe8051ab6a551e246b16d804abd094d6
+guid: 1bcfafa585a16c04ab481ed2a521255f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3819293021117696179
-    second: Tree 3_0
-  - first:
-      213: -931716240346074366
-    second: Tree 3_1
-  - first:
-      213: 4717409874824729341
-    second: Tree 3_2
+      213: 4899648336984081772
+    second: nimb_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tree 3_0
+      name: nimb_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 0
-        width: 90
-        height: 124
+        x: 36
+        y: 66
+        width: 56
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,50 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d47b6279b352ffac0800000000000000
-      internalID: -3819293021117696179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tree 3_1
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 70
-        width: 110
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 203b5be0401e113f0800000000000000
-      internalID: -931716240346074366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tree 3_2
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 0
-        width: 86
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df219d8894b977140800000000000000
-      internalID: 4717409874824729341
+      spriteID: c65054af33c0ff340800000000000000
+      internalID: 4899648336984081772
       vertices: []
       indices: 
       edges: []

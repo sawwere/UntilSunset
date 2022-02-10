@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
     public float xSpeed = 2.5f;
     public float ySpeed = 2f;
 
-    public float timeInvincible = 2.0f; // âðåìÿ íåóÿçâèìîñòè
+    public float timeInvincible = 2.0f; // Ã¢Ã°Ã¥Ã¬Ã¿ Ã­Ã¥Ã³Ã¿Ã§Ã¢Ã¨Ã¬Ã®Ã±Ã²Ã¨
 
     public Rigidbody2D rigidbBody2D;
     Vector2 moveDelta;
@@ -24,24 +25,32 @@ public class PlayerController : MonoBehaviour
     public GameObject Bat;
 
     private Resources HenchmanRes;
-    private Resources coinsRes;
+    private Resources resources;
 
     private int sotringOrderBase = 1000;
-    private Renderer myRenderer;
-    private float offset = 0.0f;
+    private SortingGroup mySortingGroup;
+    private int batOffset = 0;
 
     private float positionRendererTimer;
     private float positionRendererTimerMax = .1f;
 
     private Vector3 batSpawnPosition;
 
+    public GameObject nimb;
+    private bool isGod;
+
+    private int coinAmount;
+    private int woodAmount;
+    private int stoneAmount;
+    private int henchmanAmount;
+
     private void Awake()
     {
-        myRenderer = gameObject.GetComponent<Renderer>();
+        mySortingGroup = gameObject.GetComponent<SortingGroup>();
         rigidbBody2D = GetComponent<Rigidbody2D>();
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
-        coinsRes = GameObject.Find("CoinsText").GetComponent<Resources>();
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
 
     private void Start()
@@ -71,15 +80,20 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        SerSortingLayer();
+    }
+
+    private void SerSortingLayer()
+    {
         positionRendererTimer -= Time.deltaTime;
         if (positionRendererTimer <= 0f)
         {
             positionRendererTimer = positionRendererTimerMax;
-            myRenderer.sortingOrder = (int)(sotringOrderBase - transform.position.y * 10 - offset);
+            mySortingGroup.sortingOrder = (int)(sotringOrderBase - transform.position.y * 10 - batOffset);
         }
     }
 
-    private void Turning() // Ïðåâðàùåíèå â ìûøü (èç ìûøè)
+    private void Turning() // ÃÃ°Ã¥Ã¢Ã°Ã Ã¹Ã¥Ã­Ã¨Ã¥ Ã¢ Ã¬Ã»Ã¸Ã¼ (Ã¨Ã§ Ã¬Ã»Ã¸Ã¨)
     {
         if (Input.GetButtonDown("Jump") && (atHome || !timeCycle.GetIsDay()))
         {
@@ -108,29 +122,55 @@ public class PlayerController : MonoBehaviour
         Invoke(nameof(SetCharacterSettings), 0.5f);
     }
 
-    private void SetBatSettings() // Óñòàíîâêà õàðàêòåðèñòèê ìûøè
+    private void SetBatSettings() // Ã“Ã±Ã²Ã Ã­Ã®Ã¢ÃªÃ  ÃµÃ Ã°Ã ÃªÃ²Ã¥Ã°Ã¨Ã±Ã²Ã¨Ãª Ã¬Ã»Ã¸Ã¨
     {
         animator.Play("Bat");
         isTurning = false;
         isBat = true;
-        offset = 5f;
+        batOffset = 7;
         xSpeed = 10f;
         ySpeed = 8f;
     }
 
-    private void SetCharacterSettings() // Óñòàíîâêà õàðàêòåðèñòèê ïåðñîíàæà
+    private void SetCharacterSettings() // Ã“Ã±Ã²Ã Ã­Ã®Ã¢ÃªÃ  ÃµÃ Ã°Ã ÃªÃ²Ã¥Ã°Ã¨Ã±Ã²Ã¨Ãª Ã¯Ã¥Ã°Ã±Ã®Ã­Ã Ã¦Ã 
     {
         animator.SetFloat("LastHorizontal", 0);
         animator.SetFloat("LastVertical", -1);
         animator.Play("Idle");
         isTurning = false;
         isBat = false;
-        offset = 0f;
+        batOffset = 0;
         xSpeed = 2.5f;
         ySpeed = 2f;
     }
 
-    private void UpdateMotor() // Äâèæåíèå èãðîêà
+    private void SetGodSettings() // 
+    {
+        isGod = true;
+        nimb.SetActive(true);
+        coinAmount = GameStats.Coins;
+        woodAmount = GameStats.Wood;
+        stoneAmount = GameStats.Stone;
+        henchmanAmount = GameStats.Henchman;
+        GameStats.Coins = 666;
+        GameStats.Wood = 666;
+        GameStats.Stone = 666;
+        GameStats.Henchman = 666;
+        resources.UpdateAll();
+    }
+
+    private void UnsetGodSettings() // 
+    {
+        isGod = false;
+        nimb.SetActive(false);
+        GameStats.Coins = coinAmount;
+        GameStats.Wood = woodAmount;
+        GameStats.Stone = stoneAmount;
+        GameStats.Henchman = henchmanAmount;
+        resources.UpdateAll();
+    }
+
+    private void UpdateMotor() // Ã„Ã¢Ã¨Ã¦Ã¥Ã­Ã¨Ã¥ Ã¨Ã£Ã°Ã®ÃªÃ 
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
@@ -168,7 +208,7 @@ public class PlayerController : MonoBehaviour
         batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);
     }
 
-    private void SpawnBat() // Âûçîâ ïðèñïåøíèêà
+    private void SpawnBat() // Ã‚Ã»Ã§Ã®Ã¢ Ã¯Ã°Ã¨Ã±Ã¯Ã¥Ã¸Ã­Ã¨ÃªÃ 
     {
         if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman > 0 && !isBat && timeCycle.GetIsDay())
         {
@@ -201,8 +241,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            GameStats.Coins += 100;
-            coinsRes.UpdateCoins();
+            if (isGod)
+            {
+                UnsetGodSettings();
+            }
+            else
+            {
+                SetGodSettings();
+            }
         }
     }
 }

@@ -28,8 +28,8 @@ public class CollissionWithEnemy : MonoBehaviour
         var obj = collision.gameObject.GetComponent<EnemyCharacter>();
         if (obj != null)
         {
-            collision.gameObject.GetComponent<EnemyCharacter>().SpeedRestore();
-            Debug.Log(collision.gameObject.GetComponent<EnemyCharacter>().speed);
+            obj.SpeedRestore();
+            transform.parent.gameObject.GetComponent<Bat>().speed = transform.parent.gameObject.GetComponent<Bat>().speedInit;
         }
     }
 }

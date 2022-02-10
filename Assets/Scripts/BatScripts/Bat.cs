@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bat : MonoBehaviour, IDamage
 {
     public float speed = 2.5f;
-    private float speedInit;
+    public float speedInit;
     Vector2 position;
     public int line;
 
