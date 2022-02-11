@@ -10,6 +10,8 @@ public class BuildPlace_1 : MonoBehaviour
     public GameObject dialogBox;
     public GameObject wall;
     public static GameObject obj_struct;
+    public static GameObject obj_ghost;
+    private bool ghostexist;
     float timerDisplay;
     private Resources resources;
     private bool EnemyIsNear;
@@ -31,6 +33,25 @@ public class BuildPlace_1 : MonoBehaviour
             {
                 dialogBox.SetActive(false);
             }
+        }
+    }
+
+    private void OnMouseEnter()
+    {
+        if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
+        {
+            var wallg = Instantiate(obj_ghost, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
+            wallg.transform.SetParent(this.transform);
+            ghostexist = true;
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if ((obj_struct != null) && ghostexist)
+        {
+            Destroy(this.transform.GetChild(2).gameObject);
+            ghostexist = false;
         }
     }
 
