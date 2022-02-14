@@ -20,6 +20,7 @@ public class EnemyFast : EnemyClose
             if (!gotHit)
             {
                 gotHit = true;
+                IncreaseSpeed();
             }
             health -= amount;
             if (health <= 0)

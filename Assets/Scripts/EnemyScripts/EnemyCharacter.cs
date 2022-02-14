@@ -101,7 +101,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         GameStats.enemyOnScreen[line+1].Remove(this);
     }
 
-    //���� ���� ���� ��-�� ������ ����� ��������
+    //вызывается при убийстве врага
     public void EnemyKilled()
     {
         if (Random.Range(0, 2) > 0 || this._name=="enemy1_range" || this._name == "enemy1_big")
@@ -122,27 +122,25 @@ public class EnemyCharacter: MonoBehaviour, IDamage
 
     public void DoDamage(IDamage obj)
     {
-        return; // ��������
+        return; // заглушка
     }
 
+    //нанесение урона базе игрока и самоуничтожение
     public void EnterMainBuilding()
     {
         enterMainBuilding = true;
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
-        //Vector2 drctn = new Vector2(-transform.position.x, -transform.position.y);
-        //rigidbody2d.velocity = drctn.normalized * speed;
         coffin.GetComponent<Coffin>().RecieveDamage(damage);
-        //UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
         Destroy(gameObject);
     }
 
+    //инициирует отступление
     public void ReturnToBase()
     {
-        direction *= -1;
+        direction = transform.position.x < 0 ? -1 : 1;
         SpeedRestore();
         PlayWalkAnimation();
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.x);
-        //transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public virtual void PlayWalkAnimation()
@@ -156,4 +154,10 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         return this.line;
     }
 
+    //делает этого врага союзником игрока
+    //разворачивает в обратном направлении и заставляет атаковать других врагов
+    public void BecomeFriend()
+    {
+        ReturnToBase();
+    }
 }
