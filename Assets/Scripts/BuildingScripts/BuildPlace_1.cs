@@ -11,6 +11,7 @@ public class BuildPlace_1 : MonoBehaviour
     public GameObject wall;
     public static GameObject obj_struct;
     public static GameObject obj_ghost;
+    public static int obj_price;
     private bool ghostexist;
     float timerDisplay;
     private Resources resources;
@@ -59,17 +60,17 @@ public class BuildPlace_1 : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
         {
-            BuildStrut();
+            BuildStruct();
         }
     }
 
-    public void BuildStrut()
+    public void BuildStruct()
     {
-        if ((GameStats.Wood >= 3) && (!EnemyIsNear))
+        if ((GameStats.Wood >= obj_price) && (!EnemyIsNear))
         {
             var structinst = Instantiate(obj_struct, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
             structinst.transform.SetParent(this.transform);
-            GameStats.Wood -= 3;
+            GameStats.Wood -= obj_price;
             resources.UpdateWood();
             HideDialog();
         }
