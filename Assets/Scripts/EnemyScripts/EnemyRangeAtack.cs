@@ -21,7 +21,10 @@ public class EnemyRangeAtack : MonoBehaviour
         }
         else
         {
-            if (obj != null && collision.gameObject.tag != "Enemy" && obj.GetLine() == parentEnemy.GetLine())
+            if (obj != null 
+                && obj.GetLine() == parentEnemy.GetLine()
+                && (((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0)
+                && collision.transform.position.x * parentEnemy.transform.position.x > 0)
             {
                 SetTarget(collision.gameObject);
             }
