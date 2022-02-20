@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class CollissionWithEnemy : MonoBehaviour
 {
+    Bat parentBat;
+
+    private void Start()
+    {
+        parentBat = transform.parent.gameObject.GetComponent<Bat>();
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +24,8 @@ public class CollissionWithEnemy : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         var obj = collision.gameObject.GetComponent<IDamage>();
-        if (obj != null)
+        if (obj != null
+            && (((1 << collision.gameObject.layer) & parentBat.aviableHitMask.value) != 0))
         {
             transform.parent.gameObject.GetComponent<Bat>().DoDamage(obj);
         } 
