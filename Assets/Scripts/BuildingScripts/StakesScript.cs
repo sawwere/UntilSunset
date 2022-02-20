@@ -31,7 +31,6 @@ public class StakesScript : Building
         {
             DoDamage(e);
             RecieveDamage(1);
-            Debug.Log(health);
         }
     }
 }
