@@ -17,6 +17,7 @@ public class EnemyFast : EnemyClose
     {
         if (immunityTimer <= 0)
         {
+
             if (!gotHit)
             {
                 gotHit = true;

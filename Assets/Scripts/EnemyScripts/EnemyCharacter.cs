@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,11 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     protected float hitTimer; //таймер нанесения урона
     public float firstHitPeriod = 1.5f; // ����� �� ������� ��������� �����
 
+    private Vector3 bloodSpawnPosition;
+
     private bool enterMainBuilding = false;
+
+    public GameObject bloodParticles;
 
     public LayerMask aviableHitMask;
 
@@ -104,15 +109,26 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     //вызывается при убийстве врага
     public void EnemyKilled()
     {
-        if (Random.Range(0, 2) > 0 || this._name=="enemy1_range" || this._name == "enemy1_big")
+        if (UnityEngine.Random.Range(0, 2) > 0 || this._name=="enemy1_range" || this._name == "enemy1_big")
             Instantiate(resoursePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    private void CalculateParticlesSpawnPosition()
+    {
+        bloodSpawnPosition = transform.position;
+        bloodSpawnPosition.y += UnityEngine.Random.Range(0.7f, 1f);
+        bloodSpawnPosition.x += UnityEngine.Random.Range(0f, 0.25f);
+        bloodSpawnPosition.x -= UnityEngine.Random.Range(0f, 0.25f);
     }
 
     virtual public void RecieveDamage(int amount)
     {
         if (immunityTimer <= 0)
         {
+            CalculateParticlesSpawnPosition();
+            Instantiate(bloodParticles, bloodSpawnPosition, Quaternion.identity);
+
             currentHealth -= amount;
             if (currentHealth <= 0)
                 EnemyKilled();

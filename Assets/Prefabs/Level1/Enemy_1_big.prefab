@@ -253,6 +253,7 @@ MonoBehaviour:
   damage: 3
   immunityTimer: 0
   firstHitPeriod: 1
+  bloodParticles: {fileID: 5075841770221041168, guid: b9b1e837ae993da47851fe6de7082b2a, type: 3}
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0

@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour
 
     private TimeCycle timeCycle;
 
-    public GameObject Bat;
+    public GameObject bat;
 
-    private Resources HenchmanRes;
+    private Resources henchmanRes;
     private Resources resources;
 
     private int sotringOrderBase = 1000;
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         mySortingGroup = gameObject.GetComponent<SortingGroup>();
         rigidbBody2D = GetComponent<Rigidbody2D>();
-        HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
+        henchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
@@ -216,9 +216,9 @@ public class PlayerController : MonoBehaviour
             animator.Play("InvokeHenchman");
             Invoke(nameof(SetCharacterSettings), 0.2f);
             CalculateBatSpawnPosition();
-            Instantiate(Bat, batSpawnPosition, Quaternion.identity);
+            Instantiate(bat, batSpawnPosition, Quaternion.identity);
             GameStats.Henchman--;
-            HenchmanRes.UpdateHenchman();
+            henchmanRes.UpdateHenchman();
         }
     }
 
