@@ -148,7 +148,7 @@ SpriteRenderer:
   m_SortingLayerID: -291714449
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: -7809645603441347904, guid: b4eca959cf4521f45a25acb44e1537dc, type: 3}
+  m_Sprite: {fileID: 3762163528396922864, guid: 017474fc932b6dd478b3ffbb410a49fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -271,8 +271,8 @@ BoxCollider2D:
   m_Offset: {x: 0.004468575, y: 0.1822531}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.36, y: 0.64}
     newSize: {x: 0.64, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -312,7 +312,7 @@ Animator:
   m_GameObject: {fileID: 1900123810523606776}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 35e1753ee303a084892abcdb8cc002ad, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6f3d8f1c16dfb7d45840d4dcae525898, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -355,7 +355,6 @@ MonoBehaviour:
   damage: 1
   immunityTimer: 0
   firstHitPeriod: 1.5
-  bloodParticles: {fileID: 5075841770221041168, guid: b9b1e837ae993da47851fe6de7082b2a, type: 3}
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0

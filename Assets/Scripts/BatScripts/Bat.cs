@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bat : MonoBehaviour, IDamage
+public class Bat : MonoBehaviour, IDamage, IMovable
 {
     public float speed = 2.5f;
     public float speedInit;
@@ -24,6 +24,9 @@ public class Bat : MonoBehaviour, IDamage
 
     private TimeCycle timeCycle;
     private Resources HenchmanRes;
+
+    public LayerMask aviableHitMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,7 @@ public class Bat : MonoBehaviour, IDamage
         hitTimer = firstHitPeriod;
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
+        aviableHitMask = LayerMask.GetMask("NPC");
     }
 
     // Update is called once per frame
@@ -105,7 +109,8 @@ public class Bat : MonoBehaviour, IDamage
     public void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-        if ((obj != null) && (!obj.Equals(typeof(Bat))))
+        if ((obj != null) 
+            && (!obj.Equals(typeof(Bat))))
         {
              if (hitTimer <= 0)
              {
@@ -167,5 +172,15 @@ public class Bat : MonoBehaviour, IDamage
             speed = speedInit;
             //Debug.Log("OnCollisionExit2D BAT");
         }
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 }

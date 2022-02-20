@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class EnemyCharacter: MonoBehaviour, IDamage
+public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 {
     public string _name; // имя
     public int price; // цена спавна(сложность врага)
@@ -22,11 +21,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     protected float hitTimer; //таймер нанесения урона
     public float firstHitPeriod = 1.5f; // ����� �� ������� ��������� �����
 
-    private Vector3 bloodSpawnPosition;
-
     private bool enterMainBuilding = false;
-
-    public GameObject bloodParticles;
 
     public LayerMask aviableHitMask;
 
@@ -45,6 +40,16 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     {
         get { return _direction;}
         set { if (System.Math.Abs(value) == 1) _direction = value; }
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 
     public void SpeedResetToZero()
@@ -70,6 +75,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         hitTimer = firstHitPeriod;
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
         coffin = GameObject.FindWithTag("Coffin");
+        aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
     }
 
     // Update is called once per frame
@@ -109,26 +115,15 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     //вызывается при убийстве врага
     public void EnemyKilled()
     {
-        if (UnityEngine.Random.Range(0, 2) > 0 || this._name=="enemy1_range" || this._name == "enemy1_big")
+        if (Random.Range(0, 2) > 0 || this._name=="enemy1_range" || this._name == "enemy1_big")
             Instantiate(resoursePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         Destroy(gameObject);
-    }
-
-    private void CalculateParticlesSpawnPosition()
-    {
-        bloodSpawnPosition = transform.position;
-        bloodSpawnPosition.y += UnityEngine.Random.Range(0.7f, 1f);
-        bloodSpawnPosition.x += UnityEngine.Random.Range(0f, 0.25f);
-        bloodSpawnPosition.x -= UnityEngine.Random.Range(0f, 0.25f);
     }
 
     virtual public void RecieveDamage(int amount)
     {
         if (immunityTimer <= 0)
         {
-            CalculateParticlesSpawnPosition();
-            Instantiate(bloodParticles, bloodSpawnPosition, Quaternion.identity);
-
             currentHealth -= amount;
             if (currentHealth <= 0)
                 EnemyKilled();
@@ -175,5 +170,10 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public void BecomeFriend()
     {
         ReturnToBase();
+        aviableHitMask = LayerMask.GetMask("NPC");
+        //Debug.Log(aviableHitMask.value);
+        gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
+        GameStats.enemyOnScreen[line + 1].Remove(this);
     }
 }
