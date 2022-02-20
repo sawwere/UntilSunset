@@ -6,21 +6,21 @@ using UnityEngine.UI;
 public class TimeCycle : MonoBehaviour
 {
     public Light lght;
-    [SerializeField] int DayLenght = 3000;
-    [SerializeField] int NightLenght = 3000;
+    [SerializeField] protected int DayLenght = 3000;
+    [SerializeField] protected int NightLenght = 3000;
     public List<GameObject> spawners;
     public Text TimeTXT;
     public GameObject newwave;
     public newwave nw;
-    int GameTime = 0;  
-    bool isDay = false;
-    bool fpd = true;
+    protected int GameTime = 0;  
+    protected bool isDay = false;
+    protected bool fpd = true;
     int lightintensity;
     public GameObject sky1;
     public GameObject sky2;
     public float cloudSpeed;
 
-    private PlayerController player;
+    protected PlayerController player;
     public sun sun;
     public moon moon;
     //music
