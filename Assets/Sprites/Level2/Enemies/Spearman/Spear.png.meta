@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 7ba8a20d0d1967440932878b08685ca1
+guid: 427726b3e12d4e2418199f22e31ac6cc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 484985042459968203
-    second: Henchman_0
-  - first:
-      213: 4458756592102909738
-    second: Henchman_1
-  - first:
-      213: -5505798955408244127
-    second: Henchman_2
-  - first:
-      213: 7572463180058999755
-    second: Henchman_3
+      213: 6108012597462862368
+    second: Spear_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,85 +94,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Henchman_0
+      name: Spear_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 92
-        width: 220
-        height: 72
-      alignment: 9
-      pivot: {x: 0.49807104, y: -0.7906152}
+        x: 2
+        y: 75
+        width: 114
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc2443993530bb600800000000000000
-      internalID: 484985042459968203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Henchman_1
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 80
-        width: 228
-        height: 80
-      alignment: 9
-      pivot: {x: 0.49369463, y: -0.5920223}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a27a93c3f7fa0ed30800000000000000
-      internalID: 4458756592102909738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Henchman_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 84
-        width: 228
-        height: 72
-      alignment: 9
-      pivot: {x: 0.50403583, y: -0.70235324}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 162cc2265097793b0800000000000000
-      internalID: -5505798955408244127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Henchman_3
-      rect:
-        serializedVersion: 2
-        x: 784
-        y: 92
-        width: 212
-        height: 68
-      alignment: 9
-      pivot: {x: 0.5026242, y: -0.85126925}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bcb3422442bc61960800000000000000
-      internalID: 7572463180058999755
+      spriteID: 02a8263881504c450800000000000000
+      internalID: 6108012597462862368
       vertices: []
       indices: 
       edges: []
