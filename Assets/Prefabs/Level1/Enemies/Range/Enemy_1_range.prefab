@@ -257,6 +257,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   coffin: {fileID: 5956774385877164423, guid: 05ff443d7506a884e94568c7d0e5b95a, type: 3}
+  BloodParticles: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   resoursePrefab: {fileID: 6299716102179050544, guid: 8bae5b2c102181d4f902346a907d89f7, type: 3}
   target: {fileID: 0}
   targetPoint: {x: 0, y: 0}

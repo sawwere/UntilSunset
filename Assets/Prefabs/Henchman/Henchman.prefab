@@ -148,12 +148,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
+  speedInit: 0
   line: 0
   maxHealth: 2
   damage: 1
   immunityTimer: 0
   firstHitPeriod: 1.5
   cofiin: {fileID: 5956774385877164423, guid: 05ff443d7506a884e94568c7d0e5b95a, type: 3}
+  aviableHitMask:
+    serializedVersion: 2
+    m_Bits: 0
+  BloodParticles: {fileID: 9018527388369529767, guid: 8654244f99657214580082f8089c723f, type: 3}
 --- !u!95 &-1986338799716144412
 Animator:
   serializedVersion: 3
@@ -185,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d44b31e465698468d6baf3ccc79847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sotringOrderBase: 5000
   offset: 0
 --- !u!1 &5800157367933056535
 GameObject:

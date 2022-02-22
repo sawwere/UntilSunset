@@ -27,6 +27,9 @@ public class Bat : MonoBehaviour, IDamage, IMovable
 
     public LayerMask aviableHitMask;
 
+    public GameObject BloodParticles;
+    private Vector3 ParticlesSpawnPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -124,11 +127,20 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     {
         if (immunityTimer <= 0)
         {
+            CalculateParticlesPosition();
+            Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
+
             currentHealth -= amount;
             if (currentHealth <= 0)
                 Destroy(gameObject);
             immunityTimer = immunityPeriod;
         }
+    }
+
+    private void CalculateParticlesPosition()
+    {
+        ParticlesSpawnPosition = transform.position;
+        ParticlesSpawnPosition.y += 0.5f;
     }
 
     void GoHome()

@@ -359,6 +359,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   coffin: {fileID: 0}
+  BloodParticles: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   resoursePrefab: {fileID: 2011344550897061960, guid: f57c47a3ffced0e4586f81ba1e0ce7d0, type: 3}
   animator: {fileID: 2245321126819207102}
   speedIncrease: 1

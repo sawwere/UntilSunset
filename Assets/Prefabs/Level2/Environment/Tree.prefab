@@ -24,12 +24,20 @@ PrefabInstance:
       value: -0.44721997
       objectReference: {fileID: 0}
     - target: {fileID: 1684903439, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9709795
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684903439, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.94386244
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684903439, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.063
+      value: -0.0699
       objectReference: {fileID: 0}
     - target: {fileID: 1684903439, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.322
+      value: 0.3016
       objectReference: {fileID: 0}
     - target: {fileID: 1684903442, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: m_Sprite
@@ -113,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3704235469642258040, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: m_Name
-      value: Tree3
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 5428094818063538271, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: m_LocalPosition.x
