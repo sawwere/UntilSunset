@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: abf1de5eaaeec064a8c65e50facc7bc1
+guid: 9e067cc313e73b54389f32f2c2ec25f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6723963429988506304
-    second: Spikes_0
+      213: -5246133556034159203
+    second: Fast_0
   - first:
-      213: -7010832575621253078
-    second: Spikes_1
+      213: -8862482788563087891
+    second: Fast_1
   - first:
-      213: 8562923692314260799
-    second: Spikes_2
+      213: -9066431346343651282
+    second: Fast_2
   - first:
-      213: -4810244237682102619
-    second: Spikes_3
+      213: -1218549649672463771
+    second: Fast_3
+  - first:
+      213: -7759229908544697129
+    second: Fast_4
+  - first:
+      213: 3545091293996364998
+    second: Fast_5
+  - first:
+      213: 8190134333126368130
+    second: Fast_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +67,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 90
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -79,8 +88,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 2
+    textureFormat: 4
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -91,8 +100,8 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 2
+    textureFormat: 4
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,7 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spikes_0
+      name: Fast_0
       rect:
         serializedVersion: 2
         x: 0
@@ -117,14 +126,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ca9e2f4d11505d50800000000000000
-      internalID: 6723963429988506304
+      spriteID: d9db354735df137b0800000000000000
+      internalID: -5246133556034159203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_1
+      name: Fast_1
       rect:
         serializedVersion: 2
         x: 64
@@ -138,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a28bb5edae484be90800000000000000
-      internalID: -7010832575621253078
+      spriteID: ded0fa7fbd2220580800000000000000
+      internalID: -8862482788563087891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_2
+      name: Fast_2
       rect:
         serializedVersion: 2
         x: 128
@@ -159,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f35fa27dabd95d670800000000000000
-      internalID: 8562923692314260799
+      spriteID: e2858bcf9b09d2280800000000000000
+      internalID: -9066431346343651282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_3
+      name: Fast_3
       rect:
         serializedVersion: 2
         x: 192
@@ -180,8 +189,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aea6120a549e3db0800000000000000
-      internalID: -4810244237682102619
+      spriteID: 56a981ebc87d61fe0800000000000000
+      internalID: -1218549649672463771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc4b92228da15490800000000000000
+      internalID: -7759229908544697129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c4bbfacfb1b23130800000000000000
+      internalID: 3545091293996364998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b5ab468c339a170800000000000000
+      internalID: 8190134333126368130
       vertices: []
       indices: 
       edges: []

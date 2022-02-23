@@ -6,6 +6,10 @@ public class StakesScript : Building
 {
     private BuildPlace_1 bp;
 
+    public Animator animator;
+
+    EnemyCharacter e;
+
     protected override void Start()
     {
         bp = transform.parent.GetComponent<BuildPlace_1>();
@@ -19,17 +23,23 @@ public class StakesScript : Building
         bp.GetComponent<BoxCollider2D>().enabled = true;
     }
 
-    private void DoDamage(IDamage obj)
+    private void StartDamage()
     {
-        obj.RecieveDamage(1);
+        animator.Play("Attack");
+        Invoke(nameof(DoDamage), animator.GetCurrentAnimatorClipInfo(0).Length - 0.35f);
+    }
+
+    private void DoDamage()
+    {
+        e.RecieveDamage(1);
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        EnemyCharacter e = col.gameObject.GetComponent<EnemyCharacter>();
+        e = col.gameObject.GetComponent<EnemyCharacter>();
         if (e != null)
         {
-            DoDamage(e);
+            StartDamage();
             RecieveDamage(1);
         }
     }
