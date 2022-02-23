@@ -27,6 +27,9 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     public GameObject coffin;
 
+    public GameObject BloodParticles;
+    private Vector3 ParticlesSpawnPosition;
+
     protected Rigidbody2D rigidbody2d;
     [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
 
@@ -124,11 +127,20 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     {
         if (immunityTimer <= 0)
         {
+            CalculateParticlesPosition();
+            Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
+
             currentHealth -= amount;
             if (currentHealth <= 0)
                 EnemyKilled();
             immunityTimer = immunityPeriod;
         }
+    }
+
+    private void CalculateParticlesPosition()
+    {
+        ParticlesSpawnPosition = transform.position;
+        ParticlesSpawnPosition.y += 0.85f;
     }
 
     public void DoDamage(IDamage obj)
