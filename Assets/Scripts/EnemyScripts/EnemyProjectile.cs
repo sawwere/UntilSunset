@@ -9,15 +9,19 @@ public class EnemyProjectile : MonoBehaviour
     private int line;
 
     Rigidbody2D rigidbody2d;
+    EnemyRange parentEnemy;
 
     // Start is called before the first frame update
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        
     }
 
 
-    public void Launch(float force, int damage, int direction, int line)
+
+
+    public void Launch(float force, int damage, int direction, int line, EnemyRange parent)
     {
         Debug.Log("launch");
         this.line = line;
@@ -26,12 +30,15 @@ public class EnemyProjectile : MonoBehaviour
         rigidbody2d.velocity = new Vector2( direction, 1) * force;
         rigidbody2d.angularVelocity = - 90;
         this.damage = damage;
+        parentEnemy = parent;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         IDamage obj = collision.gameObject.GetComponent<IDamage>();
-        if (obj != null && collision.gameObject.tag != "Enemy" && obj.GetLine() == line)
+        if (obj != null 
+            && obj.GetLine() == line
+            && (((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0))
         {
             Debug.Log("hit");
             obj.RecieveDamage(damage);

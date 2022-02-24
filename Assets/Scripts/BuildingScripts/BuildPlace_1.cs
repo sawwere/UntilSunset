@@ -9,6 +9,10 @@ public class BuildPlace_1 : MonoBehaviour
     public float displayTime = 5.0f;
     public GameObject dialogBox;
     public GameObject wall;
+    public static GameObject obj_struct;
+    public static GameObject obj_ghost;
+    public static int obj_price;
+    private bool ghostexist;
     float timerDisplay;
     private Resources resources;
     private bool EnemyIsNear;
@@ -33,11 +37,42 @@ public class BuildPlace_1 : MonoBehaviour
         }
     }
 
+    private void OnMouseEnter()
+    {
+        if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
+        {
+            var wallg = Instantiate(obj_ghost, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
+            wallg.transform.SetParent(this.transform);
+            ghostexist = true;
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if ((obj_struct != null) && ghostexist)
+        {
+            Destroy(this.transform.GetChild(2).gameObject);
+            ghostexist = false;
+        }
+    }
+
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
         {
-            DisplayDialog();
+            BuildStruct();
+        }
+    }
+
+    public void BuildStruct()
+    {
+        if ((GameStats.Wood >= obj_price) && (!EnemyIsNear))
+        {
+            var structinst = Instantiate(obj_struct, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
+            structinst.transform.SetParent(this.transform);
+            GameStats.Wood -= obj_price;
+            resources.UpdateWood();
+            HideDialog();
         }
     }
 
