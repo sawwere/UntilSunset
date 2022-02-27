@@ -85,4 +85,13 @@ public class Coffin : Building
             Debug.Log(name + " has been destoyed");
         }
     }
+    
+    public void Nhealth(int n)
+    {
+        health--;
+    }
+    public int maxhealth
+    {
+        get { return maxhealth; }
+    }
 }
