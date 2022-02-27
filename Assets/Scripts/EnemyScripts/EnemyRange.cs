@@ -68,13 +68,14 @@ public class EnemyRange : EnemyCharacter
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
 
-        if (target.GetComponent<Bat>())
+        if (target.GetComponent<IMovable>() != null)
         {
-            Bat b = target.GetComponent<Bat>();
-            targetPoint.x = System.Math.Abs(transform.position.x - b.transform.position.x) < 1 ? b.transform.position.x : b.transform.position.x - b.speed * 1f;
+            var b = target.GetComponent<IMovable>();
+            targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x - b.GetSpeed() * 1f;
+            Debug.Log(b.GetPosition().x - b.GetSpeed() * 1f);
         }
 
-        projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line);
+        projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line, this);
     }
 
     public override void PlayWalkAnimation()

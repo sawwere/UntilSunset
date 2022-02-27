@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
         Turning();
 
         SpawnBat();
+
+        if (Input.GetKey(KeyCode.T))
+        {
+            ThunderZone.BeatEnemy();
+        }
     }
 
     void FixedUpdate()

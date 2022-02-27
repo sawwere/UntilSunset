@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class EnemyCharacter: MonoBehaviour, IDamage
+public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 {
     public string _name; // имя
     public int price; // цена спавна(сложность врага)
@@ -27,6 +27,9 @@ public class EnemyCharacter: MonoBehaviour, IDamage
 
     public GameObject coffin;
 
+    public GameObject BloodParticles;
+    private Vector3 ParticlesSpawnPosition;
+
     protected Rigidbody2D rigidbody2d;
     [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
 
@@ -40,6 +43,16 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     {
         get { return _direction;}
         set { if (System.Math.Abs(value) == 1) _direction = value; }
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 
     public void SpeedResetToZero()
@@ -65,6 +78,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage
         hitTimer = firstHitPeriod;
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
         coffin = GameObject.FindWithTag("Coffin");
+        aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
     }
 
     // Update is called once per frame
@@ -113,11 +127,20 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     {
         if (immunityTimer <= 0)
         {
+            CalculateParticlesPosition();
+            Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
+
             currentHealth -= amount;
             if (currentHealth <= 0)
                 EnemyKilled();
             immunityTimer = immunityPeriod;
         }
+    }
+
+    private void CalculateParticlesPosition()
+    {
+        ParticlesSpawnPosition = transform.position;
+        ParticlesSpawnPosition.y += 0.85f;
     }
 
     public void DoDamage(IDamage obj)
@@ -159,5 +182,10 @@ public class EnemyCharacter: MonoBehaviour, IDamage
     public void BecomeFriend()
     {
         ReturnToBase();
+        aviableHitMask = LayerMask.GetMask("NPC");
+        //Debug.Log(aviableHitMask.value);
+        gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
+        GameStats.enemyOnScreen[line + 1].Remove(this);
     }
 }
