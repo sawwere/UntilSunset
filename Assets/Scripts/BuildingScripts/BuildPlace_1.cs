@@ -9,6 +9,7 @@ public class BuildPlace_1 : MonoBehaviour
     public float displayTime = 5.0f;
     public GameObject dialogBox;
     public GameObject wall;
+    public GameObject brstakes;
     public static GameObject obj_struct;
     public static GameObject obj_ghost;
     public static int obj_price;
@@ -86,6 +87,11 @@ public class BuildPlace_1 : MonoBehaviour
             resources.UpdateWood();
             HideDialog();
         }
+    }
+
+    public void BrokenStakes()
+    {
+        var bstakesinst = Instantiate(brstakes, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
     }
 
     void OnTriggerStay2D(Collider2D col)
