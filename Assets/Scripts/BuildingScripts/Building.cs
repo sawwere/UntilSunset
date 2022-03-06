@@ -43,4 +43,8 @@ public class Building : MonoBehaviour
     {
         return line;
     }
+    public int maxhealth
+    {
+        get { return maxhealth; }
+    }
 }

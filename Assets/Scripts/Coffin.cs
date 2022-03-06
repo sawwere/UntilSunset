@@ -85,12 +85,14 @@ public class Coffin : Building
             Debug.Log(name + " has been destoyed");
         }
     }
-    
+
     public void Nhealth(int n)
     {
         health--;
+        UIHealthBar.instance.SetValue(health / (float)maxHealth);
     }
-    public int maxhealth
+
+    new public int maxhealth
     {
         get { return maxhealth; }
     }
