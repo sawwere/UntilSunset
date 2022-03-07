@@ -20,7 +20,8 @@ public class StakesScript : Building
 
     public void OnDestroy()
     {
-        bp.GetComponent<BoxCollider2D>().enabled = true;
+        if (!this.gameObject.scene.isLoaded) return;
+        bp.BrokenStakes();
     }
 
     private void StartDamage()

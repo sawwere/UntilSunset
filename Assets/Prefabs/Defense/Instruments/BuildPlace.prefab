@@ -507,3 +507,4 @@ MonoBehaviour:
   displayTime: 5
   dialogBox: {fileID: 1969080520047010924}
   wall: {fileID: 4629477879196134430, guid: 484273ae5db18074cb70bc2a33cdf7d2, type: 3}
+  brstakes: {fileID: 8458603497159814131, guid: 0fe9cb0ce4680514980403f1afae133a, type: 3}
