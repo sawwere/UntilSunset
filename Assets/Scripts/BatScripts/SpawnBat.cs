@@ -10,7 +10,7 @@ public class SpawnBat : MonoBehaviour
     public GameObject bat;
     private Resources HenchmanRes;
     public int priceOfBat = 2;
-    int batOnScreen = 0;//кол-во мышей на данный момент
+    //int batOnScreen = 0;//кол-во мышей на данный момент
 
     void Start()
     {

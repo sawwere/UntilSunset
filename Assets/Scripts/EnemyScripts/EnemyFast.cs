@@ -6,26 +6,23 @@ public class EnemyFast : EnemyClose
 {
     [SerializeField] private float speedIncrease = 1f;
 
-    bool gotHit;
+    //bool gotHit;
     
     protected override void Start() 
     {
-        gotHit = false;
+        //gotHit = false;
         base.Start();
     }
     public override void RecieveDamage(int amount)
     {
         if (immunityTimer <= 0)
         {
-            if (!gotHit)
-            {
-                gotHit = true;
-                IncreaseSpeed();
-            }
-            health -= amount;
-            if (health <= 0)
-                EnemyKilled();
-            immunityTimer = immunityPeriod;
+            //if (immunityTimer <= 0 && !gotHit)
+            //{
+            //    gotHit = true;
+            //    IncreaseSpeed();
+            //}
+            base.RecieveDamage(amount);
         }
     }
 
