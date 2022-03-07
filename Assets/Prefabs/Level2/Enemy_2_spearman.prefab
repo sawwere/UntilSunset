@@ -291,6 +291,30 @@ MonoBehaviour:
   coffin: {fileID: 0}
   resoursePrefab: {fileID: 8890644243451142403, guid: f4d8a0da33f55fb4fa4a600b22fa2065, type: 3}
   animator: {fileID: 2871595177051633148}
+--- !u!210 &-5633678007154281397
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499383150243433658}
+  m_Enabled: 1
+  m_SortingLayerID: -291714449
+  m_SortingLayer: 3
+  m_SortingOrder: 2
+--- !u!114 &-3274334834841474501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499383150243433658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ac2e8d20f43d41b03aa3c2920ec05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 10
 --- !u!1 &3655891809158020707
 GameObject:
   m_ObjectHideFlags: 0

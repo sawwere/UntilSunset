@@ -35,11 +35,11 @@ public class SpawnerScript : MonoBehaviour
     private EnemyCharacter ChooseEnemy()
     {
         EnemyCharacter res;
-        int limit = 1;
-        if (GameStats.Encounter > 1)
-            limit++;
-        if (GameStats.Encounter > 2)
-            limit++;
+        int limit = 3;
+        //if (GameStats.Encounter > 1)
+        //    limit++;
+        //if (GameStats.Encounter > 2)
+        //    limit++;
         while (true)
         {
             int ind = Random.Range(0, Min(limit, usedEnemies.Count));

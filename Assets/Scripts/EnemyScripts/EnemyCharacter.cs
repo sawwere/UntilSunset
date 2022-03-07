@@ -21,9 +21,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     protected float hitTimer; //таймер нанесения урона
     public float firstHitPeriod = 1.5f; // ����� �� ������� ��������� �����
 
-    private bool enterMainBuilding = false;
 
-    public LayerMask aviableHitMask;
+    public LayerMask aviableHitMask; // store layers where objects can be damaged
 
     public GameObject coffin;
 
@@ -139,7 +138,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     //нанесение урона базе игрока и самоуничтожение
     public void EnterMainBuilding()
     {
-        enterMainBuilding = true;
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
         coffin.GetComponent<Coffin>().RecieveDamage(damage);
         Destroy(gameObject);
