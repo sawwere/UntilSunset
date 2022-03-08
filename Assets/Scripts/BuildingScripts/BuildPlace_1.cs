@@ -9,8 +9,10 @@ public class BuildPlace_1 : MonoBehaviour
     public float displayTime = 5.0f;
     public GameObject dialogBox;
     public GameObject wall;
+    public GameObject brstakes;
     public static GameObject obj_struct;
     public static GameObject obj_ghost;
+    private static GameObject wallg;
     public static int obj_price;
     private bool ghostexist;
     float timerDisplay;
@@ -41,7 +43,7 @@ public class BuildPlace_1 : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
         {
-            var wallg = Instantiate(obj_ghost, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
+            wallg = Instantiate(obj_ghost, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
             wallg.transform.SetParent(this.transform);
             ghostexist = true;
         }
@@ -51,7 +53,7 @@ public class BuildPlace_1 : MonoBehaviour
     {
         if ((obj_struct != null) && ghostexist)
         {
-            Destroy(this.transform.GetChild(2).gameObject);
+            Destroy(wallg);
             ghostexist = false;
         }
     }
@@ -86,6 +88,11 @@ public class BuildPlace_1 : MonoBehaviour
             resources.UpdateWood();
             HideDialog();
         }
+    }
+
+    public void BrokenStakes()
+    {
+        var bstakesinst = Instantiate(brstakes, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
     }
 
     void OnTriggerStay2D(Collider2D col)
