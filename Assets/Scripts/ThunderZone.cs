@@ -18,7 +18,6 @@ public class ThunderZone : MonoBehaviour
         if (enemy)
         {
             enemies.Add(enemy);
-            Debug.Log(enemies.Count);
         }
     }
 
