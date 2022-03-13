@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     private float positionRendererTimer;
     private float positionRendererTimerMax = .1f;
+    private float thunderAbilityPeriod = 15.0f;
+    private float thunderAbilityTimer;
 
     private Vector3 batSpawnPosition;
 
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("LastVertical", -1);
         isBat = false;
         atHome = true;
+        thunderAbilityTimer = 0;
     }
 
     private void Update()
@@ -70,9 +73,11 @@ public class PlayerController : MonoBehaviour
 
         SpawnBat();
 
-        if (Input.GetKey(KeyCode.T))
+        thunderAbilityTimer -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.T) && thunderAbilityTimer <= 0)
         {
             ThunderZone.BeatEnemy();
+            thunderAbilityTimer = thunderAbilityPeriod;
         }
     }
 

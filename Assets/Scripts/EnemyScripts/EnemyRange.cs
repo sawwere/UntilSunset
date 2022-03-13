@@ -63,8 +63,6 @@ public class EnemyRange : EnemyCharacter
     public void DoThrow()
     {
         this.speed = 1f;
-
-        //Debug.Log("ATACKING", target);
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
 
@@ -74,8 +72,7 @@ public class EnemyRange : EnemyCharacter
             targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x - b.GetSpeed() * 1f;
             Debug.Log(b.GetPosition().x - b.GetSpeed() * 1f);
         }
-
-        projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line, this);
+        projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line, this, isFriend);
     }
 
     public override void PlayWalkAnimation()
