@@ -7,11 +7,10 @@ public class MainCameraScript : MonoBehaviour
 {
     public Transform player;
 
-    public float boundX = 0.15f;
-    public float boundY = 0.05f;
+    public float boundX = 1.5f;
+    public float boundY = 0.6f;
 
     private Camera camera;
-    private float initZoom = 5f;
     private float targetZoom = 5f;
     private float zoomFactor = 3f;
     [SerializeField] private float zoomLerpSpeed = 10f;
@@ -25,7 +24,7 @@ public class MainCameraScript : MonoBehaviour
     private void LateUpdate()
     {
         CalculateNewPosition();
-        //HandleZoom();
+        HandleZoom();
     }
 
     private void CalculateNewPosition()
@@ -60,8 +59,6 @@ public class MainCameraScript : MonoBehaviour
             }
         }
 
-        HandleZoom();
-
         AdjustDelta(ref delta);
 
         transform.position = new Vector3(delta.x, delta.y, -10);
@@ -70,14 +67,8 @@ public class MainCameraScript : MonoBehaviour
     private void AdjustDelta(ref Vector3 delta)
     {
         Vector3 newPosition = transform.position;
-
         delta.x += newPosition.x;
-        //delta.x = Max(delta.x, -11.5f * initZoom / targetZoom);
-        //delta.x = Min(delta.x, 11.5f * initZoom / targetZoom);
-
         delta.y += newPosition.y;
-        //delta.y = Max(delta.y, 0.0f);
-        //delta.y = Min(delta.y, 10.0f);
     }
 
     private void HandleZoom()
@@ -86,7 +77,7 @@ public class MainCameraScript : MonoBehaviour
         scrollData = Input.GetAxis("Mouse ScrollWheel");
 
         targetZoom -= scrollData * zoomFactor;
-        targetZoom = Mathf.Clamp(targetZoom, 5f, 7f);
+        targetZoom = Mathf.Clamp(targetZoom, 3f, 10f);
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, targetZoom, Time.deltaTime * zoomLerpSpeed);
     }
 }
