@@ -353,6 +353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  boundX: 0.15
-  boundY: 0.05
+  boundX: 1.5
+  boundY: 0.6
   zoomLerpSpeed: 10

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float xSpeed = 2.5f;
     public float ySpeed = 2f;
 
-    public float timeInvincible = 2.0f; // âðåìÿ íåóÿçâèìîñòè
+    public float timeInvincible = 2.0f;
 
     public Rigidbody2D rigidbBody2D;
     Vector2 moveDelta;
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isBat;
     private bool isTurning;
+
     private bool atHome;
 
     private TimeCycle timeCycle;
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private float positionRendererTimer;
     private float positionRendererTimerMax = .1f;
+    private float thunderAbilityPeriod = 15.0f;
+    private float thunderAbilityTimer;
 
     private Vector3 batSpawnPosition;
 
@@ -58,22 +61,23 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("LastVertical", -1);
         isBat = false;
         atHome = true;
+        thunderAbilityTimer = 0;
     }
 
     private void Update()
     {
-        IncreaseMoney();
+        InvokeCheatCode();
 
+        thunderAbilityTimer -= Time.deltaTime;
         if (isTurning) return;
 
         Turning();
 
+        if (isBat || !timeCycle.GetIsDay()) return;
+
         SpawnBat();
 
-        if (Input.GetKey(KeyCode.T))
-        {
-            ThunderZone.BeatEnemy();
-        }
+        SubdueEnemy();
     }
 
     void FixedUpdate()
@@ -98,7 +102,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Turning() // Ïðåâðàùåíèå â ìûøü (èç ìûøè)
+    private void Turning()
     {
         if (Input.GetButtonDown("Jump") && (atHome || !timeCycle.GetIsDay()))
         {
@@ -116,18 +120,20 @@ public class PlayerController : MonoBehaviour
     public void TurnIntoBat()
     {
         isTurning = true;
+        isBat = true;
         animator.Play("ToBat");
-        Invoke(nameof(SetBatSettings), 0.5f);
+        Invoke(nameof(SetBatSettings), 0.55f);
     }
 
     private void TurnIntoCharacter()
     {
         isTurning = true;
+        isBat = false;
         animator.Play("ToCharacter");
         Invoke(nameof(SetCharacterSettings), 0.5f);
     }
 
-    private void SetBatSettings() // Óñòàíîâêà õàðàêòåðèñòèê ìûøè
+    private void SetBatSettings()
     {
         animator.Play("Bat");
         isTurning = false;
@@ -137,7 +143,7 @@ public class PlayerController : MonoBehaviour
         ySpeed = 8f;
     }
 
-    private void SetCharacterSettings() // Óñòàíîâêà õàðàêòåðèñòèê ïåðñîíàæà
+    private void SetCharacterSettings()
     {
         animator.SetFloat("LastHorizontal", 0);
         animator.SetFloat("LastVertical", -1);
@@ -149,7 +155,7 @@ public class PlayerController : MonoBehaviour
         ySpeed = 2f;
     }
 
-    private void SetGodSettings() // 
+    private void SetGodSettings() 
     {
         isGod = true;
         nimb.SetActive(true);
@@ -164,7 +170,7 @@ public class PlayerController : MonoBehaviour
         resources.UpdateAll();
     }
 
-    private void UnsetGodSettings() // 
+    private void UnsetGodSettings()
     {
         isGod = false;
         nimb.SetActive(false);
@@ -175,7 +181,7 @@ public class PlayerController : MonoBehaviour
         resources.UpdateAll();
     }
 
-    private void UpdateMotor() // Äâèæåíèå èãðîêà
+    private void UpdateMotor()
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
@@ -213,9 +219,9 @@ public class PlayerController : MonoBehaviour
         batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);
     }
 
-    private void SpawnBat() // Âûçîâ ïðèñïåøíèêà
+    private void SpawnBat()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman > 0 && !isBat && timeCycle.GetIsDay())
+        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman > 0)
         {
             isTurning = true;
             animator.Play("InvokeHenchman");
@@ -242,7 +248,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void IncreaseMoney()
+    private void InvokeCheatCode()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -255,5 +261,24 @@ public class PlayerController : MonoBehaviour
                 SetGodSettings();
             }
         }
+    }
+
+    private void SubdueEnemy()
+    {
+        if (Input.GetKey(KeyCode.T) && GameStats.Henchman > 0 && thunderAbilityTimer <= 0)
+        {
+            isTurning = true;
+            animator.Play("Magic");
+            Invoke(nameof(ThunderZoneActivate), animator.GetCurrentAnimatorClipInfo(0).Length);
+            GameStats.Coins -= 3;
+            resources.UpdateCoins();
+            thunderAbilityTimer = thunderAbilityPeriod;
+        }
+    }
+
+    private void ThunderZoneActivate()
+    {
+        ThunderZone.BeatEnemy();
+        SetCharacterSettings();
     }
 }
