@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private float positionRendererTimer;
     private float positionRendererTimerMax = .1f;
+    private float thunderAbilityPeriod = 15.0f;
+    private float thunderAbilityTimer;
 
     private Vector3 batSpawnPosition;
 
@@ -59,12 +61,14 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("LastVertical", -1);
         isBat = false;
         atHome = true;
+        thunderAbilityTimer = 0;
     }
 
     private void Update()
     {
         InvokeCheatCode();
 
+        thunderAbilityTimer -= Time.deltaTime;
         if (isTurning) return;
 
         Turning();
@@ -261,13 +265,14 @@ public class PlayerController : MonoBehaviour
 
     private void SubdueEnemy()
     {
-        if (Input.GetKey(KeyCode.T) && GameStats.Henchman > 0)
+        if (Input.GetKey(KeyCode.T) && GameStats.Henchman > 0 && thunderAbilityTimer <= 0)
         {
             isTurning = true;
             animator.Play("Magic");
             Invoke(nameof(ThunderZoneActivate), animator.GetCurrentAnimatorClipInfo(0).Length);
             GameStats.Coins -= 3;
             resources.UpdateCoins();
+            thunderAbilityTimer = thunderAbilityPeriod;
         }
     }
 

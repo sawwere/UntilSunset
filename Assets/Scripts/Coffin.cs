@@ -12,7 +12,6 @@ public class Coffin : Building
 
     protected override void Start()
     {
-
         HideDialog();
         timerDisplay = -1.0f;
         maxHealth = 8;
