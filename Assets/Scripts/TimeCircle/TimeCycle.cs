@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class TimeCycle : MonoBehaviour
 {
     public Light lght;
-    [SerializeField] protected int DayLenght = 3000;
-    [SerializeField] protected int NightLenght = 3000;
+    [SerializeField] protected static int DayLenght = 3000;
+    [SerializeField] protected static int NightLenght = 3000;
     public List<GameObject> spawners;
     public Text TimeTXT;
     public GameObject newwave;
@@ -21,8 +21,7 @@ public class TimeCycle : MonoBehaviour
     public float cloudSpeed;
 
     protected PlayerController player;
-    public Sun sun;
-    public Moon moon;
+    
     //music
     public GameObject DaymusObj;
     public GameObject NightmusObj;
@@ -30,9 +29,14 @@ public class TimeCycle : MonoBehaviour
     public AudioSource NightM;
     public float vol = 0.2f;
     //////////////
+    public GameObject Moon;
+    float xrange = 14.0f / DayLenght;
+    float yrange = 10.0f / DayLenght;
+    Animator Moonanimator;
 
     void Awake()
     {
+        Moonanimator = Moon.GetComponent<Animator>();
         lght.intensity = 0;
         newwave.SetActive(false);
         foreach (var spawner in spawners)
@@ -62,6 +66,7 @@ public class TimeCycle : MonoBehaviour
 
             if (GameTime > DayLenght)
             {
+                Moonanimator.SetInteger("IsDayInt", 0);
                 isDay = false;
                 GameTime = 0;
 
@@ -74,7 +79,7 @@ public class TimeCycle : MonoBehaviour
 
                 fpd = true;
                 StartCoroutine(SetNight());
-                StartCoroutine(moon.night());
+                //StartCoroutine(moon.night());
             }
             if (fpd)
             {
@@ -82,8 +87,8 @@ public class TimeCycle : MonoBehaviour
                 if (GameTime > (DayLenght / 2))
                 {
                     fpd = false;
-                    StartCoroutine(sun.night());
-                    //StartCoroutine(moon.night());
+                    //StartCoroutine(sun.night());
+                    
                 }
             }
             if (!fpd)
@@ -108,11 +113,12 @@ public class TimeCycle : MonoBehaviour
                 }
 
                 isDay = true;
+                Moonanimator.SetInteger("IsDayInt", 1);
                 Debug.Log("day");
                 GameTime = 0;
                 GameStats.Encounter++;
-                StartCoroutine(sun.day());
-                //StartCoroutine(moon.day());
+                //StartCoroutine(sun.day());
+                
                 foreach (var spawner in spawners)
                 {
                     spawner.SetActive(true);
@@ -127,6 +133,12 @@ public class TimeCycle : MonoBehaviour
         {
             sky1.transform.position = new Vector3(0, sky1.transform.position.y, sky1.transform.position.z);
         }
+
+
+
+        //Moon and Sun Control
+        //Debug.Log(xrange);
+        Moon.transform.position = new Vector3((float)(-7 + xrange * GameTime), (float)(10.0f*Mathf.Sin((Mathf.PI/3000)*(GameTime))), 0);
     }
 
     public bool GetIsDay()
