@@ -422,8 +422,8 @@ MonoBehaviour:
   wll1Ghost: {fileID: 5041139201388572540, guid: b9600f8e91dd91743b51a87a26e452fc, type: 3}
   stakes: {fileID: 8137550778206166341, guid: b3d0bc9239ad6924e967f15a6a873dc2, type: 3}
   stakesGhost: {fileID: 1447459360675700528, guid: f8e67631a3dd2e64cab66ed5721c7857, type: 3}
-  tower: {fileID: 0}
-  towerGhost: {fileID: 0}
+  tower: {fileID: 684302300543930837, guid: 340d3fb90f967cf47a130916685d978b, type: 3}
+  towerGhost: {fileID: 6663395909033775254, guid: d7ce254aa950fc44e925c533795fd381, type: 3}
 --- !u!1 &6013041433707193634
 GameObject:
   m_ObjectHideFlags: 0
