@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ThunderZone : MonoBehaviour
 {
@@ -38,8 +39,8 @@ public class ThunderZone : MonoBehaviour
     {
         if (enemies.Count == 0)
             return;
-        var val = Random.Range(0, enemies.Count);
-        enemies[val].BecomeFriend();
-        enemies.Remove(enemies[val]);
+        var enemy = enemies.OrderBy(x=>System.Math.Abs(x.GetPosition().x)).First();
+        enemy.BecomeFriend();
+        enemies.Remove(enemy);
     }
 }
