@@ -7,6 +7,7 @@ public class BuildPlace_1 : MonoBehaviour
 {
 
     public float displayTime = 5.0f;
+    public int direction;
     public GameObject dialogBox;
     public GameObject wall;
     public GameObject brstakes;
