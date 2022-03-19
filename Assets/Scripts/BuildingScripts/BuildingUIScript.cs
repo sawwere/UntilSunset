@@ -14,6 +14,7 @@ public class BuildingUIScript : MonoBehaviour
 
     public void BuildWallButton()
     {
+        Building.tool = 0;
         BuildPlace_1.obj_struct = wll1;
         BuildPlace_1.obj_ghost = wll1Ghost;
         BuildPlace_1.obj_price = 3;
@@ -21,6 +22,7 @@ public class BuildingUIScript : MonoBehaviour
 
     public void BuildStakesButton()
     {
+        Building.tool = 0;
         BuildPlace_1.obj_struct = stakes;
         BuildPlace_1.obj_ghost = stakesGhost;
         BuildPlace_1.obj_price = 1;
@@ -28,6 +30,7 @@ public class BuildingUIScript : MonoBehaviour
 
     public void BuildTowerButton()
     {
+        Building.tool = 0;
         BuildPlace_1.obj_struct = tower;
         BuildPlace_1.obj_ghost = towerGhost;
         BuildPlace_1.obj_price = 5;
@@ -38,5 +41,11 @@ public class BuildingUIScript : MonoBehaviour
         BuildPlace_1.obj_struct = null;
         BuildPlace_1.obj_ghost = null;
         BuildPlace_1.obj_price = 0;
+    }
+
+    public void DestroyTool()
+    {
+        NullStruct();
+        Building.tool = 3;
     }
 }

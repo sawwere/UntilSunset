@@ -28,10 +28,23 @@ public class Wall_3 : Wall
 
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject() && (tool == 0))
         {
             DisplayDialog();
         }
+
+        if (tool == 3)
+        {
+            DestroyStruct();
+        }
+    }
+
+    public void DestroyStruct()
+    {
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        GameStats.Wood += 3;
+        resources.UpdateWood();
+        Destroy(gameObject);
     }
 
     public void Recover()
