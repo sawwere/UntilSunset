@@ -20,7 +20,6 @@ public class ResourceScript : MonoBehaviour
     private float res;
     public Sprite[] sp = new Sprite[11];
     public GameObject resInd;
-    public GameObject helpMenuUI;
     private SpriteRenderer resSp;
     private bool isRestored;
     private TimeCycle timeCycle;
@@ -91,7 +90,6 @@ public class ResourceScript : MonoBehaviour
         if (col.gameObject.tag == "Player" && !pl.GetIsBat())
         {
             resInd.SetActive(true);
-            helpMenuUI.SetActive(true);
         }
     }
 
@@ -100,7 +98,6 @@ public class ResourceScript : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             resInd.SetActive(false);
-            helpMenuUI.SetActive(false);
             PlayerIsNear = false;
         }
     }
