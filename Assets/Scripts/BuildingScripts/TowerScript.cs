@@ -6,6 +6,7 @@ public class TowerScript : Wall
 {
     private BuildPlace_1 bp;
     public GameObject arrow;
+    private Resources resources;
     public int sc;
 
     protected override void Start()
@@ -16,6 +17,24 @@ public class TowerScript : Wall
         bp.GetComponent<BoxCollider2D>().enabled = false;
         maxHealth = 3;
         base.Start();
+    }
+
+    private void OnMouseDown()
+    {
+        if (tool == 3)
+        {
+            DestroyStruct();
+        }
+    }
+
+    public void DestroyStruct()
+    {
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        GameStats.Wood += 3;
+        GameStats.Stone += 1;
+        resources.UpdateWood();
+        resources.UpdateStones();
+        Destroy(gameObject);
     }
 
     public void OnDestroy()
