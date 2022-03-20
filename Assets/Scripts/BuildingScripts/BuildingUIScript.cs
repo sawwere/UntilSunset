@@ -52,4 +52,18 @@ public class BuildingUIScript : MonoBehaviour
         NullStruct();
         Building.tool = 3;
     }
+
+    public void BuildTowerButton()
+    {
+        BuildPlace_1.obj_struct = tower;
+        BuildPlace_1.obj_ghost = towerGhost;
+        BuildPlace_1.obj_price = 5;
+    }
+
+    public void NullStruct()
+    {
+        BuildPlace_1.obj_struct = null;
+        BuildPlace_1.obj_ghost = null;
+        BuildPlace_1.obj_price = 0;
+    }
 }
