@@ -7,13 +7,15 @@ public class BuildPlace_1 : MonoBehaviour
 {
 
     public float displayTime = 5.0f;
+    public int direction;
     public GameObject dialogBox;
     public GameObject wall;
     public GameObject brstakes;
     public static GameObject obj_struct;
     public static GameObject obj_ghost;
     private static GameObject wallg;
-    public static int obj_price;
+    public static int obj_price_wood;
+    public static int obj_price_stone;
     private bool ghostexist;
     float timerDisplay;
     private Resources resources;
@@ -68,12 +70,14 @@ public class BuildPlace_1 : MonoBehaviour
 
     public void BuildStruct()
     {
-        if ((GameStats.Wood >= obj_price) && (!EnemyIsNear))
+        if ((GameStats.Wood >= obj_price_wood) && (!EnemyIsNear) && (GameStats.Stone >= obj_price_stone))
         {
             var structinst = Instantiate(obj_struct, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
             structinst.transform.SetParent(this.transform);
-            GameStats.Wood -= obj_price;
+            GameStats.Wood -= obj_price_wood;
+            GameStats.Stone -= obj_price_stone;
             resources.UpdateWood();
+            resources.UpdateStones();
             HideDialog();
         }
     }
