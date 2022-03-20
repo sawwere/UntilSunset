@@ -2,14 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyClose : EnemyCharacter
+public class EnemyKamikadze : EnemyClose
 {
-    public Animator animator;
+    // Start is called before the first frame update
+    protected override void Start()
+    {
+        base.Start();
+        aviableHitMask = base.aviableHitMask | LayerMask.GetMask("NPC");
+    }
 
-    public override void DoDamage(IDamage obj)
+    void BlowUp()
+    {
+        
+    }
+
+    new public void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-        
+
         if (obj != null)
         {
             if (hitTimer <= 0)
@@ -23,10 +33,5 @@ public class EnemyClose : EnemyCharacter
             }
             else animator.Play("Idle");
         }
-    }
-
-    public override void PlayWalkAnimation()
-    {
-        animator.Play("Movement");
     }
 }

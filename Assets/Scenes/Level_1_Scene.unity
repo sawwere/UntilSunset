@@ -12492,6 +12492,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea60ed24fd8edc649bda42ec4599cc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  e1: {fileID: 4323401381652340525, guid: 181613b0c1159c542afa930bf6d3ea27, type: 3}
+  e2: {fileID: 6531584141713116989, guid: 170b855504abb0a44a1746eed274fcbc, type: 3}
+  e3: {fileID: 4722983956336941154, guid: 7fb7658fe3e064e4b949e3d4fc701dd2, type: 3}
+  e4: {fileID: 0}
+  e5: {fileID: 0}
+  e6: {fileID: 0}
+  e7: {fileID: 711602131441539842, guid: 4d8e9f834eabe7547823976ec2385c94, type: 3}
+  e8: {fileID: 5457586417430454193, guid: 6c8f0624a96d91e4dbfd51b9d0396e56, type: 3}
+  e9: {fileID: 1377642294346340259, guid: 9bdfded7c9e0d7b48af068ad12a6847a, type: 3}
+  spawnPoint: {x: -10, y: 1, z: 0}
 --- !u!4 &922894793
 Transform:
   m_ObjectHideFlags: 0
