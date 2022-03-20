@@ -5,11 +5,11 @@ using UnityEngine;
 public class Particles : MonoBehaviour
 {
     Animator anim;
-
+    public float timeOffset = 0.25f;
     void Awake()
     {
         anim = GetComponent<Animator>();
-        Invoke(nameof(DestroyMe), anim.GetCurrentAnimatorClipInfo(0).Length - 0.25f);
+        Invoke(nameof(DestroyMe), anim.GetCurrentAnimatorClipInfo(0).Length - timeOffset);
     }
 
     void DestroyMe()
