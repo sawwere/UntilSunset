@@ -31,7 +31,9 @@ public class TowerScript : Wall
     {
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
         GameStats.Wood += 3;
+        GameStats.Stone += 1;
         resources.UpdateWood();
+        resources.UpdateStones();
         Destroy(gameObject);
     }
 
