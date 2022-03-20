@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private float positionRendererTimer;
     private float positionRendererTimerMax = .1f;
-    private float thunderAbilityPeriod = 15.0f;
+    private float thunderAbilityPeriod = 1.0f;
     private float thunderAbilityTimer;
 
     private Vector3 batSpawnPosition;
