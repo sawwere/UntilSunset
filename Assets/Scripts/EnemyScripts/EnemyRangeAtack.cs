@@ -37,7 +37,7 @@ public class EnemyRangeAtack : MonoBehaviour
         {
             parentEnemy.target = obj;
             parentEnemy.targetPoint = parentEnemy.target.transform.position;
-            Debug.Log("target has been found");
+            //Debug.Log("target has been found");
         }
     }
 }

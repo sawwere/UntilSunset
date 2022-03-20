@@ -82,7 +82,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     }
 
     // Update is called once per frame
-    private void Update()
+    protected virtual void Update()
     {
         if (immunityTimer > 0)
         {
@@ -143,7 +143,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         ParticlesSpawnPosition.y += 0.85f;
     }
 
-    public void DoDamage(IDamage obj)
+    public virtual void DoDamage(IDamage obj)
     {
         return; // заглушка
     }

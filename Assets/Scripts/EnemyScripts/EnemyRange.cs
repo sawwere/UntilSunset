@@ -19,7 +19,7 @@ public class EnemyRange : EnemyCharacter
         return (-0.43f + D) / (2f * 0.173f);
     }
 
-    private void Update()
+    protected override void Update()
     {
         if (immunityTimer > 0)
         {
@@ -49,7 +49,7 @@ public class EnemyRange : EnemyCharacter
         }
     }
 
-    new public void DoDamage(IDamage obj)
+    public override void DoDamage(IDamage obj)
     {
         if (target && hitTimer <= 0f)
         {
@@ -60,7 +60,7 @@ public class EnemyRange : EnemyCharacter
         }
     }
 
-    public void DoThrow()
+    public virtual void DoThrow()
     {
         this.speed = 1f;
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
@@ -70,7 +70,7 @@ public class EnemyRange : EnemyCharacter
         {
             var b = target.GetComponent<IMovable>();
             targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x - b.GetSpeed() * 1f;
-            Debug.Log(b.GetPosition().x - b.GetSpeed() * 1f);
+            //Debug.Log(b.GetPosition().x - b.GetSpeed() * 1f);
         }
         projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line, this, isFriend);
     }
