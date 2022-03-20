@@ -27,7 +27,10 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public GameObject coffin;
 
     public GameObject BloodParticles;
+    public GameObject MagicParticles;
     private Vector3 ParticlesSpawnPosition;
+
+    public GameObject skull = null;
 
     protected Rigidbody2D rigidbody2d;
     [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
@@ -186,6 +189,10 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public void BecomeFriend()
     {
         ReturnToBase();
+        hitTimer = 1f;
+        CalculateParticlesPosition();
+        Instantiate(MagicParticles, ParticlesSpawnPosition, Quaternion.identity);
+        skull.SetActive(true);
         aviableHitMask = LayerMask.GetMask("NPC");
         gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
