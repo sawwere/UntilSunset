@@ -26,10 +26,6 @@ public class MerchantHelp : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-<<<<<<< Updated upstream
-        //dialogBox1.SetActive(false);
-=======
->>>>>>> Stashed changes
         if (GameStats.Coins >= 1)
             dialogBox1.SetActive(false);
     }
@@ -37,8 +33,6 @@ public class MerchantHelp : MonoBehaviour
 
     private void Update()
     {
-       // if (GameStats.Coins >= 1)
-           // return;
         if (GameStats.Coins >= 1)
         {
             dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Теперь посмотрим, как оборонтяться. Для этого выйдете из дома направо";
