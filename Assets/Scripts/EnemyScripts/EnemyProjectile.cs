@@ -38,7 +38,7 @@ public class EnemyProjectile : MonoBehaviour
             && obj.GetLine() == line
             && (((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0))
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             obj.RecieveDamage(damage);
             Destroy(gameObject);
         }

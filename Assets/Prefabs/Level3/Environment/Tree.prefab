@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2061764147837305698, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: offset
-      value: -7
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3704235469642258036, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: m_Sprite
@@ -121,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3704235469642258040, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: m_Name
-      value: Tree2
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 5428094818063538271, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: m_LocalPosition.x
