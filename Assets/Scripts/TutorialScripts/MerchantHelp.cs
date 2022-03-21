@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MerchantHelp : MonoBehaviour
 {
@@ -25,13 +26,18 @@ public class MerchantHelp : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        dialogBox1.SetActive(false);
+        if (GameStats.Coins >= 1)
+            dialogBox1.SetActive(false);
     }
 
 
     private void Update()
     {
         if (GameStats.Coins >= 1)
-            return;
+        {
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Теперь посмотрим, как оборонтяться. Для этого выйдете из дома направо";
+        }
+        if (BuildHelp.GetFlag3())
+            dialogBox1.SetActive(false);
     }
 }
