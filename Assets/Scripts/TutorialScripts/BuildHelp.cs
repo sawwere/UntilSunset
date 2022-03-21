@@ -61,7 +61,11 @@ public class BuildHelp : MonoBehaviour
         if (b && !flag5 && flag4)
         {
             coffin.GetComponent<Coffin>().RecieveDamage(4);
+<<<<<<< Updated upstream
             dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = " если враг все-таки добрался до дома,то дом будет терять здоровье, которое находится" +
+=======
+            dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = " Если враг все-таки добрался до дома,то дом будет терять здоровье, которое находится" +
+>>>>>>> Stashed changes
                 " в правом верхнем углу. Вы можете пополнить здоровье, починив гроб. Для этого нажмите на него и выполните указанное действие.";
             flag5 = true;
             // Debug.Log((int)coffin.GetComponent<Coffin>().maxhealth);

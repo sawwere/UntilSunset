@@ -26,7 +26,10 @@ public class MerchantHelp : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+<<<<<<< Updated upstream
         //dialogBox1.SetActive(false);
+=======
+>>>>>>> Stashed changes
         if (GameStats.Coins >= 1)
             dialogBox1.SetActive(false);
     }
