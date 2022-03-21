@@ -142,6 +142,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6479063497515502915, guid: 25b895992693cc3479e1ca514e1c9898, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1793598881374595881, guid: ba930c2120585a74b8bd50a14b4c5b63, type: 3}
+    - target: {fileID: 6479063497515502915, guid: 25b895992693cc3479e1ca514e1c9898, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: -6340840127256783564, guid: b00590fd835165b499adf818ab1ff7be, type: 3}
+    - target: {fileID: 6479063497515502915, guid: 25b895992693cc3479e1ca514e1c9898, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 5802639313162397534, guid: 5cf8779da48c53d459ec1d241a1b2e62, type: 3}
     - target: {fileID: 6479063497515502925, guid: 25b895992693cc3479e1ca514e1c9898, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -43662,6 +43674,18 @@ PrefabInstance:
       propertyPath: direction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6479063497515502915, guid: 25b895992693cc3479e1ca514e1c9898, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1793598881374595881, guid: ba930c2120585a74b8bd50a14b4c5b63, type: 3}
+    - target: {fileID: 6479063497515502915, guid: 25b895992693cc3479e1ca514e1c9898, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: -6340840127256783564, guid: b00590fd835165b499adf818ab1ff7be, type: 3}
+    - target: {fileID: 6479063497515502915, guid: 25b895992693cc3479e1ca514e1c9898, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 5802639313162397534, guid: 5cf8779da48c53d459ec1d241a1b2e62, type: 3}
     - target: {fileID: 6479063497515502925, guid: 25b895992693cc3479e1ca514e1c9898, type: 3}
       propertyPath: m_RootOrder
       value: 8
