@@ -17,9 +17,11 @@ public class BuildHelp : MonoBehaviour
 
     bool flag1;
     bool flag2;
-    bool flag3;
+    static bool flag3;
     bool flag4;
+    bool flag5;
 
+    public GameObject coffin;
     // Update is called once per frame
     void Update()
     {
@@ -56,7 +58,16 @@ public class BuildHelp : MonoBehaviour
             merchant.dialogBox.transform.GetChild(3).gameObject.SetActive(true);
         }
         var b = GameObject.FindGameObjectWithTag("Minion");
-        if (b)
+        if (b && !flag5 && flag4)
+        {
+            coffin.GetComponent<Coffin>().RecieveDamage(4);
+            dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = " если враг все-таки добрался до дома,то дом будет терять здоровье, которое находится" +
+                " в правом верхнем углу. Вы можете пополнить здоровье, починив гроб. Для этого нажмите на него и выполните указанное действие.";
+            flag5 = true;
+            // Debug.Log((int)coffin.GetComponent<Coffin>().maxhealth);
+
+        }
+        if (flag5 && coffin.GetComponent<Coffin>().health == 8)// coffin.GetComponent<Coffin>().maxhealth)
             FindObjectOfType<PauseMenu>().Win();
     }
 
@@ -90,5 +101,10 @@ public class BuildHelp : MonoBehaviour
             EnemyCharacter enemyObject = Instantiate(enemy, new Vector3(32, line, transform.position.z), transform.rotation);
             enemyObject.direction = -1;
         }
+    }
+
+    public static bool GetFlag3()
+    {
+        return flag3;
     }
 }
