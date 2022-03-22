@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyCloseAtack : MonoBehaviour
 {
-    EnemyClose parentEnemy;
+    EnemyCharacter parentEnemy;
 
     private void Start()
     {
-        parentEnemy = transform.parent.gameObject.GetComponent<EnemyClose>();
+        parentEnemy = transform.parent.gameObject.GetComponent<EnemyCharacter>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -17,7 +17,7 @@ public class EnemyCloseAtack : MonoBehaviour
         if (obj != null && 
             (((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0))
         {
-            transform.parent.gameObject.GetComponent<EnemyClose>().DoDamage(obj);
+            transform.parent.gameObject.GetComponent<EnemyCharacter>().DoDamage(obj);
         }
     }
 }

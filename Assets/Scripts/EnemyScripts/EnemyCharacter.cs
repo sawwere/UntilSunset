@@ -15,18 +15,22 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public int damage = 1; //урон
     protected float immunityPeriod = 2.0f; // переодичность получения урона
     protected float hitPeriod = 5.0f; // переодичность нанесения урона
-    protected int _direction = 1; //направление
+    [SerializeField] protected int _direction = 1; //направление
     private int currentHealth; //текущее здоровье
     public float immunityTimer; //таймер иммунитета к получению урона
     protected float hitTimer; //таймер нанесения урона
     public float firstHitPeriod = 1.5f; // ����� �� ������� ��������� �����
 
     public LayerMask aviableHitMask; // store layers where objects can be damaged
+    protected bool isFriend;
 
     public GameObject coffin;
 
     public GameObject BloodParticles;
+    public GameObject MagicParticles;
     private Vector3 ParticlesSpawnPosition;
+
+    public GameObject skull = null;
 
     protected Rigidbody2D rigidbody2d;
     [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
@@ -77,10 +81,11 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
         coffin = GameObject.FindWithTag("Coffin");
         aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
+        isFriend = false;
     }
 
     // Update is called once per frame
-    private void Update()
+    protected virtual void Update()
     {
         if (immunityTimer > 0)
         {
@@ -141,7 +146,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         ParticlesSpawnPosition.y += 0.85f;
     }
 
-    public void DoDamage(IDamage obj)
+    public virtual void DoDamage(IDamage obj)
     {
         return; // заглушка
     }
@@ -174,15 +179,24 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         return this.line;
     }
 
+    public bool IsFriend()
+    {
+        return isFriend;
+    }
+
     //делает этого врага союзником игрока
     //разворачивает в обратном направлении и заставляет атаковать других врагов
     public void BecomeFriend()
     {
         ReturnToBase();
+        hitTimer = 1f;
+        CalculateParticlesPosition();
+        Instantiate(MagicParticles, ParticlesSpawnPosition, Quaternion.identity);
+        skull.SetActive(true);
         aviableHitMask = LayerMask.GetMask("NPC");
-        //Debug.Log(aviableHitMask.value);
         gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         GameStats.enemyOnScreen[line + 1].Remove(this);
+        isFriend = true;
     }
 }

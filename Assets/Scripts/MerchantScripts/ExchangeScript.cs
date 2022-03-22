@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ExchangeScript : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class ExchangeScript : MonoBehaviour
             GameStats.Coins += 1;
             CoinsRes.UpdateCoins();
             WoodRes.UpdateWood();
+            EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
         }
     }
 
@@ -36,6 +38,7 @@ public class ExchangeScript : MonoBehaviour
             GameStats.Wood += 1;
             CoinsRes.UpdateCoins();
             WoodRes.UpdateWood();
+            EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
         }
     }
 
@@ -47,6 +50,7 @@ public class ExchangeScript : MonoBehaviour
             GameStats.Coins += 2;
             CoinsRes.UpdateCoins();
             StoneRes.UpdateStones();
+            EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
         }
     }
 
@@ -58,6 +62,7 @@ public class ExchangeScript : MonoBehaviour
             GameStats.Henchman += 1;
             CoinsRes.UpdateCoins();
             HenchmanRes.UpdateHenchman();
+            EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
         }
     }
 }

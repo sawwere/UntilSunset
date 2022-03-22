@@ -15,15 +15,11 @@ public class EnemyProjectile : MonoBehaviour
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        
     }
 
-
-
-
-    public void Launch(float force, int damage, int direction, int line, EnemyRange parent)
+    public void Launch(float force, int damage, int direction, int line, EnemyRange parent, bool is_friend = false)
     {
-        Debug.Log("launch");
+        //Debug.Log("launch");
         this.line = line;
         rigidbody2d.rotation = 45;
         //rigidbody2d.AddForce(direction * force, ForceMode2D.Impulse);  
@@ -31,6 +27,8 @@ public class EnemyProjectile : MonoBehaviour
         rigidbody2d.angularVelocity = - 90;
         this.damage = damage;
         parentEnemy = parent;
+        if (is_friend)
+            gameObject.layer = LayerMask.NameToLayer("Projectile_Friend");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,7 +38,7 @@ public class EnemyProjectile : MonoBehaviour
             && obj.GetLine() == line
             && (((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0))
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             obj.RecieveDamage(damage);
             Destroy(gameObject);
         }
