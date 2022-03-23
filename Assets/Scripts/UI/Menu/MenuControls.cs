@@ -8,12 +8,14 @@ public class MenuControls : MonoBehaviour
     public GameObject Play;
     public GameObject Level1;
     public GameObject Level2;
+    public GameObject Level3;
     public GameObject Tutorial;
     public void PlayPressed()
     {
         Play.SetActive(false);
         Level1.SetActive(true);
         Level2.SetActive(true);
+        Level3.SetActive(true);
         Tutorial.SetActive(true);
     }
 
@@ -25,6 +27,11 @@ public class MenuControls : MonoBehaviour
     public void Level2Pressed()
     {
         SceneManager.LoadScene("Level_2_Scene");
+    }
+
+    public void Level3Pressed()
+    {
+        SceneManager.LoadScene("Level_3_Scene");
     }
 
     public void TutorialPressed()
