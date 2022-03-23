@@ -6,7 +6,7 @@ public class EnemyClose : EnemyCharacter
 {
     public Animator animator;
 
-    new public void DoDamage(IDamage obj)
+    public override void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
         
