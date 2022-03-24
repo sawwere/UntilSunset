@@ -58,7 +58,6 @@ public class EnemyRange : EnemyCharacter
 
         if (b != null)
         {
-            var b = target.GetComponent<IMovable>();
             targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x + b.GetSpeed() * 1f;
             //Debug.Log(b.GetPosition().x + b.GetSpeed() * 1f);
         }
