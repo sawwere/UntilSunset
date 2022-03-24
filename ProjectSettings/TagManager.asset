@@ -15,6 +15,9 @@ TagManager:
   - GameStats
   - Coffin
   - Temp
+  - Wall3
+  - Arrow
+  - Tower
   layers:
   - Default
   - TransparentFX

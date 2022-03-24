@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static System.Math;
 
 [System.Serializable]
 public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
@@ -13,8 +14,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public int line; //на какой линни ходит враг
     public int armor = 0; //броня на будущее
     public int damage = 1; //урон
-    protected float immunityPeriod = 2.0f; // переодичность получения урона
-    protected float hitPeriod = 5.0f; // переодичность нанесения урона
+    public float immunityPeriod = 2.0f; // переодичность получения урона
+    public float hitPeriod = 5.0f; // переодичность нанесения урона
     [SerializeField] protected int _direction = 1; //направление
     private int currentHealth; //текущее здоровье
     public float immunityTimer; //таймер иммунитета к получению урона
@@ -29,6 +30,11 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public GameObject BloodParticles;
     public GameObject MagicParticles;
     private Vector3 ParticlesSpawnPosition;
+
+    private float fixDeltaTimer = 0.1f;
+
+    private float oldX = 0f;
+    private float newX = 0f;
 
     public GameObject skull = null;
 
@@ -95,6 +101,24 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         {
             hitTimer -= Time.deltaTime;
         }*/
+        if (fixDeltaTimer > 0)
+        {
+            fixDeltaTimer -= Time.deltaTime;
+        }
+        else
+        {
+            oldX = newX;
+            newX = transform.position.x;
+            if (Abs(newX - oldX) >= 0.05f)
+            {
+                ChangeAnimationToWalk();
+            }
+            else
+            {
+                ChangeAnimationToIdle();
+            }
+            fixDeltaTimer = 0.2f;
+        }
     }
 
     void FixedUpdate()
@@ -121,8 +145,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     //вызывается при убийстве врага
     public void EnemyKilled()
     {
-        if (Random.Range(0, 2) > 0 || this._name=="enemy1_range" || this._name == "enemy1_big")
-            Instantiate(resoursePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        Instantiate(resoursePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         Destroy(gameObject);
     }
 
@@ -164,15 +187,18 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     {
         direction = transform.position.x < 0 ? -1 : 1;
         SpeedRestore();
-        PlayWalkAnimation();
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.x);
     }
 
-    public virtual void PlayWalkAnimation()
+    public virtual void ChangeAnimationToWalk()
     {
         return;
     }
-
+    
+    public virtual void ChangeAnimationToIdle()
+    {
+        return;
+    }
 
     public int GetLine() 
     {
@@ -199,4 +225,22 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         GameStats.enemyOnScreen[line + 1].Remove(this);
         isFriend = true;
     }
+
+    /*private void OnCollisionExit2D(Collision2D collision)
+    {
+        string tag = collision.gameObject.tag;
+        if (tag == "Wall1" || tag == "Wall2" || tag == "Wall3" || tag == "Tower" || tag == "Minion")
+        {
+            PlayWalkAnimation();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        string tag = collision.gameObject.tag;
+        if (tag == "Wall1" || tag == "Wall2" || tag == "Wall3" || tag == "Tower" || tag == "Minion")
+        {
+            PlayIdleAnimation();
+        }
+    }*/
 }

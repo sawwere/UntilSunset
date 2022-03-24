@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float xSpeed = 2.5f;
     public float ySpeed = 2f;
 
-    public float timeInvincible = 2.0f;
+    //public float timeInvincible = 2.0f;
 
     public Rigidbody2D rigidbBody2D;
     Vector2 moveDelta;
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         InvokeCheatCode();
 
-        thunderAbilityTimer -= Time.deltaTime;
+        //thunderAbilityTimer -= Time.deltaTime;
         if (isTurning) return;
 
         Turning();
@@ -222,14 +222,14 @@ public class PlayerController : MonoBehaviour
 
     private void SpawnBat()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman > 0)
+        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3)
         {
             isTurning = true;
             animator.Play("InvokeHenchman");
             Invoke(nameof(SetCharacterSettings), 0.2f);
             CalculateBatSpawnPosition();
             Instantiate(Bat, batSpawnPosition, Quaternion.identity);
-            GameStats.Henchman--;
+            GameStats.Henchman -= 3;
             HenchmanRes.UpdateHenchman();
         }
     }
@@ -266,14 +266,15 @@ public class PlayerController : MonoBehaviour
 
     private void SubdueEnemy()
     {
-        if (Input.GetKey(KeyCode.T) && GameStats.Henchman > 0 && thunderAbilityTimer <= 0)
+        //if (Input.GetKey(KeyCode.T) && GameStats.Henchman >= 5 && thunderAbilityTimer <= 0)
+        if (Input.GetKey(KeyCode.T) && GameStats.Henchman >= 5 && thunderAbilityTimer <= 0)
         {
             isTurning = true;
             animator.Play("Magic");
             Invoke(nameof(ThunderZoneActivate), animator.GetCurrentAnimatorClipInfo(0).Length);
-            GameStats.Coins -= 3;
-            resources.UpdateCoins();
-            thunderAbilityTimer = thunderAbilityPeriod;
+            GameStats.Henchman -= 5;
+            resources.UpdateHenchman();
+            //thunderAbilityTimer = thunderAbilityPeriod;
         }
     }
 
