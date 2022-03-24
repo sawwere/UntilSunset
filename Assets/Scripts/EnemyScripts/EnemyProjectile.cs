@@ -31,7 +31,7 @@ public class EnemyProjectile : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("Projectile_Friend");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamage obj = collision.gameObject.GetComponent<IDamage>();
         if (obj != null 

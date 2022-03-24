@@ -11,7 +11,7 @@ public class EnemyRange : EnemyCharacter
 
     public GameObject projectilePrefab;
 
-    //Расчет скорости для снаряда
+    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private float CalcForce(float x0, float x1)
     {
         float dist = System.Math.Abs(x0 - x1) - 0.5f;
@@ -58,7 +58,8 @@ public class EnemyRange : EnemyCharacter
 
         if (b != null)
         {
-            targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x - b.GetSpeed() * 1f;
+            targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x + b.GetSpeed() * 1f;
+            //Debug.Log(b.GetPosition().x + b.GetSpeed() * 1f);
         }
         projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line, this, isFriend);
     }
@@ -73,5 +74,12 @@ public class EnemyRange : EnemyCharacter
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Movement"))
             animator.Play("Idle");
+    }
+
+    public override void ReturnToBase()
+    {
+        base.ReturnToBase();
+        target = null;
+        targetPoint = new Vector2(1000, 1000);
     }
 }
