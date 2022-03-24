@@ -49,7 +49,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     public float GetSpeed()
     {
-        return speed;
+        return speed * direction;
     }
 
     public Vector3 GetPosition()
@@ -160,7 +160,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     }
 
     //инициирует отступление
-    public void ReturnToBase()
+    public virtual void ReturnToBase()
     {
         direction = transform.position.x < 0 ? -1 : 1;
         SpeedRestore();

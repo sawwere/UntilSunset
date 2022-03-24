@@ -69,8 +69,8 @@ public class EnemyRange : EnemyCharacter
         if (target.GetComponent<IMovable>() != null)
         {
             var b = target.GetComponent<IMovable>();
-            targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x - b.GetSpeed() * 1f;
-            //Debug.Log(b.GetPosition().x - b.GetSpeed() * 1f);
+            targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x + b.GetSpeed() * 1f;
+            //Debug.Log(b.GetPosition().x + b.GetSpeed() * 1f);
         }
         projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line, this, isFriend);
     }
@@ -78,5 +78,12 @@ public class EnemyRange : EnemyCharacter
     public override void PlayWalkAnimation()
     {
         animator.Play("Movement");
+    }
+
+    public override void ReturnToBase()
+    {
+        base.ReturnToBase();
+        target = null;
+        targetPoint = new Vector2(1000, 1000);
     }
 }

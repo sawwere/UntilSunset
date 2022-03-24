@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         isBat = false;
         atHome = true;
         thunderAbilityTimer = 0;
+        SetGodSettings();
     }
 
     private void Update()
