@@ -34,9 +34,7 @@ public class EnemyClose : EnemyCharacter
 
     public override void ChangeAnimationToIdle()
     {
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-            animator.Play("Movement");
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Movement"))
+            animator.Play("Idle");
     }
-
 }
