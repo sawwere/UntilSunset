@@ -268,14 +268,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Enemy2_shield
   price: 3
-  maxHealth: 2
+  maxHealth: 20
   speed: 1
   line: 0
   armor: 0
   damage: 1
+  immunityPeriod: 4
+  hitPeriod: 5
   _direction: 1
   immunityTimer: 0
-  firstHitPeriod: 1.5
+  firstHitPeriod: 3.5
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
