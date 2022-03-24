@@ -21,31 +21,10 @@ public class EnemyRange : EnemyCharacter
 
     protected override void Update()
     {
-        if (immunityTimer > 0)
-        {
-            immunityTimer -= Time.deltaTime;
-        }
+        base.Update();
         if (hitTimer > 0)
         {
             hitTimer -= Time.deltaTime;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        string tag = collision.gameObject.tag;
-        if ( tag == "Wall1" || tag == "Wall2")
-        {
-            animator.Play("Idle");
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        string tag = collision.gameObject.tag;
-        if (tag == "Wall1" || tag == "Wall2")
-        {
-            PlayWalkAnimation();
         }
     }
 
@@ -54,7 +33,7 @@ public class EnemyRange : EnemyCharacter
         if (target && hitTimer <= 0f)
         {
             animator.Play("Hit");
-            this.speed = 0.0001f;
+            speed = 0.0001f;
             Invoke(nameof(DoThrow), 1f);
             hitTimer = hitPeriod;
         }
@@ -62,21 +41,27 @@ public class EnemyRange : EnemyCharacter
 
     public virtual void DoThrow()
     {
-        this.speed = 1f;
+        speed = 1f;
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
+        IMovable b;
 
-        if (target.GetComponent<IMovable>() != null)
+        if ((b = target.GetComponent<IMovable>()) != null)
         {
-            var b = target.GetComponent<IMovable>();
             targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x - b.GetSpeed() * 1f;
-            //Debug.Log(b.GetPosition().x - b.GetSpeed() * 1f);
         }
         projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line, this, isFriend);
     }
 
-    public override void PlayWalkAnimation()
+    public override void ChangeAnimationToWalk()
     {
-        animator.Play("Movement");
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            animator.Play("Movement");
+    }
+
+    public override void ChangeAnimationToIdle()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Movement"))
+            animator.Play("Idle");
     }
 }

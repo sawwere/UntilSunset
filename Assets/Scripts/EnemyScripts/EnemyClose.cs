@@ -17,16 +17,22 @@ public class EnemyClose : EnemyCharacter
                 obj.RecieveDamage(damage);
                 hitTimer = hitPeriod;
             }
-            else if (hitTimer <= 1.25f)
+            else if (hitTimer <= 2.25f && hitTimer >= 1.5f)
             {
                 animator.Play("Hit");
             }
-            else animator.Play("Idle");
         }
     }
 
-    public override void PlayWalkAnimation()
+    public override void ChangeAnimationToWalk()
     {
-        animator.Play("Movement");
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            animator.Play("Movement");
+    }
+
+    public override void ChangeAnimationToIdle()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Movement"))
+            animator.Play("Idle");
     }
 }
