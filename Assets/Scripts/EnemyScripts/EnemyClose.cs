@@ -17,7 +17,7 @@ public class EnemyClose : EnemyCharacter
                 obj.RecieveDamage(damage);
                 hitTimer = hitPeriod;
             }
-            else if (hitTimer <= 2.25f && hitTimer >= 1.5f)
+            else if ((hitTimer <= 2f && !(obj is Bat bat)) || hitTimer <= 1f)
             {
                 animator.Play("Hit");
             }

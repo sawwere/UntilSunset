@@ -26,7 +26,15 @@ public class EnemyRange : EnemyCharacter
         {
             hitTimer -= Time.deltaTime;
         }
+        if (!target)
+            speed = 1f;
     }
+
+    /*private void FixedUpdate()
+    {
+        if (!target)
+            speed = 1f;
+    }*/
 
     public override void DoDamage(IDamage obj)
     {
@@ -41,12 +49,14 @@ public class EnemyRange : EnemyCharacter
 
     public virtual void DoThrow()
     {
-        speed = 1f;
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
-        IMovable b;
+        IMovable b = target.GetComponent<IMovable>();
 
-        if ((b = target.GetComponent<IMovable>()) != null)
+        if (!(b is Bat bat))
+            speed = 1f;
+
+        if (b != null)
         {
             targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x - b.GetSpeed() * 1f;
         }
