@@ -26,6 +26,4 @@ public class CoinCollectable : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }

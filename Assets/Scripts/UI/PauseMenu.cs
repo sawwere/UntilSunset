@@ -14,18 +14,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject loseMenuUI;
     public GameObject winMenuUI;
-
-    public bool SettingsIsOpened = false; //Открыто ли меню настроек
-    public float volume = 0; //Громкость
-    public int quality = 0; //Качество
-    public bool isFullscreen = false; //Полноэкранный режим
-    public AudioMixer audioMixer; //Регулятор громкости
-    public Dropdown resolutionDropdown; //Список с разрешениями для игры
-    private Resolution[] resolutions; //Список доступных разрешений
-    private int currResolutionIndex = 0; //Текущее разрешение
     public GameObject SettingsMenu;
 
-
+    public bool SettingsIsOpened = false; //Открыто ли меню настроек
 
     private void Awake()
     {
@@ -120,26 +111,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         SettingsMenu.SetActive(false);
         SettingsIsOpened = false;
-    }
-
-    public void ChangeVolume(float val) 
-    {
-        volume = val;
-    }
-
-    public void ChangeResolution(int index) 
-    {
-        currResolutionIndex = index;
-    }
-
-    public void ChangeFullscreenMode(bool val) 
-    {
-        isFullscreen = val;
-    }
-
-    public void ChangeQuality(int index) 
-    {
-        quality = index;
     }
 
 }
