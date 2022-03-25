@@ -248,14 +248,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Enemy1_big
   price: 3
-  maxHealth: 2
+  maxHealth: 20
   speed: 1
   line: 0
   armor: 0
   damage: 3
+  immunityPeriod: 3
+  hitPeriod: 4
   _direction: 1
   immunityTimer: 0
-  firstHitPeriod: 1
+  firstHitPeriod: 3
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
