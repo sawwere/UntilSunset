@@ -13,7 +13,7 @@ public class TimeCycle : MonoBehaviour
     public GameObject newwave;
     public NewWave nw;
     protected int GameTime = 0;  
-    protected bool isDay = true;
+    protected bool isDay = false;
     protected bool fpd = true;
     int lightintensity;
     public GameObject sky1;

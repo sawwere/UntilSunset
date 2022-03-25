@@ -10,8 +10,6 @@ public class EnemyClose : EnemyCharacter
     {
         hitTimer -= Time.deltaTime;
         
-        
-        
         if (obj != null)
         {
             if (hitTimer <= 0)

@@ -13,25 +13,26 @@ public class EnemyKamikadze : EnemyClose
 
     void BlowUp()
     {
-        
-    }
-
-    new public void DoDamage(IDamage obj)
-    {
-        hitTimer -= Time.deltaTime;
-
-        if (obj != null)
+        List<Collider2D> lst = new List<Collider2D>();
+        var cf = new ContactFilter2D(); 
+        cf.SetLayerMask(aviableHitMask); 
+        cf.useLayerMask = true;
+        transform.GetChild(0).GetComponent<BoxCollider2D>().OverlapCollider(cf, lst);
+        for (int i = 0; i < lst.Count; ++i)
         {
-            if (hitTimer <= 0)
+            var obj = lst[i].GetComponent<IDamage>();
+            if (obj != null)
             {
                 obj.RecieveDamage(damage);
-                hitTimer = hitPeriod;
+                Debug.Log(damage);
             }
-            else if (hitTimer <= 1.25f)
-            {
-                animator.Play("Hit");
-            }
-            else animator.Play("Idle");
         }
+        EnemyKilled();
+    }
+
+    public override void DoDamage(IDamage obj)
+    {
+        //base.DoDamage(obj);
+        BlowUp();
     }
 }
