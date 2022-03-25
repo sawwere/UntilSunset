@@ -28,6 +28,7 @@ public class GameStats:MonoBehaviour
 
     public static List<List<EnemyCharacter>> enemyOnScreen;
 
+    public static List<int> henchmanOnScreen;
     public static int Encounter
     {
         get { return encounter; }
@@ -73,7 +74,7 @@ public class GameStats:MonoBehaviour
         level = 1;
         spawnerList = new List<SpawnerScript>();
         enemyOnScreen = new List<List<EnemyCharacter>>();
-        enemyOnScreen.Capacity = 3;
+        henchmanOnScreen = new List<int> { 0,0,0};
         for (int i = 0; i < 3; i++)
             enemyOnScreen.Add(new List<EnemyCharacter>());
 

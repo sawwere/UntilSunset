@@ -10,7 +10,7 @@ public class ResourseHelp : MonoBehaviour
 
     public GameObject resoursePrefab1;
 
-    public GameObject resoursePrefab2;
+    //public GameObject resoursePrefab2;
 
     bool flag = false;
 
@@ -34,8 +34,8 @@ public class ResourseHelp : MonoBehaviour
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    Instantiate(resoursePrefab1, transform.position + new Vector3(13, -4, 0), transform.rotation);
-                    Instantiate(resoursePrefab2, transform.position + new Vector3(13, -6, 0), transform.rotation);
+                    Instantiate(resoursePrefab1, transform.position + new Vector3(13, -6, 0), transform.rotation);
+                    //Instantiate(resoursePrefab2, transform.position + new Vector3(13, -6, 0), transform.rotation);
                 }
                 flag = true;
             }

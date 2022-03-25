@@ -151,7 +151,7 @@ MonoBehaviour:
   speedInit: 0
   line: 0
   maxHealth: 2
-  damage: 1
+  damage: 10
   immunityTimer: 0
   firstHitPeriod: 1.5
   cofiin: {fileID: 4957395238149682522, guid: ec5ad794bb9f2b74ca4362b61bdff20a, type: 3}

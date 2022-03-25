@@ -40,6 +40,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
             line = (int)System.Math.Round(transform.position.y);
         }
         else line = 0;
+       //line = PlayerController.henchmanline;
         
         batt = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
@@ -57,10 +58,10 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         {
             if (timeCycle.GetIsDay())
                 FindEnemy();
-            else  GoHome(); 
-
-        }     
+            else GoHome();
+        }
         else GoHome();
+
 
         if (immunityTimer > 0)
         {
@@ -105,7 +106,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
             else batt.velocity = new Vector2(speed , speed) ;
         }*/
         //batt.position = Vector2.Lerp(batt.position, nearEnemy.transform.position,speed*Time.deltaTime);
-
+        GameStats.henchmanOnScreen[line+1] = 1;
         direction = (int)nearEnemy.transform.position.x > transform.position.x ? 1 : -1;
         batt.position = Vector3.MoveTowards(batt.position, nearEnemy.transform.position, speed * Time.deltaTime);
     }
@@ -133,7 +134,10 @@ public class Bat : MonoBehaviour, IDamage, IMovable
 
             currentHealth -= amount;
             if (currentHealth <= 0)
+            {
+               GameStats.henchmanOnScreen[line+1] = 0;
                 Destroy(gameObject);
+            }
             immunityTimer = immunityPeriod;
         }
     }
@@ -147,7 +151,8 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     void GoHome()
     {
         //batt.position = Vector2.Lerp(batt.position,cofiin.transform.position, speed * Time.deltaTime);
-        batt.position = Vector3.MoveTowards(batt.position, cofiin.transform.position, speed * Time.deltaTime);
+        Vector3 v3 = new Vector3(cofiin.transform.position.x, cofiin.transform.position.y+line, cofiin.transform.position.z);
+        batt.position = Vector3.MoveTowards(batt.position, v3, speed * Time.deltaTime);
         if (!timeCycle.GetIsDay())
         {
             ReturnToPocket();
@@ -156,9 +161,10 @@ public class Bat : MonoBehaviour, IDamage, IMovable
 
     void ReturnToPocket()
     {
-        if(batt.position.x == cofiin.transform.position.x && batt.position.y == cofiin.transform.position.y)
+        if(batt.position.x == cofiin.transform.position.x) //&& batt.position.y == cofiin.transform.position.y)
         {
             GameStats.Henchman+=1;
+            GameStats.henchmanOnScreen[line + 1] = 0;
             Destroy(gameObject);
             HenchmanRes.UpdateHenchman();
         }
