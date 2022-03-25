@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MenuControls : MonoBehaviour
 {
+    public GameObject Exit;
+    public GameObject Back;
     public GameObject Play;
     public GameObject Level1;
     public GameObject Level2;
@@ -15,14 +17,28 @@ public class MenuControls : MonoBehaviour
     public GameObject ScrollInfo;
     public Text MenuLogo;
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !Play.activeInHierarchy && !ScrollInfo.activeInHierarchy)
+        {
+            BackToMain();
+        }
+
+    }
+
+
+
+
     public void PlayPressed()
     {
+        Exit.SetActive(false);
         Play.SetActive(false);
         Level1.SetActive(true);
         Level2.SetActive(true);
         Level3.SetActive(true);
         Tutorial.SetActive(true);
         InfoBut.SetActive(false);
+        Back.SetActive(true);
     }
 
     public void Level1Pressed()
@@ -62,5 +78,17 @@ public class MenuControls : MonoBehaviour
         InfoBut.SetActive(true);
         ScrollInfo.SetActive(false);
         MenuLogo.text = "Μενώ";
+    }
+
+    public void BackToMain()
+    {
+        Exit.SetActive(true);
+        Play.SetActive(true);
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Tutorial.SetActive(false);
+        InfoBut.SetActive(true);
+        Back.SetActive(false);
     }
 }
