@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MenuControls : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class MenuControls : MonoBehaviour
     public GameObject Level2;
     public GameObject Level3;
     public GameObject Tutorial;
+<<<<<<< HEAD
     public GameObject InfoBut;
     public GameObject ScrollInfo;
     public Text MenuLogo;
@@ -29,6 +29,8 @@ public class MenuControls : MonoBehaviour
 
 
 
+=======
+>>>>>>> parent of e57661d (Squashed commit of the following:)
     public void PlayPressed()
     {
         Exit.SetActive(false);
@@ -37,8 +39,11 @@ public class MenuControls : MonoBehaviour
         Level2.SetActive(true);
         Level3.SetActive(true);
         Tutorial.SetActive(true);
+<<<<<<< HEAD
         InfoBut.SetActive(false);
         Back.SetActive(true);
+=======
+>>>>>>> parent of e57661d (Squashed commit of the following:)
     }
 
     public void Level1Pressed()
@@ -65,6 +70,7 @@ public class MenuControls : MonoBehaviour
         Application.Quit();
         Debug.Log("Exit pressed!");
     }
+<<<<<<< HEAD
     public void OpenInfo()
     {
         Play.SetActive(false);
@@ -91,4 +97,6 @@ public class MenuControls : MonoBehaviour
         InfoBut.SetActive(true);
         Back.SetActive(false);
     }
+=======
+>>>>>>> parent of e57661d (Squashed commit of the following:)
 }

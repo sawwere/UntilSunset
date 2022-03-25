@@ -69,7 +69,7 @@ public class TimeCycle : MonoBehaviour
                 Moonanimator.SetInteger("IsDayInt", 0);
                 isDay = false;
                 GameTime = 0;
-                GameStats.Encounter++;
+
                 foreach (var spawner in spawners)
                     spawner.SetActive(false);
                 foreach (var line in GameStats.enemyOnScreen)
@@ -116,7 +116,7 @@ public class TimeCycle : MonoBehaviour
                 Moonanimator.SetInteger("IsDayInt", 1);
                 Debug.Log("day");
                 GameTime = 0;
-                //GameStats.Encounter++;
+                GameStats.Encounter++;
                 //StartCoroutine(sun.day());
                 
                 foreach (var spawner in spawners)
