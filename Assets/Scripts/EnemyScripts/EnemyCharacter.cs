@@ -107,7 +107,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         }
         else
         {
-            oldX = newX;
+            oldX = newX;// ВРОДЕ ТУТ СДЕЛАТЬ ЗВУКИ ХОДЬБЫ НАДО
             newX = transform.position.x;
             if (Abs(newX - oldX) >= 0.05f)
             {
@@ -128,7 +128,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         {
             position.x = position.x + Time.deltaTime * speed * direction;
             rigidbody2d.MovePosition(position);
-
         }
         //Debug.Log(speed);
         if (transform.position.y > 2 || transform.position.y < -1)

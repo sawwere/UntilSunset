@@ -13,12 +13,16 @@ public class Wall_2 : Wall
     public GameObject dialogBox;
     public GameObject dialogBox2;
     float timerDisplay;
+    private AudioSource source;
+    public AudioClip CUpgrade;
+    public AudioClip CRecover;
 
     protected override void Start()
     {
         HideDialog();
         timerDisplay = -1.0f;
         bp = transform.parent.GetComponent<BuildPlace_1>();
+        source = GetComponent<AudioSource>();
         dialogBox.SetActive(false);
         dialogBox2.SetActive(false);
         maxHealth = 4;
@@ -51,6 +55,7 @@ public class Wall_2 : Wall
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
         GameStats.Wood += 2;
         resources.UpdateWood();
+        source.PlayOneShot(CRemove, 0.5f);
         Destroy(gameObject);
     }
 
@@ -63,6 +68,7 @@ public class Wall_2 : Wall
             GameStats.Wood -= 2;
             resources.UpdateWood();
             HideDialog();
+            source.PlayOneShot(CRecover, 1f);
         }
     }
 
@@ -77,6 +83,7 @@ public class Wall_2 : Wall
             GameStats.Wood -= 3;
             resources.UpdateWood();
             HideDialog();
+            source.PlayOneShot(CUpgrade, 1f);
             Destroy(gameObject);
         }
     }

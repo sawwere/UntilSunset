@@ -62,12 +62,11 @@ public class ResourceScript : MonoBehaviour
         {
             res--;
             if (res != 0)
-            {
                 resSp.sprite = sp[Math.Min(9, Convert.ToInt32(10 - Math.Floor(res / resLim * 10)))];
-                source.PlayOneShot(source.clip, 1f);
-            }
             else
                 resSp.sprite = sp[10];
+
+            source.PlayOneShot(source.clip, 1f);
 
             if (IsStone)
             {

@@ -150,7 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSpeed: 2
   ySpeed: 2
-  timeInvincible: 2
   rigidbBody2D: {fileID: 0}
   animator: {fileID: 353456340}
   Bat: {fileID: 4286908564588651508, guid: 01c8a63666992f048a512c854a9481c1, type: 3}
@@ -201,7 +200,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 1
   Mute: 0

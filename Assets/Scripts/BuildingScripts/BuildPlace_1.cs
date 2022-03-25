@@ -20,6 +20,8 @@ public class BuildPlace_1 : MonoBehaviour
     float timerDisplay;
     private Resources resources;
     private bool EnemyIsNear;
+    private AudioSource source;
+    public AudioClip clip;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class BuildPlace_1 : MonoBehaviour
         dialogBox.SetActive(false);
         timerDisplay = -1.0f;
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        source = gameObject.AddComponent<AudioSource>();
     }
 
     void Update()
@@ -78,6 +81,7 @@ public class BuildPlace_1 : MonoBehaviour
             GameStats.Stone -= obj_price_stone;
             resources.UpdateWood();
             resources.UpdateStones();
+            source.PlayOneShot(clip, 0.5f);
             HideDialog();
         }
     }
