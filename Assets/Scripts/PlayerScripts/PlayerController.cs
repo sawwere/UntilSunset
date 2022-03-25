@@ -47,6 +47,13 @@ public class PlayerController : MonoBehaviour
     private int stoneAmount;
     private int henchmanAmount;
 
+    private AudioSource source;
+    public AudioClip[] walksounds;
+    private bool isWalking;
+    private bool soundIsPlaying;
+    private bool onTheGrass;
+    private bool[] sIsPlaying;
+
     private void Awake()
     {
         mySortingGroup = gameObject.GetComponent<SortingGroup>();
@@ -54,6 +61,7 @@ public class PlayerController : MonoBehaviour
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        source = gameObject.GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -61,6 +69,10 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("LastVertical", -1);
         isBat = false;
         atHome = true;
+        isWalking = false;
+        onTheGrass = false;
+        soundIsPlaying = false;
+        sIsPlaying = new bool[] { false, false, false };
         thunderAbilityTimer = 0;
     }
 
@@ -85,6 +97,7 @@ public class PlayerController : MonoBehaviour
         if (isTurning) return;
 
         UpdateMotor();
+        PlayWalkSound();
     }
 
     private void LateUpdate()
@@ -186,6 +199,9 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
+        if (x != 0 || y != 0) isWalking = true;
+        else isWalking = false;
+
         moveDelta = new Vector2(x * xSpeed, y * ySpeed);
 
         animator.SetFloat("Horizontal", x);
@@ -281,4 +297,48 @@ public class PlayerController : MonoBehaviour
         ThunderZone.BeatEnemy();
         SetCharacterSettings();
     }
+
+    private void PlayWalkSound()
+    {
+        if (isWalking && !isBat && !isTurning)
+        {
+            if (atHome && !sIsPlaying[0])
+            {
+                source.clip = walksounds[0];
+                sIsPlaying = new bool[] { false, false, false };
+                sIsPlaying[0] = true;
+                source.Play();
+            }
+            else if (onTheGrass && !atHome && !sIsPlaying[2])
+            {
+                source.clip = walksounds[2];
+                sIsPlaying = new bool[] { false, false, false };
+                sIsPlaying[2] = true;
+                source.Play();
+            }
+            else if (!onTheGrass && !atHome && !sIsPlaying[1])
+            {
+                source.clip = walksounds[1];
+                sIsPlaying = new bool[] { false, false, false };
+                sIsPlaying[1] = true;
+                source.Play();
+            }
+
+            if (!soundIsPlaying)
+            {
+                soundIsPlaying = true;
+                source.Play();
+                //sIsPlaying = new bool[] { false, false, false };
+            }
+        }
+        else
+        {
+            source.Stop();
+            soundIsPlaying = false;
+            sIsPlaying = new bool[] { false, false, false };
+        }
+    }
+
+    public void SetOnTheGrass(bool p) => onTheGrass = p;
+    public bool[] GetSIsPlaying() => sIsPlaying;
 }

@@ -23,6 +23,7 @@ public class ResourceScript : MonoBehaviour
     private SpriteRenderer resSp;
     private bool isRestored;
     private TimeCycle timeCycle;
+    private AudioSource source;
 
 
     void Start()
@@ -40,6 +41,7 @@ public class ResourceScript : MonoBehaviour
         resSp = resInd.GetComponent<SpriteRenderer>();
         tcount.SetText(Convert.ToString(0));
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
+        source = GetComponent<AudioSource>();
     }
 
    
@@ -62,7 +64,10 @@ public class ResourceScript : MonoBehaviour
             if (res != 0)
                 resSp.sprite = sp[Math.Min(9, Convert.ToInt32(10 - Math.Floor(res / resLim * 10)))];
             else
+            {
                 resSp.sprite = sp[10];
+                source.PlayOneShot(source.clip, 1f);
+            }
 
             if (IsStone)
             {
