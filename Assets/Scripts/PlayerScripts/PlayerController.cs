@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip[] walksounds;
     private bool isWalking;
     private bool soundIsPlaying;
-    private bool onTheGrass;
+    private bool onTheWay;
     private bool[] sIsPlaying;
 
     private void Awake()
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         isBat = false;
         atHome = true;
         isWalking = false;
-        onTheGrass = false;
+        onTheWay = false;
         soundIsPlaying = false;
         sIsPlaying = new bool[] { false, false, false };
         thunderAbilityTimer = 0;
@@ -311,14 +311,14 @@ public class PlayerController : MonoBehaviour
                 sIsPlaying[0] = true;
                 source.Play();
             }
-            else if (onTheGrass && !atHome && !sIsPlaying[2])
+            else if (onTheWay && !atHome && !sIsPlaying[2])
             {
                 source.clip = walksounds[2];
                 sIsPlaying = new bool[] { false, false, false };
                 sIsPlaying[2] = true;
                 source.Play();
             }
-            else if (!onTheGrass && !atHome && !sIsPlaying[1])
+            else if (!onTheWay && !atHome && !sIsPlaying[1])
             {
                 source.clip = walksounds[1];
                 sIsPlaying = new bool[] { false, false, false };
@@ -330,7 +330,6 @@ public class PlayerController : MonoBehaviour
             {
                 soundIsPlaying = true;
                 source.Play();
-                //sIsPlaying = new bool[] { false, false, false };
             }
         }
         else
@@ -341,6 +340,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void SetOnTheGrass(bool p) => onTheGrass = p;
+    public void SetOnTheWay(bool p) => onTheWay = p;
     public bool[] GetSIsPlaying() => sIsPlaying;
 }

@@ -8,12 +8,8 @@ public class WalkingSounds : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player")// && col.gameObject.GetComponent<AudioSource>().clip != clip)
-        {
-            //col.gameObject.GetComponent<AudioSource>().clip = clip;
-            //col.gameObject.GetComponent<AudioSource>().Play();
-            col.gameObject.GetComponent<PlayerController>().SetOnTheGrass(false);
-        }
+        if (col.gameObject.tag == "Player")
+            col.gameObject.GetComponent<PlayerController>().SetOnTheWay(false);
     }
     private void OnTriggerExit2D(Collider2D col)//0 2
     {
@@ -21,7 +17,7 @@ public class WalkingSounds : MonoBehaviour
         {
             double y = col.gameObject.transform.position.y;
             if (y <= 0 || y >= 2.1)
-                col.gameObject.GetComponent<PlayerController>().SetOnTheGrass(true);
+                col.gameObject.GetComponent<PlayerController>().SetOnTheWay(true);
         }
     }
 }
