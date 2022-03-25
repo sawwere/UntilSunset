@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Bat : MonoBehaviour, IDamage, IMovable
 {
-    public float speed = 2.5f;
+    public float speed = 2f;
     public float speedInit;
-    Vector2 position;
     public int line;
+    private int direction = 0;
 
     [SerializeField] private int maxHealth = 2; //макс здоровье
     public int damage = 1; //урон
@@ -106,6 +106,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         }*/
         //batt.position = Vector2.Lerp(batt.position, nearEnemy.transform.position,speed*Time.deltaTime);
 
+        direction = (int)nearEnemy.transform.position.x > transform.position.x ? 1 : -1;
         batt.position = Vector3.MoveTowards(batt.position, nearEnemy.transform.position, speed * Time.deltaTime);
     }
 
@@ -153,11 +154,6 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         }
     }
 
-    public int GetLine()
-    {
-        return line;
-    }
-
     void ReturnToPocket()
     {
         if(batt.position.x == cofiin.transform.position.x && batt.position.y == cofiin.transform.position.y)
@@ -186,9 +182,14 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         }
     }
 
+    public int GetLine()
+    {
+        return line;
+    }
+
     public float GetSpeed()
     {
-        return speed;
+        return speed * direction;
     }
 
     public Vector3 GetPosition()
