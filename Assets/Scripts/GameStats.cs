@@ -14,7 +14,10 @@ public class GameStats:MonoBehaviour
     public GameObject e7;
     public GameObject e8;
     public GameObject e9;
-    public Vector3 spawnPoint;
+    public Vector3 spawnPointEnemy;
+
+    public GameObject bat;
+    public Vector3 spawnPointBat;
 
 
     private static int level;
@@ -28,7 +31,7 @@ public class GameStats:MonoBehaviour
     public static int Encounter
     {
         get { return encounter; }
-        set { encounter = value; if (encounter == 4) FindObjectOfType<PauseMenu>().Win(); }
+        set { encounter = value; if (encounter == 3) FindObjectOfType<PauseMenu>().Win(); }
     }
 
     public static int Level

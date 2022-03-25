@@ -5,7 +5,6 @@ using UnityEngine;
 public interface IMovable
 {
     float GetSpeed();
-
     Vector3 GetPosition();
 
 }

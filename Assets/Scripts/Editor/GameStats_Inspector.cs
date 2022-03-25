@@ -32,147 +32,171 @@ public class GameStats_Inspector : Editor
 
     public override void OnInspectorGUI()
     {
-        
 
-        GUILayout.BeginVertical();
-        GUILayout.Label("Enemy Spawn Section");
-        EditorGUILayout.Space();
-        GUILayout.BeginVertical();
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("spawnPoint"));
-        GUILayout.EndVertical();
-        categoryToDisplayEnemy = (DisplayCategoryEnemy)EditorGUILayout.EnumPopup("Select Level", categoryToDisplayEnemy);
-        switch (categoryToDisplayEnemy)
+        //Bat spawn section
         {
-            case DisplayCategoryEnemy.LEVEL_1:
+            GUILayout.BeginVertical();
+            GUILayout.Label("Bat Spawn Section");
+            EditorGUILayout.Space();
+            GUILayout.BeginVertical();
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("spawnPointBat"));
+            GUILayout.EndVertical();
+            gameStats.bat = (GameObject)EditorGUILayout.ObjectField("Bat:", gameStats.bat, typeof(GameObject), true);
+            if (GUILayout.Button("Spawn Bat"))
+            {
+               
+                if (GUILayout.Button("SpawnBat"))
                 {
-                    GUILayout.BeginHorizontal();
-                    gameStats.e1 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e1, typeof(GameObject), true);
-                    if (GUILayout.Button("SpawnLeft1"))
-                    {
-                        Instantiate(gameStats.e1, gameStats.spawnPoint, Quaternion.identity);
-                    }
-                    if (GUILayout.Button("SpawnRight1"))
-                    {
-                        GameObject enemy = Instantiate(gameStats.e1, gameStats.spawnPoint, Quaternion.identity);
-                        enemy.GetComponent<EnemyCharacter>().direction = -1;
-                    }
-                    GUILayout.EndHorizontal();
-
-                    GUILayout.BeginHorizontal();
-
-                    gameStats.e2 = (GameObject)EditorGUILayout.ObjectField("EnemyType2:", gameStats.e2, typeof(GameObject), true);
-                    if (GUILayout.Button("SpawnLeft2"))
-                    {
-                        Instantiate(gameStats.e2, gameStats.spawnPoint, Quaternion.identity);
-                    }
-                    if (GUILayout.Button("SpawnRight2"))
-                    {
-                        GameObject enemy = Instantiate(gameStats.e2, gameStats.spawnPoint, Quaternion.identity);
-                        enemy.GetComponent<EnemyCharacter>().direction = -1;
-                    }
-                    GUILayout.EndHorizontal();
-
-                    GUILayout.BeginHorizontal();
-                    gameStats.e3 = (GameObject)EditorGUILayout.ObjectField("EnemyType3:", gameStats.e3, typeof(GameObject), true);
-                    if (GUILayout.Button("SpawnLeft3"))
-                    {
-                        Instantiate(gameStats.e3, gameStats.spawnPoint, Quaternion.identity);
-                    }
-                    if (GUILayout.Button("SpawnRight3"))
-                    {
-                        GameObject enemy = Instantiate(gameStats.e3, gameStats.spawnPoint, Quaternion.identity);
-                        enemy.GetComponent<EnemyCharacter>().direction = -1;
-                    }
-                    GUILayout.EndHorizontal();
-                    break;
+                    Instantiate(gameStats.e1, gameStats.spawnPointBat, Quaternion.identity);
                 }
-            case DisplayCategoryEnemy.LEVEL_2:
-                {
-                    GUILayout.BeginHorizontal();
-                    gameStats.e4 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e4, typeof(GameObject), true);
-                    if (GUILayout.Button("SpawnLeft1"))
-                    {
-                        Instantiate(gameStats.e4, gameStats.spawnPoint, Quaternion.identity);
-                    }
-                    if (GUILayout.Button("SpawnRight1"))
-                    {
-                        GameObject enemy = Instantiate(gameStats.e4, gameStats.spawnPoint, Quaternion.identity);
-                        enemy.GetComponent<EnemyCharacter>().direction = -1;
-                    }
-                    GUILayout.EndHorizontal();
-
-                    GUILayout.BeginHorizontal();
-                    gameStats.e5 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e5, typeof(GameObject), true);
-                    if (GUILayout.Button("SpawnLeft1"))
-                    {
-                        Instantiate(gameStats.e5, gameStats.spawnPoint, Quaternion.identity);
-                    }
-                    if (GUILayout.Button("SpawnRight1"))
-                    {
-                        GameObject enemy = Instantiate(gameStats.e5, gameStats.spawnPoint, Quaternion.identity);
-                        enemy.GetComponent<EnemyCharacter>().direction = -1;
-                    }
-                    GUILayout.EndHorizontal();
-
-                    GUILayout.BeginHorizontal();
-                    gameStats.e6 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e6, typeof(GameObject), true);
-                    if (GUILayout.Button("SpawnLeft1"))
-                    {
-                        Instantiate(gameStats.e6, gameStats.spawnPoint, Quaternion.identity);
-                    }
-                    if (GUILayout.Button("SpawnRight1"))
-                    {
-                        GameObject enemy = Instantiate(gameStats.e6, gameStats.spawnPoint, Quaternion.identity);
-                        enemy.GetComponent<EnemyCharacter>().direction = -1;
-                    }
-                    GUILayout.EndHorizontal();
-                    break;
-                }
-            case DisplayCategoryEnemy.LEVEL_3:
-                {
-                    GUILayout.BeginHorizontal();
-                    gameStats.e7 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e7, typeof(GameObject), true);
-                    if (GUILayout.Button("SpawnLeft1"))
-                    {
-                        Instantiate(gameStats.e7, gameStats.spawnPoint, Quaternion.identity);
-                    }
-                    if (GUILayout.Button("SpawnRight1"))
-                    {
-                        GameObject enemy = Instantiate(gameStats.e7, gameStats.spawnPoint, Quaternion.identity);
-                        enemy.GetComponent<EnemyCharacter>().direction = -1;
-                    }
-                    GUILayout.EndHorizontal();
-
-                    GUILayout.BeginHorizontal();
-                    gameStats.e8 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e8, typeof(GameObject), true);
-                    if (GUILayout.Button("SpawnLeft1"))
-                    {
-                        Instantiate(gameStats.e8, gameStats.spawnPoint, Quaternion.identity);
-                    }
-                    if (GUILayout.Button("SpawnRight1"))
-                    {
-                        GameObject enemy = Instantiate(gameStats.e8, gameStats.spawnPoint, Quaternion.identity);
-                        enemy.GetComponent<EnemyCharacter>().direction = -1;
-                    }
-                    GUILayout.EndHorizontal();
-
-                    GUILayout.BeginHorizontal();
-                    gameStats.e9 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e9, typeof(GameObject), true);
-                    if (GUILayout.Button("SpawnLeft1"))
-                    {
-                        Instantiate(gameStats.e9, gameStats.spawnPoint, Quaternion.identity);
-                    }
-                    if (GUILayout.Button("SpawnRight1"))
-                    {
-                        GameObject enemy = Instantiate(gameStats.e9, gameStats.spawnPoint, Quaternion.identity);
-                        enemy.GetComponent<EnemyCharacter>().direction = -1;
-                    }
-                    GUILayout.EndHorizontal();
-                    break;
-                }
+            }
+            
+            
+            GUILayout.EndVertical();
         }
-        GUILayout.EndVertical();
 
+        //Enemy spawn section
+        {
+
+            GUILayout.BeginVertical();
+            GUILayout.Label("Enemy Spawn Section");
+            EditorGUILayout.Space();
+            GUILayout.BeginVertical();
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("spawnPointEnemy"));
+            GUILayout.EndVertical();
+            categoryToDisplayEnemy = (DisplayCategoryEnemy)EditorGUILayout.EnumPopup("Select Level", categoryToDisplayEnemy);
+            switch (categoryToDisplayEnemy)
+            {
+                case DisplayCategoryEnemy.LEVEL_1:
+                    {
+                        GUILayout.BeginHorizontal();
+                        gameStats.e1 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e1, typeof(GameObject), true);
+                        if (GUILayout.Button("SpawnLeft1"))
+                        {
+                            Instantiate(gameStats.e1, gameStats.spawnPointEnemy, Quaternion.identity);
+                        }
+                        if (GUILayout.Button("SpawnRight1"))
+                        {
+                            GameObject enemy = Instantiate(gameStats.e1, gameStats.spawnPointEnemy, Quaternion.identity);
+                            enemy.GetComponent<EnemyCharacter>().direction = -1;
+                        }
+                        GUILayout.EndHorizontal();
+
+                        GUILayout.BeginHorizontal();
+
+                        gameStats.e2 = (GameObject)EditorGUILayout.ObjectField("EnemyType2:", gameStats.e2, typeof(GameObject), true);
+                        if (GUILayout.Button("SpawnLeft2"))
+                        {
+                            Instantiate(gameStats.e2, gameStats.spawnPointEnemy, Quaternion.identity);
+                        }
+                        if (GUILayout.Button("SpawnRight2"))
+                        {
+                            GameObject enemy = Instantiate(gameStats.e2, gameStats.spawnPointEnemy, Quaternion.identity);
+                            enemy.GetComponent<EnemyCharacter>().direction = -1;
+                        }
+                        GUILayout.EndHorizontal();
+
+                        GUILayout.BeginHorizontal();
+                        gameStats.e3 = (GameObject)EditorGUILayout.ObjectField("EnemyType3:", gameStats.e3, typeof(GameObject), true);
+                        if (GUILayout.Button("SpawnLeft3"))
+                        {
+                            Instantiate(gameStats.e3, gameStats.spawnPointEnemy, Quaternion.identity);
+                        }
+                        if (GUILayout.Button("SpawnRight3"))
+                        {
+                            GameObject enemy = Instantiate(gameStats.e3, gameStats.spawnPointEnemy, Quaternion.identity);
+                            enemy.GetComponent<EnemyCharacter>().direction = -1;
+                        }
+                        GUILayout.EndHorizontal();
+                        break;
+                    }
+                case DisplayCategoryEnemy.LEVEL_2:
+                    {
+                        GUILayout.BeginHorizontal();
+                        gameStats.e4 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e4, typeof(GameObject), true);
+                        if (GUILayout.Button("SpawnLeft1"))
+                        {
+                            Instantiate(gameStats.e4, gameStats.spawnPointEnemy, Quaternion.identity);
+                        }
+                        if (GUILayout.Button("SpawnRight1"))
+                        {
+                            GameObject enemy = Instantiate(gameStats.e4, gameStats.spawnPointEnemy, Quaternion.identity);
+                            enemy.GetComponent<EnemyCharacter>().direction = -1;
+                        }
+                        GUILayout.EndHorizontal();
+
+                        GUILayout.BeginHorizontal();
+                        gameStats.e5 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e5, typeof(GameObject), true);
+                        if (GUILayout.Button("SpawnLeft1"))
+                        {
+                            Instantiate(gameStats.e5, gameStats.spawnPointEnemy, Quaternion.identity);
+                        }
+                        if (GUILayout.Button("SpawnRight1"))
+                        {
+                            GameObject enemy = Instantiate(gameStats.e5, gameStats.spawnPointEnemy, Quaternion.identity);
+                            enemy.GetComponent<EnemyCharacter>().direction = -1;
+                        }
+                        GUILayout.EndHorizontal();
+
+                        GUILayout.BeginHorizontal();
+                        gameStats.e6 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e6, typeof(GameObject), true);
+                        if (GUILayout.Button("SpawnLeft1"))
+                        {
+                            Instantiate(gameStats.e6, gameStats.spawnPointEnemy, Quaternion.identity);
+                        }
+                        if (GUILayout.Button("SpawnRight1"))
+                        {
+                            GameObject enemy = Instantiate(gameStats.e6, gameStats.spawnPointEnemy, Quaternion.identity);
+                            enemy.GetComponent<EnemyCharacter>().direction = -1;
+                        }
+                        GUILayout.EndHorizontal();
+                        break;
+                    }
+                case DisplayCategoryEnemy.LEVEL_3:
+                    {
+                        GUILayout.BeginHorizontal();
+                        gameStats.e7 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e7, typeof(GameObject), true);
+                        if (GUILayout.Button("SpawnLeft1"))
+                        {
+                            Instantiate(gameStats.e7, gameStats.spawnPointEnemy, Quaternion.identity);
+                        }
+                        if (GUILayout.Button("SpawnRight1"))
+                        {
+                            GameObject enemy = Instantiate(gameStats.e7, gameStats.spawnPointEnemy, Quaternion.identity);
+                            enemy.GetComponent<EnemyCharacter>().direction = -1;
+                        }
+                        GUILayout.EndHorizontal();
+
+                        GUILayout.BeginHorizontal();
+                        gameStats.e8 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e8, typeof(GameObject), true);
+                        if (GUILayout.Button("SpawnLeft1"))
+                        {
+                            Instantiate(gameStats.e8, gameStats.spawnPointEnemy, Quaternion.identity);
+                        }
+                        if (GUILayout.Button("SpawnRight1"))
+                        {
+                            GameObject enemy = Instantiate(gameStats.e8, gameStats.spawnPointEnemy, Quaternion.identity);
+                            enemy.GetComponent<EnemyCharacter>().direction = -1;
+                        }
+                        GUILayout.EndHorizontal();
+
+                        GUILayout.BeginHorizontal();
+                        gameStats.e9 = (GameObject)EditorGUILayout.ObjectField("EnemyType1:", gameStats.e9, typeof(GameObject), true);
+                        if (GUILayout.Button("SpawnLeft1"))
+                        {
+                            Instantiate(gameStats.e9, gameStats.spawnPointEnemy, Quaternion.identity);
+                        }
+                        if (GUILayout.Button("SpawnRight1"))
+                        {
+                            GameObject enemy = Instantiate(gameStats.e9, gameStats.spawnPointEnemy, Quaternion.identity);
+                            enemy.GetComponent<EnemyCharacter>().direction = -1;
+                        }
+                        GUILayout.EndHorizontal();
+                        break;
+                    }
+            }
+            GUILayout.EndVertical();
+        }
 
         serializedObject.ApplyModifiedProperties();
         if (GUI.changed)

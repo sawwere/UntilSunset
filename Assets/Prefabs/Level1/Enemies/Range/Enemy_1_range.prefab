@@ -247,15 +247,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Enemy1_range
-  price: 2
+  price: 20
   maxHealth: 2
   speed: 1
   line: 0
   armor: 0
   damage: 1
+  immunityPeriod: 3
+  hitPeriod: 3
   _direction: 1
   immunityTimer: 0
-  firstHitPeriod: 1.5
+  firstHitPeriod: 3.5
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
@@ -263,7 +265,7 @@ MonoBehaviour:
   BloodParticles: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   MagicParticles: {fileID: 202918634614382671, guid: ec52a3a893fc6114d8bdcb57b5cc8c84, type: 3}
   skull: {fileID: 5061677194873531822}
-  resoursePrefab: {fileID: 6299716102179050544, guid: 8bae5b2c102181d4f902346a907d89f7, type: 3}
+  resoursePrefab: {fileID: 7641849764205970870, guid: 25b6ddecccc80024b8249896282f5b9c, type: 3}
   target: {fileID: 0}
   targetPoint: {x: 0, y: 0}
   animator: {fileID: 5971617933076514399}
