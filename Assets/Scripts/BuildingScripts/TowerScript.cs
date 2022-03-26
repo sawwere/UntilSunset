@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerScript : Wall
+public class TowerScript : Building, IDamage
 {
     private BuildPlace_1 bp;
     public GameObject arrow;
     private Resources resources;
+    private GameObject arr;
+    public bool et;
     public int sc;
+
+    public float timerDisplay;
+    float displayTime = 4;
 
     protected override void Start()
     {
         bp = transform.parent.GetComponent<BuildPlace_1>();
+        et = false;
         sc = bp.direction;
         transform.localScale = new Vector3(transform.localScale.x * sc, transform.localScale.y, transform.localScale.z);
         bp.GetComponent<BoxCollider2D>().enabled = false;
@@ -19,12 +25,24 @@ public class TowerScript : Wall
         base.Start();
     }
 
-    private void OnMouseDown()
+    private void Update()
     {
-        if (tool == 3)
+        Debug.Log(et);
+        Debug.Log(timerDisplay);
+        if ((timerDisplay >= 0) && et)
         {
-            DestroyStruct();
+            timerDisplay -= Time.deltaTime;
+            if (timerDisplay < 0)
+            {
+                Shot();
+                timerDisplay = displayTime;
+            }
         }
+    }
+
+    public void DoDamage(IDamage obj)
+    {
+        obj.RecieveDamage(1);
     }
 
     public void DestroyStruct()
@@ -37,18 +55,15 @@ public class TowerScript : Wall
         Destroy(gameObject);
     }
 
-    public void OnDestroy()
+    protected void OnDestroy()
     {
         bp.GetComponent<BoxCollider2D>().enabled = true;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    public void Shot()
     {
-        if (col.gameObject.tag == "Enemy")
-        {
-            var arr = Instantiate(arrow, new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.rotation);
-            arr.transform.SetParent(this.transform);
-        }
+        arr = Instantiate(arrow, new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.rotation);
+        arr.transform.SetParent(this.transform);
     }
 
 }

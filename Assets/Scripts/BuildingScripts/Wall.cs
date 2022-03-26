@@ -7,6 +7,6 @@ public class Wall : Building, IDamage
 
     public void DoDamage(IDamage obj)
     {
-        obj.RecieveDamage(1);
+        obj.RecieveDamage(5);
     }
 }
