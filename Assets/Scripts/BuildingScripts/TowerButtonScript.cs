@@ -3,31 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WallButton : MonoBehaviour
+public class TowerButtonScript : MonoBehaviour
 {
-    private Wall wl;
+    private TowerScript tw;
     private GameObject upginfo;
     private Resources resources;
 
     public void Start()
     {
-        wl = transform.parent.GetComponent<Wall>();
+        tw = transform.parent.GetComponent<TowerScript>();
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
-
-    public void WallUpgButtonPressed()
-    {
-        wl.UpgradeWall();
-    }
-
     public void WallRecoverButtonPressed()
     {
-        wl.Recover();
+        tw.Recover();
     }
 
     public void WallDelButtonPressed()
     {
-        wl.DestroyWall();
+        tw.DestroyStruct();
     }
 
     public void MouseEnterButtonUpg(Button b)

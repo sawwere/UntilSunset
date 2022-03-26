@@ -10,9 +10,14 @@ public class TowerScript : Building, IDamage
     private GameObject arr;
     public bool et;
     public int sc;
+    public int rep_wood_cost = 2;
+    public int rep_stone_cost = 1;
+    public int del_wood_re = 1;
+    public int del_stone_re = 1;
 
     public float timerDisplay;
     float displayTime = 4;
+    public GameObject dialogBox;
 
     protected override void Start()
     {
@@ -40,6 +45,21 @@ public class TowerScript : Building, IDamage
         }
     }
 
+    public void Recover()
+    {
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        if ((GameStats.Wood >= rep_wood_cost) && (GameStats.Stone >= rep_stone_cost) && (health != maxHealth))
+        {
+            GameStats.Wood -= rep_wood_cost;
+            GameStats.Stone -= rep_stone_cost;
+            resources.UpdateWood();
+            resources.UpdateStones();
+            HideDialog();
+            health = maxHealth;
+
+        }
+    }
+
     public void DoDamage(IDamage obj)
     {
         obj.RecieveDamage(1);
@@ -48,8 +68,8 @@ public class TowerScript : Building, IDamage
     public void DestroyStruct()
     {
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
-        GameStats.Wood += 3;
-        GameStats.Stone += 1;
+        GameStats.Wood += del_wood_re;
+        GameStats.Stone += del_stone_re;
         resources.UpdateWood();
         resources.UpdateStones();
         Destroy(gameObject);
@@ -64,6 +84,16 @@ public class TowerScript : Building, IDamage
     {
         arr = Instantiate(arrow, new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.rotation);
         arr.transform.SetParent(this.transform);
+    }
+
+    public void DisplayDialog()
+    {
+        dialogBox.SetActive(true);
+    }
+
+    public void HideDialog()
+    {
+        dialogBox.SetActive(false);
     }
 
 }
