@@ -30,6 +30,8 @@ public class TimeCycleTutorial : TimeCycle
         {
             GameTime++;
             isDay = true;
+            StartCoroutine(SetDay());
+
         }
         if (isDay && en)
         {
@@ -42,19 +44,20 @@ public class TimeCycleTutorial : TimeCycle
 
                 }
             }
-            if (!player.GetIsBat())
-            {
-                player.TurnIntoBat();
-                
-            }
+            
 
             
-            StartCoroutine(SetDay());
+            
             if (GameTime >= DayLenght)
             {
                 en = false;
                 //Debug.Log(en);
             }
+        }
+        if (isDay && !player.GetIsBat() && !player.GetAtHome())
+        {
+            player.TurnIntoBat();
+
         }
 
         //sky1.transform.position = new Vector3(sky1.transform.position.x + cloudSpeed, sky1.transform.position.y, sky1.transform.position.z);

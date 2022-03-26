@@ -5314,6 +5314,10 @@ PrefabInstance:
       propertyPath: Bat
       value: 
       objectReference: {fileID: 4329905914580742843, guid: e72ed6eac7406824a8902eb554549346, type: 3}
+    - target: {fileID: 9160509244416741769, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
+      propertyPath: isTutuorial
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
 --- !u!4 &823677726 stripped
@@ -6631,7 +6635,9 @@ MonoBehaviour:
   e7: {fileID: 0}
   e8: {fileID: 0}
   e9: {fileID: 0}
-  spawnPoint: {x: 0, y: 0, z: 0}
+  spawnPointEnemy: {x: 0, y: 0, z: 0}
+  bat: {fileID: 0}
+  spawnPointBat: {x: 0, y: 0, z: 0}
 --- !u!4 &944421063
 Transform:
   m_ObjectHideFlags: 0
@@ -7561,13 +7567,8 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 943448347}
   loseMenuUI: {fileID: 1073428079}
   winMenuUI: {fileID: 1063585340}
-  SettingsIsOpened: 0
-  volume: 0
-  quality: 0
-  isFullscreen: 0
-  audioMixer: {fileID: 0}
-  resolutionDropdown: {fileID: 0}
   SettingsMenu: {fileID: 1727293182}
+  SettingsIsOpened: 0
 --- !u!114 &1051329955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11298,7 +11299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475414657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.141273, y: 2.0696795, z: -10}
+  m_LocalPosition: {x: -37.137306, y: 2.0696979, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1798154844}

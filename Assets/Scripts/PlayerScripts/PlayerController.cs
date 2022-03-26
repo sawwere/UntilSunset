@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private bool isTurning;
 
     private bool atHome;
+    public bool isTutuorial = false;
 
     private TimeCycle timeCycle;
 
@@ -60,7 +61,10 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetFloat("LastVertical", -1);
         isBat = false;
-        atHome = true;
+        if (isTutuorial)
+            atHome = false;
+        else
+            atHome = true;
         thunderAbilityTimer = 0;
         SetGodSettings();
     }
