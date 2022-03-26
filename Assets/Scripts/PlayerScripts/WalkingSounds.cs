@@ -16,7 +16,7 @@ public class WalkingSounds : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             double y = col.gameObject.transform.position.y;
-            if (y <= 0 || y >= 2.1)
+            if (y <= 0 || y >= 2.6)
                 col.gameObject.GetComponent<PlayerController>().SetOnTheWay(true);
         }
     }

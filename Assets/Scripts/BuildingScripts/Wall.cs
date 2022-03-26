@@ -9,6 +9,7 @@ public class Wall : Building, IDamage
     private Resources resources;
     public GameObject nextwall;
     private BuildPlace_1 bp;
+    public AudioSource source;
 
     public int rep_wood_cost;
     public int rep_stone_cost;
@@ -16,10 +17,14 @@ public class Wall : Building, IDamage
     public int upg_stone_cost;
     public int del_wood_re;
     public int del_stone_re;
+    public AudioClip CDestroy;
+    public AudioClip CRecover;
+    public AudioClip CUpgrade;
 
     protected override void Start()
     {
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        source = GetComponent<AudioSource>();
         bp = transform.parent.GetComponent<BuildPlace_1>();
         bp.GetComponent<BoxCollider2D>().enabled = false;
         base.Start();
@@ -57,6 +62,7 @@ public class Wall : Building, IDamage
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
         if ((GameStats.Wood >= rep_wood_cost) && (GameStats.Stone >= rep_stone_cost) && (health != maxHealth))
         {
+            source.PlayOneShot(CRecover, 0.5f);
             GameStats.Wood -= rep_wood_cost;
             GameStats.Stone -= rep_stone_cost;
             resources.UpdateWood();

@@ -16,6 +16,7 @@ public class Wall_3 : Wall
         dialogBox.SetActive(false);
         maxHealth = 6;
         base.Start();
+        source.PlayOneShot(CUpgrade, 0.5f);
     }
 
 }

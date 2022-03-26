@@ -21,10 +21,16 @@ public class BuildPlace_1 : MonoBehaviour
     private Resources resources;
     private bool EnemyIsNear;
     private AudioSource source;
-    public AudioClip clip;
+    public AudioClip CDestroy;
+    public AudioClip CBuild;
+    private Wall_1 w1;
+    private Wall_2 w2;
+    private Wall_3 w3;
+    private bool IsWalled;
 
     void Start()
     {
+        IsWalled = false;
         EnemyIsNear = false;
         dialogBox.SetActive(false);
         timerDisplay = -1.0f;
@@ -41,6 +47,14 @@ public class BuildPlace_1 : MonoBehaviour
             {
                 dialogBox.SetActive(false);
             }
+        }
+        w1 = GetComponentInChildren<Wall_1>();
+        w2 = GetComponentInChildren<Wall_2>();
+        w3 = GetComponentInChildren<Wall_3>();
+        if (IsWalled && w1 == null && w2 == null && w3 == null)
+        {
+            source.PlayOneShot(CDestroy, 0.5f);
+            IsWalled = false;
         }
     }
 
@@ -75,13 +89,14 @@ public class BuildPlace_1 : MonoBehaviour
     {
         if ((GameStats.Wood >= obj_price_wood) && (!EnemyIsNear) && (GameStats.Stone >= obj_price_stone))
         {
+            IsWalled = true;
             var structinst = Instantiate(obj_struct, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
             structinst.transform.SetParent(this.transform);
             GameStats.Wood -= obj_price_wood;
             GameStats.Stone -= obj_price_stone;
             resources.UpdateWood();
             resources.UpdateStones();
-            source.PlayOneShot(clip, 0.5f);
+            source.PlayOneShot(CBuild, 0.2f);
             HideDialog();
         }
     }
