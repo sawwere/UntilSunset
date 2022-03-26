@@ -41,7 +41,7 @@ public class StakesScript : Building
         if (e != null)
         {
             StartDamage();
-            RecieveDamage(1);
+            RecieveDamage(8);
         }
     }
 }
