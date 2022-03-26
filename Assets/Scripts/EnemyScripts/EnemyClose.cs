@@ -5,12 +5,11 @@ using UnityEngine;
 public class EnemyClose : EnemyCharacter
 {
     public Animator animator;
+    private AudioSource source;
 
     public override void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-        
-        
         
         if (obj != null)
         {
@@ -29,12 +28,20 @@ public class EnemyClose : EnemyCharacter
     public override void ChangeAnimationToWalk()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
             animator.Play("Movement");
+            source = GetComponent<AudioSource>();
+            source.Play();
+        }
     }
 
     public override void ChangeAnimationToIdle()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Movement"))
+        {
             animator.Play("Idle");
+            source = GetComponent<AudioSource>();
+            source.Stop();
+        }
     }
 }

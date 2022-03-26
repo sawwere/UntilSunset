@@ -66,7 +66,7 @@ public class ResourceScript : MonoBehaviour
             else
                 resSp.sprite = sp[10];
 
-            source.PlayOneShot(source.clip, 1f);
+            source.PlayOneShot(source.clip, 0.2f);
 
             if (IsStone)
             {
