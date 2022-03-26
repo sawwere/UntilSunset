@@ -27,7 +27,10 @@ public class EnemyRange : EnemyCharacter
             hitTimer -= Time.deltaTime;
         }
         if (!target)
+        {
             speed = 1f;
+            target = null;
+        }
     }
 
     /*private void FixedUpdate()

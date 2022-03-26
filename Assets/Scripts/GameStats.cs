@@ -31,7 +31,7 @@ public class GameStats:MonoBehaviour
     public static int Encounter
     {
         get { return encounter; }
-        set { encounter = value; if (encounter == 4) FindObjectOfType<PauseMenu>().Win(); }
+        set { encounter = value; if (encounter == 3) FindObjectOfType<PauseMenu>().Win(); }
     }
 
     public static int Level

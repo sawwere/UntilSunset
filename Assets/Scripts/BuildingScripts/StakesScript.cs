@@ -32,7 +32,7 @@ public class StakesScript : Building
 
     private void DoDamage()
     {
-        e.RecieveDamage(1);
+        e.RecieveDamage(5);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -41,7 +41,7 @@ public class StakesScript : Building
         if (e != null)
         {
             StartDamage();
-            RecieveDamage(1);
+            RecieveDamage(8);
         }
     }
 }

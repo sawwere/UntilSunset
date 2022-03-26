@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject loseMenuUI;
     public GameObject winMenuUI;
     public GameObject SettingsMenu;
-
+ 
     public bool SettingsIsOpened = false; //Открыто ли меню настроек
 
     private void Awake()
@@ -93,6 +93,16 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         winMenuUI.SetActive(true);
         GameIsWin = true;
+    }
+
+    public void Level2Pressed()
+    {
+        SceneManager.LoadScene("Level_2_Scene");
+    }
+
+    public void Level3Pressed()
+    {
+        SceneManager.LoadScene("Level_3_Scene");
     }
 
     // =======================================================================
