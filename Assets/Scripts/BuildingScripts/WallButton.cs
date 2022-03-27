@@ -1,47 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WallButton : MonoBehaviour
 {
-    private BuildPlace_1 bp;
-    private Wall_1 wll1;
-    private Wall_2 wll2;
-    private Wall_3 wll3;
+    private Wall wl;
+    private GameObject upginfo;
+    private Resources resources;
 
-    public void WallButtonPressed()
+    public void Start()
     {
-        bp = transform.parent.GetComponent<BuildPlace_1>();
-        bp.BuildWall();
+        wl = transform.parent.GetComponent<Wall>();
+        resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
 
     public void WallUpgButtonPressed()
     {
-        wll1 = transform.parent.GetComponent<Wall_1>();
-        wll1.UpgradeWall();
+        wl.UpgradeWall();
     }
 
-    public void Wall2UpgButtonPressed()
+    public void WallRecoverButtonPressed()
     {
-        wll2 = transform.parent.GetComponent<Wall_2>();
-        wll2.UpgradeWall();
+        wl.Recover();
     }
 
-    public void Wall1RecoverButtonPressed()
+    public void WallDelButtonPressed()
     {
-        wll1 = transform.parent.GetComponent<Wall_1>();
-        wll1.Recover();
+        wl.DestroyWall();
     }
 
-    public void Wall2RecoverButtonPressed()
+    public void MouseEnterButtonUpg(Button b)
     {
-        wll2 = transform.parent.GetComponent<Wall_2>();
-        wll2.Recover();
+        resources.SetPrice(wl.upg_wall_cost, wl.upg_stone_cost);
+        resources.UpdateAll();
     }
 
-    public void Wall3RecoverButtonPressed()
+    public void MouseEnterButtonDelete(Button b)
     {
-        wll3 = transform.parent.GetComponent<Wall_3>();
-        wll3.Recover();
+        resources.SetRefund(wl.del_wood_re, wl.del_stone_re);
+        resources.UpdateAll();
+    }
+
+    public void MouseEnterButtonRepair(Button b)
+    {
+        resources.SetPrice(wl.rep_wood_cost, wl.rep_stone_cost);
+        resources.UpdateAll();
+    }
+
+    public void MouseExitButton(Button b)
+    {
+        resources.ClearPriceOrRefund();
+        resources.UpdateAll();
     }
 }

@@ -6,8 +6,8 @@ using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
-    public float xSpeed = 2.5f;
-    public float ySpeed = 2f;
+    public float xSpeed = 1.5f;
+    public float ySpeed = 1.25f;
 
     //public float timeInvincible = 2.0f;
 
@@ -153,8 +153,8 @@ public class PlayerController : MonoBehaviour
         isTurning = false;
         isBat = false;
         batOffset = 0;
-        xSpeed = 2.5f;
-        ySpeed = 2f;
+        xSpeed = 1.5f;
+        ySpeed = 1.25f;
     }
 
     private void SetGodSettings() 
