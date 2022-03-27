@@ -150,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: -291714449
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 2034867656617944762, guid: 017474fc932b6dd478b3ffbb410a49fb, type: 3}
+  m_Sprite: {fileID: 4528393162296159520, guid: 7509d6507e1fb4a408dc4c485c0f6228, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -274,7 +274,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.46, y: 0.64}
+    oldSize: {x: 0.43, y: 0.64}
     newSize: {x: 0.64, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -318,18 +318,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Enemy3_fat
   price: 1
-  maxHealth: 4
+  maxHealth: 40
   speed: 0.8
-  line: 0
-  armor: 0
   damage: 2
+  immunityPeriod: 3
+  hitPeriod: 5
   _direction: 1
   immunityTimer: 0
-  firstHitPeriod: 1
+  firstHitPeriod: 3.5
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
-  coffin: {fileID: 5956774385877164423, guid: 05ff443d7506a884e94568c7d0e5b95a, type: 3}
   BloodParticles: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   MagicParticles: {fileID: 202918634614382671, guid: ec52a3a893fc6114d8bdcb57b5cc8c84, type: 3}
   skull: {fileID: 9132687835301892516}
@@ -345,7 +344,7 @@ Animator:
   m_GameObject: {fileID: 6093944678491786829}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5bd597a7c7c4de24f914e250fd7159d8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 38c87a75b4c98ae49a6aa9f75b5ee1a5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
