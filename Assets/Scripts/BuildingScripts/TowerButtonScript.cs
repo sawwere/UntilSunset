@@ -24,15 +24,21 @@ public class TowerButtonScript : MonoBehaviour
         tw.DestroyStruct();
     }
 
-    public void MouseEnterButtonUpg(Button b)
+    public void MouseEnterButtonDelete(Button b)
     {
-        //resources.SetChangeWood(1);
+        resources.SetRefund(tw.del_wood_re, tw.del_stone_re);
         resources.UpdateAll();
     }
 
-    public void MouseExitButtonUpg(Button b)
+    public void MouseEnterButtonRepair(Button b)
     {
-        //resources.ClearChangeWood();
+        resources.SetPrice(tw.rep_wood_cost, tw.rep_stone_cost);
+        resources.UpdateAll();
+    }
+
+    public void MouseExitButton(Button b)
+    {
+        resources.ClearPriceOrRefund();
         resources.UpdateAll();
     }
 }

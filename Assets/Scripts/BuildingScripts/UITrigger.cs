@@ -9,13 +9,11 @@ public class UITrigger : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(1);
         wl = transform.parent.GetComponent<Wall>();
     }
 
     private void OnMouseOver()
     {
-        Debug.Log(1);
         wl.DisplayDialog();
     }
 

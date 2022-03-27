@@ -32,13 +32,25 @@ public class WallButton : MonoBehaviour
 
     public void MouseEnterButtonUpg(Button b)
     {
-        //resources.SetChangeWood(1);
+        resources.SetPrice(wl.upg_wall_cost, wl.upg_stone_cost);
         resources.UpdateAll();
     }
 
-    public void MouseExitButtonUpg(Button b)
+    public void MouseEnterButtonDelete(Button b)
     {
-        //resources.ClearChangeWood();
+        resources.SetRefund(wl.del_wood_re, wl.del_stone_re);
+        resources.UpdateAll();
+    }
+
+    public void MouseEnterButtonRepair(Button b)
+    {
+        resources.SetPrice(wl.rep_wood_cost, wl.rep_stone_cost);
+        resources.UpdateAll();
+    }
+
+    public void MouseExitButton(Button b)
+    {
+        resources.ClearPriceOrRefund();
         resources.UpdateAll();
     }
 }
