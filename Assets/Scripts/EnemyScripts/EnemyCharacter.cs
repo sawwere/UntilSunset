@@ -35,6 +35,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     public GameObject skull = null;
 
+    //public AudioSource source;
+
     protected Rigidbody2D rigidbody2d;
     [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
 
@@ -78,12 +80,17 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         line = (int)transform.position.y;
         GameStats.enemyOnScreen[line+1].Add(this);
         rigidbody2d = GetComponent<Rigidbody2D>();
+        //source = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
         aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
         isFriend = false;
+        /*source.loop = true;
+        source.volume = 0.05f;
+        source.Stop();
+        ChangeAnimationToIdle();*/
     }
 
     // Update is called once per frame
@@ -103,15 +110,17 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         }
         else
         {
-            oldX = newX;
+            oldX = newX;// ВРОДЕ ТУТ СДЕЛАТЬ ЗВУКИ ХОДЬБЫ НАДО (для себя)
             newX = transform.position.x;
             if (Abs(newX - oldX) >= 0.05f)
             {
                 ChangeAnimationToWalk();
+                //if (!source.isPlaying) source.Play();
             }
             else
             {
                 ChangeAnimationToIdle();
+                //if (source.isPlaying) source.Stop();
             }
             fixDeltaTimer = 0.2f;
         }
@@ -124,7 +133,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         {
             position.x = position.x + Time.deltaTime * speed * direction;
             rigidbody2d.MovePosition(position);
-
         }
         //Debug.Log(speed);
         if (transform.position.y > 2 || transform.position.y < -1)

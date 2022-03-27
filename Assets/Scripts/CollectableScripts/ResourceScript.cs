@@ -23,7 +23,9 @@ public class ResourceScript : MonoBehaviour
     private SpriteRenderer resSp;
     private bool isRestored;
     private TimeCycle timeCycle;
-
+    private AudioSource source;
+    public AudioClip CColect;
+    public AudioClip CNo;
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class ResourceScript : MonoBehaviour
         resSp = resInd.GetComponent<SpriteRenderer>();
         tcount.SetText(Convert.ToString(0));
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
+        source = GetComponent<AudioSource>();
     }
 
    
@@ -55,6 +58,9 @@ public class ResourceScript : MonoBehaviour
         else if (timeCycle.GetIsDay())
             isRestored = false;
 
+        if (PlayerIsNear && Input.GetKeyDown(KeyCode.F) && res == 0)
+            source.PlayOneShot(CNo, 0.2f);
+
         DTime += Time.deltaTime;
         if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= DTimeMax && res > 0)
         {
@@ -63,6 +69,8 @@ public class ResourceScript : MonoBehaviour
                 resSp.sprite = sp[Math.Min(9, Convert.ToInt32(10 - Math.Floor(res / resLim * 10)))];
             else
                 resSp.sprite = sp[10];
+
+            source.PlayOneShot(CColect, 0.2f);
 
             if (IsStone)
             {
