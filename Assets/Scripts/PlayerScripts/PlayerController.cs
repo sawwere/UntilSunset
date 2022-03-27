@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     private bool isWalking;
     private bool soundIsPlaying;
     private bool onTheWay;
+    public bool isTutorial;
     private bool[] sIsPlaying;
 
     //private int henchmanLine;
@@ -70,7 +71,10 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetFloat("LastVertical", -1);
         isBat = false;
-        atHome = true;
+        if (isTutorial)
+            atHome = false;
+        else
+            atHome = true;
         isWalking = false;
         onTheWay = false;
         soundIsPlaying = false;
