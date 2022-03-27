@@ -69,14 +69,14 @@ public class MenuControls : MonoBehaviour
         Play.SetActive(false);
         InfoBut.SetActive(false);
         ScrollInfo.SetActive(true);
-        MenuLogo.text = "�� ����";
+        MenuLogo.text = "Об Игре";
     }
     public void CloseInfo()
     {
         Play.SetActive(true);
         InfoBut.SetActive(true);
         ScrollInfo.SetActive(false);
-        MenuLogo.text = "����";
+        MenuLogo.text = "Меню";
     }
 
     public void BackToMain()
