@@ -64,7 +64,7 @@ public class EnemyRange : EnemyCharacter
             targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x + b.GetSpeed() * 1f;
             //Debug.Log(b.GetPosition().x + b.GetSpeed() * 1f);
         }
-        projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, line, this, isFriend);
+        projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, GetLine(), this, isFriend);
     }
 
     public override void ChangeAnimationToWalk()
