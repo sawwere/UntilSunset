@@ -19,8 +19,8 @@ public class TimeCycleTutorial : TimeCycle
 
 
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        NightM.volume = vol;
-        DayM.volume = 0;
+        //NightM.volume = vol;
+        //DayM.volume = 0;
         isDay = false;
     }
 
@@ -30,8 +30,6 @@ public class TimeCycleTutorial : TimeCycle
         {
             GameTime++;
             isDay = true;
-            StartCoroutine(SetDay());
-
         }
         if (isDay && en)
         {
@@ -44,20 +42,19 @@ public class TimeCycleTutorial : TimeCycle
 
                 }
             }
-            
+            if (!player.GetIsBat())
+            {
+                player.TurnIntoBat();
+                
+            }
 
             
-            
+            //StartCoroutine(SetDay());
             if (GameTime >= DayLenght)
             {
                 en = false;
                 //Debug.Log(en);
             }
-        }
-        if (isDay && !player.GetIsBat() && !player.GetAtHome())
-        {
-            player.TurnIntoBat();
-
         }
 
         //sky1.transform.position = new Vector3(sky1.transform.position.x + cloudSpeed, sky1.transform.position.y, sky1.transform.position.z);
@@ -67,7 +64,7 @@ public class TimeCycleTutorial : TimeCycle
         //}
     }
 
-    private IEnumerator SetNight()
+    /*private IEnumerator SetNight()
     {
         DayM.volume = vol;
         while (DayM.volume > 0.01f)
@@ -82,9 +79,9 @@ public class TimeCycleTutorial : TimeCycle
             NightM.volume += 0.01f;
             yield return new WaitForSeconds(0.1f);
         }
-    }
+    }*/
 
-    private IEnumerator SetDay()
+    /*private IEnumerator SetDay()
     {
         NightM.volume = vol;
         while (NightM.volume > 0.01f)
@@ -99,5 +96,5 @@ public class TimeCycleTutorial : TimeCycle
             DayM.volume += 0.01f;
             yield return new WaitForSeconds(0.1f);
         }
-    }
+    }*/
 }
