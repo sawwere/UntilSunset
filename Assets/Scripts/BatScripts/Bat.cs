@@ -6,7 +6,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
 {
     public float speed = 2f;
     public float speedInit;
-    public int line;
+    public int line = PlayerController.henchmanLine;
     private int direction = 0;
 
     [SerializeField] private int maxHealth = 2; //макс здоровье

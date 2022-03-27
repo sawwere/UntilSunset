@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private float thunderAbilityTimer;
 
     private Vector3 batSpawnPosition;
-    public static int henchmanline;
+    public static int henchmanLine;
 
     public GameObject nimb;
     private bool isGod;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private int woodAmount;
     private int stoneAmount;
     private int henchmanAmount;
-    private int henchmanLine;
+    //private int henchmanLine;
     private void Awake()
     {
         mySortingGroup = gameObject.GetComponent<SortingGroup>();
@@ -219,7 +219,7 @@ public class PlayerController : MonoBehaviour
         batSpawnPosition.y -= 0.85f;
         batSpawnPosition.y = Math.Min(batSpawnPosition.y, 1);
         batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);
-        henchmanline = (int)batSpawnPosition.y;
+        //henchmanLine = (int)batSpawnPosition.y;
     }
 
     private void GetLineForSpawnBat()
@@ -235,7 +235,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3 )
         {
             GetLineForSpawnBat();
-            if (GameStats.henchmanOnScreen[henchmanline + 1] == 0)
+            if (GameStats.henchmanOnScreen[henchmanLine] == 0)
             {
                 isTurning = true;
                 animator.Play("InvokeHenchman");

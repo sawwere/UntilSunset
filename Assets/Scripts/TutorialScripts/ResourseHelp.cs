@@ -32,7 +32,7 @@ public class ResourseHelp : MonoBehaviour
             dialogBox2.SetActive(true);
             if (!flag)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     Instantiate(resoursePrefab1, transform.position + new Vector3(13, -6, 0), transform.rotation);
                     //Instantiate(resoursePrefab2, transform.position + new Vector3(13, -6, 0), transform.rotation);
