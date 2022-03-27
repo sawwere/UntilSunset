@@ -43,6 +43,7 @@ public class ResourceScript : MonoBehaviour
         tcount.SetText(Convert.ToString(0));
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         source = GetComponent<AudioSource>();
+        source.volume = 0.5f;
     }
 
    
@@ -53,6 +54,7 @@ public class ResourceScript : MonoBehaviour
         {
             res = resLim;
             resSp.sprite = sp[0];
+            source.volume = 0.5f;
             isRestored = true;
         }
         else if (timeCycle.GetIsDay())
@@ -68,9 +70,12 @@ public class ResourceScript : MonoBehaviour
             if (res != 0)
                 resSp.sprite = sp[Math.Min(9, Convert.ToInt32(10 - Math.Floor(res / resLim * 10)))];
             else
+            {
                 resSp.sprite = sp[10];
+                source.volume = 1f;
+            }
 
-            source.PlayOneShot(CColect, 0.2f);
+            source.PlayOneShot(CColect, 0.5f);
 
             if (IsStone)
             {

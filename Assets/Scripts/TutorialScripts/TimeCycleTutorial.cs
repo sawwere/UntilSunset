@@ -19,8 +19,8 @@ public class TimeCycleTutorial : TimeCycle
 
 
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        NightM.volume = vol;
-        DayM.volume = 0;
+        //NightM.volume = vol;
+        //DayM.volume = 0;
         isDay = false;
     }
 
@@ -49,7 +49,7 @@ public class TimeCycleTutorial : TimeCycle
             }
 
             
-            StartCoroutine(SetDay());
+            //StartCoroutine(SetDay());
             if (GameTime >= DayLenght)
             {
                 en = false;
@@ -64,7 +64,7 @@ public class TimeCycleTutorial : TimeCycle
         //}
     }
 
-    private IEnumerator SetNight()
+    /*private IEnumerator SetNight()
     {
         DayM.volume = vol;
         while (DayM.volume > 0.01f)
@@ -79,9 +79,9 @@ public class TimeCycleTutorial : TimeCycle
             NightM.volume += 0.01f;
             yield return new WaitForSeconds(0.1f);
         }
-    }
+    }*/
 
-    private IEnumerator SetDay()
+    /*private IEnumerator SetDay()
     {
         NightM.volume = vol;
         while (NightM.volume > 0.01f)
@@ -96,5 +96,5 @@ public class TimeCycleTutorial : TimeCycle
             DayM.volume += 0.01f;
             yield return new WaitForSeconds(0.1f);
         }
-    }
+    }*/
 }
