@@ -18,6 +18,7 @@ TagManager:
   - Wall3
   - Arrow
   - Tower
+  - Friend
   layers:
   - Default
   - TransparentFX
@@ -63,9 +64,6 @@ TagManager:
     locked: 0
   - name: Object
     uniqueID: 4003252847
-    locked: 0
-  - name: Environment
-    uniqueID: 1073024135
     locked: 0
   - name: UI
     uniqueID: 2017701733

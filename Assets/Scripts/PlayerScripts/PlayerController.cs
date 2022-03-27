@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private float thunderAbilityTimer;
 
     private Vector3 batSpawnPosition;
+    public static int henchmanLine;
 
     public GameObject nimb;
     private bool isGod;
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private int woodAmount;
     private int stoneAmount;
     private int henchmanAmount;
-
+    //private int henchmanLine;
     private void Awake()
     {
         mySortingGroup = gameObject.GetComponent<SortingGroup>();
@@ -218,19 +219,32 @@ public class PlayerController : MonoBehaviour
         batSpawnPosition.y -= 0.85f;
         batSpawnPosition.y = Math.Min(batSpawnPosition.y, 1);
         batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);
+        //henchmanLine = (int)batSpawnPosition.y;
     }
 
+    private void GetLineForSpawnBat()
+    {
+        if (transform.position.y > -1.4 && transform.position.y < 1.4)
+        {
+            henchmanLine = (int)System.Math.Round(transform.position.y);
+        }
+        else henchmanLine = 0;
+    }
     private void SpawnBat()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3)
+        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3 )
         {
-            isTurning = true;
-            animator.Play("InvokeHenchman");
-            Invoke(nameof(SetCharacterSettings), 0.2f);
-            CalculateBatSpawnPosition();
-            Instantiate(Bat, batSpawnPosition, Quaternion.identity);
-            GameStats.Henchman -= 3;
-            HenchmanRes.UpdateHenchman();
+            GetLineForSpawnBat();
+            if (GameStats.henchmanOnScreen[henchmanLine] == 0)
+            {
+                isTurning = true;
+                animator.Play("InvokeHenchman");
+                Invoke(nameof(SetCharacterSettings), 0.2f);
+                CalculateBatSpawnPosition();
+                Instantiate(Bat, batSpawnPosition, Quaternion.identity);
+                GameStats.Henchman -= 3;
+                HenchmanRes.UpdateHenchman();
+            }
         }
     }
 
