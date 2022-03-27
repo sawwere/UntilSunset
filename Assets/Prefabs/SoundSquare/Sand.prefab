@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6324541014315953883}
   - component: {fileID: 2752775282180299430}
   - component: {fileID: 3866782453956174975}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sand
-  m_TagString: Untagged
+  m_TagString: SandSquare
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,10 +40,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4577506411041109180}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.95, y: 0.95, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3866782453956174975
 MonoBehaviour:
@@ -57,3 +57,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fa2e9624ec5214288c99b4a0d5622e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}

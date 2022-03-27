@@ -6,8 +6,8 @@ using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
-    public float xSpeed = 2.5f;
-    public float ySpeed = 2f;
+    public float xSpeed = 1.5f;
+    public float ySpeed = 1.25f;
 
     //public float timeInvincible = 2.0f;
 
@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     private bool isTurning;
 
     private bool atHome;
-    public bool isTutuorial = false;
 
     private TimeCycle timeCycle;
 
@@ -39,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private float thunderAbilityTimer;
 
     private Vector3 batSpawnPosition;
+    public static int henchmanLine;
 
     public GameObject nimb;
     private bool isGod;
@@ -48,6 +48,14 @@ public class PlayerController : MonoBehaviour
     private int stoneAmount;
     private int henchmanAmount;
 
+    private AudioSource source;
+    public AudioClip[] walksounds;
+    private bool isWalking;
+    private bool soundIsPlaying;
+    private bool onTheWay;
+    private bool[] sIsPlaying;
+
+    //private int henchmanLine;
     private void Awake()
     {
         mySortingGroup = gameObject.GetComponent<SortingGroup>();
@@ -55,18 +63,20 @@ public class PlayerController : MonoBehaviour
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        source = gameObject.GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         animator.SetFloat("LastVertical", -1);
         isBat = false;
-        if (isTutuorial)
-            atHome = false;
-        else
-            atHome = true;
+        atHome = true;
+        isWalking = false;
+        onTheWay = false;
+        soundIsPlaying = false;
+        sIsPlaying = new bool[] { false, false, false };
         thunderAbilityTimer = 0;
-        SetGodSettings();
+        //SetGodSettings();
     }
 
     private void Update()
@@ -90,6 +100,7 @@ public class PlayerController : MonoBehaviour
         if (isTurning) return;
 
         UpdateMotor();
+        PlayWalkSound();
     }
 
     private void LateUpdate()
@@ -156,8 +167,8 @@ public class PlayerController : MonoBehaviour
         isTurning = false;
         isBat = false;
         batOffset = 0;
-        xSpeed = 2.5f;
-        ySpeed = 2f;
+        xSpeed = 1.5f;
+        ySpeed = 1.25f;
     }
 
     private void SetGodSettings() 
@@ -191,6 +202,9 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
+        if (x != 0 || y != 0) isWalking = true;
+        else isWalking = false;
+
         moveDelta = new Vector2(x * xSpeed, y * ySpeed);
 
         animator.SetFloat("Horizontal", x);
@@ -222,19 +236,32 @@ public class PlayerController : MonoBehaviour
         batSpawnPosition.y -= 0.85f;
         batSpawnPosition.y = Math.Min(batSpawnPosition.y, 1);
         batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);
+        //henchmanLine = (int)batSpawnPosition.y;
     }
 
+    private void GetLineForSpawnBat()
+    {
+        if (transform.position.y > -1.4 && transform.position.y < 1.4)
+        {
+            henchmanLine = (int)System.Math.Round(transform.position.y);
+        }
+        else henchmanLine = 0;
+    }
     private void SpawnBat()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3)
+        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3 )
         {
-            isTurning = true;
-            animator.Play("InvokeHenchman");
-            Invoke(nameof(SetCharacterSettings), 0.2f);
-            CalculateBatSpawnPosition();
-            Instantiate(Bat, batSpawnPosition, Quaternion.identity);
-            GameStats.Henchman -= 3;
-            HenchmanRes.UpdateHenchman();
+            GetLineForSpawnBat();
+            if (GameStats.henchmanOnScreen[henchmanLine] == 0)
+            {
+                isTurning = true;
+                animator.Play("InvokeHenchman");
+                Invoke(nameof(SetCharacterSettings), 0.2f);
+                CalculateBatSpawnPosition();
+                Instantiate(Bat, batSpawnPosition, Quaternion.identity);
+                GameStats.Henchman -= 3;
+                HenchmanRes.UpdateHenchman();
+            }
         }
     }
 
@@ -287,4 +314,47 @@ public class PlayerController : MonoBehaviour
         ThunderZone.BeatEnemy();
         SetCharacterSettings();
     }
+
+    private void PlayWalkSound()
+    {
+        if (isWalking && !isBat && !isTurning)
+        {
+            if (atHome && !sIsPlaying[0])
+            {
+                source.clip = walksounds[0];
+                sIsPlaying = new bool[] { false, false, false };
+                sIsPlaying[0] = true;
+                source.Play();
+            }
+            else if (onTheWay && !atHome && !sIsPlaying[2])
+            {
+                source.clip = walksounds[2];
+                sIsPlaying = new bool[] { false, false, false };
+                sIsPlaying[2] = true;
+                source.Play();
+            }
+            else if (!onTheWay && !atHome && !sIsPlaying[1])
+            {
+                source.clip = walksounds[1];
+                sIsPlaying = new bool[] { false, false, false };
+                sIsPlaying[1] = true;
+                source.Play();
+            }
+
+            if (!soundIsPlaying)
+            {
+                soundIsPlaying = true;
+                source.Play();
+            }
+        }
+        else
+        {
+            source.Stop();
+            soundIsPlaying = false;
+            sIsPlaying = new bool[] { false, false, false };
+        }
+    }
+
+    public void SetOnTheWay(bool p) => onTheWay = p;
+    public bool[] GetSIsPlaying() => sIsPlaying;
 }

@@ -36,9 +36,9 @@ public class SpawnerScript : MonoBehaviour
     {
         EnemyCharacter res;
         int limit = 1;
-        if (GameStats.Encounter > 1)
+        if (GameStats.Encounter > 0)
             limit++;
-        if (GameStats.Encounter > 2)
+        if (GameStats.Encounter > 1)
             limit++;
         while (true)
         {

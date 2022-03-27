@@ -20,13 +20,22 @@ public class BuildPlace_1 : MonoBehaviour
     float timerDisplay;
     private Resources resources;
     private bool EnemyIsNear;
+    private AudioSource source;
+    public AudioClip CDestroy;
+    public AudioClip CBuild;
+    private Wall_1 w1;
+    private Wall_2 w2;
+    private Wall_3 w3;
+    private bool IsWalled;
 
     void Start()
     {
+        IsWalled = false;
         EnemyIsNear = false;
         dialogBox.SetActive(false);
         timerDisplay = -1.0f;
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        source = gameObject.AddComponent<AudioSource>();
     }
 
     void Update()
@@ -39,12 +48,22 @@ public class BuildPlace_1 : MonoBehaviour
                 dialogBox.SetActive(false);
             }
         }
+        w1 = GetComponentInChildren<Wall_1>();
+        w2 = GetComponentInChildren<Wall_2>();
+        w3 = GetComponentInChildren<Wall_3>();
+        if (IsWalled && w1 == null && w2 == null && w3 == null)
+        {
+            source.PlayOneShot(CDestroy, 0.5f);
+            IsWalled = false;
+        }
     }
 
     private void OnMouseEnter()
     {
         if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
         {
+            resources.SetPrice(obj_price_wood, obj_price_stone);
+            resources.UpdateAll();
             wallg = Instantiate(obj_ghost, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
             wallg.transform.SetParent(this.transform);
             ghostexist = true;
@@ -57,6 +76,8 @@ public class BuildPlace_1 : MonoBehaviour
         {
             Destroy(wallg);
             ghostexist = false;
+            resources.ClearPriceOrRefund();
+            resources.UpdateAll();
         }
     }
 
@@ -72,12 +93,14 @@ public class BuildPlace_1 : MonoBehaviour
     {
         if ((GameStats.Wood >= obj_price_wood) && (!EnemyIsNear) && (GameStats.Stone >= obj_price_stone))
         {
+            IsWalled = true;
             var structinst = Instantiate(obj_struct, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
             structinst.transform.SetParent(this.transform);
             GameStats.Wood -= obj_price_wood;
             GameStats.Stone -= obj_price_stone;
             resources.UpdateWood();
             resources.UpdateStones();
+            source.PlayOneShot(CBuild, 0.2f);
             HideDialog();
         }
     }

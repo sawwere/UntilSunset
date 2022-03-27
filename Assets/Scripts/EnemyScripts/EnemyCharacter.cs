@@ -11,8 +11,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     [SerializeField] private int maxHealth = 2; //макс здоровье
     [SerializeField] public float speed = 1.0f; //скорость передвижения
     protected float speedInit; // для восстановления скорости после остановки
-    public int line; //на какой линни ходит враг
-    public int armor = 0; //броня на будущее
+    private int line; //на какой линни ходит враг
     public int damage = 1; //урон
     public float immunityPeriod = 2.0f; // переодичность получения урона
     public float hitPeriod = 5.0f; // переодичность нанесения урона
@@ -25,8 +24,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public LayerMask aviableHitMask; // store layers where objects can be damaged
     protected bool isFriend;
 
-    public GameObject coffin;
-
     public GameObject BloodParticles;
     public GameObject MagicParticles;
     private Vector3 ParticlesSpawnPosition;
@@ -37,6 +34,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     private float newX = 0f;
 
     public GameObject skull = null;
+
+    //public AudioSource source;
 
     protected Rigidbody2D rigidbody2d;
     [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
@@ -81,13 +80,17 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         line = (int)transform.position.y;
         GameStats.enemyOnScreen[line+1].Add(this);
         rigidbody2d = GetComponent<Rigidbody2D>();
+        //source = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
-        coffin = GameObject.FindWithTag("Coffin");
         aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
         isFriend = false;
+        /*source.loop = true;
+        source.volume = 0.05f;
+        source.Stop();
+        ChangeAnimationToIdle();*/
     }
 
     // Update is called once per frame
@@ -107,15 +110,17 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         }
         else
         {
-            oldX = newX;
+            oldX = newX;// ВРОДЕ ТУТ СДЕЛАТЬ ЗВУКИ ХОДЬБЫ НАДО (для себя)
             newX = transform.position.x;
             if (Abs(newX - oldX) >= 0.05f)
             {
                 ChangeAnimationToWalk();
+                //if (!source.isPlaying) source.Play();
             }
             else
             {
                 ChangeAnimationToIdle();
+                //if (source.isPlaying) source.Stop();
             }
             fixDeltaTimer = 0.2f;
         }
@@ -128,7 +133,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         {
             position.x = position.x + Time.deltaTime * speed * direction;
             rigidbody2d.MovePosition(position);
-
         }
         //Debug.Log(speed);
         if (transform.position.y > 2 || transform.position.y < -1)
@@ -178,7 +182,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public void EnterMainBuilding()
     {
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
-        coffin.GetComponent<Coffin>().RecieveDamage(damage);
         Destroy(gameObject);
     }
 
@@ -221,6 +224,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         skull.SetActive(true);
         aviableHitMask = LayerMask.GetMask("NPC");
         gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
+        gameObject.tag = "Friend";
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         GameStats.enemyOnScreen[line + 1].Remove(this);
         isFriend = true;
