@@ -19,6 +19,8 @@ TagManager:
   - Arrow
   - Tower
   - Friend
+  - GrassSquare
+  - SandSquare
   layers:
   - Default
   - TransparentFX
@@ -64,6 +66,9 @@ TagManager:
     locked: 0
   - name: Object
     uniqueID: 4003252847
+    locked: 0
+  - name: Environment
+    uniqueID: 3298804003
     locked: 0
   - name: UI
     uniqueID: 2017701733
