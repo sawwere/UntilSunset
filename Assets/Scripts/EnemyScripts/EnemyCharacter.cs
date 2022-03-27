@@ -11,8 +11,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     [SerializeField] private int maxHealth = 2; //макс здоровье
     [SerializeField] public float speed = 1.0f; //скорость передвижения
     protected float speedInit; // для восстановления скорости после остановки
-    public int line; //на какой линни ходит враг
-    public int armor = 0; //броня на будущее
+    private int line; //на какой линни ходит враг
     public int damage = 1; //урон
     public float immunityPeriod = 2.0f; // переодичность получения урона
     public float hitPeriod = 5.0f; // переодичность нанесения урона
@@ -24,8 +23,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     public LayerMask aviableHitMask; // store layers where objects can be damaged
     protected bool isFriend;
-
-    public GameObject coffin;
 
     public GameObject BloodParticles;
     public GameObject MagicParticles;
@@ -88,7 +85,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
-        coffin = GameObject.FindWithTag("Coffin");
         aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
         isFriend = false;
         /*source.loop = true;
@@ -186,7 +182,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public void EnterMainBuilding()
     {
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
-        coffin.GetComponent<Coffin>().RecieveDamage(damage);
         Destroy(gameObject);
     }
 
@@ -229,6 +224,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         skull.SetActive(true);
         aviableHitMask = LayerMask.GetMask("NPC");
         gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
+        gameObject.tag = "Friend";
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         GameStats.enemyOnScreen[line + 1].Remove(this);
         isFriend = true;

@@ -18,6 +18,7 @@ TagManager:
   - Wall3
   - Arrow
   - Tower
+  - Friend
   layers:
   - Default
   - TransparentFX

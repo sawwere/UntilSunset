@@ -47,7 +47,7 @@ public class Wall : Building, IDamage
 
     public void OnDestroy()
     {
-        //resources.ClearChangeWood();
+        resources.ClearPriceOrRefund();
         resources.UpdateAll();
         HideDialog();
         if (!this.gameObject.scene.isLoaded) return;
