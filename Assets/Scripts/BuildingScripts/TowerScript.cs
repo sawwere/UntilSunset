@@ -24,6 +24,7 @@ public class TowerScript : Building, IDamage
         bp = transform.parent.GetComponent<BuildPlace_1>();
         et = false;
         sc = bp.direction;
+        transform.GetChild(0).GetComponent<Transform>().localScale = new Vector3(transform.GetChild(0).GetComponent<Transform>().localScale.x * sc, transform.GetChild(0).GetComponent<Transform>().localScale.y, transform.GetChild(0).GetComponent<Transform>().localScale.z);
         transform.localScale = new Vector3(transform.localScale.x * sc, transform.localScale.y, transform.localScale.z);
         bp.GetComponent<BoxCollider2D>().enabled = false;
         maxHealth = 3;
