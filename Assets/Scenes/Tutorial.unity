@@ -5204,6 +5204,10 @@ PrefabInstance:
       propertyPath: Bat
       value: 
       objectReference: {fileID: 4329905914580742843, guid: e72ed6eac7406824a8902eb554549346, type: 3}
+    - target: {fileID: 9160509244416741769, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
+      propertyPath: isTutuorial
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
 --- !u!4 &823677726 stripped
@@ -10911,7 +10915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475414657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.141273, y: 2.0696795, z: -10}
+  m_LocalPosition: {x: -37.137306, y: 2.0696979, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1798154844}
