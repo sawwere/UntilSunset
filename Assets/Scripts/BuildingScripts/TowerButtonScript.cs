@@ -3,48 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WallButton : MonoBehaviour
+public class TowerButtonScript : MonoBehaviour
 {
-    private Wall wl;
+    private TowerScript tw;
     private GameObject upginfo;
     private Resources resources;
 
     public void Start()
     {
-        wl = transform.parent.GetComponent<Wall>();
+        tw = transform.parent.GetComponent<TowerScript>();
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
     }
-
-    public void WallUpgButtonPressed()
-    {
-        wl.UpgradeWall();
-    }
-
     public void WallRecoverButtonPressed()
     {
-        wl.Recover();
+        tw.Recover();
     }
 
     public void WallDelButtonPressed()
     {
-        wl.DestroyWall();
-    }
-
-    public void MouseEnterButtonUpg(Button b)
-    {
-        resources.SetPrice(wl.upg_wall_cost, wl.upg_stone_cost);
-        resources.UpdateAll();
+        tw.DestroyStruct();
     }
 
     public void MouseEnterButtonDelete(Button b)
     {
-        resources.SetRefund(wl.del_wood_re, wl.del_stone_re);
+        resources.SetRefund(tw.del_wood_re, tw.del_stone_re);
         resources.UpdateAll();
     }
 
     public void MouseEnterButtonRepair(Button b)
     {
-        resources.SetPrice(wl.rep_wood_cost, wl.rep_stone_cost);
+        resources.SetPrice(tw.rep_wood_cost, tw.rep_stone_cost);
         resources.UpdateAll();
     }
 
