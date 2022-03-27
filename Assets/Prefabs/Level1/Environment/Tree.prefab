@@ -423,6 +423,8 @@ MonoBehaviour:
   - {fileID: -3603158679311794707, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
   - {fileID: 8503359979112013278, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
   resInd: {fileID: 38533105468810816}
+  CColect: {fileID: 8300000, guid: d1dc9a867ae498149a096c8abe90c565, type: 3}
+  CNo: {fileID: 8300000, guid: 0dcee2bec20872142a322fb5a884daaf, type: 3}
 --- !u!114 &715747696
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyClose : EnemyCharacter
 {
     public Animator animator;
-    private AudioSource source;
 
     public override void DoDamage(IDamage obj)
     {
@@ -30,8 +29,6 @@ public class EnemyClose : EnemyCharacter
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             animator.Play("Movement");
-            source = GetComponent<AudioSource>();
-            source.Play();
         }
     }
 
@@ -40,8 +37,6 @@ public class EnemyClose : EnemyCharacter
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Movement"))
         {
             animator.Play("Idle");
-            source = GetComponent<AudioSource>();
-            source.Stop();
         }
     }
 }
