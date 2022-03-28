@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         if (isTurning) return;
 
         UpdateMotor();
-        PlayWalkSound();
+        //PlayWalkSound();
     }
 
     private void LateUpdate()
