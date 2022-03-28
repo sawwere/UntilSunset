@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         if (isTurning) return;
 
         UpdateMotor();
-        //PlayWalkSound();
+        PlayWalkSound();
     }
 
     private void LateUpdate()
@@ -319,7 +319,11 @@ public class PlayerController : MonoBehaviour
     private void PlayWalkSound()
     {
         if (isWalking && !isBat && !isTurning)
-        {
+        {//0 2.6
+            if (transform.position.y > 0 && transform.position.y < 2.6)
+                onTheWay = true;
+            else onTheWay = false;
+
             if (atHome && !sIsPlaying[0])
             {
                 source.clip = walksounds[0];
