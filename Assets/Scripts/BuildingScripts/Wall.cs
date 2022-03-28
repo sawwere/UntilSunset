@@ -76,7 +76,7 @@ public class Wall : Building, IDamage
     public void UpgradeWall()
     {
         //resources = GameObject.Find("CoinsText").GetComponent<Resources>();
-        if (GameStats.Wood >= 3)
+        if ((GameStats.Wood >= upg_wall_cost) && (GameStats.Stone >= upg_stone_cost) )
         {
             upgraded = true;
             var wall2inst = Instantiate(nextwall, transform.position, transform.rotation);
