@@ -101,7 +101,7 @@ AudioSource:
   m_GameObject: {fileID: 2499383150243433658}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -270,8 +270,6 @@ MonoBehaviour:
   price: 2
   maxHealth: 20
   speed: 1
-  line: 0
-  armor: 0
   damage: 1
   immunityPeriod: 4
   hitPeriod: 5
@@ -281,10 +279,11 @@ MonoBehaviour:
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
-  coffin: {fileID: 0}
   BloodParticles: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   MagicParticles: {fileID: 202918634614382671, guid: ec52a3a893fc6114d8bdcb57b5cc8c84, type: 3}
   skull: {fileID: 4644137856789707236}
+  source: {fileID: 0}
+  walkSound: {fileID: 0}
   resoursePrefab: {fileID: 7641849764205970870, guid: 25b6ddecccc80024b8249896282f5b9c, type: 3}
   animator: {fileID: 2871595177051633148}
 --- !u!210 &-5633678007154281397
