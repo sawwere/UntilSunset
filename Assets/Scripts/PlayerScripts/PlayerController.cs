@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Start()
     {
+        animator = GetComponent<Animator>();
         animator.SetFloat("LastVertical", -1);
         isBat = false;
         atHome = true;
@@ -101,7 +102,8 @@ public class PlayerController : MonoBehaviour
         if (isTurning) return;
 
         UpdateMotor();
-        //PlayWalkSound();
+        PlayWalkSound();
+        Debug.Log($"{atHome} {onTheWay}");
     }
 
     private void LateUpdate()
