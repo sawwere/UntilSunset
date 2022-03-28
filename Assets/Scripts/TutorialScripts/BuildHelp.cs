@@ -136,7 +136,7 @@ public class BuildHelp : MonoBehaviour
     }
     void SpawnEnemiesForBecomeFriend()
     {
-        EnemyCharacter enemyObject = Instantiate(enemy, new Vector3(35, 0, transform.position.z), transform.rotation);
+        EnemyCharacter enemyObject = Instantiate(enemy, new Vector3(33, 0, transform.position.z), transform.rotation);
         enemyObject.direction = -1;
     }
 

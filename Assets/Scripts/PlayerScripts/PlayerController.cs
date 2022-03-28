@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
-    private bool isBat;
+    public bool isBat;
     private bool isTurning;
 
-    private bool atHome;
+    public bool atHome;
 
     private TimeCycle timeCycle;
 
@@ -67,14 +67,11 @@ public class PlayerController : MonoBehaviour
         source = gameObject.GetComponent<AudioSource>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         animator.SetFloat("LastVertical", -1);
         isBat = false;
-        if (isTutorial)
-            atHome = false;
-        else
-            atHome = true;
+        atHome = true;
         isWalking = false;
         onTheWay = false;
         soundIsPlaying = false;
@@ -83,7 +80,7 @@ public class PlayerController : MonoBehaviour
         //SetGodSettings();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         InvokeCheatCode();
 
@@ -99,12 +96,12 @@ public class PlayerController : MonoBehaviour
         SubdueEnemy();
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (isTurning) return;
 
         UpdateMotor();
-        PlayWalkSound();
+        //PlayWalkSound();
     }
 
     private void LateUpdate()
@@ -163,7 +160,7 @@ public class PlayerController : MonoBehaviour
         ySpeed = 8f;
     }
 
-    private void SetCharacterSettings()
+    public void SetCharacterSettings()
     {
         animator.SetFloat("LastHorizontal", 0);
         animator.SetFloat("LastVertical", -1);
