@@ -12,6 +12,7 @@ public class Resources : MonoBehaviour
     public TextMeshProUGUI CountHeanchman;
     private string woodprice = "";
     private string stoneprice = "";
+    public int BatPrice = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class Resources : MonoBehaviour
     public void UpdateHenchman()
     {
         CountHeanchman.text = GameStats.Henchman.ToString();
+        UIAbilities.instance.SetValue(1);
     }
 
     public void SetPrice(int wp, int sp)

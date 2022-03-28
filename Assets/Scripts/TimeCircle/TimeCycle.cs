@@ -7,7 +7,7 @@ public class TimeCycle : MonoBehaviour
 {
     public Light lght;
     [SerializeField] protected static int DayLenght = 3000;
-    [SerializeField] protected static int NightLenght = 3000;
+    [SerializeField] protected static int NightLenght = 200;
     public List<GameObject> spawners;
     public Text TimeTXT;
     public GameObject newwave;
