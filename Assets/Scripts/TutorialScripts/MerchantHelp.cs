@@ -9,7 +9,7 @@ public class MerchantHelp : MonoBehaviour
 
     public GameObject player;
 
-    bool flag = false;
+    public static bool flag = false;
     void Start()
     {
         dialogBox1.SetActive(false);
@@ -40,4 +40,6 @@ public class MerchantHelp : MonoBehaviour
         if (BuildHelp.GetFlag3())
             dialogBox1.SetActive(false);
     }
+
+    public static bool GetFlag() { return flag; }
 }

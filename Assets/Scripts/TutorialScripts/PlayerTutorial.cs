@@ -4,17 +4,54 @@ using UnityEngine;
 
 public class PlayerTutorial : PlayerController
 {
+    public GameObject dialogBox1;
     public bool isLeaving { get; set; }
+    private Resources Res;
 
     protected override void Start()
     {
         base.Start();
-
+        dialogBox1.SetActive(false);
         atHome = false;
     }
 
     protected override void Update()
     {
+        if (!BuildHelp.GetFlag3() && BuildHelp.GetFlag2() && GameStats.Wood < 9)
+        {
+            GameStats.Wood += 10;
+            Res.UpdateWood();
+        }
+        if (!BuildHelp.GetFlag3() && BuildHelp.GetFlag2() && GameStats.Stone < 3)
+        {
+            GameStats.Stone += 10;
+            Res.UpdateStones();
+        }
+        if (BuildHelp.GetFlag3() && !BuildHelp.GetFlag5() && GameStats.Henchman < 5)
+        {
+            GameStats.Henchman += 5;
+            Res.UpdateHenchman();
+        }
+        if (BuildHelp.GetFlag4() && !BuildHelp.GetFlag7() && GameStats.Wood < 4)
+        {
+            GameStats.Wood += 10;
+            Res.UpdateWood();
+        }
+        if (BuildHelp.GetFlag4() && !BuildHelp.GetFlag7() && GameStats.Henchman < 3)
+        {
+            GameStats.Henchman += 3;
+            Res.UpdateHenchman();
+        }
+        if (BuildHelp.GetFlag7() && GameStats.Stone < 3)
+        {
+            GameStats.Stone += 10;
+            Res.UpdateStones();
+        }
+        if (MerchantHelp.GetFlag() && GameStats.Wood < 4)
+        {
+            GameStats.Wood += 10;
+            Res.UpdateWood();
+        }
         if (isLeaving) return;
 
         base.Update();
@@ -31,6 +68,7 @@ public class PlayerTutorial : PlayerController
     {
         isLeaving = true;
 
+
         animator.SetFloat("Speed", 1);
         animator.SetFloat("Horizontal", 1);
         animator.SetFloat("Vertical", 0);
@@ -38,6 +76,7 @@ public class PlayerTutorial : PlayerController
         animator.SetFloat("LastVertical", 0);
 
         StartCoroutine(GoRight());
+        StartCoroutine(ActiveDialog());
     }
 
     private IEnumerator GoRight()
@@ -53,6 +92,7 @@ public class PlayerTutorial : PlayerController
 
     public void ReturnLeft()
     {
+
         isLeaving = true;
 
         animator.SetFloat("Speed", 1);
@@ -62,6 +102,7 @@ public class PlayerTutorial : PlayerController
         animator.SetFloat("LastVertical", 0);
 
         StartCoroutine(GoLeft());
+        StartCoroutine(ActiveDialog());
     }
 
     private IEnumerator GoLeft()
@@ -74,4 +115,12 @@ public class PlayerTutorial : PlayerController
 
         isLeaving = false;
     }
+
+    private IEnumerator ActiveDialog()
+    {
+        dialogBox1.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        dialogBox1.SetActive(false);
+    }
+
 }

@@ -35,7 +35,7 @@ public class BuildHelp : MonoBehaviour
         }
         if (w1.Length == 3 && !flag2)
         {
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Стены также можно улучшать, у них 2 режима улучшения, для этого нужно кликнуть на нужную стены мышкой и нажать соответствующую кнопку. Попробуйте 2 раза их улучшить.";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Стены также можно улучшать, у них 2 режима улучшения, для этого нужно навести на нужную стены мышкой и нажать соответствующую кнопку. Попробуйте 2 раза их улучшить.";
             
             if (flag1 && GameStats.Wood <= 18 && !flag2)
             {
@@ -63,7 +63,7 @@ public class BuildHelp : MonoBehaviour
         {
             StopAllCoroutines();
             //StopCoroutine("FriendSpawn");
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Поврежденные сооружения можно ремонтировать, для этого нужно навести на нужное строение мышкой и нажать соответствующую кнопку.Также их можно сносить";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Поврежденные сооружения можно ремонтировать, для этого нужно навести на нужное строение мышкой и нажать соответствующую кнопку.Также их можно сносить.";
             SpawnWood();
             flag5 = true;
             dialogBox2.SetActive(true);
@@ -76,7 +76,7 @@ public class BuildHelp : MonoBehaviour
         {
             coffin.GetComponent<Coffin>().RecieveDamage(4);
             dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "А если враг все-таки добрался до дома,то дом будет терять здоровье, которое находится" +
-                " в правом верхнем углу. Вы можете пополнить здоровье, починив гроб. Для этого нажмите на него и выполните указанное действие.";
+                " в правом верхнем углу. Вы можете пополнить здоровье, починив гроб. Для этого нажмите на него и выполните указанное действие.\n Также о способностях игрока можно прочитать в меню.";
             flag7 = true;
             // Debug.Log((int)coffin.GetComponent<Coffin>().maxhealth);
 
@@ -85,16 +85,6 @@ public class BuildHelp : MonoBehaviour
             FindObjectOfType<PauseMenu>().Win();
     }
 
-   /* private void FixedUpdate()
-    {
-        if (flag3 && !flag4 && GameStats.enemyOnScreen[0].Count == 0)
-        {
-            Debug.Log("Fix");
-            GameObject enemy_friend = GameObject.FindGameObjectWithTag("Friend");
-            if (enemy_friend != null)
-                StopCoroutine("FriendSpawn");
-        }
-    }*/
     void Start()
     {
         dialogBox1.SetActive(false);
@@ -148,14 +138,7 @@ public class BuildHelp : MonoBehaviour
         while (!enemy_friend)
         {
             if (GameStats.enemyOnScreen[0].Count == 0)
-            {
                 SpawnEnemiesForBecomeFriend();
-                /*if (enemy_friend)
-                {
-                    Debug.Log("Im");
-                    StopCoroutine(FriendSpawn());
-                }*/
-            }
             //yield return new WaitWhile(() => !enemy_friend);
             yield return new WaitForSeconds(20);
         }
