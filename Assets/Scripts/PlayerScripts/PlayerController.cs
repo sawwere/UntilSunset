@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour
     public bool isTutorial;
     private bool[] sIsPlaying;
 
+    public bool isLeaving { get; set; }
+
     //private int henchmanLine;
     private void Awake()
     {
@@ -85,7 +87,7 @@ public class PlayerController : MonoBehaviour
         InvokeCheatCode();
 
         //thunderAbilityTimer -= Time.deltaTime;
-        if (isTurning) return;
+        if (isTurning || isLeaving) return;
 
         Turning();
 
@@ -98,10 +100,10 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (isTurning) return;
+        if (isTurning || isLeaving) return;
 
         UpdateMotor();
-        //PlayWalkSound();
+        PlayWalkSound();
     }
 
     private void LateUpdate()
@@ -358,6 +360,54 @@ public class PlayerController : MonoBehaviour
             soundIsPlaying = false;
             sIsPlaying = new bool[] { false, false, false };
         }
+    }
+
+    public void ReturnRight()
+    {
+        isLeaving = true;
+
+        animator.SetFloat("Speed", 1);
+        animator.SetFloat("Horizontal", 1);
+        animator.SetFloat("Vertical", 0);
+        animator.SetFloat("LastHorizontal", 1);
+        animator.SetFloat("LastVertical", 0);
+
+        StartCoroutine(GoRight());
+    }
+
+    protected virtual IEnumerator GoRight()
+    {
+        while (transform.position.x < -14.5)
+        {
+            transform.Translate(isBat ? 0.04f : 0.02f, 0, 0);
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        isLeaving = false;
+    }
+
+    public void ReturnLeft()
+    {
+        isLeaving = true;
+
+        animator.SetFloat("Speed", 1);
+        animator.SetFloat("Horizontal", -1);
+        animator.SetFloat("Vertical", 0);
+        animator.SetFloat("LastHorizontal", -1);
+        animator.SetFloat("LastVertical", 0);
+
+        StartCoroutine(GoLeft());
+    }
+
+    protected virtual IEnumerator GoLeft()
+    {
+        while (transform.position.x > 14.5)
+        {
+            transform.Translate(isBat ? -0.04f : -0.02f, 0, 0);
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        isLeaving = false;
     }
 
     public void SetOnTheWay(bool p) => onTheWay = p;

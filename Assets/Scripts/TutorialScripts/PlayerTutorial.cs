@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerTutorial : PlayerController
 {
-    public bool isLeaving { get; set; }
-
     protected override void Start()
     {
         base.Start();
@@ -13,36 +11,27 @@ public class PlayerTutorial : PlayerController
         atHome = false;
     }
 
-    protected override void Update()
-    {
-        if (isLeaving) return;
-
-        base.Update();
-    }
-
     protected override void FixedUpdate()
     {
-        if (isLeaving) return;
+        /*if (!BuildHelp.GetFlag3() && BuildHelp.GetFlag2() && GameStats.Wood < 9)
+            GameStats.Wood += 10;
+        if (!BuildHelp.GetFlag3() && BuildHelp.GetFlag2() && GameStats.Stone < 3)
+            GameStats.Stone += 10;
+        if (BuildHelp.GetFlag3() && !BuildHelp.GetFlag5() && GameStats.Henchman < 5)
+            GameStats.Henchman += 5;
+        if (BuildHelp.GetFlag4() && !BuildHelp.GetFlag7() && GameStats.Wood < 4)
+            GameStats.Wood += 10;
+        if (BuildHelp.GetFlag4() && !BuildHelp.GetFlag7() && GameStats.Henchman < 3)
+            GameStats.Henchman += 3;
+        if (BuildHelp.GetFlag7() && GameStats.Stone < 3)
+            GameStats.Stone += 10;*/
 
         base.FixedUpdate();
     }
 
-    public void ReturnRight()
+    protected override IEnumerator GoRight()
     {
-        isLeaving = true;
-
-        animator.SetFloat("Speed", 1);
-        animator.SetFloat("Horizontal", 1);
-        animator.SetFloat("Vertical", 0);
-        animator.SetFloat("LastHorizontal", 1);
-        animator.SetFloat("LastVertical", 0);
-
-        StartCoroutine(GoRight());
-    }
-
-    private IEnumerator GoRight()
-    {
-        while (transform.position.x < -51.5)
+        while (transform.position.x < -52.5)
         {
             transform.Translate(isBat ? 0.04f : 0.02f, 0, 0);
             yield return new WaitForSeconds(0.01f);
@@ -51,22 +40,9 @@ public class PlayerTutorial : PlayerController
         isLeaving = false;
     }
 
-    public void ReturnLeft()
+    protected override IEnumerator GoLeft()
     {
-        isLeaving = true;
-
-        animator.SetFloat("Speed", 1);
-        animator.SetFloat("Horizontal", -1);
-        animator.SetFloat("Vertical", 0);
-        animator.SetFloat("LastHorizontal", -1);
-        animator.SetFloat("LastVertical", 0);
-
-        StartCoroutine(GoLeft());
-    }
-
-    private IEnumerator GoLeft()
-    {
-        while (transform.position.x > 30.75)
+        while (transform.position.x > 26.5)
         {
             transform.Translate(isBat ? -0.04f : -0.02f, 0, 0);
             yield return new WaitForSeconds(0.01f);
