@@ -44377,7 +44377,7 @@ MonoBehaviour:
   Bat: {fileID: 4329905914580742843, guid: e72ed6eac7406824a8902eb554549346, type: 3}
   nimb: {fileID: 7724776072972062416}
   walksounds: []
-  isTutorial: 0
+  isTutorial: 1
   dialogBox1: {fileID: 979703946}
 --- !u!4 &6941751005386892961 stripped
 Transform:
