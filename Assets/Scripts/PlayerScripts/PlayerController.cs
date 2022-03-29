@@ -103,7 +103,6 @@ public class PlayerController : MonoBehaviour
 
         UpdateMotor();
         PlayWalkSound();
-        Debug.Log($"{atHome} {onTheWay}");
     }
 
     private void LateUpdate()
