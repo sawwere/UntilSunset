@@ -23,11 +23,11 @@ public class TimeCycle : MonoBehaviour
     protected PlayerController player;
     
     //music
-    public GameObject DaymusObj;
+    /*public GameObject DaymusObj;
     public GameObject NightmusObj;
     public AudioSource DayM;
     public AudioSource NightM;
-    public float vol = 0.2f;
+    public float vol = 0.2f;*/
     //////////////
     public GameObject Moon;
     float xrange = 14.0f / DayLenght;
@@ -51,8 +51,8 @@ public class TimeCycle : MonoBehaviour
         
         
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        NightM.volume = vol;
-        DayM.volume = 0;
+        //NightM.volume = vol;
+        //DayM.volume = 0;
     }
 
     void FixedUpdate()
@@ -78,7 +78,7 @@ public class TimeCycle : MonoBehaviour
                 Debug.Log("night");
 
                 fpd = true;
-                StartCoroutine(SetNight());
+                //StartCoroutine(SetNight());
                 //StartCoroutine(moon.night());
             }
             if (fpd)
@@ -125,7 +125,7 @@ public class TimeCycle : MonoBehaviour
                     spawner.SetActive(true);
                     spawner.GetComponent<SpawnerScript>().UpdateSpawn();
                 }
-                StartCoroutine(SetDay());
+                //StartCoroutine(SetDay());
             }
         }
 
@@ -147,7 +147,7 @@ public class TimeCycle : MonoBehaviour
         return isDay;
     }
 
-    private IEnumerator SetNight()
+    /*private IEnumerator SetNight()
     {
         DayM.volume = vol;
         while (DayM.volume > 0.01f)
@@ -180,6 +180,6 @@ public class TimeCycle : MonoBehaviour
             DayM.volume += 0.01f;
             yield return new WaitForSeconds(0.1f);
         }
-    }
+    }*/
 
 }
