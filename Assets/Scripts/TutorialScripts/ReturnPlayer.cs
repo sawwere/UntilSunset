@@ -13,7 +13,7 @@ public class ReturnPlayer : MonoBehaviour
 
         if (tag == "Player")
         {
-            var obj = collision.gameObject.GetComponent<PlayerTutorial>();
+            var obj = collision.gameObject.GetComponent<PlayerController>();
 
             if (direction == 1)
                 obj.ReturnRight();
