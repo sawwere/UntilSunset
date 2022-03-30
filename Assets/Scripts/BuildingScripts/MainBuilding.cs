@@ -10,11 +10,13 @@ public class MainBuilding : MonoBehaviour
 
     SpriteRenderer sprite;
 
+    public bool isTutorial;
+
     void Start()
     {
         sprite = facade.GetComponent<SpriteRenderer>();
         Color color = sprite.material.color;
-        color.a = 0f;
+        color.a = isTutorial? 1f : 0f;
         sprite.material.color = color;
     }
 
