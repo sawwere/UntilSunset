@@ -208,7 +208,7 @@ public class TimeCycle : MonoBehaviour
         AnimTotem1.SetActive(true);
         yield return new WaitForSeconds(2);
         AnimTotem1.SetActive(false);
-        ShadowTotem1.SetActive(false);
+        //ShadowTotem1.SetActive(false);
         Totem1.SetActive(true);
         GameStats.Encounter++;
     }
@@ -217,7 +217,7 @@ public class TimeCycle : MonoBehaviour
         AnimTotem2.SetActive(true);
         yield return new WaitForSeconds(2);
         AnimTotem2.SetActive(false);
-        ShadowTotem2.SetActive(false);
+        //ShadowTotem2.SetActive(false);
         Totem2.SetActive(true);
         GameStats.Encounter++;
     }
@@ -226,7 +226,7 @@ public class TimeCycle : MonoBehaviour
         AnimTotem3.SetActive(true);
         yield return new WaitForSeconds(2);
         AnimTotem3.SetActive(false);
-        ShadowTotem3.SetActive(false);
+        //ShadowTotem3.SetActive(false);
         Totem3.SetActive(true);
         yield return new WaitForSeconds(1);
         GameStats.Encounter++;
