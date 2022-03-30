@@ -42,7 +42,7 @@ public class TimeCycleTutorial : TimeCycle
 
                 }
             }
-            if (!player.GetIsBat())
+            if (!player.GetIsBat() && !player.GetAtHome())
             {
                 player.TurnIntoBat();
                 

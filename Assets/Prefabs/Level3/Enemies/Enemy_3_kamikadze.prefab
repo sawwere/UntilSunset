@@ -361,10 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Enemy3_kamikadze
   price: 3
-  maxHealth: 2
+  maxHealth: 4
   speed: 1.75
-  line: 0
-  armor: 0
   damage: 1
   immunityPeriod: 2
   hitPeriod: 5
@@ -374,10 +372,11 @@ MonoBehaviour:
   aviableHitMask:
     serializedVersion: 2
     m_Bits: 0
-  coffin: {fileID: 0}
   BloodParticles: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   MagicParticles: {fileID: 202918634614382671, guid: ec52a3a893fc6114d8bdcb57b5cc8c84, type: 3}
   skull: {fileID: 1634261829054666812}
+  source: {fileID: 0}
+  walkSound: {fileID: 0}
   resoursePrefab: {fileID: 2011344550897061960, guid: f57c47a3ffced0e4586f81ba1e0ce7d0, type: 3}
   animator: {fileID: 4521592447225339064}
 --- !u!1001 &2690113865761846892

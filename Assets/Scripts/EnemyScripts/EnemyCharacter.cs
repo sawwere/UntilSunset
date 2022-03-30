@@ -89,6 +89,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
         isFriend = false;
         source.volume = 0.05f;
+        source.loop = true;
         source.clip = walkSound;
         ChangeAnimationToIdle();
     }
