@@ -60,7 +60,13 @@ public class TimeCycle : MonoBehaviour
         NightM.volume = vol;
         DayM.volume = 0;
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            GameTime = DayLenght + 1;
+        }
+    }
     void FixedUpdate()
     {
 
@@ -68,7 +74,7 @@ public class TimeCycle : MonoBehaviour
 
         if (isDay)
         {
-
+            
             if (GameTime > DayLenght) //Change Day to Night
             {
                 Moonanimator.SetInteger("IsDayInt", 0);
@@ -114,6 +120,7 @@ public class TimeCycle : MonoBehaviour
         }
         else
         {
+            
             if (GameTime > (NightLenght - (NightLenght / 10)))
             {
 
