@@ -12,7 +12,8 @@ public class Resources : MonoBehaviour
     public TextMeshProUGUI CountHeanchman;
     private string woodprice = "";
     private string stoneprice = "";
-    public int BatPrice = 2;
+    public float BatPrice1 = 3;
+    public float ThunderPrice = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +41,22 @@ public class Resources : MonoBehaviour
     public void UpdateHenchman()
     {
         CountHeanchman.text = GameStats.Henchman.ToString();
-        UIAbilities.instance.SetValue(1);
+      //  Abilities.CountAbility1.text = CountHeanchman.text;
+        if (GameStats.Henchman == 0)
+        {
+            UIAbilities.instance.SetValue1(1);
+            UIAbilities.instance.SetValue2(1);
+        }
+          if (GameStats.Henchman >= BatPrice1)
+                UIAbilities.instance.SetValue1(0);
+            else if (GameStats.Henchman != 0)
+            UIAbilities.instance.SetValue1(1-(GameStats.Henchman / BatPrice1));
+
+          if(GameStats.Henchman >= ThunderPrice)
+            UIAbilities.instance.SetValue2(0);
+          else if (GameStats.Henchman != 0)
+            UIAbilities.instance.SetValue2(1 - (GameStats.Henchman / ThunderPrice));
+        
     }
 
     public void SetPrice(int wp, int sp)
