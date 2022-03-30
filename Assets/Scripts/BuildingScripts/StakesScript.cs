@@ -14,7 +14,7 @@ public class StakesScript : Building
     {
         bp = transform.parent.GetComponent<BuildPlace_1>();
         bp.GetComponent<BoxCollider2D>().enabled = false;
-        maxHealth = 3;
+        maxHealth = 15;
         base.Start();
     }
 
@@ -30,9 +30,9 @@ public class StakesScript : Building
         Invoke(nameof(DoDamage), animator.GetCurrentAnimatorClipInfo(0).Length - 0.35f);
     }
 
-    private void DoDamage()
+    public void DoDamage(EnemyCharacter obj)
     {
-        e.RecieveDamage(5);
+        obj.RecieveDamage(5);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -40,8 +40,10 @@ public class StakesScript : Building
         e = col.gameObject.GetComponent<EnemyCharacter>();
         if (e != null)
         {
+            Debug.Log(health);
             StartDamage();
-            RecieveDamage(8);
+            DoDamage(e);
+            RecieveDamage(5);
         }
     }
 }
