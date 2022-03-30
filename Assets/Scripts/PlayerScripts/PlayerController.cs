@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour
     public bool isTutorial;
     private bool[] sIsPlaying;
 
+    public bool isLeaving { get; set; }
+
     //private int henchmanLine;
     private void Awake()
     {
@@ -69,7 +71,6 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Start()
     {
-        animator = GetComponent<Animator>();
         animator.SetFloat("LastVertical", -1);
         isBat = false;
         atHome = true;
@@ -86,7 +87,7 @@ public class PlayerController : MonoBehaviour
         InvokeCheatCode();
 
         //thunderAbilityTimer -= Time.deltaTime;
-        if (isTurning) return;
+        if (isTurning || isLeaving) return;
 
         Turning();
 
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (isTurning) return;
+        if (isTurning || isLeaving) return;
 
         UpdateMotor();
         PlayWalkSound();
@@ -327,21 +328,21 @@ public class PlayerController : MonoBehaviour
 
             if (atHome && !sIsPlaying[0])
             {
-                source.clip = walksounds[0];
+                //source.clip = walksounds[0];
                 sIsPlaying = new bool[] { false, false, false };
                 sIsPlaying[0] = true;
                 source.Play();
             }
             else if (onTheWay && !atHome && !sIsPlaying[2])
             {
-                source.clip = walksounds[2];
+                //source.clip = walksounds[2];
                 sIsPlaying = new bool[] { false, false, false };
                 sIsPlaying[2] = true;
                 source.Play();
             }
             else if (!onTheWay && !atHome && !sIsPlaying[1])
             {
-                source.clip = walksounds[1];
+                //source.clip = walksounds[1];
                 sIsPlaying = new bool[] { false, false, false };
                 sIsPlaying[1] = true;
                 source.Play();
@@ -359,6 +360,54 @@ public class PlayerController : MonoBehaviour
             soundIsPlaying = false;
             sIsPlaying = new bool[] { false, false, false };
         }
+    }
+
+    public void ReturnRight()
+    {
+        isLeaving = true;
+
+        animator.SetFloat("Speed", 1);
+        animator.SetFloat("Horizontal", 1);
+        animator.SetFloat("Vertical", 0);
+        animator.SetFloat("LastHorizontal", 1);
+        animator.SetFloat("LastVertical", 0);
+
+        StartCoroutine(GoRight());
+    }
+
+    protected virtual IEnumerator GoRight()
+    {
+        while (transform.position.x < -14.5)
+        {
+            transform.Translate(isBat ? 0.04f : 0.02f, 0, 0);
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        isLeaving = false;
+    }
+
+    public void ReturnLeft()
+    {
+        isLeaving = true;
+
+        animator.SetFloat("Speed", 1);
+        animator.SetFloat("Horizontal", -1);
+        animator.SetFloat("Vertical", 0);
+        animator.SetFloat("LastHorizontal", -1);
+        animator.SetFloat("LastVertical", 0);
+
+        StartCoroutine(GoLeft());
+    }
+
+    protected virtual IEnumerator GoLeft()
+    {
+        while (transform.position.x > 14.5)
+        {
+            transform.Translate(isBat ? -0.04f : -0.02f, 0, 0);
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        isLeaving = false;
     }
 
     public void SetOnTheWay(bool p) => onTheWay = p;

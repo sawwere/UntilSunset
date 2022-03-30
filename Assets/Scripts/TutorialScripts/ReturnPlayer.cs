@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ReturnPlayer : MonoBehaviour
 {
+
     public int direction = 1;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -12,11 +13,12 @@ public class ReturnPlayer : MonoBehaviour
 
         if (tag == "Player")
         {
-            var obj = collision.gameObject.GetComponent<PlayerTutorial>();
+            var obj = collision.gameObject.GetComponent<PlayerController>();
 
             if (direction == 1)
                 obj.ReturnRight();
             else obj.ReturnLeft();
+          
         }
     }
 }
