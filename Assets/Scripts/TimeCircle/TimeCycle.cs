@@ -7,9 +7,9 @@ public class TimeCycle : MonoBehaviour
 {
     public Light lght;
     [SerializeField] protected static int DayLenght = 3000;
-    [SerializeField] protected static int NightLenght = 3000;
+    [SerializeField] protected static int NightLenght =1000;
     public List<GameObject> spawners;
-    protected int GameTime = 0;  
+    protected int GameTime = 0;
     protected bool isDay = false;
     protected bool fpd = true;
     int lightintensity;
@@ -18,7 +18,7 @@ public class TimeCycle : MonoBehaviour
     public float cloudSpeed;
 
     protected PlayerController player;
-    
+
     //music
     public GameObject DaymusObj;
     public GameObject NightmusObj;
@@ -54,8 +54,8 @@ public class TimeCycle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+
+
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         NightM.volume = vol;
         DayM.volume = 0;
@@ -74,7 +74,7 @@ public class TimeCycle : MonoBehaviour
 
         if (isDay)
         {
-            
+
             if (GameTime > DayLenght) //Change Day to Night
             {
                 Moonanimator.SetInteger("IsDayInt", 0);
@@ -103,28 +103,28 @@ public class TimeCycle : MonoBehaviour
                 StartCoroutine(SetNight());
                 //StartCoroutine(moon.night());
             }
-            if (fpd) // fpd - First Part Day (изменение освещения)
+            if (fpd) // fpd - First Part Day (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
             {
                 lght.intensity = 2 * ((float)GameTime / (float)DayLenght);
                 if (GameTime > (DayLenght / 2))
                 {
                     fpd = false;
                     //StartCoroutine(sun.night());
-                    
+
                 }
             }
-            if (!fpd) //изменение освещения
+            if (!fpd) //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             {
                 lght.intensity = 2 - 2 * ((float)GameTime / (float)DayLenght);
             }
         }
         else
         {
-            
+
             if (GameTime > (NightLenght - (NightLenght / 10)))
             {
 
-                //тут была надпись новая волна, теперь ее нет, но вдруг эта часть понадобится)
+                //пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
 
             }
             if (GameTime > NightLenght) // Change Night to Day
@@ -141,7 +141,7 @@ public class TimeCycle : MonoBehaviour
                 GameTime = 0;
                 //GameStats.Encounter++;
                 //StartCoroutine(sun.day());
-                
+
                 foreach (var spawner in spawners)
                 {
                     spawner.SetActive(true);
@@ -188,7 +188,7 @@ public class TimeCycle : MonoBehaviour
 
     private IEnumerator SetDay()
     {
-        
+
         NightM.volume = vol;
         while (NightM.volume > 0.01f)
         {
