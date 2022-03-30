@@ -94,6 +94,11 @@ public class PauseMenu : MonoBehaviour
         winMenuUI.SetActive(true);
         GameIsWin = true;
     }
+    public void Level1Pressed()
+    {
+        SceneManager.LoadScene("Level_1_Scene");
+        Time.timeScale = 1f;
+    }
 
     public void Level2Pressed()
     {
