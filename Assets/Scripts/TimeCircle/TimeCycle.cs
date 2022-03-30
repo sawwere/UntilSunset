@@ -109,6 +109,7 @@ public class TimeCycle : MonoBehaviour
             {
                 if (!player.GetIsBat() && !player.GetAtHome())
                 {
+                    //Debug.Log("turning");
                     player.TurnIntoBat();
                 }
 

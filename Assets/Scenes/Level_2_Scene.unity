@@ -42929,6 +42929,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9160509244416741769, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
+      propertyPath: walksounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 387a80f47e6e9924685f9cf321bf8f5e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
 --- !u!1 &1581178349
@@ -46375,7 +46379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41670275, y: 0.28583106}
   m_AnchorMax: {x: 0.5831891, y: 0.3942207}
-  m_AnchoredPosition: {x: 9.5784, y: 6.4995}
+  m_AnchoredPosition: {x: 9.5784, y: 6.499481}
   m_SizeDelta: {x: 19.157, y: 9.257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743157363

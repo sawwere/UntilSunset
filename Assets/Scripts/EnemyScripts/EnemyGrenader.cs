@@ -8,8 +8,8 @@ public class EnemyGrenader : EnemyRange
 {
     [SerializeField] private int grenadeLimit = 3; //максимальное число гранат
     private int greandeCount;//текущее число гранат
-    private int grenadeDamage = 2;//урон гранаты
-    private int closeCombatDamage = 1;//урон в ближнем бою
+    [SerializeField] private int grenadeDamage = 2;//урон гранаты
+    [SerializeField] private int closeCombatDamage = 1;//урон в ближнем бою
     private bool hasGrenades;//флаг для проверки текущего режима, true - дольний бой
 
     // Start is called before the first frame update
@@ -83,8 +83,8 @@ public class EnemyGrenader : EnemyRange
         hitTimer = firstHitPeriod;
         var hitBoxR = transform.GetChild(0);
         hitBoxR.gameObject.SetActive(false);
-        var hitBoxC = transform.GetChild(1);//
-                                            //.GetComponent<EnemyCloseAtack>();
+
+        var hitBoxC = transform.GetChild(2);
         hitBoxC.gameObject.SetActive(true);
     }
 }
