@@ -7,11 +7,8 @@ public class TimeCycle : MonoBehaviour
 {
     public Light lght;
     [SerializeField] protected static int DayLenght = 3000;
-    [SerializeField] protected static int NightLenght = 3000;
+    [SerializeField] protected static int NightLenght =1000;
     public List<GameObject> spawners;
-    public Text TimeTXT;
-    public GameObject newwave;
-    public NewWave nw;
     protected int GameTime = 0;  
     protected bool isDay = false;
     protected bool fpd = true;
@@ -34,11 +31,20 @@ public class TimeCycle : MonoBehaviour
     float yrange = 10.0f / DayLenght;
     Animator Moonanimator;
 
+    public GameObject Totem1;
+    public GameObject Totem2;
+    public GameObject Totem3;
+    public GameObject AnimTotem1;
+    public GameObject AnimTotem2;
+    public GameObject AnimTotem3;
+    public GameObject ShadowTotem1;
+    public GameObject ShadowTotem2;
+    public GameObject ShadowTotem3;
+
     void Awake()
     {
         Moonanimator = Moon.GetComponent<Animator>();
         lght.intensity = 0;
-        newwave.SetActive(false);
         foreach (var spawner in spawners)
             spawner.SetActive(false);
         foreach (var line in GameStats.enemyOnScreen)
@@ -54,22 +60,38 @@ public class TimeCycle : MonoBehaviour
         NightM.volume = vol;
         DayM.volume = 0;
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            GameTime = DayLenght + 1;
+        }
+    }
     void FixedUpdate()
     {
 
         GameTime += 1;
-        TimeTXT.text = GameTime.ToString();
 
         if (isDay)
         {
-
-            if (GameTime > DayLenght)
+            
+            if (GameTime > DayLenght) //Change Day to Night
             {
                 Moonanimator.SetInteger("IsDayInt", 0);
                 isDay = false;
                 GameTime = 0;
-                GameStats.Encounter++;
+                if (GameStats.Encounter == 0)
+                {
+                    StartCoroutine(SetTotem1());
+                }
+                if (GameStats.Encounter == 1)
+                {
+                    StartCoroutine(SetTotem2());
+                }
+                if (GameStats.Encounter == 2)
+                {
+                    StartCoroutine(SetTotem3());
+                }
                 foreach (var spawner in spawners)
                     spawner.SetActive(false);
                 foreach (var line in GameStats.enemyOnScreen)
@@ -81,7 +103,7 @@ public class TimeCycle : MonoBehaviour
                 StartCoroutine(SetNight());
                 //StartCoroutine(moon.night());
             }
-            if (fpd)
+            if (fpd) // fpd - First Part Day (изменение освещения)
             {
                 lght.intensity = 2 * ((float)GameTime / (float)DayLenght);
                 if (GameTime > (DayLenght / 2))
@@ -91,21 +113,21 @@ public class TimeCycle : MonoBehaviour
                     
                 }
             }
-            if (!fpd)
+            if (!fpd) //изменение освещения
             {
                 lght.intensity = 2 - 2 * ((float)GameTime / (float)DayLenght);
             }
         }
         else
         {
+            
             if (GameTime > (NightLenght - (NightLenght / 10)))
             {
-                nw.time = 200;
-                newwave.SetActive(true);
-                
+
+                //тут была надпись новая волна, теперь ее нет, но вдруг эта часть понадобится)
 
             }
-            if (GameTime > NightLenght)
+            if (GameTime > NightLenght) // Change Night to Day
             {
                 if (!player.GetIsBat() && !player.GetAtHome())
                 {
@@ -128,7 +150,7 @@ public class TimeCycle : MonoBehaviour
                 StartCoroutine(SetDay());
             }
         }
-
+        // sky animations
         sky1.transform.position = new Vector3(sky1.transform.position.x + cloudSpeed, sky1.transform.position.y, sky1.transform.position.z);
         if (sky2.transform.position.x <= 0)
         {
@@ -180,6 +202,34 @@ public class TimeCycle : MonoBehaviour
             DayM.volume += 0.01f;
             yield return new WaitForSeconds(0.1f);
         }
+    }
+    private IEnumerator SetTotem1()
+    {
+        AnimTotem1.SetActive(true);
+        yield return new WaitForSeconds(2);
+        AnimTotem1.SetActive(false);
+        ShadowTotem1.SetActive(false);
+        Totem1.SetActive(true);
+        GameStats.Encounter++;
+    }
+    private IEnumerator SetTotem2()
+    {
+        AnimTotem2.SetActive(true);
+        yield return new WaitForSeconds(2);
+        AnimTotem2.SetActive(false);
+        ShadowTotem2.SetActive(false);
+        Totem2.SetActive(true);
+        GameStats.Encounter++;
+    }
+    private IEnumerator SetTotem3()
+    {
+        AnimTotem3.SetActive(true);
+        yield return new WaitForSeconds(2);
+        AnimTotem3.SetActive(false);
+        ShadowTotem3.SetActive(false);
+        Totem3.SetActive(true);
+        yield return new WaitForSeconds(1);
+        GameStats.Encounter++;
     }
 
 }
