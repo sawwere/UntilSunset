@@ -34891,7 +34891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.028258802, y: 0.72836494}
   m_AnchorMax: {x: 0.17511798, y: 0.7926018}
-  m_AnchoredPosition: {x: -2.4406128, y: 2.817871}
+  m_AnchoredPosition: {x: -2.4405518, y: 2.817871}
   m_SizeDelta: {x: 2, y: 1.8241882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084094849
@@ -48777,7 +48777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.20330031, y: 0.55458283}
   m_AnchorMax: {x: 0.591, y: 0.6188129}
-  m_AnchoredPosition: {x: 1.9804077, y: -89}
+  m_AnchoredPosition: {x: 1.9803467, y: -89}
   m_SizeDelta: {x: 3.9608154, y: 4.6969986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1866411762
@@ -53870,6 +53870,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4853812790400427359, guid: a0fcccc531f38214aa559452e4dba1f4, type: 3}
+      propertyPath: AudioCLips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c181ccfcdebf8b4d9b9749db484f1d9, type: 3}
+    - target: {fileID: 4853812790400427359, guid: a0fcccc531f38214aa559452e4dba1f4, type: 3}
+      propertyPath: AudioCLips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 40387d8b88b699b4b9383375142976f5, type: 3}
     - target: {fileID: 7858123682365455868, guid: a0fcccc531f38214aa559452e4dba1f4, type: 3}
       propertyPath: player
       value: 

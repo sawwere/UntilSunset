@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 7946847478852771295}
   - component: {fileID: 4710895354268405716}
   - component: {fileID: 6503473353867975687}
+  - component: {fileID: 9097720052594406155}
   m_Layer: 6
   m_Name: PlayerTutorial
   m_TagString: Player
@@ -254,6 +255,8 @@ MonoBehaviour:
   ySpeed: 2
   rigidbBody2D: {fileID: 0}
   animator: {fileID: 7946847478852771295}
+  isBat: 0
+  atHome: 0
   Bat: {fileID: 4329905914580742843, guid: e72ed6eac7406824a8902eb554549346, type: 3}
   nimb: {fileID: 394967960778477766}
   walksounds:
@@ -387,3 +390,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9097720052594406155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390206035763029359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d6cef6637406540825c0e76fe768c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xSpeed: 1.5
+  ySpeed: 1.25
+  rigidbBody2D: {fileID: 0}
+  animator: {fileID: 7946847478852771295}
+  isBat: 0
+  atHome: 0
+  Bat: {fileID: 4329905914580742843, guid: e72ed6eac7406824a8902eb554549346, type: 3}
+  nimb: {fileID: 394967960778477766}
+  walksounds:
+  - {fileID: 8300000, guid: 80772b9d44c9aff47bc4ab329f85b1db, type: 3}
+  - {fileID: 8300000, guid: 91344452faff26a47b1878377a61c9f0, type: 3}
+  - {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}
+  isTutorial: 1
+  dialogBox1: {fileID: 0}
