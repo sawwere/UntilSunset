@@ -2167,21 +2167,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1716066716}
     m_Modifications:
-    - target: {fileID: 229361913740942072, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u0410\u043A\u0442\u0438\u0432\u043D\u0430\u044F \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C
-        \u0438\u0433\u0440\u043E\u043A\u0430</b>\n\u0413\u0438\u043F\u043D\u043E\u0437
-        \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0435\u0442 \u043F\u0435\u0440\u0435\u043C\u0430\u043D\u0438\u0442\u044C
-        \u0431\u043B\u0438\u0436\u0430\u0439\u0448\u0435\u0433\u043E \u043A \u0431\u0430\u0437\u0435
-        \u0432\u0440\u0430\u0433\u0430 \u043D\u0430 \u0441\u0432\u043E\u044E \u0441\u0442\u043E\u0440\u043E\u043D\u0443.
-        \u0417\u0430\u0433\u0438\u043F\u043D\u043E\u0442\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439
-        \u0432\u0440\u0430\u0433 \u0442\u0443\u0442 \u0436\u0435 \u043D\u0430\u0447\u0438\u043D\u0430\u0435\u0442
-        \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0432 \u043F\u0440\u043E\u0442\u0438\u0432\u043E\u043F\u043E\u043B\u043E\u0436\u043D\u0443\u044E
-        \u0441\u0442\u043E\u0440\u043E\u043D\u0443, \u0430\u0442\u0430\u043A\u0443\u044F
-        \u043D\u0430 \u0441\u0432\u043E\u0435\u043C \u043F\u0443\u0442\u0438 \u0431\u044B\u0432\u0448\u0438\u0445
-        \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u043E\u0432. \u0414\u0435\u0439\u0441\u0442\u0432\u0443\u0435\u0442
-        \u0431\u0435\u0441\u0441\u0440\u043E\u0447\u043D\u043E.\r"
-      objectReference: {fileID: 0}
     - target: {fileID: 229361913740942073, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2234,22 +2219,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: -1078.64
       objectReference: {fileID: 0}
-    - target: {fileID: 229361913860669357, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u041F\u043E\u043B\u0435\u0437\u043D\u044B\u0439 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442,
-        \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E
-        \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
-        \u0441 \u0443\u043C\u043E\u043C.</b>\n\u0428\u0438\u043F\u044B \u043D\u0430\u043D\u043E\u0441\u044F\u0442
-        \u0443\u0440\u043E\u043D \u0432\u0440\u0430\u0433\u0430\u043C, \u043D\u0430\u0441\u0442\u0443\u043F\u0438\u0432\u0448\u0438\u043C
-        \u043D\u0430 \u043D\u0438\u0445. \u041F\u043E\u0441\u043B\u0435 \u044D\u0442\u043E\u0433\u043E
-        \u043E\u043D\u0438 \u043B\u043E\u043C\u0430\u044E\u0442\u0441\u044F \u0438
-        \u043F\u0435\u0440\u0435\u0441\u0442\u0430\u044E\u0442 \u043D\u0430\u043D\u043E\u0441\u0438\u0442\u044C
-        \u0443\u0440\u043E\u043D. \u0420\u0435\u043C\u043E\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C
-        \u0448\u0438\u043F\u044B \u043D\u0435\u043B\u044C\u0437\u044F. \u041D\u0430
-        \u043C\u0435\u0441\u0442\u0435 \u0441\u043B\u043E\u043C\u0430\u043D\u043D\u044B\u0445
-        \u0448\u0438\u043F\u043E\u0432 \u043D\u0435\u043B\u044C\u0437\u044F \u0441\u0442\u0430\u0432\u0438\u0442\u044C
-        \u043D\u043E\u0432\u044B\u0435 \u043F\u043E\u0441\u0442\u0440\u043E\u0439\u043A\u0438."
-      objectReference: {fileID: 0}
     - target: {fileID: 229361913860669358, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2261,10 +2230,6 @@ PrefabInstance:
     - target: {fileID: 229361913860669358, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_SizeDelta.x
       value: -375.7633
-      objectReference: {fileID: 0}
-    - target: {fileID: 229361913950102758, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u0428\u0438\u043F\u044B</b>"
       objectReference: {fileID: 0}
     - target: {fileID: 229361913950102759, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2327,28 +2292,6 @@ PrefabInstance:
       value: -375.7633
       objectReference: {fileID: 0}
     - target: {fileID: 229361914382499679, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u041C\u043E\u0431\u0438\u043B\u044C\u043D\u044B\u0439 \u043F\u043E\u043C\u043E\u0449\u043D\u0438\u043A
-        \u0432 \u043E\u0431\u043E\u0440\u043E\u043D\u0435.</b>\n\u0412\u043E \u0432\u0440\u0435\u043C\u044F
-        \u0434\u043D\u044F, \u043D\u0430\u0445\u043E\u0434\u044F\u0441\u044C \u0432
-        \u043E\u0431\u043B\u0438\u043A\u0435 \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430,
-        \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u0438\u0437\u0432\u0430\u0442\u044C
-        \u043B\u0435\u0442\u0443\u0447\u0443\u044E \u043C\u044B\u0448\u044C \u043D\u0430
-        \u0441\u0432\u043E\u044E \u0441\u0442\u043E\u0440\u043E\u043D\u0443. \u041F\u0440\u0438\u0441\u043F\u0435\u0448\u043D\u0438\u043A
-        \u043F\u0440\u0438\u0432\u044F\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F
-        \u043A \u043B\u0438\u043D\u0438\u0438, \u043D\u0430 \u043A\u043E\u0442\u043E\u0440\u043E\u0439
-        \u0441\u0442\u043E\u0438\u0442 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436
-        \u0438\u0433\u0440\u043E\u043A\u0430. \u0414\u0430\u043B\u0435\u0435 \u043C\u044B\u0448\u044C
-        \u0441\u0430\u043C\u0430 \u0431\u0443\u0434\u0435\u0442 \u0438\u0441\u043A\u0430\u0442\u044C
-        \u0438 \u0430\u0442\u0430\u043A\u043E\u0432\u0430\u0442\u044C \u0432\u0440\u0430\u0433\u043E\u0432
-        \u043D\u0430 \u044D\u0442\u043E\u0439 \u043B\u0438\u043D\u0438\u0438. \u0415\u0441\u043B\u0438
-        \u0436\u0435 \u043C\u044B\u0448\u044C \u0434\u043E\u0436\u0438\u0432\u0435\u0442
-        \u0434\u043E \u0437\u0430\u043A\u0430\u0442\u0430, \u043E\u043D\u0430 \u0432\u0435\u0440\u043D\u0435\u0442\u0441\u044F
-        \u0434\u043E\u043C\u043E\u0439, \u0432\u0435\u0440\u043D\u0443\u0432 \u0447\u0430\u0441\u0442\u044C
-        \u0437\u0430\u0442\u0440\u0430\u0447\u0435\u043D\u043D\u044B\u0445 \u043D\u0430
-        \u0435\u0435 \u043F\u0440\u0438\u0437\u044B\u0432 \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432.\n\n\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 229361914382499679, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 2
       objectReference: {fileID: 0}
@@ -2399,18 +2342,6 @@ PrefabInstance:
     - target: {fileID: 229361914527133121, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 49
-      objectReference: {fileID: 0}
-    - target: {fileID: 229361914557879767, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u0414\u043E\u0432\u043E\u043B\u044C\u043D\u043E \u0434\u043E\u0440\u043E\u0433\u0430\u044F,
-        \u043D\u043E \u043E\u0447\u0435\u043D\u044C \u043F\u043E\u043B\u0435\u0437\u043D\u0430\u044F
-        \u043F\u043E\u0441\u0442\u0440\u043E\u0439\u043A\u0430.</b>\n\u0411\u0430\u0448\u043D\u044F
-        \u043D\u0430\u043D\u043E\u0441\u0438\u0442 \u0443\u0440\u043E\u043D \u0432\u0440\u0430\u0433\u0430\u043C
-        \u043D\u0430 \u0440\u0430\u0441\u0441\u0442\u043E\u044F\u043D\u0438\u0438
-        \u0438 \u043D\u0435 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0435\u0442
-        \u0438\u043C \u043F\u0440\u043E\u0439\u0442\u0438 \u0447\u0435\u0440\u0435\u0437
-        \u0441\u0435\u0431\u044F. \u0411\u0430\u0448\u043D\u0438 \u043C\u043E\u0436\u043D\u043E
-        \u0440\u0435\u043C\u043E\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 229361914557879768, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2524,21 +2455,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 145.39908
       objectReference: {fileID: 0}
-    - target: {fileID: 229361914854828121, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0441\u043F\u043E\u0441\u043E\u0431
-        \u0437\u0430\u0449\u0438\u0442\u044B \u043E\u0442 \u0432\u0440\u0430\u0433\u043E\u0432.\r</b>\n\u0421\u0442\u0435\u043D\u044B 
-        \u043D\u0430\u043D\u043E\u0441\u044F\u0442 \u0443\u0440\u043E\u043D \u0438
-        \u043D\u0435 \u0434\u0430\u044E\u0442 \u0432\u0440\u0430\u0433\u0430\u043C
-        \u043F\u0440\u043E\u0439\u0442\u0438 \u0441\u043A\u0432\u043E\u0437\u044C
-        \u0441\u0435\u0431\u044F. \u041F\u043E\u0432\u0440\u0435\u0436\u0434\u0435\u043D\u043D\u044B\u0435
-        \u0441\u0442\u0435\u043D\u044B \u043C\u043E\u0436\u043D\u043E \u0440\u0435\u043C\u043E\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C.
-        \u0422\u0430\u043A\u0436\u0435 \u0438\u0445 \u043C\u043E\u0436\u043D\u043E
-        \u0443\u043B\u0443\u0447\u0448\u0430\u0442\u044C \u0432\u043F\u043B\u043E\u0442\u044C
-        \u0434\u043E 3 \u0443\u0440\u043E\u0432\u043D\u044F, \u043F\u043E\u0432\u044B\u0448\u0430\u044F
-        \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A\u0443
-        \u043F\u0440\u043E\u0447\u043D\u043E\u0441\u0442\u0438.\r"
-      objectReference: {fileID: 0}
     - target: {fileID: 229361914854828122, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2554,10 +2470,6 @@ PrefabInstance:
     - target: {fileID: 229361914854828122, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 155.55902
-      objectReference: {fileID: 0}
-    - target: {fileID: 229361915055255430, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u0411\u0430\u0448\u043D\u0438</b>"
       objectReference: {fileID: 0}
     - target: {fileID: 229361915055255431, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2611,10 +2523,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -382.35986
       objectReference: {fileID: 0}
-    - target: {fileID: 229361915177494543, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u0413\u0438\u043F\u043D\u043E\u0437</b>"
-      objectReference: {fileID: 0}
     - target: {fileID: 229361915177494576, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2642,10 +2550,6 @@ PrefabInstance:
     - target: {fileID: 229361915412740770, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 145.39908
-      objectReference: {fileID: 0}
-    - target: {fileID: 229361915530333342, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u0421\u0442\u0435\u043D\u044B</b>"
       objectReference: {fileID: 0}
     - target: {fileID: 229361915530333343, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2750,10 +2654,6 @@ PrefabInstance:
     - target: {fileID: 229361915619094448, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 229361915697979093, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
-      propertyPath: m_Text
-      value: "<b>\u041B\u0435\u0442\u0443\u0447\u0438\u0435 \u043C\u044B\u0448\u0438</b>"
       objectReference: {fileID: 0}
     - target: {fileID: 229361915697979094, guid: f89af530b26800d4fac3d5534bce9f04, type: 3}
       propertyPath: m_AnchorMax.y
