@@ -26,6 +26,8 @@ public class BuildPlace_1 : MonoBehaviour
     private Wall_1 w1;
     private Wall_2 w2;
     private Wall_3 w3;
+    private StakesScript s;
+    private TowerScript t;
     private bool IsWalled;
 
     void Start()
@@ -51,7 +53,10 @@ public class BuildPlace_1 : MonoBehaviour
         w1 = GetComponentInChildren<Wall_1>();
         w2 = GetComponentInChildren<Wall_2>();
         w3 = GetComponentInChildren<Wall_3>();
-        if (IsWalled && w1 == null && w2 == null && w3 == null)
+        s = GetComponentInChildren<StakesScript>();
+        t = GetComponentInChildren<TowerScript>();
+
+        if (IsWalled && w1 == null && w2 == null && w3 == null && s == null && t == null)
         {
             source.PlayOneShot(CDestroy, 0.5f);
             IsWalled = false;

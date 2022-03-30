@@ -36,7 +36,7 @@ public class Building : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            GetComponent<AudioSource>().PlayOneShot(CRemove, 1f);
+            //GetComponent<AudioSource>().PlayOneShot(CRemove, 1f);
             Destroy(gameObject);
             if (gameObject.name == "Coffin")
                 FindObjectOfType<PauseMenu>().Lose();
