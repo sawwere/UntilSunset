@@ -82,7 +82,12 @@ public class BuildHelp : MonoBehaviour
 
         }
         if (flag7 && coffin.GetComponent<Coffin>().health == 8)// coffin.GetComponent<Coffin>().maxhealth)
+        {
             FindObjectOfType<PauseMenu>().Win();
+            GameObject.Find("PlayerToturial").GetComponent<PlayerController>().PauseWalkSound();
+            foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
+                e.GetComponent<EnemyCharacter>().PauseWalkSound();
+        }
     }
 
     void Start()
