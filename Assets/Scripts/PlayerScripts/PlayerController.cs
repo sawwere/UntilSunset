@@ -157,7 +157,6 @@ public class PlayerController : MonoBehaviour
         animator.Play("Bat");
         isTurning = false;
         isBat = true;
-        batOffset = 7;
         xSpeed = 10f;
         ySpeed = 8f;
     }
@@ -169,7 +168,6 @@ public class PlayerController : MonoBehaviour
         animator.Play("Idle");
         isTurning = false;
         isBat = false;
-        batOffset = 0;
         xSpeed = 1.5f;
         ySpeed = 1.25f;
     }
