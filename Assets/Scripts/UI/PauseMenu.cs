@@ -98,7 +98,6 @@ public class PauseMenu : MonoBehaviour
     }
     public void Level1Pressed()
     {
-        winMenuUI.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level_1_Scene");
        
