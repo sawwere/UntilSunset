@@ -36,10 +36,10 @@ public class BloodDropCollectable : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position.x > 20.5)
+        if (transform.position.x > 14.5)
             transform.Translate(-0.01f, 0, 0);
 
-        if (transform.position.x < -20.5)
+        if (transform.position.x < -14.5)
             transform.Translate(0.01f, 0, 0);
     }
 
