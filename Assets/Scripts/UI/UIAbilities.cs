@@ -14,6 +14,8 @@ public class UIAbilities : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        mask1.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, mask1.rectTransform.rect.height);
+        mask2.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, mask2.rectTransform.rect.height);
     }
     void Start()
     {
@@ -23,12 +25,14 @@ public class UIAbilities : MonoBehaviour
 
     public void SetValue1(float value)
     {
+        if(mask1 != null)
         mask1.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalSize1 * value);
     }
 
     public void SetValue2(float value)
     {
-        mask2.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalSize2 * value);
+        if (mask2 != null)
+            mask2.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalSize2 * value);
     }
 
 }

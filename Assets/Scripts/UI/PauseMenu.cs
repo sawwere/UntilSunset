@@ -24,6 +24,8 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         GameIsWin = false;
         SettingsIsOpened = false;
+        Time.timeScale = 1f;
+        winMenuUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -96,20 +98,23 @@ public class PauseMenu : MonoBehaviour
     }
     public void Level1Pressed()
     {
-        SceneManager.LoadScene("Level_1_Scene");
         Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_1_Scene");
+       
     }
 
     public void Level2Pressed()
-    {
-        SceneManager.LoadScene("Level_2_Scene");
+    { 
         Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_2_Scene");
+       
     }
 
     public void Level3Pressed()
     {
-        SceneManager.LoadScene("Level_3_Scene");
         Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_3_Scene");
+        
     }
 
     // =======================================================================

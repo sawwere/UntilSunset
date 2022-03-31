@@ -90,6 +90,12 @@ public class BuildHelp : MonoBehaviour
         dialogBox1.SetActive(false);
         dialogBox2.SetActive(false);
         dialogBox3.SetActive(false);
+        flag1 = false;
+         flag2 = false;
+        flag3 = false;
+         flag4 = false;
+         flag5 = false;
+         flag7 = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
