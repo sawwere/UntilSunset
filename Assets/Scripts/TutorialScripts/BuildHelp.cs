@@ -11,6 +11,7 @@ public class BuildHelp : MonoBehaviour
     public GameObject dialogBox1;
     public GameObject dialogBox2;
     public GameObject dialogBox3;
+    public GameObject dialogBox4;
 
     public EnemyCharacter enemy;
 
@@ -75,8 +76,10 @@ public class BuildHelp : MonoBehaviour
         if (b && !flag7 && flag5)
         {
             coffin.GetComponent<Coffin>().RecieveDamage(4);
-            dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "ј если враг все-таки добралс€ до дома,то дом будет тер€ть здоровье, которое находитс€" +
-                " в правом верхнем углу. ¬ы можете пополнить здоровье, починив гроб. ƒл€ этого нажмите на него и выполните указанное действие.\n “акже о способност€х игрока можно прочитать в меню.";
+            //dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "ј если враг все-таки добралс€ до дома,то дом будет тер€ть здоровье, которое находитс€" +
+            //" в правом верхнем углу. ¬ы можете пополнить здоровье, починив гроб. ƒл€ этого нажмите на него и выполните указанное действие.\n “акже о способност€х игрока можно прочитать в меню.";
+            dialogBox3.SetActive(false);
+            dialogBox4.SetActive(true);
             flag7 = true;
             // Debug.Log((int)coffin.GetComponent<Coffin>().maxhealth);
 
@@ -90,6 +93,7 @@ public class BuildHelp : MonoBehaviour
         dialogBox1.SetActive(false);
         dialogBox2.SetActive(false);
         dialogBox3.SetActive(false);
+        dialogBox4.SetActive(false);
         flag1 = false;
          flag2 = false;
         flag3 = false;

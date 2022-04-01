@@ -24,6 +24,10 @@ public class ResourseHelp : MonoBehaviour
     {
         dialogBox1.SetActive(true);
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        dialogBox1.SetActive(false);
+    }
 
     private void Update()
     {
