@@ -157,7 +157,6 @@ public class PlayerController : MonoBehaviour
         animator.Play("Bat");
         isTurning = false;
         isBat = true;
-        batOffset = 7;
         xSpeed = 10f;
         ySpeed = 8f;
     }
@@ -169,7 +168,6 @@ public class PlayerController : MonoBehaviour
         animator.Play("Idle");
         isTurning = false;
         isBat = false;
-        batOffset = 0;
         xSpeed = 1.5f;
         ySpeed = 1.25f;
     }
@@ -328,21 +326,21 @@ public class PlayerController : MonoBehaviour
 
             if (atHome && !sIsPlaying[0])
             {
-                //source.clip = walksounds[0];
+                source.clip = walksounds[0];
                 sIsPlaying = new bool[] { false, false, false };
                 sIsPlaying[0] = true;
                 source.Play();
             }
             else if (onTheWay && !atHome && !sIsPlaying[2])
             {
-                //source.clip = walksounds[2];
+                source.clip = walksounds[2];
                 sIsPlaying = new bool[] { false, false, false };
                 sIsPlaying[2] = true;
                 source.Play();
             }
             else if (!onTheWay && !atHome && !sIsPlaying[1])
             {
-                //source.clip = walksounds[1];
+                source.clip = walksounds[1];
                 sIsPlaying = new bool[] { false, false, false };
                 sIsPlaying[1] = true;
                 source.Play();

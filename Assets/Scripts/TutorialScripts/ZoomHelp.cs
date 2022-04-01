@@ -17,4 +17,9 @@ public class ZoomHelp : MonoBehaviour
     {
         dialogBox1.SetActive(true);
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        dialogBox1.SetActive(false);
+    }
 }
