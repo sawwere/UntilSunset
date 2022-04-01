@@ -286,6 +286,7 @@ MonoBehaviour:
   walkSound: {fileID: 8300000, guid: 387a80f47e6e9924685f9cf321bf8f5e, type: 3}
   resoursePrefab: {fileID: 7641849764205970870, guid: 25b6ddecccc80024b8249896282f5b9c, type: 3}
   animator: {fileID: 5215208538858055448}
+  shield: {fileID: 6634318506839722935}
 --- !u!210 &-6088672725814990259
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -463,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a3acdd9a1e49b479c2f548f753ca69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 40
   immunityTimer: 0
 --- !u!1 &6702911137652632711
 GameObject:

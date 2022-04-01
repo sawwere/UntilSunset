@@ -37,7 +37,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         transform.position = new Vector2(transform.position.x, (float)System.Math.Round(transform.position.y));
         if(transform.position.y>-1.4 && transform.position.y<1.4)
         {
-            line = (int)System.Math.Round(transform.position.y);
+            line = (int)(transform.position.y);
         }
         else line = 0;
        //line = PlayerController.henchmanline;
@@ -71,7 +71,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
 
     public void FindEnemy()
     {
-        List<EnemyCharacter> listOfEnemies = GameStats.enemyOnScreen[line + 1];
+        List<EnemyCharacter> listOfEnemies = GameStats.enemyOnScreen[line+1];
         float distancetoEnemy;
         EnemyCharacter nearEnemy = null;
         float minDistance = float.MaxValue;
@@ -186,6 +186,11 @@ public class Bat : MonoBehaviour, IDamage, IMovable
             speed = speedInit;
             //Debug.Log("OnCollisionExit2D BAT");
         }
+    }
+
+    void OnDestroy()
+    {
+        GameStats.henchmanOnScreen[line + 1] = 0;
     }
 
     public int GetLine()
