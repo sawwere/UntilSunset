@@ -34,6 +34,11 @@ public class ThunderZone : MonoBehaviour
         enemies.Clear();
     }
 
+    public static int Count()
+    {
+        return enemies.Count();
+    }
+
     public static void BeatEnemy()
     {
         if (enemies.Count == 0)
