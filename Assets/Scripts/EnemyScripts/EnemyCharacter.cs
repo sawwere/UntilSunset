@@ -231,6 +231,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         isFriend = true;
     }
 
+    public void PauseWalkSound() => source.Pause();
+    public void ContinueWalkSound() => source.Play();
     /*private void OnCollisionExit2D(Collision2D collision)
     {
         string tag = collision.gameObject.tag;

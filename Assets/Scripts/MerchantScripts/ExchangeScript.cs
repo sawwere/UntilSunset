@@ -8,6 +8,8 @@ public class ExchangeScript : MonoBehaviour
     private Resources CoinsRes;
     private Resources WoodRes;
     private Resources StoneRes;
+    private AudioSource source;
+    public AudioClip CCoin;
 
     // Start is called before the first frame update
     private void Start()
@@ -15,6 +17,7 @@ public class ExchangeScript : MonoBehaviour
         CoinsRes = GameObject.Find("CoinsText").GetComponent<Resources>();
         WoodRes = GameObject.Find("WoodText").GetComponent<Resources>();
         StoneRes = GameObject.Find("StoneText").GetComponent<Resources>();
+        source = GameObject.FindGameObjectWithTag("Merchant").GetComponent<AudioSource>();
     }
 
     public void StoneToCoinButtonPressed()
@@ -26,6 +29,7 @@ public class ExchangeScript : MonoBehaviour
             StoneRes.UpdateStones();
             CoinsRes.UpdateCoins();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
+            source.PlayOneShot(CCoin, 0.7f);
         }
     }
 
@@ -38,6 +42,7 @@ public class ExchangeScript : MonoBehaviour
             CoinsRes.UpdateCoins();
             StoneRes.UpdateStones();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
+            source.PlayOneShot(CCoin, 0.7f);
         }
     }
 
@@ -50,6 +55,7 @@ public class ExchangeScript : MonoBehaviour
             CoinsRes.UpdateCoins();
             WoodRes.UpdateWood();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
+            source.PlayOneShot(CCoin, 0.7f);
         }
     }
 
@@ -62,6 +68,7 @@ public class ExchangeScript : MonoBehaviour
             CoinsRes.UpdateCoins();
             WoodRes.UpdateWood();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
+            source.PlayOneShot(CCoin, 0.7f);
         }
     }
 }

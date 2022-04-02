@@ -9,13 +9,17 @@ public class MusicScript : MonoBehaviour
     private AudioSource source;
     public AudioSource pauseSource;
     public AudioClip[] AudioCLips;
+    public bool gameIsPaused;
+    private PlayerController pc;
 
     void Start()
     {
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
+        pc = GameObject.Find(("Player")).GetComponent<PlayerController>();
         source = GetComponent<AudioSource>();
         source.loop = false;
         dayMusicIsPlaying = true;
+        gameIsPaused = false;
     }
 
     void Update()
@@ -51,15 +55,27 @@ public class MusicScript : MonoBehaviour
         Debug.Log("PauseAndPlayMusic()");
         if (source.isPlaying)
         {
+            pc.PauseWalkSound();
+            foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
+                e.GetComponent<EnemyCharacter>().PauseWalkSound();
+            foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
+                e.GetComponent<EnemyCharacter>().PauseWalkSound();
             source.Pause();
             pauseSource.Play();
             Debug.Log("PAUSE");
         }
         else
         {
+            pc.ContinueWalkSound();
+            foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
+                e.GetComponent<EnemyCharacter>().ContinueWalkSound();
+            foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
+                e.GetComponent<EnemyCharacter>().ContinueWalkSound();
             source.Play();
             pauseSource.Stop();
             Debug.Log("PLAY");
         }
     }
+
+    public bool GetgameIsPaused() => gameIsPaused;
 }
