@@ -95,6 +95,17 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         winMenuUI.SetActive(true);
         GameIsWin = true;
+        GameObject.Find("Player").GetComponent<PlayerController>().PauseWalkSound();
+        foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
+            e.GetComponent<EnemyCharacter>().PauseWalkSound();
+        foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
+            e.GetComponent<EnemyCharacter>().PauseWalkSound();
+    }
+    public void Level1Pressed()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level_1_Scene");
+       
     }
     public void Level1Pressed()
     {

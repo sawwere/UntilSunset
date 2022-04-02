@@ -11,6 +11,7 @@ public class BuildHelp : MonoBehaviour
     public GameObject dialogBox1;
     public GameObject dialogBox2;
     public GameObject dialogBox3;
+    public GameObject dialogBox4;
 
     public EnemyCharacter enemy;
 
@@ -35,7 +36,7 @@ public class BuildHelp : MonoBehaviour
         }
         if (w1.Length == 3 && !flag2)
         {
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Стены также можно улучшать, у них 2 режима улучшения, для этого нужно навести на нужную стены мышкой и нажать соответствующую кнопку. Попробуйте 2 раза их улучшить.";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅ 2 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 2 пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.";
             
             if (flag1 && GameStats.Wood <= 18 && !flag2)
             {
@@ -47,14 +48,14 @@ public class BuildHelp : MonoBehaviour
         var w2 = GameObject.FindGameObjectWithTag("Wall3");
         if (w2 && !flag3 && flag2)
         {
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Днем на Вас будут наступать враги. Посмотрите, как это происходит.";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.";
             SpawnEnemies();
             flag3 = true;
             return;
         }
         if (flag3 && !flag4 && GameStats.enemyOnScreen[0].Count == 0)
         {
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Врагов можно также обращать на свою сторону. Для этого нажмите T,когда враг будет рядом, он пойдет в другую сторону и если будут враги, то будет на них нападать.Это можно сделать только в обличие человека, вернитесь в дом и попробуйте.";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ T,пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.";
             Coroutine l = StartCoroutine(FriendSpawn());
             flag4 = true;
         }
@@ -63,7 +64,7 @@ public class BuildHelp : MonoBehaviour
         {
             StopAllCoroutines();
             //StopCoroutine("FriendSpawn");
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Поврежденные сооружения можно ремонтировать, для этого нужно навести на нужное строение мышкой и нажать соответствующую кнопку.Также их можно сносить.";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.";
             SpawnWood();
             flag5 = true;
             dialogBox2.SetActive(true);
@@ -75,14 +76,21 @@ public class BuildHelp : MonoBehaviour
         if (b && !flag7 && flag5)
         {
             coffin.GetComponent<Coffin>().RecieveDamage(4);
-            dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "А если враг все-таки добрался до дома,то дом будет терять здоровье, которое находится" +
-                " в правом верхнем углу. Вы можете пополнить здоровье, починив гроб. Для этого нажмите на него и выполните указанное действие.\n Также о способностях игрока можно прочитать в меню.";
+            //dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ,пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" +
+            //" пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ.";
+            dialogBox3.SetActive(false);
+            dialogBox4.SetActive(true);
             flag7 = true;
             // Debug.Log((int)coffin.GetComponent<Coffin>().maxhealth);
 
         }
         if (flag7 && coffin.GetComponent<Coffin>().health == 8)// coffin.GetComponent<Coffin>().maxhealth)
+        {
             FindObjectOfType<PauseMenu>().Win();
+            GameObject.Find("PlayerToturial").GetComponent<PlayerController>().PauseWalkSound();
+            foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
+                e.GetComponent<EnemyCharacter>().PauseWalkSound();
+        }
     }
 
     void Start()
@@ -90,6 +98,7 @@ public class BuildHelp : MonoBehaviour
         dialogBox1.SetActive(false);
         dialogBox2.SetActive(false);
         dialogBox3.SetActive(false);
+        dialogBox4.SetActive(false);
         flag1 = false;
          flag2 = false;
         flag3 = false;
