@@ -17,6 +17,7 @@ public class Resources : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameStats.Henchman = 0;
         UpdateAll();
     }
 
@@ -41,7 +42,6 @@ public class Resources : MonoBehaviour
     public void UpdateHenchman()
     {
         CountHeanchman.text = GameStats.Henchman.ToString();
-      //  Abilities.CountAbility1.text = CountHeanchman.text;
         if (GameStats.Henchman == 0)
         {
             UIAbilities.instance.SetValue1(1);
