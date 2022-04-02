@@ -301,7 +301,10 @@ public class PlayerController : MonoBehaviour
     private void SubdueEnemy()
     {
         //if (Input.GetKey(KeyCode.T) && GameStats.Henchman >= 5 && thunderAbilityTimer <= 0)
-        if (Input.GetKey(KeyCode.T) && GameStats.Henchman >= 5 && thunderAbilityTimer <= 0)
+        if (Input.GetKey(KeyCode.T) 
+            && GameStats.Henchman >= 5 
+            && thunderAbilityTimer <= 0
+            && ThunderZone.Count() > 0)
         {
             isTurning = true;
             animator.Play("Magic");
