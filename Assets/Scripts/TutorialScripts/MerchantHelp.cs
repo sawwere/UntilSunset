@@ -35,7 +35,7 @@ public class MerchantHelp : MonoBehaviour
     {
         if (GameStats.Coins >= 1)
         {
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Теперь посмотрим, как оборонтяться. Для этого выйдете из дома направо";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Теперь посмотрим, как обороняться. Для этого выйдете из дома направо";
         }
         if (BuildHelp.GetFlag3())
             dialogBox1.SetActive(false);
