@@ -8,51 +8,31 @@ public class PlayerTutorial : PlayerController
 
     private Resources Res;
 
+    /*private void Awake()
+    {
+      //  Res = GameObject.Find("CoinsText").GetComponent<Resources>();
+    }*/
     protected override void Start()
     {
         base.Start();
 
+        Res = GameObject.Find("CoinsText").GetComponent<Resources>();
         dialogBox1.SetActive(false);
         atHome = false;
     }
 
     protected override void Update()
     {
-        /*if (!BuildHelp.GetFlag3() && BuildHelp.GetFlag2() && GameStats.Wood < 9)
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            GameStats.Wood += 10;
-            Res.UpdateWood();
+            if (GameStats.Wood < 700)
+            {
+                GameStats.Wood += 10;
+                GameStats.Stone += 10;
+                GameStats.Henchman += 10;
+                Res.UpdateAll();
+            }
         }
-        if (!BuildHelp.GetFlag3() && BuildHelp.GetFlag2() && GameStats.Stone < 3)
-        {
-            GameStats.Stone += 10;
-            Res.UpdateStones();
-        }
-        if (BuildHelp.GetFlag3() && !BuildHelp.GetFlag5() && GameStats.Henchman < 5)
-        {
-            GameStats.Henchman += 5;
-            Res.UpdateHenchman();
-        }
-        if (BuildHelp.GetFlag4() && !BuildHelp.GetFlag7() && GameStats.Wood < 4)
-        {
-            GameStats.Wood += 10;
-            Res.UpdateWood();
-        }
-        if (BuildHelp.GetFlag4() && !BuildHelp.GetFlag7() && GameStats.Henchman < 3)
-        {
-            GameStats.Henchman += 3;
-            Res.UpdateHenchman();
-        }
-        if (BuildHelp.GetFlag7() && GameStats.Stone < 3)
-        {
-            GameStats.Stone += 10;
-            Res.UpdateStones();
-        }
-        if (MerchantHelp.GetFlag() && GameStats.Wood < 4)
-        {
-            GameStats.Wood += 10;
-            Res.UpdateWood();
-        }*/
 
         base.Update();
     }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyShield : EnemyClose
 {
-    Shield shield;
+    public Shield shield;
 
     protected override void Start()
     {
-        shield = transform.GetChild(1).GetComponent<Shield>();
+        //shield = transform.GetChild(1).GetComponent<Shield>();
         base.Start();
     }
 
