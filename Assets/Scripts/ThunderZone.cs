@@ -29,10 +29,9 @@ public class ThunderZone : MonoBehaviour
             enemies.Remove(enemy);
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void Clear()
     {
-        
+        enemies.Clear();
     }
 
     public static void BeatEnemy()
