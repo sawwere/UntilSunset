@@ -9084,7 +9084,7 @@ GameObject:
   - component: {fileID: 1417326397}
   - component: {fileID: 1417326396}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MainSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9156,25 +9156,13 @@ MonoBehaviour:
   m_FillRect: {fileID: 691567320}
   m_HandleRect: {fileID: 1949016308}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
-  m_WholeNumbers: 1
-  m_Value: 0
+  m_MinValue: 0.000001
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VolumeControls, Assembly-CSharp
-        m_MethodName: SetVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1417326397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9187,7 +9175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: MasterVolume
+  slider: {fileID: 1417326396}
 --- !u!4 &1421603176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3882846615458529531, guid: 77df0aff706f37e43bdc603f5de1db21, type: 3}
@@ -41997,8 +41987,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2075339397}
   - component: {fileID: 2075339398}
+  - component: {fileID: 2075339399}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42070,25 +42061,28 @@ MonoBehaviour:
   m_FillRect: {fileID: 614392902}
   m_HandleRect: {fileID: 704617602}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
-  m_WholeNumbers: 1
-  m_Value: 0
+  m_MinValue: 0.000001
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VolumeControls, Assembly-CSharp
-        m_MethodName: SetVolumeMusic
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &2075339399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075339396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: musicVol
+  slider: {fileID: 2075339398}
 --- !u!1001 &2096034721
 PrefabInstance:
   m_ObjectHideFlags: 0
