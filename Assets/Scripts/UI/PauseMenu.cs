@@ -107,12 +107,6 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Level_1_Scene");
        
     }
-    public void Level1Pressed()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Level_1_Scene");
-       
-    }
 
     public void Level2Pressed()
     { 
