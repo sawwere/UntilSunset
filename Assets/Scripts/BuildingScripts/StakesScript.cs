@@ -14,7 +14,7 @@ public class StakesScript : Building
     {
         bp = transform.parent.GetComponent<BuildPlace_1>();
         bp.GetComponent<BoxCollider2D>().enabled = false;
-        maxHealth = 15;
+        maxHealth = 10;
         base.Start();
     }
 
@@ -24,15 +24,21 @@ public class StakesScript : Building
         bp.BrokenStakes();
     }
 
-    private void StartDamage()
+    private IEnumerator StartDamage(EnemyCharacter e)
     {
         animator.Play("Attack");
-        Invoke(nameof(DoDamage), animator.GetCurrentAnimatorClipInfo(0).Length - 0.35f);
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length - 0.35f);
+
+        if (!(e is EnemyKamikadze kamikadze))
+            DoDamage(e);
+        
+        RecieveDamage(5);
     }
 
-    public void DoDamage(EnemyCharacter obj)
+    public void DoDamage(EnemyCharacter e)
     {
-        obj.RecieveDamage(5);
+        e.RecieveDamage(5);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -40,10 +46,8 @@ public class StakesScript : Building
         e = col.gameObject.GetComponent<EnemyCharacter>();
         if (e != null)
         {
-            Debug.Log(health);
-            StartDamage();
-            DoDamage(e);
-            RecieveDamage(5);
+            //Debug.Log(health);
+            StartCoroutine(StartDamage(e));
         }
     }
 }
