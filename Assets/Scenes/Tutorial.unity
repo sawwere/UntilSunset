@@ -2421,7 +2421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.028258802, y: 0.72836494}
   m_AnchorMax: {x: 0.17511798, y: 0.7926018}
-  m_AnchoredPosition: {x: -2.4401245, y: 2.817871}
+  m_AnchoredPosition: {x: -2.4400635, y: 2.817871}
   m_SizeDelta: {x: 2, y: 1.8241882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452670842
@@ -6384,7 +6384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41051772, y: 0.6746353}
   m_AnchorMax: {x: 0.58651775, y: 0.78031766}
-  m_AnchoredPosition: {x: 3.3911972, y: -32}
+  m_AnchoredPosition: {x: 3.3912048, y: -32}
   m_SizeDelta: {x: 8.8355, y: 0.258}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1054413331
@@ -9595,6 +9595,7 @@ GameObject:
   - component: {fileID: 1475414663}
   - component: {fileID: 1475414664}
   - component: {fileID: 1475414659}
+  - component: {fileID: 1475414665}
   - component: {fileID: 1475414660}
   m_Layer: 0
   m_Name: Main Camera (1)
@@ -9891,6 +9892,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1475414665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475414657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8ea996c47cf844aa3eb7c157c082d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1477064211 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2246114951046920199, guid: a1849b4351fa5b3408be85266c76afe5, type: 3}
@@ -12601,7 +12614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41051772, y: 0.279}
   m_AnchorMax: {x: 0.58948237, y: 0.3742569}
-  m_AnchoredPosition: {x: 2.0105972, y: 3}
+  m_AnchoredPosition: {x: 2.0105896, y: 3}
   m_SizeDelta: {x: 4.0213, y: 8.258}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1913614957

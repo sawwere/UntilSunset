@@ -21,6 +21,7 @@ TagManager:
   - Friend
   - GrassSquare
   - SandSquare
+  - Merchant
   layers:
   - Default
   - TransparentFX
