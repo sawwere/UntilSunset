@@ -6,6 +6,7 @@ using TMPro;
 public class MerchantHelp : MonoBehaviour
 {
     public GameObject dialogBox1;
+    public GameObject dialogBox2;
 
     public GameObject player;
 
@@ -13,6 +14,7 @@ public class MerchantHelp : MonoBehaviour
     void Start()
     {
         dialogBox1.SetActive(false);
+        dialogBox2.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +24,7 @@ public class MerchantHelp : MonoBehaviour
             dialogBox1.SetActive(true);
             flag = true;
         }
+        dialogBox2.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

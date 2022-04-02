@@ -44,6 +44,8 @@ public class ResourseHelp : MonoBehaviour
                 flag = true;
             }
         }
+        if (!dialogBox1.activeInHierarchy)
+            dialogBox2.SetActive(false);
         
     }
 }
