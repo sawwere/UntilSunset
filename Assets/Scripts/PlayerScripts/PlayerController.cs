@@ -242,7 +242,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetLineForSpawnBat()
     {
-        if (transform.position.y > -1.4 && transform.position.y < 1.4)
+        if (transform.position.y > -1.4 && transform.position.y < 2.4)
         {
             henchmanLine = (int)System.Math.Round(transform.position.y);
         }
@@ -255,6 +255,7 @@ public class PlayerController : MonoBehaviour
             GetLineForSpawnBat();
             if (GameStats.henchmanOnScreen[henchmanLine] == 0)
             {
+                //Debug.Log("spawn bat");
                 isTurning = true;
                 animator.Play("InvokeHenchman");
                 Invoke(nameof(SetCharacterSettings), 0.2f);
@@ -262,6 +263,7 @@ public class PlayerController : MonoBehaviour
                 Instantiate(Bat, batSpawnPosition, Quaternion.identity);
                 GameStats.Henchman -= 3;
                 HenchmanRes.UpdateHenchman();
+                GameStats.henchmanOnScreen[henchmanLine] = 1;
             }
         }
     }
