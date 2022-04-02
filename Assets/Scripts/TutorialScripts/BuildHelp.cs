@@ -69,7 +69,7 @@ public class BuildHelp : MonoBehaviour
             dialogBox2.SetActive(true);
             if (GameStats.Henchman < 3)
                 SpawnBlood();
-            //merchant.dialogBox.transform.GetChild(3).gameObject.SetActive(true);
+            dialogBox3.SetActive(true);
         }
         var b = GameObject.FindGameObjectWithTag("Minion");
         if (b && !flag7 && flag5)
