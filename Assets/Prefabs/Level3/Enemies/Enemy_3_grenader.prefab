@@ -432,7 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Enemy3_grenader
   price: 2
-  maxHealth: 200
+  maxHealth: 20
   speed: 1
   damage: 1
   immunityPeriod: 2
@@ -448,12 +448,12 @@ MonoBehaviour:
   skull: {fileID: 8037350233571765380}
   source: {fileID: 0}
   walkSound: {fileID: 0}
-  resoursePrefab: {fileID: 2011344550897061960, guid: f57c47a3ffced0e4586f81ba1e0ce7d0, type: 3}
+  resoursePrefab: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   target: {fileID: 0}
   targetPoint: {x: 0, y: 0}
   animator: {fileID: 8893383567970895733}
   projectilePrefab: {fileID: 5079365604416438488, guid: a2bbafdea0661f342975afcaefcf4c2a, type: 3}
-  grenadeLimit: 1
+  grenadeLimit: 3
   grenadeDamage: 2
   closeCombatDamage: 1
 --- !u!1001 &6661179280907322068
