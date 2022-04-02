@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Atlas
+  m_Name: Atlas1
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -26,7 +26,7 @@ SpriteAtlas:
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
       m_TextureFormat: 4
-      m_TextureCompression: 1
+      m_TextureCompression: 2
       m_CompressionQuality: 50
       m_CrunchedCompression: 0
       m_AllowsAlphaSplitting: 0
@@ -43,12 +43,12 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 0aa1b370f68e70f4b96703f44ffc0215, type: 3}
-    - {fileID: 2800000, guid: ed7a46de52173674c91c5c1f624554b8, type: 3}
     - {fileID: 2800000, guid: 94bd6d0f3f3ebe847bbe46d2238c63f4, type: 3}
+    - {fileID: 2800000, guid: ed7a46de52173674c91c5c1f624554b8, type: 3}
+    - {fileID: 2800000, guid: 0aa1b370f68e70f4b96703f44ffc0215, type: 3}
     - {fileID: 2800000, guid: 02f9ecc0be5b8474c969d6a82ae8a643, type: 3}
-    - {fileID: 2800000, guid: d36cd8d82e5ba4b4cb2afcd55356dc15, type: 3}
     - {fileID: 2800000, guid: a0e9625117fd03a4086a91e441b5d9a0, type: 3}
+    - {fileID: 2800000, guid: d36cd8d82e5ba4b4cb2afcd55356dc15, type: 3}
     totalSpriteSurfaceArea: 310272
     bindAsDefault: 1
     isAtlasV2: 0
@@ -345,5 +345,5 @@ SpriteAtlas:
   - GrassAndPath_12
   - GrassAndPath_41
   m_RenderDataMap: {}
-  m_Tag: Atlas
+  m_Tag: Atlas1
   m_IsVariant: 0

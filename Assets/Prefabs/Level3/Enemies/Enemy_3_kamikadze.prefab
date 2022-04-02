@@ -150,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: -291714449
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 3762163528396922864, guid: 017474fc932b6dd478b3ffbb410a49fb, type: 3}
+  m_Sprite: {fileID: 2171745852450842852, guid: 33383163303c2394f88806cda19e6210, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -274,7 +274,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.36, y: 0.64}
+    oldSize: {x: 0.45, y: 0.6}
     newSize: {x: 0.64, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -314,7 +314,7 @@ Animator:
   m_GameObject: {fileID: 4308132286308345342}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6f3d8f1c16dfb7d45840d4dcae525898, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0d8681587108f234fa96eeb3d792e8ed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -361,9 +361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Enemy3_kamikadze
   price: 3
-  maxHealth: 4
-  speed: 1.75
-  damage: 1
+  maxHealth: 1
+  speed: 3.25
+  damage: 6
   immunityPeriod: 2
   hitPeriod: 5
   _direction: 1
@@ -377,7 +377,7 @@ MonoBehaviour:
   skull: {fileID: 1634261829054666812}
   source: {fileID: 0}
   walkSound: {fileID: 0}
-  resoursePrefab: {fileID: 2011344550897061960, guid: f57c47a3ffced0e4586f81ba1e0ce7d0, type: 3}
+  resoursePrefab: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   animator: {fileID: 4521592447225339064}
 --- !u!1001 &2690113865761846892
 PrefabInstance:

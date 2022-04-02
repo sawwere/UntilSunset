@@ -7,6 +7,9 @@ public class BloodDropCollectable : MonoBehaviour
     private Resources resources;
     SpriteRenderer sprite;
 
+    public double borderLeft = -14.5;
+    public double borderRight = 14.5;
+
     private void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -36,10 +39,10 @@ public class BloodDropCollectable : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position.x > 14.5)
+        if (transform.position.x > borderRight)
             transform.Translate(-0.01f, 0, 0);
 
-        if (transform.position.x < -14.5)
+        if (transform.position.x < borderLeft)
             transform.Translate(0.01f, 0, 0);
     }
 

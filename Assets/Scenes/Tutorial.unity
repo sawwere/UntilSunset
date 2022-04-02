@@ -10156,7 +10156,7 @@ MonoBehaviour:
   dialogBox1: {fileID: 2016071041}
   dialogBox2: {fileID: 929973258}
   dialogBox3: {fileID: 1880560561}
-  enemy: {fileID: 8613662523585886793, guid: 181613b0c1159c542afa930bf6d3ea27, type: 3}
+  enemy: {fileID: 7576398143260640726, guid: b753b0e9e55e362458c58294ac80b65d, type: 3}
   coffin: {fileID: 1039814606}
 --- !u!61 &1449828069
 BoxCollider2D:
