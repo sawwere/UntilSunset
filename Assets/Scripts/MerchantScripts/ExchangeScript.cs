@@ -32,7 +32,7 @@ public class ExchangeScript : MonoBehaviour
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
-        else source.PlayOneShot(CNo, 0.3f);
+        else source.PlayOneShot(CNo, 0.4f);
     }
 
     public void CoinToStoneButtonPressed()
@@ -46,7 +46,7 @@ public class ExchangeScript : MonoBehaviour
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
-        else source.PlayOneShot(CNo, 0.3f);
+        else source.PlayOneShot(CNo, 0.4f);
     }
 
     public void WoodToCoinButtonPressed()
@@ -60,7 +60,7 @@ public class ExchangeScript : MonoBehaviour
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
-        else source.PlayOneShot(CNo, 0.3f);
+        else source.PlayOneShot(CNo, 0.4f);
     }
 
     public void CoinToWoodButtonPressed()
@@ -74,6 +74,6 @@ public class ExchangeScript : MonoBehaviour
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
-        else source.PlayOneShot(CNo, 0.3f);
+        else source.PlayOneShot(CNo, 0.4f);
     }
 }
