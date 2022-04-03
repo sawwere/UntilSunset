@@ -6,7 +6,7 @@ public class Shield : MonoBehaviour, IDamage
 {
     EnemyShield parentEnemy;
 
-    [SerializeField] private int maxHealth = 40; //макс здоровье
+    [SerializeField] private int maxHealth = 50; //макс здоровье
     protected float immunityPeriod = 2.0f; // переодичность получения урона
     private int currentHealth; //текущее здоровье
     public float immunityTimer; //таймер иммунитета к получению урона
@@ -46,7 +46,6 @@ public class Shield : MonoBehaviour, IDamage
     {
         if (immunityTimer <= 0)
         {
-            Debug.Log(currentHealth);
             currentHealth -= amount;
             if (currentHealth <= 0)
                 Destroy(gameObject);

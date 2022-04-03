@@ -10,7 +10,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     private int direction = 0;
 
     [SerializeField] private int maxHealth = 2; //макс здоровье
-    public int damage = 1; //урон
+    public int damage = 8; //урон
     protected float immunityPeriod = 1.0f; // переодичность получения урона
     protected float hitPeriod = 5.0f; // переодичность нанесения урона
     protected int currentHealth; //текущее здоровье
