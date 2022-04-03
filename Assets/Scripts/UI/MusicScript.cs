@@ -57,7 +57,7 @@ public class MusicScript : MonoBehaviour
         Debug.Log("PauseAndPlayMusic()");
         if (!PauseMenu.GameIsWin)
         {
-            if (PauseMenu.GameIsPaused && source.isPlaying)
+            if (PauseMenu.GameIsPaused)
             {
                 pc.PauseWalkSound();
                 foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
@@ -72,7 +72,7 @@ public class MusicScript : MonoBehaviour
                 isPaused = true;
                 Debug.Log("PAUSE");
             }
-            else if (!PauseMenu.GameIsPaused && !source.isPlaying)
+            else if (!PauseMenu.GameIsPaused)
             {
                 pc.ContinueWalkSound();
                 foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
