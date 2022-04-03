@@ -6,7 +6,7 @@ public class Shield : MonoBehaviour, IDamage
 {
     EnemyShield parentEnemy;
 
-    [SerializeField] private int maxHealth = 50; //макс здоровье
+    [SerializeField] private int maxHealth = 60; //макс здоровье
     protected float immunityPeriod = 2.0f; // переодичность получения урона
     private int currentHealth; //текущее здоровье
     public float immunityTimer; //таймер иммунитета к получению урона

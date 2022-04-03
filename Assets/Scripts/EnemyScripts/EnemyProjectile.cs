@@ -38,16 +38,22 @@ public class EnemyProjectile : MonoBehaviour
             && obj.GetLine() == line
             && (((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0))
         {
-            //Debug.Log("hit");
             obj.RecieveDamage(damage);
+            damage = 0;
             Destroy(gameObject);
+
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
     }
 
     void Update()
     {
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, rigidbody2d.rotation)); 
-        if (transform.position.magnitude > 1000f)
+        if (transform.position.magnitude > 100f)
             Destroy(gameObject);
     }
 }
