@@ -30,18 +30,18 @@ public class BuildHelp : MonoBehaviour
         var w1 = GameObject.FindGameObjectsWithTag("Wall1");
         if (GameStats.Wood <= 9 && w1.Length < 3 && !flag1)
         {
-            SpawnWood();
+            //SpawnWood();
             flag1 = true;
         }
         if (w1.Length == 3 && !flag2)
         {
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Стены также можно улучшать, у них 2 режима улучшения, для этого нужно навести на нужную стены мышкой и нажать соответствующую кнопку. Попробуйте 2 раза их улучшить.";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Стены также можно улучшать, для этого нужно навести на нужную стену мышкой и нажать соответствующую кнопку. Попробуйте улучшить стену до 3 уровня.";
             
-            if (flag1 && GameStats.Wood <= 18 && !flag2)
+           /* if (flag1 && GameStats.Wood <= 18 && !flag2)
             {
                 SpawnWood();
                 SpawnWood();
-            }
+            }*/
             flag2 = true;
         }
         var w2 = GameObject.FindGameObjectWithTag("Wall3");
@@ -54,7 +54,7 @@ public class BuildHelp : MonoBehaviour
         }
         if (flag3 && !flag4 && GameStats.enemyOnScreen[0].Count == 0)
         {
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Врагов можно также обращать на свою сторону. Для этого нажмите T,когда враг будет рядом, он пойдет в другую сторону и если будут враги, то будет на них нападать.Это можно сделать только в обличие человека, вернитесь в дом и попробуйте.";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Врагов можно также обращать на свою сторону. Для этого нажмите T,когда враг будет рядом, тогда он пойдет в другую сторону и, если будут враги, то он будет на них нападать.Это можно сделать только в обличие человека, вернитесь в дом и попробуйте.";
             Coroutine l = StartCoroutine(FriendSpawn());
             flag4 = true;
         }
@@ -62,23 +62,22 @@ public class BuildHelp : MonoBehaviour
         if (flag4 && enemy_friend && !flag5)
         {
             StopAllCoroutines();
-            //StopCoroutine("FriendSpawn");
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Поврежденные сооружения можно ремонтировать, для этого нужно навести на нужное строение мышкой и нажать соответствующую кнопку.Также их можно сносить.";
-            SpawnWood();
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Поврежденные сооружения можно ремонтировать, для этого нужно навести на нужное строение мышкой и нажать соответствующую кнопку. Также их можно сносить.";
+           // SpawnWood();
             flag5 = true;
             dialogBox2.SetActive(true);
-            if (GameStats.Henchman < 3)
-                SpawnBlood();
+            /*if (GameStats.Henchman < 3)
+                SpawnBlood();*/
             dialogBox3.SetActive(true);
         }
         var b = GameObject.FindGameObjectWithTag("Minion");
         if (b && !flag7 && flag5)
         {
+            coffin.GetComponent<Coffin>().Recover();
             coffin.GetComponent<Coffin>().RecieveDamage(4);
-            dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "А если враг все-таки добрался до дома,то дом будет терять здоровье, которое находится" +
-                " в правом верхнем углу. Вы можете пополнить здоровье, починив гроб. Для этого нажмите на него и выполните указанное действие.\n Также о способностях игрока можно прочитать в меню.";
+            dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "А если враг все-таки добрался до дома, то дом будет терять здоровье, количество которого отображается" +
+                " в правом верхнем углу экрана. Вы можете пополнить здоровье, починив гроб. Для этого нажмите на него и выполните указанное действие.\n Также о способностях игрока можно прочитать в меню.";
             flag7 = true;
-            // Debug.Log((int)coffin.GetComponent<Coffin>().maxhealth);
 
         }
         if (flag7 && coffin.GetComponent<Coffin>().health == 8)// coffin.GetComponent<Coffin>().maxhealth)

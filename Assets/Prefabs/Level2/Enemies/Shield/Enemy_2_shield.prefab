@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Enemy2_shield
-  price: 3
+  price: 2
   maxHealth: 20
   speed: 1
   damage: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a3acdd9a1e49b479c2f548f753ca69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 60
   immunityTimer: 0
 --- !u!1 &6702911137652632711
 GameObject:

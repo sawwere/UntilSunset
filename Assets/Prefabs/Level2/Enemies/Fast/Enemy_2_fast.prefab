@@ -337,7 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Enemy2_fast
   price: 1
-  maxHealth: 20
+  maxHealth: 30
   speed: 1.33
   damage: 1
   immunityPeriod: 2
