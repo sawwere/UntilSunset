@@ -53,27 +53,30 @@ public class MusicScript : MonoBehaviour
     private void PauseAndPlayMusic()
     {
         Debug.Log("PauseAndPlayMusic()");
-        if (source.isPlaying)
+        if (!PauseMenu.GameIsWin)
         {
-            pc.PauseWalkSound();
-            foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
-                e.GetComponent<EnemyCharacter>().PauseWalkSound();
-            foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
-                e.GetComponent<EnemyCharacter>().PauseWalkSound();
-            source.Pause();
-            pauseSource.Play();
-            Debug.Log("PAUSE");
-        }
-        else
-        {
-            pc.ContinueWalkSound();
-            foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
-                e.GetComponent<EnemyCharacter>().ContinueWalkSound();
-            foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
-                e.GetComponent<EnemyCharacter>().ContinueWalkSound();
-            source.Play();
-            pauseSource.Stop();
-            Debug.Log("PLAY");
+            if (source.isPlaying)
+            {
+                pc.PauseWalkSound();
+                foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
+                    e.GetComponent<EnemyCharacter>().PauseWalkSound();
+                foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
+                    e.GetComponent<EnemyCharacter>().PauseWalkSound();
+                source.Pause();
+                pauseSource.Play();
+                Debug.Log("PAUSE");
+            }
+            else
+            {
+                pc.ContinueWalkSound();
+                foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
+                    e.GetComponent<EnemyCharacter>().ContinueWalkSound();
+                foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
+                    e.GetComponent<EnemyCharacter>().ContinueWalkSound();
+                source.Play();
+                pauseSource.Stop();
+                Debug.Log("PLAY");
+            }
         }
     }
 

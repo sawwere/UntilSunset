@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CCoin: {fileID: 8300000, guid: e4c562fab16be714a8485d3601770a67, type: 3}
+  CNo: {fileID: 8300000, guid: 0dcee2bec20872142a322fb5a884daaf, type: 3}
 --- !u!1 &1758740445729094203
 GameObject:
   m_ObjectHideFlags: 0
