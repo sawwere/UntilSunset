@@ -61,7 +61,7 @@ public class ResourceScript : MonoBehaviour
             isRestored = false;
 
         if (PlayerIsNear && Input.GetKeyDown(KeyCode.F) && res == 0)
-            source.PlayOneShot(CNo, 0.5f);
+            source.PlayOneShot(CNo, 0.3f);
 
         DTime += Time.deltaTime;
         if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= DTimeMax && res > 0)
