@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DTimeMax: 0.4
-  resLim: 10
+  resLim: 8
   sp:
   - {fileID: -8940097332086347385, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
   - {fileID: 2529489809773951820, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}

@@ -163,7 +163,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6828458053813820576}
   - component: {fileID: 6828458053813820583}
-  - component: {fileID: 6828458053813820581}
   - component: {fileID: 6828458053813820582}
   - component: {fileID: 8435489631603888022}
   - component: {fileID: 6344972346963707987}
@@ -183,7 +182,7 @@ Transform:
   m_GameObject: {fileID: 6828458053813820580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.22, y: -2.93, z: 0}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 6236858840953838257}
   - {fileID: 2379068187468654049}
@@ -241,37 +240,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6828458053813820581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6828458053813820580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7be46fcfc2dcb7a449f35b7d1cf95a65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsStone: 1
-  IsWood: 0
-  tcount: {fileID: 0}
-  resLim: 5
-  sp:
-  - {fileID: -8940097332086347385, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: 2529489809773951820, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: 4863547495416987683, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: 656093631764528083, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: -1196752295755016846, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: 332900358275941400, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: -4464253088592281044, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: -4234632410703918345, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: -2908496626582147708, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: -3603158679311794707, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  - {fileID: 8503359979112013278, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
-  resInd: {fileID: 668017698569119560}
-  CColect: {fileID: 8300000, guid: 9c59408710c3a8d4f826b93e4954dd5e, type: 3}
-  CNo: {fileID: 8300000, guid: 0dcee2bec20872142a322fb5a884daaf, type: 3}
 --- !u!70 &6828458053813820582
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

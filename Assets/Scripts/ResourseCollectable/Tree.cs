@@ -6,7 +6,7 @@ using TMPro;
 public class Tree : ResourceScript
 {
     private TextMeshProUGUI tcount;
-    public Animator anim;
+    public Animator anim = null;
 
     protected override void Start()
     {

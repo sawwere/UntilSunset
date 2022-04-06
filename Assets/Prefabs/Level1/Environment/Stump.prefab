@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6b130cd25c6954e826c5644957b0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DTimeMax: 0.8
-  resLim: 2
+  DTimeMax: 1
+  resLim: 3
   sp:
   - {fileID: -8940097332086347385, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
   - {fileID: 2529489809773951820, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
