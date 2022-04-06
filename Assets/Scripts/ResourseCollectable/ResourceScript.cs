@@ -7,50 +7,34 @@ using TMPro;
 
 public class ResourceScript : MonoBehaviour
 {
-    public bool IsStone;
-    public bool IsWood;
-    public TextMeshProUGUI tcount;
-    private string tg;
     private PlayerController pl;
-    private Collider2D col;
-    private bool PlayerIsNear;
-    private float DTime;
-    private const float DTimeMax = 0.4f;
+    protected bool PlayerIsNear;
+    protected float DTime;
+    public float DTimeMax = 0.4f;
     public float resLim;
     private float res;
-    public Sprite[] sp = new Sprite[11];
+    public Sprite[] sp;
     public GameObject resInd;
     private SpriteRenderer resSp;
-    private bool isRestored;
-    private TimeCycle timeCycle;
     private AudioSource source;
     public AudioClip CColect;
     public AudioClip CNo;
 
-    void Start()
+    protected virtual void Start()
     {
-        isRestored = true;
         res = resLim;
         DTime = DTimeMax;
         resInd.SetActive(false);
-        if (IsStone) tg = "StoneCount";
-        else if (IsWood) tg = "WoodCount";
-        col = GetComponent<Collider2D>();
         PlayerIsNear = false;
-        tcount = GameObject.FindWithTag(tg).GetComponent<TextMeshProUGUI>();
         pl = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         resSp = resInd.GetComponent<SpriteRenderer>();
-        tcount.SetText(Convert.ToString(0));
-        timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         source = GetComponent<AudioSource>();
         source.volume = 0.5f;
     }
 
-   
-
-    void Update()
+    protected virtual void Update()
     {
-        if (IsWood && !isRestored && !timeCycle.GetIsDay())
+        /*if (IsWood && !isRestored && !timeCycle.GetIsDay())
         {
             res = resLim;
             resSp.sprite = sp[0];
@@ -58,52 +42,55 @@ public class ResourceScript : MonoBehaviour
             isRestored = true;
         }
         else if (timeCycle.GetIsDay())
-            isRestored = false;
+            isRestored = false;*/ // Восстановление дерева
 
-        if (PlayerIsNear && Input.GetKeyDown(KeyCode.F) && res == 0)
-            source.PlayOneShot(CNo, 0.3f);
+        /*if (PlayerIsNear && Input.GetKeyDown(KeyCode.F) && res == 0)
+            source.PlayOneShot(CNo, 0.3f);*/  // Проигрывание последнего звука
 
         DTime += Time.deltaTime;
         if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= DTimeMax && res > 0)
         {
-            res--;
-            if (res != 0)
-                resSp.sprite = sp[Math.Min(9, Convert.ToInt32(10 - Math.Floor(res / resLim * 10)))];
-            else
-            {
-                resSp.sprite = sp[10];
-                source.volume = 1f;
-            }
+            CollectItem();
 
-            source.PlayOneShot(CColect, 0.5f);
-
-            if (IsStone)
+            /*if (IsStone) // stone.CollectItem
             {
                 DTime = 0.0f;
                 GameStats.Stone += 1;
                 tcount.SetText(GameStats.Stone.ToString());
             }
-            else if (IsWood)
+            else if (IsWood) // wood.CollectItem
             {
                 DTime = 0.0f;
                 GameStats.Wood += 1;
                 tcount.SetText(GameStats.Wood.ToString());
-            }
+            }*/
+        }
+
+        if (res == 0)
+        {
+            Invoke(nameof(ObjectDie), 0.5f);
         }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
+        {
             PlayerIsNear = true;
+        }
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player" && !pl.GetIsBat())
-        {
-            resInd.SetActive(true);
-        }
+        if (col.gameObject.tag == "Player")
+            if (pl.GetIsBat() || pl.GetAtHome())
+            {
+                resInd.SetActive(false);
+            }
+            else
+            {
+                resInd.SetActive(true);
+            }
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -115,4 +102,33 @@ public class ResourceScript : MonoBehaviour
         }
     }
 
+    protected virtual void CollectItem()
+    {
+        res--;
+        if (res != 0)
+            resSp.sprite = sp[Math.Min(9, Convert.ToInt32(10 - Math.Floor(res / resLim * 10)))];
+        else
+        {
+            resSp.sprite = sp[10];
+            source.volume = 1f;
+        }
+
+        source.PlayOneShot(CColect, 0.5f);
+    }
+
+    protected virtual void ObjectDie()
+    {
+        Destroy(gameObject);
+    }
+
+    protected void RenewResource()
+    {
+        res = resLim;
+        resSp.sprite = sp[0];
+    }
+
+    protected void UnrelatePLayer()
+    {
+        pl.isRelatedToResource = false;
+    }
 }
