@@ -19,7 +19,7 @@ public class Stone : ResourceScript
     {
         base.CollectItem();
         DTime = 0.0f;
-        GameStats.Wood += 1;
-        tcount.SetText(GameStats.Wood.ToString());
+        GameStats.Stone += 1;
+        tcount.SetText(GameStats.Stone.ToString());
     }
 }
