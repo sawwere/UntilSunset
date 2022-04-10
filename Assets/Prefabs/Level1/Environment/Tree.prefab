@@ -507,6 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DTimeMax: 0.4
+  offset: 0.01
   resLim: 8
   sp:
   - {fileID: -8940097332086347385, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
@@ -541,7 +542,6 @@ MonoBehaviour:
   resInd: {fileID: 38533105468810816}
   collectSound: {fileID: 8300000, guid: d1dc9a867ae498149a096c8abe90c565, type: 3}
   anim: {fileID: 6061193248601070729}
-  foliage: {fileID: 1684903440}
 --- !u!95 &6061193248601070729
 Animator:
   serializedVersion: 3

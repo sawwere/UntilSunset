@@ -8,7 +8,11 @@ public class ResourceScript : MonoBehaviour
 {
     private PlayerController pl;
     protected float DTime;
-    public float DTimeMax = 0.4f;
+    public float DTimeMax;//0.4f
+    private float DTimeSpriteMax;
+    private float DTimeSprite;
+    public float offset;
+    private int spInd;
     public int resLim;
     private int res;
     public Sprite[] sp;
@@ -34,19 +38,36 @@ public class ResourceScript : MonoBehaviour
         res = resLim;
         DTime = DTimeMax;
         source.volume = 0.5f;
+        DTimeSpriteMax = resLim * DTimeMax / float.Parse((sp.Length - 1).ToString()) - offset;
+        DTimeSprite = DTimeSpriteMax;
+        spInd = 0;
     }
 
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
-        DTime += Time.deltaTime;
+        if (res > 0)
+        {
+            if (resIndComponent.isMousePressed)
+            {
+                DTime += Time.deltaTime;
+                if (DTime >= DTimeMax)
+                    CollectItem();
 
-        if (res == 0)
-        {
-            Invoke(nameof(ObjectDie), 0.5f);
+                DTimeSprite += Time.deltaTime;
+                if (DTimeSprite >= DTimeSpriteMax)
+                {
+                    DTimeSprite -= DTimeSpriteMax;
+                    resSp.sprite = sp[Math.Min(++spInd, sp.Length - 1)];
+                    Debug.Log($"{spInd} {DTimeSpriteMax} {DTimeSprite} {res} {resLim} {offset}");
+                }
+            }
         }
-        else if (resIndComponent.isMousePressed && DTime >= DTimeMax)
+        else
         {
-            CollectItem();
+            spInd = 0;
+            DTimeSprite = DTimeSpriteMax;
+            DTime = DTimeMax;
+            Invoke(nameof(ObjectDie), 0.5f);
         }
     }
 
@@ -72,7 +93,7 @@ public class ResourceScript : MonoBehaviour
     {
         res--;
         int delta = sp.Length - 1;
-        resSp.sprite = sp[delta - delta * res / resLim];
+        //resSp.sprite = sp[delta - delta * res / resLim];
         source.PlayOneShot(collectSound, 0.5f);
         DTime = 0.0f;
     }

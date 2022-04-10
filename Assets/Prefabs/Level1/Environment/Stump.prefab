@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DTimeMax: 1
+  offset: 0.0309
   resLim: 3
   sp:
   - {fileID: -8940097332086347385, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}

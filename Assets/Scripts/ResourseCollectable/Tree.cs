@@ -6,9 +6,9 @@ public class Tree : ResourceScript
 {
     public Animator anim = null;
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
 
         if (Input.GetKeyDown(KeyCode.U)) // Чит код для восстановления деревьев преждевременно
             TurnToTree();
