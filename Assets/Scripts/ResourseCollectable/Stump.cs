@@ -9,7 +9,7 @@ public class Stump : Tree
     protected override void ObjectDie()
     {
         tree.anim.Play("Delete");
-        Invoke(nameof(TurnToTree), Random.Range(5, 6));
+        Invoke(nameof(TurnToTree), Random.Range(110, 130));
     }
 
     public override void TurnToTree()

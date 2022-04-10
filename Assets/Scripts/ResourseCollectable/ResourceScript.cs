@@ -45,30 +45,7 @@ public class ResourceScript : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (res > 0)
-        {
-            if (resIndComponent.isMousePressed)
-            {
-                DTime += Time.deltaTime;
-                if (DTime >= DTimeMax)
-                    CollectItem();
-
-                DTimeSprite += Time.deltaTime;
-                if (DTimeSprite >= DTimeSpriteMax)
-                {
-                    DTimeSprite -= DTimeSpriteMax;
-                    resSp.sprite = sp[Math.Min(++spInd, sp.Length - 1)];
-                    Debug.Log($"{spInd} {DTimeSpriteMax} {DTimeSprite} {res} {resLim} {offset}");
-                }
-            }
-        }
-        else
-        {
-            spInd = 0;
-            DTimeSprite = DTimeSpriteMax;
-            DTime = DTimeMax;
-            Invoke(nameof(ObjectDie), 0.5f);
-        }
+        CollectUpdate();
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -88,6 +65,37 @@ public class ResourceScript : MonoBehaviour
             resIndComponent.isMousePressed = false;
         }
     }
+
+    protected virtual void CollectUpdate()
+    {
+        if (res > 0)
+        {
+            if (resIndComponent.isMousePressed)
+            {
+                DTime += Time.deltaTime;
+                if (DTime >= DTimeMax)
+                    CollectItem();
+
+                DTimeSprite += Time.deltaTime;
+                if (DTimeSprite >= DTimeSpriteMax)
+                {
+                    DTimeSprite -= DTimeSpriteMax;
+                    resSp.sprite = sp[Math.Min(++spInd, sp.Length - 1)];
+                    //Debug.Log($"{spInd} {DTimeSpriteMax} {DTimeSprite} {res} {resLim} {offset}");
+                }
+            }
+        }
+        else
+            WhenRes0();
+    }
+
+    protected virtual void WhenRes0()
+    {
+        spInd = 0;
+        DTimeSprite = DTimeSpriteMax;
+        DTime = DTimeMax;
+        Invoke(nameof(ObjectDie), 0.5f);
+    }    
 
     protected virtual void CollectItem()
     {
