@@ -17,7 +17,7 @@ public class Tree : ResourceScript
     protected override void CollectItem()
     {
         base.CollectItem();
-        DTime = 0.0f;
+
         GameStats.Wood += 1;
         resources.UpdateWood();
     }

@@ -62,7 +62,10 @@ public class ResourceScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
+        {
             resInd.SetActive(false);
+            resIndComponent.isMousePressed = false;
+        }
     }
 
     protected virtual void CollectItem()
@@ -71,6 +74,7 @@ public class ResourceScript : MonoBehaviour
         int delta = sp.Length - 1;
         resSp.sprite = sp[delta - delta * res / resLim];
         source.PlayOneShot(collectSound, 0.5f);
+        DTime = 0.0f;
     }
 
     protected virtual void ObjectDie()
