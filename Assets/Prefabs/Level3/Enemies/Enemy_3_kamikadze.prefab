@@ -377,7 +377,7 @@ MonoBehaviour:
   skull: {fileID: 1634261829054666812}
   source: {fileID: 0}
   walkSound: {fileID: 0}
-  resoursePrefab: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
+  resoursePrefab: {fileID: 6824946254506710483, guid: 4c2d892d8cf54f14a91ea0c8da69aeb6, type: 3}
   animator: {fileID: 4521592447225339064}
 --- !u!1001 &2690113865761846892
 PrefabInstance:
