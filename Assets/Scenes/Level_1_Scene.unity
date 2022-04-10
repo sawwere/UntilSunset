@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraEventMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 544
 --- !u!1001 &127886399
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10525,7 +10525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraEventMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 544
 --- !u!81 &1475414661
 AudioListener:
   m_ObjectHideFlags: 0

@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 4130359714040340382}
   - component: {fileID: 8326597427521786184}
   - component: {fileID: 1444474978251142696}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: BuildPlace
   m_TagString: BuildPlace
   m_Icon: {fileID: 0}

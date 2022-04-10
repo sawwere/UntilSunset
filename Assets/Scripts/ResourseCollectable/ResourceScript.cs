@@ -48,7 +48,7 @@ public class ResourceScript : MonoBehaviour
             source.PlayOneShot(CNo, 0.3f);*/  // Проигрывание последнего звука
 
         DTime += Time.deltaTime;
-        if (PlayerIsNear && !pl.GetIsBat() && Input.GetKey(KeyCode.F) && DTime >= DTimeMax && res > 0)
+        if (PlayerIsNear && !pl.GetIsBat() && resInd.GetComponent<ResourceIndicator>().mousepressed && DTime >= DTimeMax && res > 0)
         {
             CollectItem();
 

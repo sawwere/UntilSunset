@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraEventMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 544
 --- !u!1001 &127886399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47016,7 +47016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41670275, y: 0.28583106}
   m_AnchorMax: {x: 0.5831891, y: 0.3942207}
-  m_AnchoredPosition: {x: 9.5784, y: 6.499466}
+  m_AnchoredPosition: {x: 9.5784, y: 6.4994507}
   m_SizeDelta: {x: 19.157, y: 9.257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743157363
