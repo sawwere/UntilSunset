@@ -7,13 +7,13 @@ public class LevelGeneration : MonoBehaviour
 {
     public SpawnSpot[] spots;
 
-    public Stone stone;
+    public GameObject stone;
     public int stonesAmount;
 
-    public Tree tree;
+    public GameObject tree;
     public int treesAmount;
 
-    public Bush bush;
+    public GameObject bush;
     public int bushAmount;
 
     private void Start()

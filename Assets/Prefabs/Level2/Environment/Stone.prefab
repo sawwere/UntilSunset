@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2990226415670845510}
   - component: {fileID: 3294804079696969864}
   - component: {fileID: 2172497380467616995}
+  - component: {fileID: 233948699302754451}
+  - component: {fileID: 7257488540094892979}
   m_Layer: 5
   m_Name: ResourceInd
   m_TagString: Untagged
@@ -74,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: -291714449
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: -8940097332086347385, guid: 52ce3eb69bb544f4e84a5c88b7d00c37, type: 3}
+  m_Sprite: {fileID: -8940097332086347385, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.64, y: 2.64}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -110,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f3c5295d04de24d97d1bcc1e69fd2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mousepressed: 0
+  isMousePressed: 0
 --- !u!58 &2172497380467616995
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -127,6 +129,35 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.59999996
+--- !u!58 &233948699302754451
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668017698569119560}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000009536743, y: -0.00000023841858}
+  serializedVersion: 2
+  m_Radius: 0.59999996
+--- !u!114 &7257488540094892979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668017698569119560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f3c5295d04de24d97d1bcc1e69fd2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMousePressed: 0
 --- !u!1 &6383321133180846035
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +202,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002367258, y: -0.53385353}
+  m_Offset: {x: 0.002367258, y: -0.5408728}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -182,7 +213,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.055853, y: 0.036457956}
+  m_Size: {x: 2.055853, y: 0.022419512}
   m_EdgeRadius: 0
 --- !u!1 &6828458053813820580
 GameObject:
@@ -197,6 +228,7 @@ GameObject:
   - component: {fileID: 6828458053813820582}
   - component: {fileID: 8435489631603888022}
   - component: {fileID: 6344972346963707987}
+  - component: {fileID: 6140082466470800092}
   m_Layer: 7
   m_Name: Stone
   m_TagString: Untagged
@@ -260,7 +292,7 @@ SpriteRenderer:
   m_SortingLayerID: -291714449
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1455265120913782370, guid: 0eccc60f73bfaee4ebd631f09d15e4e9, type: 3}
+  m_Sprite: {fileID: 8399011212269539787, guid: bfbd46c8e50f435498e302aea4ecadf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -396,3 +428,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6140082466470800092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828458053813820580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0591f9503f05c44a8e9b2ac6c5c1b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DTimeMax: 1.25
+  resLim: 5
+  sp:
+  - {fileID: -8940097332086347385, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 2529489809773951820, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 4863547495416987683, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 656093631764528083, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -1196752295755016846, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 332900358275941400, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -4464253088592281044, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -4234632410703918345, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -2908496626582147708, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -3603158679311794707, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 8503359979112013278, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -2102473324046845841, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 7854056523601468166, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 2294403017995877446, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -3448556027978491469, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -3758795132947532003, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 1260032919925798586, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 972192813330761409, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 9094209291461691694, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 3126052542402038306, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -815774678674614844, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -1720286287610774775, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -5216700602251007265, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -534637909005182419, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -2788963678675251657, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 6800350974359353664, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: 4422155644593177053, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -2234447439879315436, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  - {fileID: -8518659636576196291, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
+  resInd: {fileID: 668017698569119560}
+  collectSound: {fileID: 8300000, guid: 9c59408710c3a8d4f826b93e4954dd5e, type: 3}

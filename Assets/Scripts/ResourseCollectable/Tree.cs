@@ -1,20 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Tree : ResourceScript
 {
-    private TextMeshProUGUI tcount;
     public Animator anim = null;
-
-    protected override void Start()
-    {
-        base.Start();
-
-        tcount = GameObject.FindWithTag("WoodCount").GetComponent<TextMeshProUGUI>();
-        tcount.SetText("0");
-    }
 
     protected override void Update()
     {
@@ -29,7 +19,7 @@ public class Tree : ResourceScript
         base.CollectItem();
         DTime = 0.0f;
         GameStats.Wood += 1;
-        tcount.SetText(GameStats.Wood.ToString());
+        resources.UpdateWood();
     }
 
     protected override void ObjectDie()
@@ -46,10 +36,5 @@ public class Tree : ResourceScript
     public virtual void TurnToTree()
     {
         anim.SetBool("isStump", false);
-    }
-
-    public bool IsPlayerIsNear()
-    {
-        return PlayerIsNear;
     }
 }

@@ -80,11 +80,11 @@ MonoBehaviour:
   - {fileID: 6145828256890024937}
   - {fileID: 6145828255848480969}
   - {fileID: 6145828257522591081}
-  stone: {fileID: 6140082466470800092, guid: d47ad1d6847ad7842908a629d61a653f, type: 3}
+  stone: {fileID: 6471668143782230665, guid: d47ad1d6847ad7842908a629d61a653f, type: 3}
   stonesAmount: 2
-  tree: {fileID: 1006917619667244790, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
+  tree: {fileID: 3704235469642258040, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
   treesAmount: 4
-  bush: {fileID: 7040755081971992958, guid: 8aa1e498848bfbf46b80bd50415f8b68, type: 3}
+  bush: {fileID: 2850449910204836096, guid: 8aa1e498848bfbf46b80bd50415f8b68, type: 3}
   bushAmount: 4
 --- !u!1001 &1145361894095896182
 PrefabInstance:

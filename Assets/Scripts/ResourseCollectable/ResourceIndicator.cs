@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class ResourceIndicator : MonoBehaviour
 {
-    public bool mousepressed = false;
+    public bool isMousePressed = false;
 
     private void OnMouseDown()
     {
-        mousepressed = true;
-        Debug.Log("Down");
+        isMousePressed = true;
     }
 
     private void OnMouseUp()
     {
-        mousepressed = false;
-        Debug.Log("Up");
+        isMousePressed = false;
     }
 
     private void OnMouseExit()
     {
-        mousepressed = false;
-        Debug.Log("Exit");
+        isMousePressed = false;
     }
 
 }

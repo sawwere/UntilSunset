@@ -58,8 +58,6 @@ public class PlayerController : MonoBehaviour
 
     public bool isLeaving { get; set; }
 
-    public bool isRelatedToResource { get; set; }
-
     //private int henchmanLine;
     private void Awake()
     {
@@ -69,17 +67,16 @@ public class PlayerController : MonoBehaviour
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
         source = gameObject.GetComponent<AudioSource>();
+        animator.SetFloat("LastVertical", -1);
     }
 
     protected virtual void Start()
     {
-        animator.SetFloat("LastVertical", -1);
         isBat = false;
         atHome = true;
         isWalking = false;
         onTheWay = false;
         soundIsPlaying = false;
-        isRelatedToResource = false;
         sIsPlaying = new bool[] { false, false, false };
         thunderAbilityTimer = 0;
         //SetGodSettings();
