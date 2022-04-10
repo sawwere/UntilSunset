@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     public static int henchmanLine;
 
     public GameObject nimb;
-    private bool isGod;
+    public bool isGod;
 
     private int coinAmount;
     private int woodAmount;
@@ -84,9 +84,6 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Update()
     {
-        InvokeCheatCode();
-
-        //thunderAbilityTimer -= Time.deltaTime;
         if (isTurning || isLeaving) return;
 
         Turning();
@@ -172,7 +169,7 @@ public class PlayerController : MonoBehaviour
         ySpeed = 1.25f;
     }
 
-    private void SetGodSettings() 
+    public void SetGodSettings() 
     {
         isGod = true;
         nimb.SetActive(true);
@@ -187,7 +184,7 @@ public class PlayerController : MonoBehaviour
         resources.UpdateAll();
     }
 
-    private void UnsetGodSettings()
+    public void UnsetGodSettings()
     {
         isGod = false;
         nimb.SetActive(false);
@@ -280,21 +277,6 @@ public class PlayerController : MonoBehaviour
         if (!isBat && timeCycle.GetIsDay())
         {
             TurnIntoBat();
-        }
-    }
-
-    private void InvokeCheatCode()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (isGod)
-            {
-                UnsetGodSettings();
-            }
-            else
-            {
-                SetGodSettings();
-            }
         }
     }
 
