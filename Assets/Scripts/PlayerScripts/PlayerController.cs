@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using CnControls;
 
 public class PlayerController : MonoBehaviour
 {
@@ -57,6 +58,8 @@ public class PlayerController : MonoBehaviour
     private bool[] sIsPlaying;
 
     public bool isLeaving { get; set; }
+
+    public SimpleJoystick joystick;
 
     //private int henchmanLine;
     private void Awake()
@@ -197,8 +200,15 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateMotor()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        Vector3 movement = new Vector3(CnInputManager.GetAxisRaw("Horizontal"), CnInputManager.GetAxisRaw("Vertical"), 0f);
+#if UNITY_STANDALONE_WIN
+        float x = movement.x;// Input.GetAxisRaw("Horizontal");
+        float y = movement.y;// Input.GetAxisRaw("Vertical");
+#endif
+#if UNITY_ANDROID
+        var xy = am.Coordinate();
+        float x = xy.x; float y = xy.y;
+#endif
 
         if (x != 0 || y != 0) isWalking = true;
         else isWalking = false;
