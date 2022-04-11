@@ -201,14 +201,8 @@ public class PlayerController : MonoBehaviour
     private void UpdateMotor()
     {
         Vector3 movement = new Vector3(CnInputManager.GetAxisRaw("Horizontal"), CnInputManager.GetAxisRaw("Vertical"), 0f);
-#if UNITY_STANDALONE_WIN
         float x = movement.x;// Input.GetAxisRaw("Horizontal");
         float y = movement.y;// Input.GetAxisRaw("Vertical");
-#endif
-#if UNITY_ANDROID
-        var xy = am.Coordinate();
-        float x = xy.x; float y = xy.y;
-#endif
 
         if (x != 0 || y != 0) isWalking = true;
         else isWalking = false;
