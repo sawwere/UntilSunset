@@ -11,6 +11,8 @@ public class EnemyRange : EnemyCharacter
 
     public GameObject projectilePrefab;
 
+    protected bool hasGrenades;//флаг для проверки текущего режима, true - дальний бой
+
     //������ �������� ��� �������
     private float CalcForce(float x0, float x1)
     {
@@ -19,25 +21,25 @@ public class EnemyRange : EnemyCharacter
         return (-0.43f + D) / (2f * 0.173f);
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        hasGrenades = true;
+    }
+
     protected override void Update()
     {
         base.Update();
-        if (hitTimer > 0)
+        if (hasGrenades)
         {
-            hitTimer -= Time.deltaTime;
+            if (hitTimer > 0)
+            {
+                hitTimer -= Time.deltaTime;
+            }
+            ResetAfterMissedTarget();
         }
-        if (!target)
-        {
-            speed = 1f;
-            target = null;
-        }
+       
     }
-
-    /*private void FixedUpdate()
-    {
-        if (!target)
-            speed = 1f;
-    }*/
 
     public override void DoDamage(IDamage obj)
     {
@@ -52,12 +54,14 @@ public class EnemyRange : EnemyCharacter
 
     public virtual void DoThrow()
     {
+        if (!target)
+            return;
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
         IMovable b = target.GetComponent<IMovable>();
-
+        
         if (!(b is Bat bat))
-            speed = 1f;
+            SpeedRestore();
 
         if (b != null)
         {
@@ -65,6 +69,15 @@ public class EnemyRange : EnemyCharacter
             //Debug.Log(b.GetPosition().x + b.GetSpeed() * 1f);
         }
         projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, GetLine(), this, isFriend);
+    }
+
+    protected virtual void ResetAfterMissedTarget()
+    {
+        if (!target)
+        {
+            SpeedRestore();
+            target = null;
+        }
     }
 
     public override void ChangeAnimationToWalk()

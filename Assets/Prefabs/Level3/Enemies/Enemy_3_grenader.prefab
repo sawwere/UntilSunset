@@ -448,7 +448,7 @@ MonoBehaviour:
   skull: {fileID: 8037350233571765380}
   source: {fileID: 0}
   walkSound: {fileID: 0}
-  resoursePrefab: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
+  resoursePrefab: {fileID: 7641849764205970870, guid: 25b6ddecccc80024b8249896282f5b9c, type: 3}
   target: {fileID: 0}
   targetPoint: {x: 0, y: 0}
   animator: {fileID: 8893383567970895733}

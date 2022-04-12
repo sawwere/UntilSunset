@@ -18,6 +18,7 @@ public class CollissionWithEnemy : MonoBehaviour
         if (obj != null)
         {
             obj.SpeedResetToZero();
+            Debug.Log("enemy");
         }
     }
 

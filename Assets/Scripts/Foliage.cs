@@ -8,10 +8,12 @@ public class Foliage : MonoBehaviour
 
     SpriteRenderer sprite;
 
+    private Color color;
+
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        Color color = sprite.material.color;
+        color = sprite.material.color;
         color.a = 1f;
         sprite.material.color = color;
     }
@@ -32,7 +34,9 @@ public class Foliage : MonoBehaviour
         if (player)
         {
             isTriggered = false;
-            StartCoroutine(nameof(MakeVisible));
+            if (isActiveAndEnabled)
+                StartCoroutine(nameof(MakeVisible));
+            else MakeVisibleFoliage();
         }
     }
 
@@ -42,7 +46,6 @@ public class Foliage : MonoBehaviour
         while (f < 1f && !isTriggered)
         {
             f = System.Math.Min(f + 0.03f, 1f);
-            Color color = sprite.material.color;
             color.a = f;
             sprite.material.color = color;
             yield return new WaitForSeconds(0.02f);
@@ -55,10 +58,15 @@ public class Foliage : MonoBehaviour
         while (isTriggered && f > 0.5f)
         {
             f = System.Math.Max(f - 0.03f, 0.5f);
-            Color color = sprite.material.color;
             color.a = f;
             sprite.material.color = color;
             yield return new WaitForSeconds(0.02f);
         }
+    }
+
+    private void MakeVisibleFoliage()
+    {
+        color.a = 1f;
+        sprite.material.color = color;
     }
 }
