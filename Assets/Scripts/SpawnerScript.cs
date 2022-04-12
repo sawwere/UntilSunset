@@ -26,7 +26,7 @@ public class SpawnerScript : MonoBehaviour
         if ((currentSpawned < spawnCount) && (spawnTime <= 0))
         {
             int line = Random.Range(0, 3);
-            EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line,transform.position.z), transform.rotation);
+            EnemyCharacter enemyObject = Instantiate(ChooseEnemy(), new Vector3(transform.position.x, transform.position.y+line+0.25f,transform.position.z), transform.rotation);
             enemyObject.direction = direction;
             spawnTime = spawnRate;
         }

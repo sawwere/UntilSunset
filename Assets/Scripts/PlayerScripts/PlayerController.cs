@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using CnControls;
 
 public class PlayerController : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
     public static int henchmanLine;
 
     public GameObject nimb;
-    private bool isGod;
+    public bool isGod;
 
     private int coinAmount;
     private int woodAmount;
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isLeaving { get; set; }
 
+    public SimpleJoystick joystick;
+
     //private int henchmanLine;
     private void Awake()
     {
@@ -67,11 +70,11 @@ public class PlayerController : MonoBehaviour
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
         source = gameObject.GetComponent<AudioSource>();
+        animator.SetFloat("LastVertical", -1);
     }
 
     protected virtual void Start()
     {
-        animator.SetFloat("LastVertical", -1);
         isBat = false;
         atHome = true;
         isWalking = false;
@@ -84,9 +87,6 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Update()
     {
-        InvokeCheatCode();
-
-        //thunderAbilityTimer -= Time.deltaTime;
         if (isTurning || isLeaving) return;
 
         Turning();
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
         ySpeed = 1.25f;
     }
 
-    private void SetGodSettings() 
+    public void SetGodSettings() 
     {
         isGod = true;
         nimb.SetActive(true);
@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
         resources.UpdateAll();
     }
 
-    private void UnsetGodSettings()
+    public void UnsetGodSettings()
     {
         isGod = false;
         nimb.SetActive(false);
@@ -200,8 +200,9 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateMotor()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        Vector3 movement = new Vector3(CnInputManager.GetAxisRaw("Horizontal"), CnInputManager.GetAxisRaw("Vertical"), 0f);
+        float x = movement.x;// Input.GetAxisRaw("Horizontal");
+        float y = movement.y;// Input.GetAxisRaw("Vertical");
 
         if (x != 0 || y != 0) isWalking = true;
         else isWalking = false;
@@ -280,21 +281,6 @@ public class PlayerController : MonoBehaviour
         if (!isBat && timeCycle.GetIsDay())
         {
             TurnIntoBat();
-        }
-    }
-
-    private void InvokeCheatCode()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (isGod)
-            {
-                UnsetGodSettings();
-            }
-            else
-            {
-                SetGodSettings();
-            }
         }
     }
 
