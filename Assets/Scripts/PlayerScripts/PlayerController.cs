@@ -94,8 +94,6 @@ public class PlayerController : MonoBehaviour
         if (isBat || !timeCycle.GetIsDay()) return;
 
         SpawnBat();
-
-        SubdueEnemy();
     }
 
     protected virtual void FixedUpdate()
@@ -238,7 +236,6 @@ public class PlayerController : MonoBehaviour
         batSpawnPosition.y -= 0.85f;
         batSpawnPosition.y = Math.Min(batSpawnPosition.y, 1);
         batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);
-        //henchmanLine = (int)batSpawnPosition.y;
     }
 
     private void GetLineForSpawnBat()
@@ -251,12 +248,11 @@ public class PlayerController : MonoBehaviour
     }
     private void SpawnBat()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3 )
+        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3)
         {
             GetLineForSpawnBat();
             if (GameStats.henchmanOnScreen[henchmanLine] == 0)
             {
-                //Debug.Log("spawn bat");
                 isTurning = true;
                 animator.Play("InvokeHenchman");
                 Invoke(nameof(SetCharacterSettings), 0.2f);
@@ -284,26 +280,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void SubdueEnemy()
+    public void SubdueEnemy(EnemyCharacter enemy)
     {
-        //if (Input.GetKey(KeyCode.T) && GameStats.Henchman >= 5 && thunderAbilityTimer <= 0)
-        if (Input.GetKey(KeyCode.T) 
-            && GameStats.Henchman >= 5 
-            && thunderAbilityTimer <= 0
-            && ThunderZone.Count() > 0)
+        if (GameStats.Henchman >= 5 && !enemy.IsFriend() 
+            && !isBat && timeCycle.GetIsDay() && !isTurning)
         {
+            enemy.IsFriendMakeTrue();
             isTurning = true;
             animator.Play("Magic");
-            Invoke(nameof(ThunderZoneActivate), animator.GetCurrentAnimatorClipInfo(0).Length);
+            StartCoroutine(ThunderZoneActivate(enemy));
             GameStats.Henchman -= 5;
             resources.UpdateHenchman();
-            //thunderAbilityTimer = thunderAbilityPeriod;
         }
     }
 
-    private void ThunderZoneActivate()
+    private IEnumerator ThunderZoneActivate(EnemyCharacter enemy)
     {
-        ThunderZone.BeatEnemy();
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
+
+        if (enemy != null)
+            ThunderZone.BeatEnemy(enemy);
         SetCharacterSettings();
     }
 

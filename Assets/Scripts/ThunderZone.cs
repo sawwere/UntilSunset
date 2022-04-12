@@ -39,11 +39,11 @@ public class ThunderZone : MonoBehaviour
         return enemies.Count();
     }
 
-    public static void BeatEnemy()
+    public static void BeatEnemy(EnemyCharacter enemy)
     {
-        if (enemies.Count == 0)
-            return;
-        var enemy = enemies.OrderBy(x=>System.Math.Abs(x.GetPosition().x)).First();
+        /*if (enemies.Count == 0)
+            return;*/
+        //var enemy = enemies.OrderBy(x=>System.Math.Abs(x.GetPosition().x)).First();
         enemy.BecomeFriend();
         enemies.Remove(enemy);
     }
