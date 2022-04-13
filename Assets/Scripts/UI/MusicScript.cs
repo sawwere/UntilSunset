@@ -54,7 +54,6 @@ public class MusicScript : MonoBehaviour
 
     private void PauseAndPlayMusic()
     {
-        Debug.Log("PauseAndPlayMusic()");
         if (!PauseMenu.GameIsWin)
         {
             if (PauseMenu.GameIsPaused)
@@ -70,7 +69,6 @@ public class MusicScript : MonoBehaviour
                     pauseSource.Play();
                 }
                 isPaused = true;
-                Debug.Log("PAUSE");
             }
             else if (!PauseMenu.GameIsPaused)
             {
@@ -85,7 +83,6 @@ public class MusicScript : MonoBehaviour
                     pauseSource.Stop();
                 }
                 isPaused = false;
-                Debug.Log("PLAY");
             }
         }
     }

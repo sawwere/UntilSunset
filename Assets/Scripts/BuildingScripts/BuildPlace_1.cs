@@ -58,7 +58,7 @@ public class BuildPlace_1 : MonoBehaviour
 
         if (IsWalled && w1 == null && w2 == null && w3 == null && s == null && t == null)
         {
-            source.PlayOneShot(CDestroy, 0.5f);
+            source.PlayOneShot(CDestroy, 0.9f);
             IsWalled = false;
         }
     }
