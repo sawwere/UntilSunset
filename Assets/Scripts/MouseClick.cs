@@ -24,13 +24,11 @@ public class MouseClick : MonoBehaviour
             if ((hit == true) && (hit.collider.gameObject.tag == "BuildPlace"))
             {
                 bp = hit.collider.gameObject.GetComponent<BuildPlace_1>();
-                bp.DisplayDialog();
             }
 
             if ((hit == true) && (hit.collider.gameObject.tag == "Wall1"))
             {
                 wll1 = hit.collider.gameObject.GetComponent<Wall_1>();
-                wll1.DisplayDialog();
             }
         }
     }
