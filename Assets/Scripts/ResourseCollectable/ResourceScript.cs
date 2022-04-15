@@ -68,6 +68,8 @@ public class ResourceScript : MonoBehaviour
 
     protected virtual void CollectUpdate()
     {
+        resIndComponent.isMousePressed = resIndComponent.isMousePressed && !pl.GetIsBat();
+
         if (res > 0)
         {
             if (resIndComponent.isMousePressed)
