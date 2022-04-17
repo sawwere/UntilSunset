@@ -34,6 +34,11 @@ public class TowerScript : Building, IDamage
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            DestroyStruct();
+        }
+
         if ((timerDisplay >= 0) && (et || etback))
         {
             timerDisplay -= Time.deltaTime;
