@@ -42,7 +42,7 @@ public class MusicScript : MonoBehaviour
         if (PauseMenu.GameIsPaused ^ isPaused) PauseAndPlayMusic();
     }
     /// <summary>
-    /// «адает соответсвующий времени суток саундтрек
+    /// «адает соответсвующий времени суток саундтрек (Night - 0, Day - 1)
     /// </summary>
     /// <param name="timeNum">Night - 0, Day - 1</param>
     private void SetLevelMusic(int timeNum)
