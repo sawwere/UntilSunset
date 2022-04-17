@@ -39502,12 +39502,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4879060554765628234, guid: f5635b20cd92abd429984f6cfcaba671, type: 3}
     - target: {fileID: 1805187488066678600, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
+      propertyPath: tombstone
+      value: 
+      objectReference: {fileID: 5931929656969968880, guid: 021ba7e33f413164d85272613cfee6fd, type: 3}
+    - target: {fileID: 1805187488066678600, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
       propertyPath: bushAmount
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1805187488066678600, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
       propertyPath: treesAmount
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805187488066678600, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
+      propertyPath: tombstoneAmount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1805187488066678601, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
       propertyPath: m_Name
@@ -47389,7 +47397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752180523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.93, y: 11.36, z: 2555.0754}
+  m_LocalPosition: {x: -18.87, y: 9.11, z: 2555.0754}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 1972733274}
