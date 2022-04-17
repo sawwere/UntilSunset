@@ -251,7 +251,7 @@ MonoBehaviour:
   price: 1
   maxHealth: 20
   speed: 1
-  damage: 1
+  damage: 10
   immunityPeriod: 3
   hitPeriod: 4
   _direction: 1
@@ -263,7 +263,6 @@ MonoBehaviour:
   BloodParticles: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   MagicParticles: {fileID: 202918634614382671, guid: ec52a3a893fc6114d8bdcb57b5cc8c84, type: 3}
   skull: {fileID: 591506705679048048}
-  source: {fileID: 0}
   walkSound: {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}
   resoursePrefab: {fileID: 4784888430921796328, guid: b3d27e3c78b379046a633afc3fc8abdb, type: 3}
   animator: {fileID: 2316125716573247988}
