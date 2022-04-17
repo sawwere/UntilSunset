@@ -35,8 +35,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     public GameObject skull = null;
 
-    private PlayerController player;
-
     public AudioSource source;
     public AudioClip walkSound;
 
@@ -89,7 +87,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         hitTimer = firstHitPeriod;
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
         aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         isFriend = false;
         source.volume = 0.05f;
         source.loop = true;
@@ -238,28 +235,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         isFriend = true;
     }
 
-    private void OnMouseDown()
-    {
-        player.SubdueEnemy(this);
-    }
-
     public void PauseWalkSound() => source.Pause();
     public void ContinueWalkSound() => source.Play();
-    /*private void OnCollisionExit2D(Collision2D collision)
-    {
-        string tag = collision.gameObject.tag;
-        if (tag == "Wall1" || tag == "Wall2" || tag == "Wall3" || tag == "Tower" || tag == "Minion")
-        {
-            PlayWalkAnimation();
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        string tag = collision.gameObject.tag;
-        if (tag == "Wall1" || tag == "Wall2" || tag == "Wall3" || tag == "Tower" || tag == "Minion")
-        {
-            PlayIdleAnimation();
-        }
-    }*/
 }

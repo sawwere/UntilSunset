@@ -35,8 +35,6 @@ public class PlayerController : MonoBehaviour
 
     private float positionRendererTimer;
     private float positionRendererTimerMax = .1f;
-    private float thunderAbilityPeriod = 1.0f;
-    private float thunderAbilityTimer;
 
     private Vector3 batSpawnPosition;
     public static int henchmanLine;
@@ -81,7 +79,6 @@ public class PlayerController : MonoBehaviour
         onTheWay = false;
         soundIsPlaying = false;
         sIsPlaying = new bool[] { false, false, false };
-        thunderAbilityTimer = 0;
         //SetGodSettings();
     }
 
@@ -299,7 +296,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
 
         if (enemy != null)
-            ThunderZone.BeatEnemy(enemy);
+            enemy.BecomeFriend();
         SetCharacterSettings();
     }
 

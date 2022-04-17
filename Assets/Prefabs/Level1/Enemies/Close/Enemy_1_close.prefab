@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1210478351028047103}
   - component: {fileID: 2557041408665273927}
   - component: {fileID: -3421372457725048901}
+  - component: {fileID: 5613231435611438429}
   m_Layer: 8
   m_Name: Enemy_1_close
   m_TagString: Enemy
@@ -476,6 +477,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5613231435611438429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323401381652340525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb283b3d07895543b1cb1d3dd20899a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2694126287089863871
 PrefabInstance:
   m_ObjectHideFlags: 0

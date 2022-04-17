@@ -100,7 +100,6 @@ public class TimeCycle : MonoBehaviour
                 foreach (var line in GameStats.enemyOnScreen)
                     foreach (var enemy in line)
                         enemy.ReturnToBase();
-                ThunderZone.Clear();
                 Debug.Log("night");
 
                 fpd = true;
