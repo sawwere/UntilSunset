@@ -7,6 +7,7 @@ public class ArrowScript : MonoBehaviour
     [SerializeField]
     private float speed = 20;
     private TowerScript tw;
+    public Vector3 direction = Vector3.left;
 
     private void Start()
     {
@@ -15,7 +16,6 @@ public class ArrowScript : MonoBehaviour
 
     private void Update()
     {
-        Vector3 direction = Vector3.left;
         float timeSinceLastFrame = Time.deltaTime;
         Vector3 translation = direction * speed * timeSinceLastFrame;
         transform.Translate(

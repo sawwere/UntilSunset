@@ -12,6 +12,7 @@ public class Resources : MonoBehaviour
     public TextMeshProUGUI CountHeanchman;
     private string woodprice = "";
     private string stoneprice = "";
+    private string coinprice = "";
     public float BatPrice1 = 3;
     public float ThunderPrice = 5;
     // Start is called before the first frame update
@@ -25,7 +26,7 @@ public class Resources : MonoBehaviour
     public void UpdateCoins()
     {
       
-        CountCoins.text = GameStats.Coins.ToString();
+        CountCoins.text = GameStats.Coins.ToString() + coinprice;
     }
 
     public void UpdateWood()
@@ -75,10 +76,31 @@ public class Resources : MonoBehaviour
             stoneprice = " + " + sr.ToString();
     }
 
+    public void SetPriceMerchant(int wp, int sp, int cp)
+    {
+        if (wp != 0)
+            woodprice = " - " + wp.ToString();
+        if (sp != 0)
+            stoneprice = " - " + sp.ToString();
+        if (cp != 0)
+            coinprice = " - " + cp.ToString();
+    }
+
+    public void SetRefundMerchant(int wr, int sr, int cr)
+    {
+        if (wr != 0)
+            woodprice = " + " + wr.ToString();
+        if (sr != 0)
+            stoneprice = " + " + sr.ToString();
+        if (cr != 0)
+            coinprice = " + " + cr.ToString();
+    }
+
     public void ClearPriceOrRefund()
     {
         woodprice = "";
         stoneprice = "";
+        coinprice = "";
     }
 
 
