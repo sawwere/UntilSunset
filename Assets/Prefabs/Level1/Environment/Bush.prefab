@@ -15,10 +15,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.323
       objectReference: {fileID: 0}
-    - target: {fileID: 6213683528883171248, guid: 02c1d928b3f32a747bb7c6c1e995c06a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8424214429475557594, guid: 02c1d928b3f32a747bb7c6c1e995c06a, type: 3}
       propertyPath: m_Name
       value: Bush
