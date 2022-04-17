@@ -150,7 +150,7 @@ MonoBehaviour:
   speed: 2.5
   speedInit: 0
   line: 0
-  maxHealth: 2
+  maxHealth: 20
   damage: 10
   immunityTimer: 0
   firstHitPeriod: 1.5

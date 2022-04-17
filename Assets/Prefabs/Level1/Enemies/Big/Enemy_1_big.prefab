@@ -252,7 +252,7 @@ MonoBehaviour:
   price: 3
   maxHealth: 20
   speed: 1
-  damage: 3
+  damage: 30
   immunityPeriod: 3
   hitPeriod: 4
   _direction: 1
