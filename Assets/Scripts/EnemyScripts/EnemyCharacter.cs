@@ -28,7 +28,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public GameObject MagicParticles;
     private Vector3 ParticlesSpawnPosition;
 
-    private float fixDeltaTimer = 0.1f;
+    protected float fixDeltaTimer = 0.1f;
 
     private float oldX = 0f;
     private float newX = 0f;
@@ -65,7 +65,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     public void SpeedResetToZero()
     {
-        speedInit = speed;
+        //speedInit = speed;
         speed = 0;
     }
 
@@ -78,7 +78,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     protected virtual void Start()
     {
         speedInit = speed;
-        line = (int)transform.position.y;
+        line = (int)System.Math.Round(transform.position.y);
         GameStats.enemyOnScreen[line+1].Add(this);
         rigidbody2d = GetComponent<Rigidbody2D>();
         source = GetComponent<AudioSource>();
@@ -100,11 +100,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
-        }/*
-        if (hitTimer > 0)
-        {
-            hitTimer -= Time.deltaTime;
-        }*/
+        }
         if (fixDeltaTimer > 0)
         {
             fixDeltaTimer -= Time.deltaTime;

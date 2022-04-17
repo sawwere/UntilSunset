@@ -10,7 +10,7 @@ public class EnemyGrenader : EnemyRange
     private int greandeCount;//текущее число гранат
     [SerializeField] private int grenadeDamage = 2;//урон гранаты
     [SerializeField] private int closeCombatDamage = 1;//урон в ближнем бою
-    private bool hasGrenades;//флаг для проверки текущего режима, true - дольний бой
+    //private bool hasGrenades;//флаг для проверки текущего режима, true - дальний бой
 
     // Start is called before the first frame update
     protected override void Start()
@@ -18,21 +18,13 @@ public class EnemyGrenader : EnemyRange
         base.Start();
         greandeCount = grenadeLimit;
         damage = grenadeDamage;
-        hasGrenades = true;
+        hasGrenades = greandeCount > 0;
     }
 
-    protected override void Update()
-    {
-        if (hasGrenades)
-            base.Update();
-        else
-        {
-            if (immunityTimer > 0)
-            {
-                immunityTimer -= Time.deltaTime;
-            }
-        }
-    }
+    //protected override void Update()
+    //{
+    //    base.Update();
+    //}
 
     public override void DoThrow()
     {
@@ -44,6 +36,10 @@ public class EnemyGrenader : EnemyRange
             {
                 hasGrenades = false;
                 BecomeCloseCombat();
+            }
+            else
+            {
+                speed = 0.001f; // если поставить скорость = 0, то застыает на месте и перестает что-либо делать
             }
         }
         else
@@ -60,6 +56,7 @@ public class EnemyGrenader : EnemyRange
         {
             //взято целиком из EnemyClose
             hitTimer -= Time.deltaTime;
+
             if (obj != null)
             {
                 if (hitTimer <= 0)
@@ -67,11 +64,10 @@ public class EnemyGrenader : EnemyRange
                     obj.RecieveDamage(damage);
                     hitTimer = hitPeriod;
                 }
-                else if (hitTimer <= 1.25f)
+                else if ((hitTimer <= 2f && (obj is Wall wall)) || hitTimer <= 1f)
                 {
                     animator.Play("Hit");
                 }
-                else animator.Play("Idle");
             }
         }
     }
@@ -86,5 +82,14 @@ public class EnemyGrenader : EnemyRange
 
         var hitBoxC = transform.GetChild(2);
         hitBoxC.gameObject.SetActive(true);
+    }
+
+    protected override void ResetAfterMissedTarget()
+    {
+        if (!target)
+        {
+            target = null;
+            SpeedRestore();
+        }
     }
 }

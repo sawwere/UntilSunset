@@ -21,10 +21,10 @@ public class EnemyKamikadze : EnemyClose
         for (int i = 0; i < lst.Count; ++i)
         {
             var obj = lst[i].GetComponent<IDamage>();
-            if (obj != null)
+            if (obj != null && lst[i] != gameObject.GetComponent<Collider2D>())
             {
                 obj.RecieveDamage(damage);
-                Debug.Log(damage);
+
             }
         }
         EnemyKilled();
@@ -34,5 +34,6 @@ public class EnemyKamikadze : EnemyClose
     {
         //base.DoDamage(obj);
         BlowUp();
+        //Debug.Log(obj);
     }
 }

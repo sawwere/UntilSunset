@@ -14,7 +14,7 @@ public class Wall_3 : Wall
         del_stone_re = 1;
         HideDialog();
         dialogBox.SetActive(false);
-        maxHealth = 6;
+        maxHealth = 60;
         base.Start();
         source.PlayOneShot(CUpgrade, 0.5f);
     }
