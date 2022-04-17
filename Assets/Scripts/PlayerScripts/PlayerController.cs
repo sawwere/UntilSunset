@@ -172,7 +172,15 @@ public class PlayerController : MonoBehaviour
         ySpeed = 1.25f;
     }
 
-    public void SetGodSettings() 
+    public void ActivateCheat()
+    {
+        if (isGod)
+            UnsetGodSettings();
+        else
+            SetGodSettings();
+    }
+
+    private void SetGodSettings() 
     {
         isGod = true;
         nimb.SetActive(true);
@@ -187,7 +195,7 @@ public class PlayerController : MonoBehaviour
         resources.UpdateAll();
     }
 
-    public void UnsetGodSettings()
+    private void UnsetGodSettings()
     {
         isGod = false;
         nimb.SetActive(false);
