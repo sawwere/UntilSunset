@@ -9,6 +9,7 @@ public class TowerScript : Building, IDamage
     private Resources resources;
     private GameObject arr;
     public bool et;
+    public bool etback;
     public int sc;
     public int rep_wood_cost = 2;
     public int rep_stone_cost = 1;
@@ -33,17 +34,27 @@ public class TowerScript : Building, IDamage
 
     private void Update()
     {
-        Debug.Log(et);
-        Debug.Log(timerDisplay);
-        if ((timerDisplay >= 0) && et)
+        if ((timerDisplay >= 0) && (et || etback))
         {
             timerDisplay -= Time.deltaTime;
             if (timerDisplay < 0)
             {
-                Shot();
+                if (et)
+                {
+                    Shot(1);
+                    Debug.Log(1);
+                }
+
+                if (etback)
+                {
+                    Shot(-1);
+                    Debug.Log(-1);
+                }
                 timerDisplay = displayTime;
             }
         }
+
+        
     }
 
     public void Recover()
@@ -81,9 +92,15 @@ public class TowerScript : Building, IDamage
         bp.GetComponent<BoxCollider2D>().enabled = true;
     }
 
-    public void Shot()
+    public void Shot(int type)
     {
+        Debug.Log(type);
         arr = Instantiate(arrow, new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), transform.rotation);
+        arr.transform.GetComponent<Transform>().localScale = new Vector3(arr.transform.GetComponent<Transform>().localScale.x * type, arr.transform.GetComponent<Transform>().localScale.y, arr.transform.GetComponent<Transform>().localScale.z);
+        if (type == -1)
+        {
+            arr.transform.GetComponent<ArrowScript>().direction = Vector3.right;
+        }
         arr.transform.SetParent(this.transform);
     }
 
