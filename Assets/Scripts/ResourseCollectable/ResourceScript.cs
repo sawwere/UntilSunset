@@ -99,7 +99,7 @@ public class ResourceScript : MonoBehaviour
         DTimeSprite = DTimeSpriteMax;
         DTime = DTimeMax;
         Invoke(nameof(ObjectDie), 0.5f);
-        sRemove.PlayOneShot(CRemove);
+        sRemove.PlayOneShot(CRemove, 0.7f);
     }    
 
     protected virtual void CollectItem()
