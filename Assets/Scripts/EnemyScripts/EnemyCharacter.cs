@@ -272,12 +272,16 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         source.loop = true;
         source.Play();
     }
-    /*private void OnCollisionExit2D(Collision2D collision)
+
     public void IsFriendMakeTrue()
     {
         isFriend = true;
     }
 
+    /*private void OnCollisionExit2D(Collision2D collision)
+   
+
     public void PauseWalkSound() => source.Pause();
     public void ContinueWalkSound() => source.Play();
+    */
 }

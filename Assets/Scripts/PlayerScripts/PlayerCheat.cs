@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCheat : MonoBehaviour
 {
-    private PlayerController player;
+    private PlayerController pl;
 
     private KeyCode[] konamiCode = {
         KeyCode.UpArrow, KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.DownArrow,
@@ -16,7 +16,7 @@ public class PlayerCheat : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        pl = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void OnGUI()
@@ -34,7 +34,7 @@ public class PlayerCheat : MonoBehaviour
 
             if (ind == konamiCode.Length)
             {
-                player.ActivateCheat();
+                pl.ActivateCheat();
                 ind = 0;
             }
         }
