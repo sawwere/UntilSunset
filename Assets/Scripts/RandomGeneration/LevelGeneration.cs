@@ -16,27 +16,58 @@ public class LevelGeneration : MonoBehaviour
     public GameObject bush;
     public int bushAmount;
 
+    public GameObject tombstone;
+    public int tombstoneAmount;
+
     private void Start()
     {
         /*foreach (SpawnSpot spot in spots)
         {
-            Instantiate(bush, spot.points[Random.Range(0, 4)].transform.position, Quaternion.identity);
+            var pos = new Vector3(spot.transform.position.x, spot.transform.position.y - 0.35f, spot.transform.position.z);
+            Instantiate(tombstone, pos, Quaternion.identity);
         }*/
 
-        int i = 0;
-        var randomShuffle = Shuffle(stonesAmount + treesAmount + bushAmount, spots.Length);
+        /*int generalAmount = stonesAmount + treesAmount + bushAmount + tombstoneAmount;
+        int spawnedAmount = 0;
 
-        foreach (int randInd in randomShuffle)
+        var randomShuffle = Shuffle(generalAmount, spots.Length);
+
+        for (int randInd = 0; randInd < spots.Length; randInd++)
         {
-            if (i < treesAmount)
-                SpawnTree(randInd);
-            else if (i < treesAmount + stonesAmount)
-                SpawnStone(randInd);
-            else
-                SpawnBush(randInd);
+            if (randomShuffle.Contains(randInd))
+                continue;
 
-            i++;
+            if (spawnedAmount < treesAmount)
+                SpawnTree(randInd);
+            else if (spawnedAmount < treesAmount + stonesAmount)
+                SpawnStone(randInd);
+            else if (spawnedAmount < treesAmount + stonesAmount + bushAmount)
+                SpawnBush(randInd);
+            else
+                SpawnTombstone(randInd);
+
+            spawnedAmount++;
+        }*/
+
+        int generalAmount = stonesAmount + treesAmount + bushAmount + tombstoneAmount;
+        var randomShuffle = Shuffle(generalAmount, spots.Length);
+
+        int spawnedAmount = 0;
+
+        foreach (var randInd in randomShuffle)
+        {
+            if (spawnedAmount < treesAmount)
+                SpawnTree(randInd);
+            else if (spawnedAmount < treesAmount + stonesAmount)
+                SpawnStone(randInd);
+            else if (spawnedAmount < treesAmount + stonesAmount + bushAmount)
+                SpawnBush(randInd);
+            else
+                SpawnTombstone(randInd);
+
+            spawnedAmount++;
         }
+
     }
 
     private Vector3 CalculateTreePosition(GameObject ob)
@@ -69,9 +100,19 @@ public class LevelGeneration : MonoBehaviour
         Instantiate(bush, CalculateBushPosition(spots[seed].points[Random.Range(0, 4)]), Quaternion.identity);
     }
 
+    private Vector3 CalculateTombstonePosition(GameObject ob)
+    {
+        return new Vector3(ob.transform.position.x, ob.transform.position.y - 0.5f, ob.transform.position.z);
+    }
+
+    private void SpawnTombstone(int seed)
+    {
+        Instantiate(tombstone, CalculateTombstonePosition(spots[seed].points[Random.Range(0, 4)]), Quaternion.identity);
+    }
+
     private HashSet<int> Shuffle(int need, int have)
     {
-        need = Min(need, have); // проверка на то, что заявлено меньше, либо равное кол-во объект, в сравнении с теми что есть, иначе юнити умрёт
+        need = Min(need, have); // чтобы юнити не умер в случае не верных входных данных
 
         HashSet<int> result = new HashSet<int>();
 

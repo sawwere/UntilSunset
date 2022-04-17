@@ -63,6 +63,18 @@ public class BuildPlace_1 : MonoBehaviour
         }
     }
 
+    private void OnMouseOver()
+    {
+        if(Input.GetMouseButtonDown(1) && (obj_struct != null) && ghostexist)
+        {
+            obj_ghost = null;
+            obj_struct = null;
+            Destroy(wallg);
+            ghostexist = false;
+            resources.ClearPriceOrRefund();
+            resources.UpdateAll();
+        }
+    }
     private void OnMouseEnter()
     {
         if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
@@ -106,7 +118,6 @@ public class BuildPlace_1 : MonoBehaviour
             resources.UpdateWood();
             resources.UpdateStones();
             source.PlayOneShot(CBuild, 0.2f);
-            HideDialog();
         }
     }
 
@@ -118,7 +129,6 @@ public class BuildPlace_1 : MonoBehaviour
             wallinst.transform.SetParent(this.transform);
             GameStats.Wood -= 3;
             resources.UpdateWood();
-            HideDialog();
         }
     }
 
@@ -137,16 +147,5 @@ public class BuildPlace_1 : MonoBehaviour
     {
         if (col.tag == "Enemy")
             EnemyIsNear = false;
-    }
-
-    public void DisplayDialog()
-    {
-        timerDisplay = displayTime;
-        dialogBox.SetActive(true);
-    }
-
-    public void HideDialog()
-    {
-        dialogBox.SetActive(false);
     }
 }

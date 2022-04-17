@@ -259,7 +259,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         gameObject.tag = "Friend";
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         GameStats.enemyOnScreen[line + 1].Remove(this);
-        isFriend = true;
     }
 
     public void PauseWalkSound()
@@ -274,20 +273,11 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         source.Play();
     }
     /*private void OnCollisionExit2D(Collision2D collision)
+    public void IsFriendMakeTrue()
     {
-        string tag = collision.gameObject.tag;
-        if (tag == "Wall1" || tag == "Wall2" || tag == "Wall3" || tag == "Tower" || tag == "Minion")
-        {
-            PlayWalkAnimation();
-        }
+        isFriend = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        string tag = collision.gameObject.tag;
-        if (tag == "Wall1" || tag == "Wall2" || tag == "Wall3" || tag == "Tower" || tag == "Minion")
-        {
-            PlayIdleAnimation();
-        }
-    }*/
+    public void PauseWalkSound() => source.Pause();
+    public void ContinueWalkSound() => source.Play();
 }
