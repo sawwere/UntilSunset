@@ -17,7 +17,17 @@ public class MenuControls : MonoBehaviour
     public GameObject InfoBut;
     public GameObject ScrollInfo;
     public Text MenuLogo;
+    public int Level;
 
+    public GameObject LockedLevelInfo;
+
+    private void Awake()
+    {
+        if(!PlayerPrefs.HasKey("Level"))
+            PlayerPrefs.SetInt("Level", 1);
+        else
+            Level = PlayerPrefs.GetInt("Level");
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !Play.activeInHierarchy && !ScrollInfo.activeInHierarchy)
@@ -46,14 +56,24 @@ public class MenuControls : MonoBehaviour
 
     public void Level2Pressed()
     {
-        SceneManager.LoadScene("Level_2_Scene");
+        if (Level > 1)
+            SceneManager.LoadScene("Level_2_Scene");
+        else
+            LockedLevelInfo.SetActive(true);
     }
 
     public void Level3Pressed()
     {
-        SceneManager.LoadScene("Level_3_Scene");
+        if(Level>2)
+            SceneManager.LoadScene("Level_3_Scene");
+        else
+            LockedLevelInfo.SetActive(true);
     }
 
+    public void CloseLockedLevelInfo()
+    {
+        LockedLevelInfo.SetActive(false);
+    }
     public void TutorialPressed()
     {
         SceneManager.LoadScene("Tutorial");

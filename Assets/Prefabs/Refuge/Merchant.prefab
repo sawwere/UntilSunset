@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6458119023573806679}
   - component: {fileID: 5040703531955534248}
   - component: {fileID: 8589742420189335583}
+  - component: {fileID: 1508705756144034077}
   m_Layer: 0
   m_Name: WoodToCoinButton
   m_TagString: Untagged
@@ -133,6 +134,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1508705756144034077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397541858613444741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1868866208690009029}
+          m_TargetAssemblyTypeName: ExchangeTriggerScript, Assembly-CSharp
+          m_MethodName: EnterWoodToCoinButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8589742420189335583}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1868866208690009029}
+          m_TargetAssemblyTypeName: ExchangeTriggerScript, Assembly-CSharp
+          m_MethodName: ExitExchangeButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8589742420189335583}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &712581952785916758
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +208,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5697545414057971360}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2149977258908894154
 MonoBehaviour:
@@ -344,6 +390,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5860109834240556238}
+  - {fileID: 4210698636428285952}
   - {fileID: 4575812237983721634}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -637,6 +684,54 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &5262785588704263943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4210698636428285952}
+  - component: {fileID: 1868866208690009029}
+  m_Layer: 0
+  m_Name: ButtonsExchangeTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4210698636428285952
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262785588704263943}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5697545414057971360}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1.9999999}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1868866208690009029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262785588704263943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f383e16f6d62f98488142da3dbc37e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5404608016135980917
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,6 +878,7 @@ GameObject:
   - component: {fileID: 8689740877562101194}
   - component: {fileID: 7953799212307149063}
   - component: {fileID: 2428215512314118453}
+  - component: {fileID: 8632895431133302388}
   m_Layer: 0
   m_Name: CoinToStoneButton
   m_TagString: Untagged
@@ -904,6 +1000,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8632895431133302388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752718302337716617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1868866208690009029}
+          m_TargetAssemblyTypeName: ExchangeTriggerScript, Assembly-CSharp
+          m_MethodName: EnterCoinToStoneButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2428215512314118453}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1868866208690009029}
+          m_TargetAssemblyTypeName: ExchangeTriggerScript, Assembly-CSharp
+          m_MethodName: ExitExchangeButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2428215512314118453}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7206511740219110099
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +1057,7 @@ GameObject:
   - component: {fileID: 7355377716662946987}
   - component: {fileID: 5231235509665572955}
   - component: {fileID: 2920518413830239273}
+  - component: {fileID: 5773940623262773292}
   m_Layer: 0
   m_Name: CoinToWoodButton
   m_TagString: Untagged
@@ -1037,6 +1179,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5773940623262773292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206511740219110099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1868866208690009029}
+          m_TargetAssemblyTypeName: ExchangeTriggerScript, Assembly-CSharp
+          m_MethodName: EnterCoinToWoodButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2920518413830239273}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1868866208690009029}
+          m_TargetAssemblyTypeName: ExchangeTriggerScript, Assembly-CSharp
+          m_MethodName: ExitExchangeButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2920518413830239273}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7423278274131539059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,6 +1370,7 @@ GameObject:
   - component: {fileID: 5743257805988055652}
   - component: {fileID: 7132626950804211052}
   - component: {fileID: 648209776179980106}
+  - component: {fileID: 2855488591863717108}
   m_Layer: 0
   m_Name: StoneToCoinButton
   m_TagString: Untagged
@@ -1304,6 +1492,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2855488591863717108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7540294198669223388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1868866208690009029}
+          m_TargetAssemblyTypeName: ExchangeTriggerScript, Assembly-CSharp
+          m_MethodName: EnterStoneToCoinButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 648209776179980106}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1868866208690009029}
+          m_TargetAssemblyTypeName: ExchangeTriggerScript, Assembly-CSharp
+          m_MethodName: ExitExchangeButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 648209776179980106}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7649455722831614015
 GameObject:
   m_ObjectHideFlags: 0

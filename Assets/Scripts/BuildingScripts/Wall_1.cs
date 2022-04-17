@@ -15,7 +15,7 @@ public class Wall_1 : Wall
         del_wood_re = 1;
         del_stone_re = 0;
         dialogBox.SetActive(false);
-        maxHealth = 2;
+        maxHealth = 20;
         base.Start();
     }
 

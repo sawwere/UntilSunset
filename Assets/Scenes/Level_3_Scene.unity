@@ -15600,6 +15600,7 @@ MonoBehaviour:
   ShadowTotem1: {fileID: 1978736726}
   ShadowTotem2: {fileID: 1978736725}
   ShadowTotem3: {fileID: 1978736723}
+  NumDay: 2
 --- !u!1001 &926664285
 PrefabInstance:
   m_ObjectHideFlags: 0
