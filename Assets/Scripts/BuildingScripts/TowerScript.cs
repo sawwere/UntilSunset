@@ -57,6 +57,7 @@ public class TowerScript : Building, IDamage
                 }
                 timerDisplay = displayTime;
             }
+            transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
         }
 
         
@@ -79,7 +80,7 @@ public class TowerScript : Building, IDamage
 
     public void DoDamage(IDamage obj)
     {
-        obj.RecieveDamage(1);
+        obj.RecieveDamage(10);
     }
 
     public void DestroyStruct()

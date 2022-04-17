@@ -41,6 +41,7 @@ public class Wall : Building, IDamage
     public void DoDamage(IDamage obj)
     {
         obj.RecieveDamage(10);
+        transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
     }
 
     public void DestroyWall()
@@ -112,6 +113,9 @@ public class Wall : Building, IDamage
     {
         EnemyCharacter e = collision.gameObject.GetComponent<EnemyCharacter>();
         if (e != null)
+        {
             DoDamage(e);
+            //transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
+        }
     }
 }
