@@ -11,8 +11,19 @@ public class EnemyClickedEvent : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
-    private void OnMouseDown()
+    void Update()
     {
-        player.SubdueEnemy(gameObject.GetComponent<EnemyCharacter>());
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            var parent = hit.transform?.parent;
+            GameObject enemy;
+            if (transform.parent && (enemy = transform.parent.gameObject))
+            {
+                player.SubdueEnemy(enemy.GetComponent<EnemyCharacter>());
+                Debug.Log("click");
+            }
+        }
     }
 }
