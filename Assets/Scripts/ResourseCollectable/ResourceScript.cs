@@ -20,8 +20,11 @@ public class ResourceScript : MonoBehaviour
     private ResourceIndicator resIndComponent;
     private SpriteRenderer resSp;
     private AudioSource source;
+    private AudioSource sRemove;
     public AudioClip collectSound;
     protected Resources resources;
+    public AudioClip CRemove;
+    private bool isRemoved = false;
 
     private void Awake()
     {
@@ -30,10 +33,11 @@ public class ResourceScript : MonoBehaviour
         resIndComponent = resInd.GetComponent<ResourceIndicator>();
         resSp = resInd.GetComponent<SpriteRenderer>();
         source = GetComponent<AudioSource>();
+        sRemove = GameObject.Find("ResSounds").GetComponent<AudioSource>();
         resInd.SetActive(false);
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         res = resLim;
         DTime = DTimeMax;
@@ -82,20 +86,21 @@ public class ResourceScript : MonoBehaviour
                 {
                     DTimeSprite -= DTimeSpriteMax;
                     resSp.sprite = sp[Math.Min(++spInd, sp.Length - 1)];
-                    //Debug.Log($"{spInd} {DTimeSpriteMax} {DTimeSprite} {res} {resLim} {offset}");
                 }
             }
         }
-        else
+        else if (!isRemoved)
             WhenRes0();
     }
 
     protected virtual void WhenRes0()
     {
+        isRemoved = true;
         spInd = 0;
         DTimeSprite = DTimeSpriteMax;
         DTime = DTimeMax;
         Invoke(nameof(ObjectDie), 0.5f);
+        sRemove.PlayOneShot(CRemove, 0.7f);
     }    
 
     protected virtual void CollectItem()

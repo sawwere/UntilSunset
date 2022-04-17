@@ -333,7 +333,7 @@ MonoBehaviour:
   MagicParticles: {fileID: 202918634614382671, guid: ec52a3a893fc6114d8bdcb57b5cc8c84, type: 3}
   skull: {fileID: 9132687835301892516}
   source: {fileID: 0}
-  walkSound: {fileID: 0}
+  walkSound: {fileID: 8300000, guid: 387a80f47e6e9924685f9cf321bf8f5e, type: 3}
   resoursePrefab: {fileID: 7641849764205970870, guid: 25b6ddecccc80024b8249896282f5b9c, type: 3}
   animator: {fileID: 1520354681883699067}
 --- !u!95 &1520354681883699067

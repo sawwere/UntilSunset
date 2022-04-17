@@ -8,11 +8,15 @@ public class StakesScript : Building
 
     public Animator animator;
 
+    private AudioSource source;
+    public AudioClip CStakesDestroy;
+
     EnemyCharacter e;
 
     protected override void Start()
     {
         bp = transform.parent.GetComponent<BuildPlace_1>();
+        source = GetComponent<AudioSource>();
         bp.GetComponent<BoxCollider2D>().enabled = false;
         maxHealth = 10;
         base.Start();
@@ -27,6 +31,7 @@ public class StakesScript : Building
     private IEnumerator StartDamage(EnemyCharacter e)
     {
         animator.Play("Attack");
+        source.PlayOneShot(CStakesDestroy, 0.4f);
 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length - 0.35f);
 
@@ -48,6 +53,7 @@ public class StakesScript : Building
         {
             //Debug.Log(health);
             StartCoroutine(StartDamage(e));
+
         }
     }
 }

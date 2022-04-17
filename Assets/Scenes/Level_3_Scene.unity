@@ -43848,6 +43848,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9160509244416741769, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
+      propertyPath: walksounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}
+    - target: {fileID: 9160509244416741769, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
+      propertyPath: walksounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 387a80f47e6e9924685f9cf321bf8f5e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
 --- !u!1 &1577364381
@@ -53898,6 +53906,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4853812790400427359, guid: a0fcccc531f38214aa559452e4dba1f4, type: 3}
+      propertyPath: AudioCLips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c671697beead496438688f4d4fa25843, type: 3}
+    - target: {fileID: 4853812790400427359, guid: a0fcccc531f38214aa559452e4dba1f4, type: 3}
+      propertyPath: AudioCLips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: bc81d4a0931fbf14e8641cead60dcd47, type: 3}
     - target: {fileID: 7858123682365455868, guid: a0fcccc531f38214aa559452e4dba1f4, type: 3}
       propertyPath: player
       value: 

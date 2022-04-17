@@ -402,6 +402,16 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SetOnTheWay(bool p) => onTheWay = p;
-    public void PauseWalkSound() => source.Pause();
-    public void ContinueWalkSound() => source.Play();
+    public void PauseWalkSound()
+    {
+        source.loop = false;
+        source.Pause();
+    }
+
+    public void ContinueWalkSound()
+    {
+        source.loop = true;
+        source.Play();
+    }
+
 }
