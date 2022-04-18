@@ -17,11 +17,10 @@ public class EnemyClickedEvent : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-            var parent = hit.transform?.parent;
-            GameObject enemy;
-            if (transform.parent && (enemy = transform.parent.gameObject))
+            EnemyCharacter enemy;
+            if (hit.transform != null && (enemy = hit.transform.gameObject.GetComponent<EnemyCharacter>()))
             {
-                player.SubdueEnemy(enemy.GetComponent<EnemyCharacter>());
+                player.SubdueEnemy(enemy);
                 Debug.Log("click");
             }
         }
