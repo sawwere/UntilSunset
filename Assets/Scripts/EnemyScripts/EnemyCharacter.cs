@@ -38,8 +38,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     private Transform playerPos;
     private AudioSource source;
     public AudioClip walkSound;
-    private const float MINVOL = 0.1f;
-    private const float MAXVOL = 0.3f;
+    private const float MINVOL = 0.05f;
+    private const float MAXVOL = 0.15f;
     private float DTime = 0f;
 
     protected Rigidbody2D rigidbody2d;
