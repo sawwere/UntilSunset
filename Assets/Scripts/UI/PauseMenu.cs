@@ -86,6 +86,12 @@ public class PauseMenu : MonoBehaviour
             e.GetComponent<EnemyCharacter>().PauseWalkSound();
         foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
             e.GetComponent<EnemyCharacter>().PauseWalkSound();
+
+        GameObject.Find("ResSounds").GetComponent<AudioSource>().Stop();
+        GameObject.Find("PauseMusic").GetComponent<AudioSource>().Stop();
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MusicScript>().PlayLosingMusic();
+        GameObject.Find("PauseMusic").GetComponent<AudioSource>().volume = 0.4f;
+        GameObject.Find("PauseMusic").GetComponent<AudioSource>().Play();
     }
 
     public void RestartGame()
@@ -105,6 +111,12 @@ public class PauseMenu : MonoBehaviour
             e.GetComponent<EnemyCharacter>().PauseWalkSound();
         foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
             e.GetComponent<EnemyCharacter>().PauseWalkSound();
+
+        GameObject.Find("ResSounds").GetComponent<AudioSource>().Stop();
+        GameObject.Find("PauseMusic").GetComponent<AudioSource>().Stop();
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MusicScript>().PlayWinningMusic();
+        GameObject.Find("PauseMusic").GetComponent<AudioSource>().volume = 0.4f;
+        GameObject.Find("PauseMusic").GetComponent<AudioSource>().Play();
     }
     public void Level1Pressed()
     {
@@ -143,6 +155,11 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         SettingsMenu.SetActive(false);
         SettingsIsOpened = false;
+    }
+
+    private IEnumerator WaitForSeconds(float value)
+    {
+        yield return new WaitForSeconds(value);
     }
 
 }
