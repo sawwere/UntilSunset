@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4514184193971079568}
   - component: {fileID: 165748579276320886}
   - component: {fileID: 6449915020804273117}
-  - component: {fileID: 8739031948608983029}
   m_Layer: 5
   m_Name: ResourceInd
   m_TagString: Untagged
@@ -114,25 +113,6 @@ CircleCollider2D:
   m_Offset: {x: 0.0000009536743, y: 0.00000023841858}
   serializedVersion: 2
   m_Radius: 0.59999996
---- !u!95 &8739031948608983029
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6213683528883171248}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4bf1a30dc1a79ef48892a231c12116b8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8424214429475557594
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +357,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DTimeMax: 0.4
-  offset: 0.7
   resLim: 1
   sp:
   - {fileID: -8940097332086347385, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
@@ -412,7 +391,7 @@ MonoBehaviour:
   resInd: {fileID: 6213683528883171248}
   collectSound: {fileID: 8300000, guid: d1dc9a867ae498149a096c8abe90c565, type: 3}
   CRemove: {fileID: 8300000, guid: bf062589673a8a045ab7142339dcfde9, type: 3}
-  anim: {fileID: 8739031948608983029}
+  anim: {fileID: 0}
 --- !u!114 &8075885828632597509
 MonoBehaviour:
   m_ObjectHideFlags: 0
