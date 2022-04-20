@@ -36,7 +36,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public GameObject skull = null;
 
     private Transform playerPos;
-    private AudioSource source;
+    protected AudioSource source;
     public AudioClip walkSound;
     private const float MINVOL = 0.05f;
     private const float MAXVOL = 0.15f;
