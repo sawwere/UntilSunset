@@ -512,6 +512,7 @@ MonoBehaviour:
   wall: {fileID: 4629477879196134430, guid: 484273ae5db18074cb70bc2a33cdf7d2, type: 3}
   brstakes: {fileID: 8458603497159814131, guid: 0fe9cb0ce4680514980403f1afae133a, type: 3}
   CDestroy: {fileID: 8300000, guid: c892756b0df190746a613cc7ac2d98d0, type: 3}
+  CStakesDestroy: {fileID: 8300000, guid: e22e4f5ce8ed07f49966cc21ea9e6ba0, type: 3}
   CBuild: {fileID: 8300000, guid: 1fca96716afda9245a034baf96e0ff85, type: 3}
 --- !u!114 &8326597427521786184
 MonoBehaviour:
@@ -537,7 +538,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

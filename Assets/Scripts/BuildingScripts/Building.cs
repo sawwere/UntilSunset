@@ -12,8 +12,6 @@ public class Building : MonoBehaviour
 
     private int currentHealth;
 
-    public AudioClip CRemove;
-
     public int health
     {
         get { return currentHealth; }
@@ -36,7 +34,6 @@ public class Building : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            //GetComponent<AudioSource>().PlayOneShot(CRemove, 1f);
             Destroy(gameObject);
             if (gameObject.name == "Coffin")
                 FindObjectOfType<PauseMenu>().Lose();

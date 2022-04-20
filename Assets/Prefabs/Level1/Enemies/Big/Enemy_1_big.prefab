@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1612058437699161969}
   - component: {fileID: 7333863867288446628}
   - component: {fileID: -7760949165967055073}
+  - component: {fileID: -6782352151734455996}
   m_Layer: 8
   m_Name: Enemy_1_big
   m_TagString: Enemy
@@ -251,7 +252,7 @@ MonoBehaviour:
   price: 3
   maxHealth: 20
   speed: 1
-  damage: 3
+  damage: 30
   immunityPeriod: 3
   hitPeriod: 4
   _direction: 1
@@ -263,7 +264,6 @@ MonoBehaviour:
   BloodParticles: {fileID: 6580197317543319930, guid: 104418b3f3c4575418004d4537c9aee9, type: 3}
   MagicParticles: {fileID: 202918634614382671, guid: ec52a3a893fc6114d8bdcb57b5cc8c84, type: 3}
   skull: {fileID: 7756519851811981195}
-  source: {fileID: 0}
   walkSound: {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}
   resoursePrefab: {fileID: 7641849764205970870, guid: 25b6ddecccc80024b8249896282f5b9c, type: 3}
   animator: {fileID: 1299198292}
@@ -406,6 +406,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6782352151734455996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722983956336941154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb283b3d07895543b1cb1d3dd20899a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5879635552182069947
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,6 +81,11 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsLosed = true;
         loseMenuUI.SetActive(true);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().PauseWalkSound();
+        foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
+            e.GetComponent<EnemyCharacter>().PauseWalkSound();
+        foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
+            e.GetComponent<EnemyCharacter>().PauseWalkSound();
     }
 
     public void RestartGame()

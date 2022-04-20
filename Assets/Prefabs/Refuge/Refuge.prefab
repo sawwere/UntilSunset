@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facade: {fileID: 6655123820189614345}
+  isTutorial: 0
 --- !u!1 &6655123821105049627
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +730,10 @@ PrefabInstance:
     - target: {fileID: 9215439271182490710, guid: 9a67c10b4a708e247b14c17329d337cc, type: 3}
       propertyPath: m_Name
       value: ThunderZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215439271182490710, guid: 9a67c10b4a708e247b14c17329d337cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a67c10b4a708e247b14c17329d337cc, type: 3}

@@ -192,6 +192,7 @@ MonoBehaviour:
   - {fileID: -8518659636576196291, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
   resInd: {fileID: 8660631383661105641}
   collectSound: {fileID: 8300000, guid: d1dc9a867ae498149a096c8abe90c565, type: 3}
+  CRemove: {fileID: 8300000, guid: bf062589673a8a045ab7142339dcfde9, type: 3}
   anim: {fileID: 5442028964884518122}
   tree: {fileID: 0}
 --- !u!70 &5876551383629783143

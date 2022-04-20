@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5428094818063538271
 Transform:
   m_ObjectHideFlags: 0
@@ -541,6 +541,7 @@ MonoBehaviour:
   - {fileID: -8518659636576196291, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
   resInd: {fileID: 38533105468810816}
   collectSound: {fileID: 8300000, guid: d1dc9a867ae498149a096c8abe90c565, type: 3}
+  CRemove: {fileID: 8300000, guid: b8057cfc0362f0c4593da46424ce778a, type: 3}
   anim: {fileID: 6061193248601070729}
 --- !u!95 &6061193248601070729
 Animator:

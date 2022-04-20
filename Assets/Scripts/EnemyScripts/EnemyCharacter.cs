@@ -35,8 +35,12 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     public GameObject skull = null;
 
-    public AudioSource source;
+    private Transform playerPos;
+    private AudioSource source;
     public AudioClip walkSound;
+    private const float MINVOL = 0.1f;
+    private const float MAXVOL = 0.3f;
+    private float DTime = 0f;
 
     protected Rigidbody2D rigidbody2d;
     [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
@@ -88,15 +92,18 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
         aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
         isFriend = false;
-        source.volume = 0.05f;
+        source.volume = 0f;
         source.loop = true;
         source.clip = walkSound;
         ChangeAnimationToIdle();
+        playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
+        IncVolumeToMINVOL();
+
         if (immunityTimer > 0)
         {
             immunityTimer -= Time.deltaTime;
@@ -107,12 +114,13 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         }
         else
         {
-            oldX = newX;// ВРОДЕ ТУТ СДЕЛАТЬ ЗВУКИ ХОДЬБЫ НАДО (для себя)
+            oldX = newX;// ЗВУКИ ХОДЬБЫ ЗДЕСЬ
             newX = transform.position.x;
             if (Abs(newX - oldX) >= 0.05f)
             {
                 ChangeAnimationToWalk();
                 if (!source.isPlaying) source.Play();
+                SetSoundParams();
             }
             else
             {
@@ -131,10 +139,37 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
             position.x = position.x + Time.deltaTime * speed * direction;
             rigidbody2d.MovePosition(position);
         }
-        //Debug.Log(speed);
+
         if (transform.position.y > 2 || transform.position.y < -1)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void SetSoundParams()
+    {
+        float posDelta = gameObject.transform.position.x - playerPos.position.x;
+        if (Mathf.Abs(posDelta) >= 28)
+        {
+            source.panStereo = Mathf.Sign(posDelta);
+            source.volume = MINVOL;
+        }
+        else
+        {
+            source.panStereo = posDelta / 28;
+            source.volume = Mathf.Max(MINVOL, MAXVOL - Mathf.Abs(posDelta) / (28 / MAXVOL));
+        }
+    }
+
+    void IncVolumeToMINVOL()
+    {
+        DTime += Time.deltaTime;
+
+        if (source.volume < MINVOL && DTime >= 0.2f)
+        {
+            source.volume += 0.01f;
+            DTime = 0f;
+            Debug.Log(source.volume);
         }
     }
 
@@ -224,26 +259,29 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         gameObject.tag = "Friend";
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         GameStats.enemyOnScreen[line + 1].Remove(this);
+    }
+
+    public void PauseWalkSound()
+    {
+        source.loop = false;
+        source.Pause();
+    }
+
+    public void ContinueWalkSound()
+    {
+        source.loop = true;
+        source.Play();
+    }
+
+    public void IsFriendMakeTrue()
+    {
         isFriend = true;
     }
 
+    /*private void OnCollisionExit2D(Collision2D collision)
+   
+
     public void PauseWalkSound() => source.Pause();
     public void ContinueWalkSound() => source.Play();
-    /*private void OnCollisionExit2D(Collision2D collision)
-    {
-        string tag = collision.gameObject.tag;
-        if (tag == "Wall1" || tag == "Wall2" || tag == "Wall3" || tag == "Tower" || tag == "Minion")
-        {
-            PlayWalkAnimation();
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        string tag = collision.gameObject.tag;
-        if (tag == "Wall1" || tag == "Wall2" || tag == "Wall3" || tag == "Tower" || tag == "Minion")
-        {
-            PlayIdleAnimation();
-        }
-    }*/
+    */
 }

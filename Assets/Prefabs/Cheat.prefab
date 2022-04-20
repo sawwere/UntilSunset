@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9190710825001883657}
-  - component: {fileID: 9190710825001883656}
+  - component: {fileID: 7188116833099911138}
   m_Layer: 0
   m_Name: Cheat
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9190710825001883656
+--- !u!114 &7188116833099911138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,6 +40,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9190710825001883663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f55fc1a738219804ca29cbca1c4a8f7e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a76084c1cb7a164bbb67366754cb910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
