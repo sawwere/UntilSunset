@@ -8,6 +8,7 @@ public class MusicScript : MonoBehaviour
     private bool dayMusicIsPlaying;
     private AudioSource source;
     public AudioSource pauseSource;
+    public AudioSource resSource;
     public AudioClip[] AudioCLips;
     private PlayerController pc;
     public bool isTutorial;
@@ -70,6 +71,7 @@ public class MusicScript : MonoBehaviour
                     e.GetComponent<EnemyCharacter>().PauseWalkSound();
                 if (!isTutorial)
                 {
+                    resSource.Pause();
                     source.Pause();
                     pauseSource.Play();
                 }
