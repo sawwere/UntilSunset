@@ -69,6 +69,8 @@ public class MusicScript : MonoBehaviour
                     e.GetComponent<EnemyCharacter>().PauseWalkSound();
                 foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
                     e.GetComponent<EnemyCharacter>().PauseWalkSound();
+                foreach (var e in GameObject.FindGameObjectsWithTag("Minion"))
+                    e.GetComponent<Bat>().PauseFlappingSound();
                 if (!isTutorial)
                 {
                     resSource.Pause();
@@ -84,6 +86,8 @@ public class MusicScript : MonoBehaviour
                     e.GetComponent<EnemyCharacter>().ContinueWalkSound();
                 foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
                     e.GetComponent<EnemyCharacter>().ContinueWalkSound();
+                foreach (var e in GameObject.FindGameObjectsWithTag("Minion"))
+                    e.GetComponent<Bat>().ContinueFlappingSound();
                 if (!isTutorial)
                 {
                     source.Play();

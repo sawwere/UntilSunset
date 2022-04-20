@@ -30,6 +30,11 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     public GameObject BloodParticles;
     private Vector3 ParticlesSpawnPosition;
 
+    private Transform playerPos;
+    private AudioSource source;
+    private const float MINVOL = 0.01f;
+    private const float MAXVOL = 0.15f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +54,8 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         aviableHitMask = LayerMask.GetMask("NPC");
+        source = GetComponent<AudioSource>();
+        playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -67,6 +74,8 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         {
             immunityTimer -= Time.deltaTime;
         }
+
+        SetSoundParams();
     }
 
     public void FindEnemy()
@@ -206,5 +215,32 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    private void SetSoundParams()
+    {
+        float posDelta = gameObject.transform.position.x - playerPos.position.x;
+        if (Mathf.Abs(posDelta) >= 28)
+        {
+            source.panStereo = Mathf.Sign(posDelta);
+            source.volume = MINVOL;
+        }
+        else
+        {
+            source.panStereo = posDelta / 28;
+            source.volume = Mathf.Max(MINVOL, MAXVOL - Mathf.Abs(posDelta) / (28 / MAXVOL));
+        }
+    }
+
+    public void PauseFlappingSound()
+    {
+        source.loop = false;
+        source.Pause();
+    }
+
+    public void ContinueFlappingSound()
+    {
+        source.loop = true;
+        source.Play();
     }
 }

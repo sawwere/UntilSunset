@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
     private bool onTheWay;
     public bool isTutorial;
     private bool[] sIsPlaying;
+    private bool isFlapping;
 
     public bool isLeaving { get; set; }
 
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
         onTheWay = false;
         soundIsPlaying = false;
         sIsPlaying = new bool[] { false, false, false };
+        isFlapping = false;
         //SetGodSettings();
     }
 
@@ -313,6 +315,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isWalking && !isBat && !isTurning)
         {//0 2.6
+            isFlapping = false;
+
             if (transform.position.y > 0 && transform.position.y < 2.6)
                 onTheWay = true;
             else onTheWay = false;
@@ -347,9 +351,22 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            source.Stop();
-            soundIsPlaying = false;
-            sIsPlaying = new bool[] { false, false, false };
+            if (isBat)
+            {
+                if (!isFlapping)
+                {
+                    isFlapping = true;
+                    source.clip = walksounds[3];
+                    source.Play();
+                    sIsPlaying = new bool[] { false, false, false };
+                }
+            }
+            else
+            {
+                source.Stop();
+                soundIsPlaying = false;
+                sIsPlaying = new bool[] { false, false, false };
+            }
         }
     }
 
