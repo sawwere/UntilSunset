@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     public bool isBat;
-    private bool isTurning;
+    public bool isTurning;
 
     public bool atHome;
 
-    private TimeCycle timeCycle;
+    public TimeCycle timeCycle;
 
     public GameObject Bat;
 
@@ -116,9 +116,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Turning()
+    public void Turning()
     {
-        if (Input.GetButtonDown("Jump") && (atHome || !timeCycle.GetIsDay()))
+        if ((Input.GetButtonDown("Jump")|| PauseMenu.TurningClick) && (atHome || !timeCycle.GetIsDay()))
         {
             if (!isBat)
             {
@@ -251,9 +251,9 @@ public class PlayerController : MonoBehaviour
         }
         else henchmanLine = 0;
     }
-    private void SpawnBat()
+    public void SpawnBat()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3)
+        if ((Input.GetKeyDown(KeyCode.E) || PauseMenu.SpawnClick) && GameStats.Henchman >= 3)
         {
             GetLineForSpawnBat();
             if (GameStats.henchmanOnScreen[henchmanLine] == 0)

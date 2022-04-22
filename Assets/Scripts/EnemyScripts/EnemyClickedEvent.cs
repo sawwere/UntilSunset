@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyClickedEvent : MonoBehaviour
 {
     private PlayerController player;
+    private PauseMenu pauseMenu;
 
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        pauseMenu = GameObject.Find("Canvas").GetComponent<PauseMenu>();
     }
 
     void Update()
@@ -24,5 +26,7 @@ public class EnemyClickedEvent : MonoBehaviour
                 Debug.Log("click");
             }
         }
+        //player.SubdueEnemy(gameObject.GetComponent<EnemyCharacter>());
+        pauseMenu.ChooseText.SetActive(false);
     }
 }
