@@ -258,7 +258,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         aviableHitMask = LayerMask.GetMask("NPC");
         gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         gameObject.tag = "Friend";
-        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
+        transform.GetChild(1).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         GameStats.enemyOnScreen[line + 1].Remove(this);
     }
 

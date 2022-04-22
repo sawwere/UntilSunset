@@ -17,7 +17,7 @@ public class EnemyKamikadze : EnemyClose
         var cf = new ContactFilter2D(); 
         cf.SetLayerMask(aviableHitMask); 
         cf.useLayerMask = true;
-        transform.GetChild(0).GetComponent<BoxCollider2D>().OverlapCollider(cf, lst);
+        transform.GetChild(1).GetComponent<BoxCollider2D>().OverlapCollider(cf, lst);
         for (int i = 0; i < lst.Count; ++i)
         {
             var obj = lst[i].GetComponent<IDamage>();
