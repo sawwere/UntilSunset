@@ -8,6 +8,7 @@ public class MusicScript : MonoBehaviour
     private bool dayMusicIsPlaying;
     private AudioSource source;
     public AudioSource pauseSource;
+    public AudioSource resSource;
     public AudioClip[] AudioCLips;
     private PlayerController pc;
     public bool isTutorial;
@@ -24,7 +25,7 @@ public class MusicScript : MonoBehaviour
 
     void Update()
     {
-        if (!isTutorial)
+        if (!isTutorial && !PauseMenu.GameIsWin)
         {
             if (timeCycle.GetIsDay() && !dayMusicIsPlaying)
             {
@@ -34,8 +35,13 @@ public class MusicScript : MonoBehaviour
 
             else if (!timeCycle.GetIsDay() && dayMusicIsPlaying)
             {
-                SetLevelMusic(0);
-                dayMusicIsPlaying = false;
+                if (GameStats.Encounter < 2)
+                {
+                    SetLevelMusic(0);
+                    dayMusicIsPlaying = false;
+                }
+                else
+                    source.Stop();
             }
         }
 
@@ -63,8 +69,11 @@ public class MusicScript : MonoBehaviour
                     e.GetComponent<EnemyCharacter>().PauseWalkSound();
                 foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
                     e.GetComponent<EnemyCharacter>().PauseWalkSound();
+                foreach (var e in GameObject.FindGameObjectsWithTag("Minion"))
+                    e.GetComponent<Bat>().PauseFlappingSound();
                 if (!isTutorial)
                 {
+                    resSource.Pause();
                     source.Pause();
                     pauseSource.Play();
                 }
@@ -77,6 +86,8 @@ public class MusicScript : MonoBehaviour
                     e.GetComponent<EnemyCharacter>().ContinueWalkSound();
                 foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
                     e.GetComponent<EnemyCharacter>().ContinueWalkSound();
+                foreach (var e in GameObject.FindGameObjectsWithTag("Minion"))
+                    e.GetComponent<Bat>().ContinueFlappingSound();
                 if (!isTutorial)
                 {
                     source.Play();
@@ -85,5 +96,19 @@ public class MusicScript : MonoBehaviour
                 isPaused = false;
             }
         }
+    }
+
+    public void PlayLosingMusic()
+    {
+        source.Stop();
+        source.PlayOneShot(AudioCLips[2], 1f);
+        Debug.Log("PlayLosingMusic()");
+    }
+
+    public void PlayWinningMusic()
+    {
+        source.Stop();
+        source.PlayOneShot(AudioCLips[3], 1f);
+        Debug.Log("PlayWinningMusic()");
     }
 }

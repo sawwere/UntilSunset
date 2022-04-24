@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    // 
     public static int tool;
 
     protected int _line;
