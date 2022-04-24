@@ -13,9 +13,20 @@ public class EnemyClickedEvent : MonoBehaviour
         pauseMenu = GameObject.Find("Canvas").GetComponent<PauseMenu>();
     }
 
-    private void OnMouseDown()
+    void Update()
     {
-        player.SubdueEnemy(gameObject.GetComponent<EnemyCharacter>());
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            EnemyCharacter enemy;
+            if (hit.transform != null && (enemy = hit.transform.gameObject.GetComponent<EnemyCharacter>()))
+            {
+                player.SubdueEnemy(enemy);
+                Debug.Log("click");
+            }
+        }
+        //player.SubdueEnemy(gameObject.GetComponent<EnemyCharacter>());
         pauseMenu.ChooseText.SetActive(false);
     }
 }

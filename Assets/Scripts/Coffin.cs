@@ -14,7 +14,7 @@ public class Coffin : Building
     {
         HideDialog();
         timerDisplay = -1.0f;
-        maxHealth = 8;
+        maxHealth = 80;
         base.Start();
     }
 
@@ -75,7 +75,7 @@ public class Coffin : Building
 
     new public void RecieveDamage(int amount)
     {
-        health -= amount;
+        //health -= amount;
         UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
         if (health <= 0)
         {

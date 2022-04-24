@@ -77,7 +77,7 @@ public class EnemyGrenader : EnemyRange
     {
         damage = closeCombatDamage;
         hitTimer = firstHitPeriod;
-        var hitBoxR = transform.GetChild(0);
+        var hitBoxR = transform.GetChild(0); //онлемърэ хмдейя йнцдю днаюбхряъ йюмбюя
         hitBoxR.gameObject.SetActive(false);
 
         var hitBoxC = transform.GetChild(2);
