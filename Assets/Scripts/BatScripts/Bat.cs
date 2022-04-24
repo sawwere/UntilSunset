@@ -9,7 +9,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     public int line = PlayerController.henchmanLine;
     private int direction = 0;
 
-    [SerializeField] private int maxHealth = 2; //макс здоровье
+    [SerializeField] private int maxHealth = 20; //макс здоровье
     public int damage = 8; //урон
     protected float immunityPeriod = 1.0f; // переодичность получения урона
     protected float hitPeriod = 5.0f; // переодичность нанесения урона
@@ -142,7 +142,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
 
             currentHealth -= amount;
-            transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
+            //transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
             if (currentHealth <= 0)
             {
                GameStats.henchmanOnScreen[line+1] = 0;
