@@ -86,6 +86,8 @@ public class PauseMenu : MonoBehaviour
             e.GetComponent<EnemyCharacter>().PauseWalkSound();
         foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
             e.GetComponent<EnemyCharacter>().PauseWalkSound();
+        foreach (var e in GameObject.FindGameObjectsWithTag("Minion"))
+            e.GetComponent<Bat>().PauseFlappingSound();
 
         GameObject.Find("ResSounds").GetComponent<AudioSource>().Stop();
         GameObject.Find("PauseMusic").GetComponent<AudioSource>().Stop();
@@ -111,6 +113,8 @@ public class PauseMenu : MonoBehaviour
             e.GetComponent<EnemyCharacter>().PauseWalkSound();
         foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
             e.GetComponent<EnemyCharacter>().PauseWalkSound();
+        foreach (var e in GameObject.FindGameObjectsWithTag("Minion"))
+            e.GetComponent<Bat>().PauseFlappingSound();
 
         GameObject.Find("ResSounds").GetComponent<AudioSource>().Stop();
         GameObject.Find("PauseMusic").GetComponent<AudioSource>().Stop();
