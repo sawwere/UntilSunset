@@ -75,7 +75,7 @@ public class Coffin : Building
 
     new public void RecieveDamage(int amount)
     {
-        health -= amount;
+        //health -= amount;
         UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
         if (health <= 0)
         {
