@@ -15,7 +15,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject loseMenuUI;
     public GameObject winMenuUI;
     public GameObject SettingsMenu;
- 
+    public  GameObject ChooseText;
+    public GameObject NoBloodText;
+    public PlayerController PlayerController;
+    public static bool SpawnClick = false;
+    public static bool TurningClick = false;
+
     public bool SettingsIsOpened = false; //Открыто ли меню настроек
 
     private void Awake()
@@ -81,6 +86,11 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsLosed = true;
         loseMenuUI.SetActive(true);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().PauseWalkSound();
+        foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
+            e.GetComponent<EnemyCharacter>().PauseWalkSound();
+        foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
+            e.GetComponent<EnemyCharacter>().PauseWalkSound();
     }
 
     public void RestartGame()
@@ -120,6 +130,47 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level_3_Scene");
         
+    }
+
+    public void SpawnBatPressed()
+    {
+        if (!PlayerController.isBat && PlayerController.timeCycle.GetIsDay())
+            {
+            SpawnClick = true;
+            PlayerController.SpawnBat();
+            SpawnClick = false;
+            Debug.Log("Spawn");
+        }
+    }
+
+    public void SubdueEnemyPressed()
+    {
+        if (PlayerController.timeCycle.GetIsDay() && GameStats.Henchman >= 5)
+        {
+            ChooseText.SetActive(true);
+            Debug.Log("Subdue");
+        }
+        else if (PlayerController.timeCycle.GetIsDay() && GameStats.Henchman < 5)
+        {
+           NoBloodText.SetActive(true);
+           Invoke("DeactiveText",3f);
+        }
+    }
+
+    public void DeactiveText()
+    {
+        NoBloodText.SetActive(false);
+    }
+
+    public void TurningPressed()
+    {
+        if  (!PlayerController.isTurning && !PlayerController.isLeaving)
+        {
+            TurningClick = true;
+            PlayerController.Turning();
+            Debug.Log("Turning");
+            TurningClick = false;
+        }
     }
 
     // =======================================================================

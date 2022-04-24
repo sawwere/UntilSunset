@@ -9,9 +9,9 @@ public class MusicScript : MonoBehaviour
     private AudioSource source;
     public AudioSource pauseSource;
     public AudioClip[] AudioCLips;
-    public bool gameIsPaused;
     private PlayerController pc;
     public bool isTutorial;
+    private bool isPaused;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class MusicScript : MonoBehaviour
         pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         source = GetComponent<AudioSource>();
         dayMusicIsPlaying = true;
-        gameIsPaused = false;
+        isPaused = false;
     }
 
     void Update()
@@ -39,11 +39,10 @@ public class MusicScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-            PauseAndPlayMusic();
+        if (PauseMenu.GameIsPaused ^ isPaused) PauseAndPlayMusic();
     }
     /// <summary>
-    /// «адает соответсвующий времени суток саундтрек
+    /// «адает соответсвующий времени суток саундтрек (Night - 0, Day - 1)
     /// </summary>
     /// <param name="timeNum">Night - 0, Day - 1</param>
     private void SetLevelMusic(int timeNum)
@@ -55,10 +54,9 @@ public class MusicScript : MonoBehaviour
 
     private void PauseAndPlayMusic()
     {
-        Debug.Log("PauseAndPlayMusic()");
         if (!PauseMenu.GameIsWin)
         {
-            if (!gameIsPaused)
+            if (PauseMenu.GameIsPaused)
             {
                 pc.PauseWalkSound();
                 foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
@@ -70,10 +68,9 @@ public class MusicScript : MonoBehaviour
                     source.Pause();
                     pauseSource.Play();
                 }
-                gameIsPaused = true;
-                Debug.Log("PAUSE");
+                isPaused = true;
             }
-            else
+            else if (!PauseMenu.GameIsPaused)
             {
                 pc.ContinueWalkSound();
                 foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
@@ -85,11 +82,8 @@ public class MusicScript : MonoBehaviour
                     source.Play();
                     pauseSource.Stop();
                 }
-                gameIsPaused = false;
-                Debug.Log("PLAY");
+                isPaused = false;
             }
         }
     }
-
-    public bool GetgameIsPaused() => gameIsPaused;
 }

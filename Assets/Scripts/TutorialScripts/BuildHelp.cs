@@ -62,6 +62,8 @@ public class BuildHelp : MonoBehaviour
         if (flag4 && enemy_friend && !flag5)
         {
             StopAllCoroutines();
+            SpawnEnemiesForBecomeFriend();
+            //enemy.RecieveDamage(1);
             dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Поврежденные сооружения можно ремонтировать, для этого нужно навести на нужное строение мышкой и нажать соответствующую кнопку. Также их можно сносить.";
            // SpawnWood();
             flag5 = true;
@@ -133,11 +135,11 @@ public class BuildHelp : MonoBehaviour
             Instantiate(resoursePrefab2, transform.position + new Vector3(-1, 0, 0), transform.rotation);
         }
     }
-    void SpawnEnemiesForBecomeFriend()
+    EnemyCharacter SpawnEnemiesForBecomeFriend()
     {
         EnemyCharacter enemyObject = Instantiate(enemy, new Vector3(33, 0, transform.position.z), transform.rotation);
         enemyObject.direction = -1;
-
+        return enemyObject;
 
     }
 

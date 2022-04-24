@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class TimeCycle : MonoBehaviour
 {
     public Light lght;
@@ -40,7 +41,11 @@ public class TimeCycle : MonoBehaviour
     public GameObject ShadowTotem1;
     public GameObject ShadowTotem2;
     public GameObject ShadowTotem3;
-
+    public enum NumOfDay
+    {
+        first, second, third
+    }
+    public NumOfDay NumDay;
     void Awake()
     {
         Moonanimator = Moon.GetComponent<Animator>();
@@ -93,6 +98,11 @@ public class TimeCycle : MonoBehaviour
                 }
                 if (GameStats.Encounter == 2)
                 {
+                    if(NumDay == NumOfDay.first)
+                        PlayerPrefs.SetInt("Level", 2);
+                    else if(NumDay == NumOfDay.second)
+                        PlayerPrefs.SetInt("Level", 3);
+                    PlayerPrefs.Save();
                     StartCoroutine(SetTotem3());
                 }
                 foreach (var spawner in spawners)
@@ -100,7 +110,6 @@ public class TimeCycle : MonoBehaviour
                 foreach (var line in GameStats.enemyOnScreen)
                     foreach (var enemy in line)
                         enemy.ReturnToBase();
-                ThunderZone.Clear();
                 Debug.Log("night");
 
                 fpd = true;
