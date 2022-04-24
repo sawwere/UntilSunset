@@ -424,7 +424,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -630,6 +630,7 @@ MonoBehaviour:
   walkSound: {fileID: 8300000, guid: 387a80f47e6e9924685f9cf321bf8f5e, type: 3}
   resoursePrefab: {fileID: 6824946254506710483, guid: 4c2d892d8cf54f14a91ea0c8da69aeb6, type: 3}
   animator: {fileID: 4521592447225339064}
+  CDeath: {fileID: 8300000, guid: 9cbf585d30b23ce43b40dd2791c0cc17, type: 3}
 --- !u!114 &6356512032932695608
 MonoBehaviour:
   m_ObjectHideFlags: 0
