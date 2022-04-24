@@ -13,7 +13,10 @@ public class UItriggerTower : MonoBehaviour
 
     private void OnMouseOver()
     {
-
+        if (Input.GetMouseButtonDown(1))
+        {
+            tw.DestroyStruct();
+        }
         tw.DisplayDialog();
     }
 

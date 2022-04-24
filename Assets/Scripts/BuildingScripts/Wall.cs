@@ -30,13 +30,6 @@ public class Wall : Building, IDamage
         base.Start();
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            DestroyWall();
-        }
-    }
 
     public void DoDamage(IDamage obj)
     {
