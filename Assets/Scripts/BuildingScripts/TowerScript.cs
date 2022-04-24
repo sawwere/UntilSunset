@@ -74,7 +74,7 @@ public class TowerScript : Building, IDamage
             resources.UpdateStones();
             HideDialog();
             health = maxHealth;
-
+            transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
         }
     }
 
