@@ -8,13 +8,15 @@ public class UItriggerTower : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(1);
         tw = transform.parent.GetComponent<TowerScript>();
     }
 
     private void OnMouseOver()
     {
-        Debug.Log(1);
+        if (Input.GetMouseButtonDown(1))
+        {
+            tw.DestroyStruct();
+        }
         tw.DisplayDialog();
     }
 

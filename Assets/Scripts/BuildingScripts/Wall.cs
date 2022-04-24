@@ -30,13 +30,6 @@ public class Wall : Building, IDamage
         base.Start();
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            DestroyWall();
-        }
-    }
 
     public void DoDamage(IDamage obj)
     {
@@ -46,7 +39,6 @@ public class Wall : Building, IDamage
 
     public void DestroyWall()
     {
-        //resources = GameObject.Find("CoinsText").GetComponent<Resources>();
         GameStats.Wood += del_wood_re;
         GameStats.Stone += del_stone_re;
         resources.UpdateWood();
@@ -78,13 +70,12 @@ public class Wall : Building, IDamage
             resources.UpdateStones();
             HideDialog();
             health = maxHealth;
-
+            transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
         }
     }
 
     public void UpgradeWall()
     {
-        //resources = GameObject.Find("CoinsText").GetComponent<Resources>();
         if ((GameStats.Wood >= upg_wall_cost) && (GameStats.Stone >= upg_stone_cost) )
         {
             upgraded = true;
@@ -115,7 +106,6 @@ public class Wall : Building, IDamage
         if (e != null)
         {
             DoDamage(e);
-            //transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
         }
     }
 }
