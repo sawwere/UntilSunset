@@ -193,6 +193,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
 
             currentHealth -= amount;
+            transform.GetChild(0).GetComponent<UIEnemies>().SetValue(currentHealth / (float)maxHealth);
             if (currentHealth <= 0)
                 EnemyKilled();
             immunityTimer = immunityPeriod;

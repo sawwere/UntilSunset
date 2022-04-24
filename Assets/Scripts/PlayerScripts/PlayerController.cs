@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     public bool isBat;
-    private bool isTurning;
+    public bool isTurning;
 
     public bool atHome;
 
-    private TimeCycle timeCycle;
+    public TimeCycle timeCycle;
 
     public GameObject Bat;
 
@@ -105,10 +105,10 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        SerSortingLayer();
+        SetSortingLayer();
     }
 
-    private void SerSortingLayer()
+    private void SetSortingLayer()
     {
         positionRendererTimer -= Time.deltaTime;
         if (positionRendererTimer <= 0f)
@@ -118,9 +118,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Turning()
+    public void Turning()
     {
-        if (Input.GetButtonDown("Jump") && (atHome || !timeCycle.GetIsDay()))
+        if ((Input.GetButtonDown("Jump")|| PauseMenu.TurningClick) && (atHome || !timeCycle.GetIsDay()))
         {
             if (!isBat)
             {
@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", y);
         animator.SetFloat("Speed", moveDelta.sqrMagnitude);
 
-        if (Math.Abs(x) == 1 || Math.Abs(y) == 1)
+        if (x != 0 || y != 0)
         {
             animator.SetFloat("LastHorizontal", x);
             animator.SetFloat("LastVertical", y);
@@ -253,9 +253,9 @@ public class PlayerController : MonoBehaviour
         }
         else henchmanLine = 0;
     }
-    private void SpawnBat()
+    public void SpawnBat()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameStats.Henchman >= 3)
+        if ((Input.GetKeyDown(KeyCode.E) || PauseMenu.SpawnClick) && GameStats.Henchman >= 3)
         {
             GetLineForSpawnBat();
             if (GameStats.henchmanOnScreen[henchmanLine] == 0)
@@ -419,6 +419,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SetOnTheWay(bool p) => onTheWay = p;
+
     public void PauseWalkSound()
     {
         source.loop = false;

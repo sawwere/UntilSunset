@@ -6931,6 +6931,9 @@ MonoBehaviour:
   loseMenuUI: {fileID: 1073428079}
   winMenuUI: {fileID: 1063585340}
   SettingsMenu: {fileID: 1313966507}
+  ChooseText: {fileID: 0}
+  NoBloodText: {fileID: 0}
+  PlayerController: {fileID: 0}
   SettingsIsOpened: 0
 --- !u!114 &1051329955
 MonoBehaviour:
@@ -11835,7 +11838,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412\u044B\u0445\u043E\u0434"
+  m_Text: "\u0412\u044B\u0445\u043E\u0434 \u0438\u0437 \u0438\u0433\u0440\u044B"
 --- !u!222 &1572913577
 CanvasRenderer:
   m_ObjectHideFlags: 0
