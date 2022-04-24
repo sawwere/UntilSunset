@@ -103,10 +103,10 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        SerSortingLayer();
+        SetSortingLayer();
     }
 
-    private void SerSortingLayer()
+    private void SetSortingLayer()
     {
         positionRendererTimer -= Time.deltaTime;
         if (positionRendererTimer <= 0f)
@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", y);
         animator.SetFloat("Speed", moveDelta.sqrMagnitude);
 
-        if (Math.Abs(x) == 1 || Math.Abs(y) == 1)
+        if (x != 0 || y != 0)
         {
             animator.SetFloat("LastHorizontal", x);
             animator.SetFloat("LastVertical", y);
@@ -402,6 +402,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SetOnTheWay(bool p) => onTheWay = p;
+
     public void PauseWalkSound()
     {
         source.loop = false;

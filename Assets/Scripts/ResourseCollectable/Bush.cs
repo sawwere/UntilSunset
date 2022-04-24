@@ -8,10 +8,4 @@ public class Bush : Tree
     {
         Destroy(gameObject);
     }
-
-    protected override void WhenRes0()
-    {
-        base.WhenRes0();
-        resInd.GetComponent<Animator>().Play("Bush");
-    }
 }
