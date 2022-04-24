@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyKamikadze : EnemyClose
 {
-    // Start is called before the first frame update
+    public AudioClip CDeath;
+
     protected override void Start()
     {
         base.Start();
@@ -24,16 +25,16 @@ public class EnemyKamikadze : EnemyClose
             if (obj != null && lst[i] != gameObject.GetComponent<Collider2D>())
             {
                 obj.RecieveDamage(damage);
-
             }
         }
+        
+        GameObject.Find("ResSounds").GetComponent<AudioSource>().PlayOneShot(CDeath, 1f);
+        
         EnemyKilled();
     }
 
     public override void DoDamage(IDamage obj)
     {
-        //base.DoDamage(obj);
         BlowUp();
-        //Debug.Log(obj);
     }
 }

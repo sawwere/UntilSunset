@@ -156,11 +156,14 @@ MonoBehaviour:
   atHome: 0
   Bat: {fileID: 4286908564588651508, guid: 01c8a63666992f048a512c854a9481c1, type: 3}
   nimb: {fileID: 7724776072720915917}
+  isGod: 0
   walksounds:
   - {fileID: 8300000, guid: 80772b9d44c9aff47bc4ab329f85b1db, type: 3}
-  - {fileID: 8300000, guid: 91344452faff26a47b1878377a61c9f0, type: 3}
   - {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}
+  - {fileID: 8300000, guid: 387a80f47e6e9924685f9cf321bf8f5e, type: 3}
+  - {fileID: 8300000, guid: de683bca8b960c14f9f76bb84df6ac2f, type: 3}
   isTutorial: 0
+  joystick: {fileID: 0}
 --- !u!95 &353456340
 Animator:
   serializedVersion: 3

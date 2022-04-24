@@ -306,6 +306,7 @@ MonoBehaviour:
   - {fileID: -8518659636576196291, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
   resInd: {fileID: 674386359718994529}
   collectSound: {fileID: 8300000, guid: 9c59408710c3a8d4f826b93e4954dd5e, type: 3}
+  CRemove: {fileID: 8300000, guid: 9e7363aaee70e3d4b9e588e6ac74d04d, type: 3}
 --- !u!114 &2832925650466503703
 MonoBehaviour:
   m_ObjectHideFlags: 0
