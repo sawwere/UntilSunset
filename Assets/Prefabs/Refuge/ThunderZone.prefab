@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3771630327743646326}
   - component: {fileID: 3768144780075155333}
   - component: {fileID: 1039965925696609150}
-  - component: {fileID: 3896674905190545278}
   m_Layer: 0
   m_Name: ThunderZone
   m_TagString: Untagged
@@ -85,15 +84,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 3}
   m_EdgeRadius: 0
---- !u!114 &3896674905190545278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9215439271182490710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db792eb7637e6db4b91a5a1a2b05b7af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
