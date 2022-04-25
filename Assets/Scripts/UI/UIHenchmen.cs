@@ -18,6 +18,7 @@ public class UIHenchmen : MonoBehaviour
     void Start()
     {
         originalSize = mask.rectTransform.rect.width;
+        _image.transform.SetAsLastSibling();
     }
 
     public void SetValue(float value)
