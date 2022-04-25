@@ -14,12 +14,15 @@ public class MenuControls : MonoBehaviour
     public GameObject Level3;
     public GameObject Tutorial;
 
+    public GameObject LockLevel2;
+    public GameObject LockLevel3;
+
     public GameObject InfoBut;
     public GameObject ScrollInfo;
     public Text MenuLogo;
     public int Level;
 
-    public GameObject LockedLevelInfo;
+ 
 
     private void Awake()
     {
@@ -39,11 +42,30 @@ public class MenuControls : MonoBehaviour
 
     public void PlayPressed()
     {
+        Level = PlayerPrefs.GetInt("Level");
         Exit.SetActive(false);
         Play.SetActive(false);
         Level1.SetActive(true);
-        Level2.SetActive(true);
-        Level3.SetActive(true);
+        if (Level > 1)
+        {
+            Level2.SetActive(true);
+            LockLevel2.SetActive(false);
+        }
+        else
+        {
+            Level2.SetActive(false);
+            LockLevel2.SetActive(true);
+        }
+        if (Level > 2)
+        {
+            Level3.SetActive(true);
+            LockLevel3.SetActive(false);
+        }
+        else
+        {
+            Level3.SetActive(false);
+            LockLevel3.SetActive(true);
+        }
         Tutorial.SetActive(true);
         InfoBut.SetActive(false);
         Back.SetActive(true);
@@ -56,24 +78,15 @@ public class MenuControls : MonoBehaviour
 
     public void Level2Pressed()
     {
-        if (Level > 1)
-            SceneManager.LoadScene("Level_2_Scene");
-        else
-            LockedLevelInfo.SetActive(true);
+        SceneManager.LoadScene("Level_2_Scene");
     }
 
     public void Level3Pressed()
     {
-        if(Level>2)
-            SceneManager.LoadScene("Level_3_Scene");
-        else
-            LockedLevelInfo.SetActive(true);
+        SceneManager.LoadScene("Level_3_Scene");
+        
     }
 
-    public void CloseLockedLevelInfo()
-    {
-        LockedLevelInfo.SetActive(false);
-    }
     public void TutorialPressed()
     {
         SceneManager.LoadScene("Tutorial");
@@ -106,8 +119,11 @@ public class MenuControls : MonoBehaviour
         Level1.SetActive(false);
         Level2.SetActive(false);
         Level3.SetActive(false);
+        LockLevel2.SetActive(false);
+        LockLevel3.SetActive(false);
         Tutorial.SetActive(false);
         InfoBut.SetActive(true);
         Back.SetActive(false);
     }
+
 }
