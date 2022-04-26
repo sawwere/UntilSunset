@@ -14,8 +14,11 @@ public class MenuCheat : MonoBehaviour
     private int ind = 0;
     public MenuControls MC;
 
+    private bool isUsed;
+
     private void Awake()
     {
+        isUsed = PlayerPrefs.GetInt("Level") == 999;
     }
 
     private void OnGUI()
@@ -33,7 +36,8 @@ public class MenuCheat : MonoBehaviour
 
             if (ind == konamiCode.Length)
             {
-                PlayerPrefs.SetInt("Level", 999);
+                PlayerPrefs.SetInt("Level", isUsed? 0 : 999);
+                isUsed = !isUsed;
                 Debug.Log("cheats");
                 MC.PlayPressed();
                 ind = 0;
