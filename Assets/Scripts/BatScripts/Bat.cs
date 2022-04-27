@@ -143,7 +143,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
 
             currentHealth -= amount;
-            //transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
+            transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
             if (currentHealth <= 0)
             {
                 GameStats.henchmanOnScreen[line + 1] = 0;
