@@ -237,12 +237,16 @@ public class PlayerController : MonoBehaviour
         return atHome;
     }
 
-    private void CalculateBatSpawnPosition() => batSpawnPosition.y = henchmanLine - 1;
+    private void CalculateBatSpawnPosition()
+    {
+        batSpawnPosition = transform.position;
+        batSpawnPosition.y = henchmanLine - 1;
+    }
     /*batSpawnPosition = transform.position;
     batSpawnPosition.y -= 0.85f;
     batSpawnPosition.y = Math.Min(batSpawnPosition.y, 1);
     batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);*/
-    
+
     private void GetLineForSpawnBat()
     {
         if (transform.position.y > -1.4 && transform.position.y < 2.5)
