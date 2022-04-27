@@ -27,6 +27,6 @@ public class UIHenchmen : MonoBehaviour
     }
     void Update()
     {
-        _image.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + _offset);
+        //_image.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + _offset);
     }
 }
