@@ -1399,12 +1399,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6828458053813820580, guid: 757fd2f90f82c0c46af53c00aefb9dc4, type: 3}
     - target: {fileID: 1805187488066678600, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
+      propertyPath: tombstone
+      value: 
+      objectReference: {fileID: 8300425684588671902, guid: 46024846844491e4da7a77d3262be5de, type: 3}
+    - target: {fileID: 1805187488066678600, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
       propertyPath: bushAmount
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1805187488066678600, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
       propertyPath: treesAmount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805187488066678600, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
+      propertyPath: tombstoneAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1805187488066678601, guid: 104bee59c9378db43a7d533f3383c50e, type: 3}
       propertyPath: m_Name
@@ -35171,7 +35179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.028258802, y: 0.72836494}
   m_AnchorMax: {x: 0.17511798, y: 0.7926018}
-  m_AnchoredPosition: {x: -2.4406128, y: 2.817871}
+  m_AnchoredPosition: {x: -2.4405518, y: 2.817871}
   m_SizeDelta: {x: 2, y: 1.8241882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084094849
@@ -50989,7 +50997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3443011296166768013, guid: 08ef38e56b985654bbc79f2fd61f9ee3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000045776367
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 3443011296166768013, guid: 08ef38e56b985654bbc79f2fd61f9ee3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -51125,7 +51133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.028258802, y: 0.9403649}
   m_AnchorMax: {x: 0.1631884, y: 1}
-  m_AnchoredPosition: {x: -2.7999878, y: -0.51501465}
+  m_AnchoredPosition: {x: -2.7999268, y: -0.51501465}
   m_SizeDelta: {x: 2.119995, y: 1.0299988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1965275230
