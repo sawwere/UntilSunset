@@ -160,6 +160,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   BloodParticles: {fileID: 9018527388369529767, guid: 8654244f99657214580082f8089c723f, type: 3}
+  CDeaths:
+  - {fileID: 8300000, guid: 6c6e56646b730bc4cb2892e7691fd9a4, type: 3}
+  - {fileID: 8300000, guid: 164244f3ba63b72408ba7f5d5752fc8c, type: 3}
+  - {fileID: 8300000, guid: fdd4b1d9cb82c7f43818807b9d1feba9, type: 3}
+  - {fileID: 8300000, guid: a9f02ea27152e51498d089d3a14bf068, type: 3}
 --- !u!95 &-1986338799716144412
 Animator:
   serializedVersion: 3
@@ -201,7 +206,7 @@ AudioSource:
   m_GameObject: {fileID: 4329905914580742843}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1886344839752017147, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
   m_audioClip: {fileID: 8300000, guid: de683bca8b960c14f9f76bb84df6ac2f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

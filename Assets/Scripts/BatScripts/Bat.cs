@@ -32,6 +32,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
 
     private Transform playerPos;
     private AudioSource source;
+    public AudioClip[] CDeaths;
     private const float MINVOL = 0.01f;
     private const float MAXVOL = 0.15f;
 
@@ -142,10 +143,12 @@ public class Bat : MonoBehaviour, IDamage, IMovable
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
 
             currentHealth -= amount;
-            transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
+            //transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
             if (currentHealth <= 0)
             {
-               GameStats.henchmanOnScreen[line+1] = 0;
+                GameStats.henchmanOnScreen[line + 1] = 0;
+                GameObject.Find("ResSounds").GetComponent<AudioSource>().PlayOneShot(CDeaths[Random.Range(0, CDeaths.Length - 1)], 0.8f);
+                Debug.Log(source.volume + 0.7f);
                 Destroy(gameObject);
             }
             immunityTimer = immunityPeriod;
