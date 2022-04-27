@@ -19,6 +19,9 @@ public class MenuControls : MonoBehaviour
 
     public GameObject InfoBut;
     public GameObject ScrollInfo;
+    public GameObject InfoEnemy1;
+    public GameObject InfoEnemy2;
+    public GameObject InfoEnemy3;
     public Text MenuLogo;
     public int Level;
 
@@ -124,6 +127,18 @@ public class MenuControls : MonoBehaviour
         Tutorial.SetActive(false);
         InfoBut.SetActive(true);
         Back.SetActive(false);
+    }
+    public void Enemy1Info()
+    {
+        InfoEnemy1.SetActive(true);
+    }
+    public void Enemy2Info()
+    {
+        InfoEnemy2.SetActive(true);
+    }
+    public void Enemy3Info()
+    {
+        InfoEnemy3.SetActive(true);
     }
 
 }
