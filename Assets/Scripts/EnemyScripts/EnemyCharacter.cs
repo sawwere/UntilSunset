@@ -54,7 +54,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public int direction
     {
         get { return _direction;}
-        set { if (System.Math.Abs(value) == 1) _direction = value; }
+        set { if (System.Math.Abs(value) == 1) { _direction = value; transform.GetChild(0).GetChild(0).transform.localScale = new Vector3(2 * value, 2, 2); } }
     }
 
     public float GetSpeed()
@@ -97,6 +97,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         source.clip = walkSound;
         ChangeAnimationToIdle();
         playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
+       
     }
 
     // Update is called once per frame

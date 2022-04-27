@@ -27,6 +27,6 @@ public class EnemyClickedEvent : MonoBehaviour
             }
         }
         //player.SubdueEnemy(gameObject.GetComponent<EnemyCharacter>());
-        pauseMenu.ChooseText.SetActive(false);
+        //pauseMenu.ChooseText.SetActive(false);
     }
 }
