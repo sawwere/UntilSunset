@@ -54,7 +54,7 @@ public class BuildHelp : MonoBehaviour
         }
         if (flag3 && !flag4 && GameStats.enemyOnScreen[0].Count == 0)
         {
-            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Врагов можно также обращать на свою сторону. Для этого нажмите T,когда враг будет рядом, тогда он пойдет в другую сторону и, если будут враги, то он будет на них нападать.Это можно сделать только в обличие человека, вернитесь в дом и попробуйте.";
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Врагов можно также обращать на свою сторону. Для этого нажмите на врага, тогда он пойдет в другую сторону и может напасть на своих.Это можно сделать только в обличие человека, вернитесь в дом и попробуйте.";
             Coroutine l = StartCoroutine(FriendSpawn());
             flag4 = true;
         }
