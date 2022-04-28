@@ -19,6 +19,7 @@ public class EnemyGrenader : EnemyRange
         greandeCount = grenadeLimit;
         damage = grenadeDamage;
         hasGrenades = greandeCount > 0;
+        hitAnim = "Throw";
     }
 
     //protected override void Update()
@@ -66,7 +67,7 @@ public class EnemyGrenader : EnemyRange
                 }
                 else if ((hitTimer <= 2f && (obj is Wall wall)) || hitTimer <= 1f)
                 {
-                    animator.Play("Hit");
+                    animator.Play(hitAnim);
                 }
             }
         }
@@ -75,9 +76,10 @@ public class EnemyGrenader : EnemyRange
     //ïåðåêëþ÷àåò õèòáîêñ äàëüíåãî áîÿ íà áëèæíèé, ìåíÿåò óðîí
     void BecomeCloseCombat()
     {
+        hitAnim = "Hit";
         damage = closeCombatDamage;
         hitTimer = firstHitPeriod;
-        var hitBoxR = transform.GetChild(0);
+        var hitBoxR = transform.GetChild(0); //ÏÎÌÅÍßÒÜ ÈÍÄÅÊÑ ÊÎÃÄÀ ÄÎÁÀÂÈÒÑß ÊÀÍÂÀÑ
         hitBoxR.gameObject.SetActive(false);
 
         var hitBoxC = transform.GetChild(2);

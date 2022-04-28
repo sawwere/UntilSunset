@@ -7,11 +7,10 @@ using UnityEngine;
 public class ResourceScript : MonoBehaviour
 {
     private PlayerController pl;
-    protected float DTime;
-    public float DTimeMax;//0.4f
-    private float DTimeSpriteMax;
-    private float DTimeSprite;
-    public float offset;
+    protected double DTime;
+    public double DTimeMax;
+    private double DTimeSpriteMax;
+    private double DTimeSprite;
     private int spInd;
     public int resLim;
     private int res;
@@ -42,21 +41,36 @@ public class ResourceScript : MonoBehaviour
         res = resLim;
         DTime = DTimeMax;
         source.volume = 0.5f;
-        DTimeSpriteMax = resLim * DTimeMax / float.Parse((sp.Length - 1).ToString()) - offset;
+        DTimeSpriteMax = resLim * DTimeMax / sp.Length;
         DTimeSprite = DTimeSpriteMax;
         spInd = 0;
     }
 
-    protected virtual void FixedUpdate()
+    protected virtual void Update()
     {
-        CollectUpdate();
+        if (resIndComponent.isMousePressed && res > 0)
+        {
+            DTime -= Time.deltaTime;
+            if (DTime <= 0)
+                CollectItem();
+
+            DTimeSprite -= Time.deltaTime;
+            if (DTimeSprite <= 0)
+                AdjustIndicator();
+        }
+
+        if (res == 0 && !isRemoved)
+            ReadyToDie();
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
             if (pl.GetIsBat() || pl.GetAtHome())
+            {
+                resIndComponent.isMousePressed = false;
                 resInd.SetActive(false);
+            }
             else
                 resInd.SetActive(true);
     }
@@ -70,46 +84,27 @@ public class ResourceScript : MonoBehaviour
         }
     }
 
-    protected virtual void CollectUpdate()
+    private void ReadyToDie()
     {
-        resIndComponent.isMousePressed = resIndComponent.isMousePressed && !pl.GetIsBat();
-        if (res > 0)
-        {
-            if (resIndComponent.isMousePressed)
-            {
-                DTime += Time.deltaTime;
-                if (DTime >= DTimeMax)
-                    CollectItem();
-
-                DTimeSprite += Time.deltaTime;
-                if (DTimeSprite >= DTimeSpriteMax)
-                {
-                    DTimeSprite -= DTimeSpriteMax;
-                    resSp.sprite = sp[Math.Min(++spInd, sp.Length - 1)];
-                }
-            }
-        }
-        else if (!isRemoved)
-            WhenRes0();
-    }
-
-    protected virtual void WhenRes0()
-    {
+        resSp.sprite = sp[sp.Length - 1];
         isRemoved = true;
-        spInd = 0;
-        DTimeSprite = DTimeSpriteMax;
-        DTime = DTimeMax;
         Invoke(nameof(ObjectDie), 0.5f);
         sRemove.PlayOneShot(CRemove, 0.7f);
-    }    
+    }
+
+    private void AdjustIndicator()
+    {
+        DTimeSprite = DTimeSpriteMax;
+        spInd++;
+        if (spInd < sp.Length - 1)
+            resSp.sprite = sp[spInd];
+    }
 
     protected virtual void CollectItem()
     {
         res--;
-        int delta = sp.Length - 1;
-        //resSp.sprite = sp[delta - delta * res / resLim];
         source.PlayOneShot(collectSound, 0.5f);
-        DTime = 0.0f;
+        DTime = DTimeMax;
     }
 
     protected virtual void ObjectDie()
@@ -119,7 +114,11 @@ public class ResourceScript : MonoBehaviour
 
     protected void RenewResource()
     {
+        isRemoved = false;
         res = resLim;
-        resSp.sprite = sp[0];
+        spInd = 0;
+        resSp.sprite = sp[spInd];
+        DTimeSprite = DTimeSpriteMax;
+        DTime = DTimeMax;
     }
 }

@@ -14,6 +14,10 @@ public class UITrigger : MonoBehaviour
 
     private void OnMouseOver()
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            wl.DestroyWall();
+        }
         wl.DisplayDialog();
     }
 

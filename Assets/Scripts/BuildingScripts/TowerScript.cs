@@ -34,11 +34,6 @@ public class TowerScript : Building, IDamage
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            DestroyStruct();
-        }
-
         if ((timerDisplay >= 0) && (et || etback))
         {
             timerDisplay -= Time.deltaTime;
@@ -74,7 +69,7 @@ public class TowerScript : Building, IDamage
             resources.UpdateStones();
             HideDialog();
             health = maxHealth;
-
+            transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
         }
     }
 

@@ -37,7 +37,7 @@ public class BuildPlace_1 : MonoBehaviour
         dialogBox.SetActive(false);
         timerDisplay = -1.0f;
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
-        source = gameObject.AddComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     void Update()

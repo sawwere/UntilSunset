@@ -8,6 +8,7 @@ public class ExchangeScript : MonoBehaviour
     private Resources CoinsRes;
     private Resources WoodRes;
     private Resources StoneRes;
+    private Resources res;
     private AudioSource source;
     public AudioClip CCoin;
     public AudioClip CNo;
@@ -15,9 +16,10 @@ public class ExchangeScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        CoinsRes = GameObject.Find("CoinsText").GetComponent<Resources>();
-        WoodRes = GameObject.Find("WoodText").GetComponent<Resources>();
-        StoneRes = GameObject.Find("StoneText").GetComponent<Resources>();
+        res = GameObject.Find("CoinsText").GetComponent<Resources>();
+        //CoinsRes = GameObject.Find("CoinsText").GetComponent<Resources>();
+        //WoodRes = GameObject.Find("WoodText").GetComponent<Resources>();
+        //StoneRes = GameObject.Find("StoneText").GetComponent<Resources>();
         source = GameObject.FindGameObjectWithTag("Merchant").GetComponent<AudioSource>();
     }
 
@@ -27,8 +29,9 @@ public class ExchangeScript : MonoBehaviour
         {
             GameStats.Stone -= 1;
             GameStats.Coins += 1;
-            StoneRes.UpdateStones();
-            CoinsRes.UpdateCoins();
+            res.UpdateAll();
+            //StoneRes.UpdateStones();
+            //CoinsRes.UpdateCoins();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
@@ -41,8 +44,9 @@ public class ExchangeScript : MonoBehaviour
         {
             GameStats.Coins -= 3;
             GameStats.Stone += 1;
-            CoinsRes.UpdateCoins();
-            StoneRes.UpdateStones();
+            res.UpdateAll();
+            //CoinsRes.UpdateCoins();
+            //StoneRes.UpdateStones();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
@@ -55,8 +59,9 @@ public class ExchangeScript : MonoBehaviour
         {
             GameStats.Wood -= 3;
             GameStats.Coins += 1;
-            CoinsRes.UpdateCoins();
-            WoodRes.UpdateWood();
+            res.UpdateAll();
+            //CoinsRes.UpdateCoins();
+            //WoodRes.UpdateWood();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
@@ -69,8 +74,9 @@ public class ExchangeScript : MonoBehaviour
         {
             GameStats.Coins -= 3;
             GameStats.Wood += 5;
-            CoinsRes.UpdateCoins();
-            WoodRes.UpdateWood();
+            res.UpdateAll();
+            //CoinsRes.UpdateCoins();
+            //WoodRes.UpdateWood();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }

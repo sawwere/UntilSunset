@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 4142558309886198189, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
+      propertyPath: DTimeMax
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4429014620404662950, guid: 069b3007e42d0be4f91ac7e56ca002d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.012

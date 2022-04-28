@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyKamikadze : EnemyClose
 {
-    // Start is called before the first frame update
+    public AudioClip CDeath;
+
     protected override void Start()
     {
         base.Start();
@@ -17,23 +18,23 @@ public class EnemyKamikadze : EnemyClose
         var cf = new ContactFilter2D(); 
         cf.SetLayerMask(aviableHitMask); 
         cf.useLayerMask = true;
-        transform.GetChild(0).GetComponent<BoxCollider2D>().OverlapCollider(cf, lst);
+        transform.GetChild(1).GetComponent<BoxCollider2D>().OverlapCollider(cf, lst);
         for (int i = 0; i < lst.Count; ++i)
         {
             var obj = lst[i].GetComponent<IDamage>();
             if (obj != null && lst[i] != gameObject.GetComponent<Collider2D>())
             {
                 obj.RecieveDamage(damage);
-
             }
         }
+        
+        GameObject.Find("ResSounds").GetComponent<AudioSource>().PlayOneShot(CDeath, 1f);
+        
         EnemyKilled();
     }
 
     public override void DoDamage(IDamage obj)
     {
-        //base.DoDamage(obj);
         BlowUp();
-        //Debug.Log(obj);
     }
 }

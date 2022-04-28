@@ -75,8 +75,25 @@ public class MainCameraScript : MonoBehaviour
     {
         float scrollData;
         scrollData = Input.GetAxis("Mouse ScrollWheel");
-
         targetZoom -= scrollData * zoomFactor;
+
+#if UNITY_ANDROID
+        if (Input.touchCount == 2)
+        {
+            Touch touchFirst = Input.GetTouch(0);
+            Touch touchSecond = Input.GetTouch(1);
+
+            Vector2 deltaTouchFirst = touchFirst.position - touchFirst.deltaPosition;
+            Vector2 deltaTouchSecond = touchSecond.position - touchSecond.deltaPosition;
+
+            float distDelta = (deltaTouchFirst - deltaTouchSecond).magnitude;
+            float currentDist = (touchFirst.position - touchSecond.position).magnitude;
+
+            float dist = distDelta - currentDist;
+            targetZoom -= dist * zoomFactor/2;
+            targetZoom = Mathf.Clamp(targetZoom, 3f, 9f);
+        }
+#endif
         targetZoom = Mathf.Clamp(targetZoom, 3f, 9f);
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, targetZoom, Time.deltaTime * zoomLerpSpeed);
     }

@@ -14,6 +14,7 @@ public class EnemyRange : EnemyCharacter
     protected bool hasGrenades;//флаг для проверки текущего режима, true - дальний бой
 
     //������ �������� ��� �������
+    protected string hitAnim;
     private float CalcForce(float x0, float x1)
     {
         float dist = System.Math.Abs(x0 - x1) - 0.5f;
@@ -25,6 +26,7 @@ public class EnemyRange : EnemyCharacter
     {
         base.Start();
         hasGrenades = true;
+        hitAnim = "Hit";
     }
 
     protected override void Update()
@@ -45,7 +47,7 @@ public class EnemyRange : EnemyCharacter
     {
         if (target && hitTimer <= 0f)
         {
-            animator.Play("Hit");
+            animator.Play(hitAnim);
             speed = 0.0001f;
             Invoke(nameof(DoThrow), 1f);
             hitTimer = hitPeriod;

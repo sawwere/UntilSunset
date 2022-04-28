@@ -674,7 +674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a3ecc444bce57845baffc435ba8207e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CRemove: {fileID: 0}
   dialogBox: {fileID: 337521811617520019}
   nextwall: {fileID: 4629477879196134430, guid: 484273ae5db18074cb70bc2a33cdf7d2, type: 3}
   source: {fileID: 0}
@@ -696,7 +695,7 @@ AudioSource:
   m_GameObject: {fileID: 4462173417594560123}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1886344839752017147, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

@@ -14,7 +14,7 @@ public class Coffin : Building
     {
         HideDialog();
         timerDisplay = -1.0f;
-        maxHealth = 8;
+        maxHealth = 40;
         base.Start();
     }
 
