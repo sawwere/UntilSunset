@@ -5,15 +5,13 @@ using UnityEngine.EventSystems;
 
 public class Coffin : Building
 {
-    public float displayTime = 5.0f;
     public GameObject dialogBox;
     private Resources resources;
-    float timerDisplay;
+    public bool playerisnear;
 
     protected override void Start()
     {
         HideDialog();
-        timerDisplay = -1.0f;
         maxHealth = 40;
         base.Start();
     }
@@ -21,25 +19,24 @@ public class Coffin : Building
     public void Recover()
     {
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
-        if ((GameStats.Stone >= 3) && (health < maxHealth))
+        if ((GameStats.Coins >= 5) && (health < maxHealth))
         {
             health = maxHealth;
-            GameStats.Stone -= 3;
-            resources.UpdateStones();
+            GameStats.Coins -= 5;
+            resources.UpdateAll();
             UIHealthBar.instance.SetValue(health);
             HideDialog();
         }
     }
 
-    private void OnMouseDown()
+    private void OnTriggerExit2D(Collider2D col)
     {
-        if (health != maxHealth)
-            DisplayDialog();
+        if (col.gameObject.tag == "Player")
+            HideDialog();
     }
 
     public void DisplayDialog()
     {
-        timerDisplay = displayTime;
         dialogBox.SetActive(true);
     }
 
@@ -48,21 +45,11 @@ public class Coffin : Building
         dialogBox.SetActive(false);
     }
 
-    private void Update()
-    {
-        //Debug.Log(health);
-        if (timerDisplay >= 0)
-        {
-            timerDisplay -= Time.deltaTime;
-            if (timerDisplay < 0)
-            {
-                dialogBox.SetActive(false);
-            }
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Player")
+            DisplayDialog();
+
         EnemyCharacter e = other.gameObject.GetComponent<EnemyCharacter>();
         if (e)
         {
