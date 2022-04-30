@@ -36,10 +36,10 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public GameObject skull = null;
 
     private Transform playerPos;
-    private AudioSource source;
+    protected AudioSource source;
     public AudioClip walkSound;
-    private const float MINVOL = 0.1f;
-    private const float MAXVOL = 0.3f;
+    private const float MINVOL = 0.05f;
+    private const float MAXVOL = 0.15f;
     private float DTime = 0f;
 
     protected Rigidbody2D rigidbody2d;
@@ -54,7 +54,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public int direction
     {
         get { return _direction;}
-        set { if (System.Math.Abs(value) == 1) _direction = value; }
+        set { if (System.Math.Abs(value) == 1) { _direction = value; transform.GetChild(0).GetChild(0).transform.localScale = new Vector3(2 * value, 2, 2); } }
     }
 
     public float GetSpeed()
@@ -97,6 +97,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         source.clip = walkSound;
         ChangeAnimationToIdle();
         playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
+       
     }
 
     // Update is called once per frame
@@ -258,7 +259,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         aviableHitMask = LayerMask.GetMask("NPC");
         gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         gameObject.tag = "Friend";
-        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
+        transform.GetChild(1).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         GameStats.enemyOnScreen[line + 1].Remove(this);
     }
 

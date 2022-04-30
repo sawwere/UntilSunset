@@ -9,7 +9,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     public int line = PlayerController.henchmanLine;
     private int direction = 0;
 
-    [SerializeField] private int maxHealth = 2; //макс здоровье
+    [SerializeField] private int maxHealth = 20; //макс здоровье
     public int damage = 8; //урон
     protected float immunityPeriod = 1.0f; // переодичность получения урона
     protected float hitPeriod = 5.0f; // переодичность нанесения урона
@@ -30,6 +30,12 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     public GameObject BloodParticles;
     private Vector3 ParticlesSpawnPosition;
 
+    private Transform playerPos;
+    private AudioSource source;
+    public AudioClip[] CDeaths;
+    private const float MINVOL = 0.01f;
+    private const float MAXVOL = 0.15f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +55,8 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         aviableHitMask = LayerMask.GetMask("NPC");
+        source = GetComponent<AudioSource>();
+        playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -67,6 +75,8 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         {
             immunityTimer -= Time.deltaTime;
         }
+
+        SetSoundParams();
     }
 
     public void FindEnemy()
@@ -133,10 +143,12 @@ public class Bat : MonoBehaviour, IDamage, IMovable
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
 
             currentHealth -= amount;
-            transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
+            //transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
             if (currentHealth <= 0)
             {
-               GameStats.henchmanOnScreen[line+1] = 0;
+                GameStats.henchmanOnScreen[line + 1] = 0;
+                GameObject.Find("ResSounds").GetComponent<AudioSource>().PlayOneShot(CDeaths[Random.Range(0, CDeaths.Length - 1)], 0.8f);
+                Debug.Log(source.volume + 0.7f);
                 Destroy(gameObject);
             }
             immunityTimer = immunityPeriod;
@@ -207,5 +219,32 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    private void SetSoundParams()
+    {
+        float posDelta = gameObject.transform.position.x - playerPos.position.x;
+        if (Mathf.Abs(posDelta) >= 28)
+        {
+            source.panStereo = Mathf.Sign(posDelta);
+            source.volume = MINVOL;
+        }
+        else
+        {
+            source.panStereo = posDelta / 28;
+            source.volume = Mathf.Max(MINVOL, MAXVOL - Mathf.Abs(posDelta) / (28 / MAXVOL));
+        }
+    }
+
+    public void PauseFlappingSound()
+    {
+        source.loop = false;
+        source.Pause();
+    }
+
+    public void ContinueFlappingSound()
+    {
+        source.loop = true;
+        source.Play();
     }
 }

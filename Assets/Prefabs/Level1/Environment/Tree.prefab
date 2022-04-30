@@ -507,8 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DTimeMax: 0.4
-  offset: 0.01
-  resLim: 8
+  resLim: 7
   sp:
   - {fileID: -8940097332086347385, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
   - {fileID: 2529489809773951820, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
@@ -674,6 +673,10 @@ PrefabInstance:
       propertyPath: tree
       value: 
       objectReference: {fileID: 1006917619667244790}
+    - target: {fileID: 3820440195002459465, guid: d0c56e79a293dd84086443f79db2acd8, type: 3}
+      propertyPath: DTimeMax
+      value: 0.92
+      objectReference: {fileID: 0}
     - target: {fileID: 7370772202285818850, guid: d0c56e79a293dd84086443f79db2acd8, type: 3}
       propertyPath: m_Name
       value: Stump
