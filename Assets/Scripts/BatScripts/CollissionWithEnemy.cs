@@ -17,7 +17,6 @@ public class CollissionWithEnemy : MonoBehaviour
         var obj = collision.gameObject.GetComponent<EnemyCharacter>();
         if (obj != null)
         {
-            Debug.Log("enter");
             obj.SpeedResetToZero();
             parentBat.SpeedResetToZero();
         }

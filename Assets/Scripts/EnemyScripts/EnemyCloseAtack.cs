@@ -55,7 +55,6 @@ public class EnemyCloseAtack : MonoBehaviour
         {
             obj.SpeedRestore();
             parentEnemy.SpeedRestore();
-            Debug.Log("trigger exit");
         }
     }
 }

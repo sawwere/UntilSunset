@@ -123,7 +123,6 @@ public class Bat : MonoBehaviour, IDamage, IMovable
 
     public void RecieveDamage(int amount)
     {
-        Debug.Log(immunityTimer);
         if (immunityTimer <= 0)
         {
             CalculateParticlesPosition();

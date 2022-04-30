@@ -196,7 +196,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     {
         if (immunityTimer <= 0)
         {
-            //Debug.Log("============================");
             CalculateParticlesPosition();
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
 

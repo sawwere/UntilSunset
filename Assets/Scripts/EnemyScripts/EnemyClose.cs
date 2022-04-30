@@ -9,7 +9,6 @@ public class EnemyClose : EnemyCharacter
     public override void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-        //Debug.Log(hitTimer);
         if (obj != null)
         {
             if (hitTimer <= 0)
