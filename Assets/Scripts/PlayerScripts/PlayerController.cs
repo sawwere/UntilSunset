@@ -58,8 +58,6 @@ public class PlayerController : MonoBehaviour
 
     public bool isLeaving { get; set; }
 
-    public SimpleJoystick joystick;
-
     //private int henchmanLine;
     private void Awake()
     {
@@ -81,13 +79,13 @@ public class PlayerController : MonoBehaviour
         soundIsPlaying = false;
         sIsPlaying = new bool[] { false, false, false };
         isFlapping = false;
-        //SetGodSettings();
+        SetGodSettings();
     }
 
     protected virtual void Update()
     {
         if (isTurning || isLeaving) return;
-
+        GameStats.Henchman = 500;
         Turning();
 
         if (isBat || !timeCycle.GetIsDay()) return;

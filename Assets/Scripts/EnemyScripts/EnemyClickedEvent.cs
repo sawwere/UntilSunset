@@ -23,7 +23,7 @@ public class EnemyClickedEvent : MonoBehaviour
             if (hit.transform != null && (enemy = hit.transform.gameObject.GetComponent<EnemyCharacter>()))
             {
                 player.SubdueEnemy(enemy);
-                Debug.Log("click");
+                //Debug.Log("click");
             }
         }
         //player.SubdueEnemy(gameObject.GetComponent<EnemyCharacter>());

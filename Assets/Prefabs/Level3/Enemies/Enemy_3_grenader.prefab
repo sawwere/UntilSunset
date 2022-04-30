@@ -870,8 +870,8 @@ MonoBehaviour:
   animator: {fileID: 8893383567970895733}
   projectilePrefab: {fileID: 5079365604416438488, guid: a2bbafdea0661f342975afcaefcf4c2a, type: 3}
   grenadeLimit: 3
-  grenadeDamage: 2
-  closeCombatDamage: 1
+  grenadeDamage: 20
+  closeCombatDamage: 10
 --- !u!114 &-2774178339114364573
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,10 +9,10 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     public int line = PlayerController.henchmanLine;
     private int direction = 0;
 
-    [SerializeField] private int maxHealth = 20; //макс здоровье
+    [SerializeField] private int maxHealth = 30; //макс здоровье
     public int damage = 8; //урон
-    protected float immunityPeriod = 1.0f; // переодичность получения урона
-    protected float hitPeriod = 5.0f; // переодичность нанесения урона
+    protected float immunityPeriod = 2.0f; // переодичность получения урона
+    protected float hitPeriod = 4.0f; // переодичность нанесения урона
     protected int currentHealth; //текущее здоровье
     public float immunityTimer; //таймер иммунитета к получению урона
     protected float hitTimer; //таймер нанесения урона
@@ -50,8 +50,8 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         
         batt = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-        immunityTimer = 0;
-        hitTimer = firstHitPeriod;
+        immunityTimer = immunityPeriod;
+        hitTimer = 0;
         timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         HenchmanRes = GameObject.Find("HenchmenText").GetComponent<Resources>();
         aviableHitMask = LayerMask.GetMask("NPC");
@@ -103,19 +103,6 @@ public class Bat : MonoBehaviour, IDamage, IMovable
 
     void EnterBat(float minDistance, EnemyCharacter nearEnemy)
     {
-        /*if (nearEnemy.transform.position.x < transform.position.x)
-        {
-            if (nearEnemy.transform.position.y < transform.position.y)
-                batt.velocity = new Vector2(-speed , -speed ) ;
-            else batt.velocity = new Vector2(-speed , speed ) ;
-        }
-        else
-        {
-            if (nearEnemy.transform.position.y < transform.position.y)
-                batt.velocity = new Vector2(speed , -speed) ;
-            else batt.velocity = new Vector2(speed , speed) ;
-        }*/
-        //batt.position = Vector2.Lerp(batt.position, nearEnemy.transform.position,speed*Time.deltaTime);
         GameStats.henchmanOnScreen[line+1] = 1;
         direction = (int)nearEnemy.transform.position.x > transform.position.x ? 1 : -1;
         batt.position = Vector3.MoveTowards(batt.position, nearEnemy.transform.position, speed * Time.deltaTime);
@@ -124,8 +111,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     public void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-        if ((obj != null) 
-            && (!obj.Equals(typeof(Bat))))
+        if (obj != null)
         {
              if (hitTimer <= 0)
              {
@@ -137,13 +123,14 @@ public class Bat : MonoBehaviour, IDamage, IMovable
 
     public void RecieveDamage(int amount)
     {
+        Debug.Log(immunityTimer);
         if (immunityTimer <= 0)
         {
             CalculateParticlesPosition();
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
-
+            Debug.Log(currentHealth);
             currentHealth -= amount;
-            //transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
+            transform.GetChild(0).GetComponent<UIHenchmen>().SetValue(currentHealth / (float)maxHealth);
             if (currentHealth <= 0)
             {
                 GameStats.henchmanOnScreen[line + 1] = 0;
@@ -219,6 +206,16 @@ public class Bat : MonoBehaviour, IDamage, IMovable
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    public void SpeedResetToZero()
+    {
+        speed = 0.0001f;
+    }
+
+    public void SpeedRestore()
+    {
+        speed = speedInit;
     }
 
     private void SetSoundParams()

@@ -8,7 +8,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 {
     public string _name; // имя
     public int price; // цена спавна(сложность врага)
-    [SerializeField] private int maxHealth = 2; //макс здоровье
+    [SerializeField] private int maxHealth = 20; //макс здоровье
     [SerializeField] public float speed = 1.0f; //скорость передвижения
     protected float speedInit; // для восстановления скорости после остановки
     private int line; //на какой линни ходит враг
@@ -54,7 +54,13 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public int direction
     {
         get { return _direction;}
-        set { if (System.Math.Abs(value) == 1) { _direction = value; transform.GetChild(0).GetChild(0).transform.localScale = new Vector3(2 * value, 2, 2); } }
+        set { 
+            if (Abs(value) == 1) 
+            { 
+                _direction = value; 
+                transform.GetChild(0).GetChild(0).transform.localScale = new Vector3(2 * value, 2, 2); 
+            } 
+        }
     }
 
     public float GetSpeed()
@@ -70,7 +76,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     public void SpeedResetToZero()
     {
         //speedInit = speed;
-        speed = 0;
+        speed = 0.0001f; // если поставить скорость = 0, то застыает на месте и перестает что-либо делать
     }
 
     public void SpeedRestore()
@@ -170,7 +176,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         {
             source.volume += 0.01f;
             DTime = 0f;
-            Debug.Log(source.volume);
+            //Debug.Log(source.volume);
         }
     }
 
@@ -190,6 +196,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     {
         if (immunityTimer <= 0)
         {
+            //Debug.Log("============================");
             CalculateParticlesPosition();
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
 
