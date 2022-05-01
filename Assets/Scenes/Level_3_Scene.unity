@@ -764,6 +764,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3882846615458529531, guid: 77df0aff706f37e43bdc603f5de1db21, type: 3}
   m_PrefabInstance: {fileID: 45742742}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &46461783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072902042186146097, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
+  m_PrefabInstance: {fileID: 1681316420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &46996389
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,6 +3459,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4140696619914199474, guid: 98d3bb8eb68a4054da864cdcca6f2752, type: 3}
   m_PrefabInstance: {fileID: 250063076}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &261239049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072902040180764764, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
+  m_PrefabInstance: {fileID: 1681316420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &262702210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4739,6 +4749,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4140696619914199474, guid: 98d3bb8eb68a4054da864cdcca6f2752, type: 3}
   m_PrefabInstance: {fileID: 329124252}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &337748579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072902040327922682, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
+  m_PrefabInstance: {fileID: 1681316420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337926416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5377,6 +5392,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4140696619914199474, guid: 98d3bb8eb68a4054da864cdcca6f2752, type: 3}
   m_PrefabInstance: {fileID: 370142754}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &375819796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072902040608030119, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
+  m_PrefabInstance: {fileID: 1681316420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &376604984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5507,11 +5527,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0.87058824}
-    m_HighlightedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.5882353}
-    m_PressedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-    m_SelectedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+    m_SelectedColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+    m_DisabledColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -5562,8 +5582,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9a82efccb9ebebc43a63f62253302144, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5711,6 +5731,16 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4140696619914199474, guid: 98d3bb8eb68a4054da864cdcca6f2752, type: 3}
   m_PrefabInstance: {fileID: 387482862}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &398381101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072902041146926315, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
+  m_PrefabInstance: {fileID: 1681316420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &399022757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072902041970029362, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
+  m_PrefabInstance: {fileID: 1681316420}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &405553103
 GameObject:
@@ -11347,6 +11377,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6324541014315953883, guid: 9d972be4d9e768941ba16f4e4e0b8e93, type: 3}
   m_PrefabInstance: {fileID: 701859802}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &706118475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072902041360099326, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
+  m_PrefabInstance: {fileID: 1681316420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &710189686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16033,15 +16068,15 @@ MonoBehaviour:
   sky2: {fileID: 1730590227}
   cloudSpeed: -0.005
   Moon: {fileID: 189781507}
-  Totem1: {fileID: 0}
-  Totem2: {fileID: 0}
-  Totem3: {fileID: 0}
-  AnimTotem1: {fileID: 0}
-  AnimTotem2: {fileID: 0}
-  AnimTotem3: {fileID: 0}
-  ShadowTotem1: {fileID: 0}
-  ShadowTotem2: {fileID: 0}
-  ShadowTotem3: {fileID: 0}
+  Totem1: {fileID: 46461783}
+  Totem2: {fileID: 1205848166}
+  Totem3: {fileID: 706118475}
+  AnimTotem1: {fileID: 398381101}
+  AnimTotem2: {fileID: 337748579}
+  AnimTotem3: {fileID: 1270005587}
+  ShadowTotem1: {fileID: 261239049}
+  ShadowTotem2: {fileID: 375819796}
+  ShadowTotem3: {fileID: 399022757}
   NumDay: 2
 --- !u!1001 &926664285
 PrefabInstance:
@@ -38437,6 +38472,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1205848166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072902040480762866, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
+  m_PrefabInstance: {fileID: 1681316420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1217027545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38968,6 +39008,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3882846615458529531, guid: 77df0aff706f37e43bdc603f5de1db21, type: 3}
   m_PrefabInstance: {fileID: 1266272330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1270005587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072902041991539244, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
+  m_PrefabInstance: {fileID: 1681316420}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1283278470
 PrefabInstance:
@@ -50980,11 +51025,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0.87058824}
-    m_HighlightedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.5882353}
-    m_PressedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-    m_SelectedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+    m_SelectedColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+    m_DisabledColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -51035,8 +51080,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9a82efccb9ebebc43a63f62253302144, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -52558,11 +52603,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0.87058824}
-    m_HighlightedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.5882353}
-    m_PressedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-    m_SelectedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+    m_SelectedColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+    m_DisabledColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -52613,8 +52658,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9a82efccb9ebebc43a63f62253302144, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
