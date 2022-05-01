@@ -31,7 +31,7 @@ public class TimeCycle : MonoBehaviour
     float xrange = 14.0f / DayLenght;
     float yrange = 10.0f / DayLenght;
     Animator Moonanimator;
-    public GameObject InfoEnemy;
+
     public GameObject Totem1;
     public GameObject Totem2;
     public GameObject Totem3;
@@ -244,9 +244,6 @@ public class TimeCycle : MonoBehaviour
         yield return new WaitForSeconds(1);
         GameStats.Encounter++;
     }
-    public void SetInfo()
-    {
-        InfoEnemy.SetActive(true);
-    }
+    
 
 }
