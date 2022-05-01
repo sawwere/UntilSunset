@@ -9237,7 +9237,7 @@ RectTransform:
   - {fileID: 2122734655}
   - {fileID: 1802661565}
   m_Father: {fileID: 1136629941}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11340,7 +11340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7072902041070098079, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7072902041070098079, guid: 6335aaefe195ec6439d4aaba77d332dd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -34169,7 +34169,7 @@ RectTransform:
   - {fileID: 609470564}
   - {fileID: 991557526}
   m_Father: {fileID: 1136629941}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -36226,7 +36226,7 @@ RectTransform:
   - {fileID: 249858565}
   - {fileID: 1183042636}
   m_Father: {fileID: 1136629941}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -36304,7 +36304,7 @@ RectTransform:
   - {fileID: 1356044473}
   - {fileID: 1322617964}
   m_Father: {fileID: 1136629941}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -37411,13 +37411,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 2030988506}
   - {fileID: 978971219}
   - {fileID: 1091227591}
   - {fileID: 1225622594}
   - {fileID: 1092459651}
   - {fileID: 573358735}
   - {fileID: 1801721008}
-  - {fileID: 2030988506}
   - {fileID: 2093741587}
   - {fileID: 1504849988}
   - {fileID: 1840959540}
@@ -39348,7 +39348,7 @@ RectTransform:
   - {fileID: 623802032}
   - {fileID: 270232951}
   m_Father: {fileID: 1136629941}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -46989,7 +46989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6013041432660243076, guid: 704b8d0ea9274a846b6dff498dfa7de0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6013041432660243076, guid: 704b8d0ea9274a846b6dff498dfa7de0, type: 3}
       propertyPath: m_AnchorMax.x
