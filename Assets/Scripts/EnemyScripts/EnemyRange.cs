@@ -19,7 +19,7 @@ public class EnemyRange : EnemyCharacter
     {
         float dist = System.Math.Abs(x0 - x1) - 0.5f;
         float D = (float)System.Math.Sqrt(0.43 * 0.43 - 4 * 0.173 * (-2.58 - dist));
-        return (-0.43f + D) / (2f * 0.173f);
+        return (-0.43f + D) / (2f * 0.18f);
     }
 
     protected override void Start()
@@ -48,7 +48,7 @@ public class EnemyRange : EnemyCharacter
         if (target && hitTimer <= 0f)
         {
             animator.Play(hitAnim);
-            speed = 0.0001f;
+            SpeedResetToZero();
             Invoke(nameof(DoThrow), 1f);
             hitTimer = hitPeriod;
         }
@@ -62,7 +62,7 @@ public class EnemyRange : EnemyCharacter
         EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
         IMovable b = target.GetComponent<IMovable>();
         
-        if (!(b is Bat bat))
+        if (b == null)
             SpeedRestore();
 
         if (b != null)
@@ -70,6 +70,7 @@ public class EnemyRange : EnemyCharacter
             targetPoint.x = System.Math.Abs(transform.position.x - b.GetPosition().x) < 1 ? b.GetPosition().x : b.GetPosition().x + b.GetSpeed() * 1f;
             //Debug.Log(b.GetPosition().x + b.GetSpeed() * 1f);
         }
+
         projectile.Launch(CalcForce(transform.position.x, targetPoint.x), this.damage, direction, GetLine(), this, isFriend);
     }
 

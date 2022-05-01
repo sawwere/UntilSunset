@@ -18,6 +18,7 @@ public class CollissionWithEnemy : MonoBehaviour
         if (obj != null)
         {
             obj.SpeedResetToZero();
+            parentBat.SpeedResetToZero();
         }
     }
 
@@ -27,7 +28,7 @@ public class CollissionWithEnemy : MonoBehaviour
         if (obj != null
             && (((1 << collision.gameObject.layer) & parentBat.aviableHitMask.value) != 0))
         {
-            transform.parent.gameObject.GetComponent<Bat>().DoDamage(obj);
+            parentBat.DoDamage(obj);
         } 
     }
 
@@ -37,7 +38,7 @@ public class CollissionWithEnemy : MonoBehaviour
         if (obj != null)
         {
             obj.SpeedRestore();
-            transform.parent.gameObject.GetComponent<Bat>().speed = transform.parent.gameObject.GetComponent<Bat>().speedInit;
+            parentBat.SpeedRestore();
         }
     }
 }

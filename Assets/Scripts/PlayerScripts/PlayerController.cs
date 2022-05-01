@@ -59,8 +59,6 @@ public class PlayerController : MonoBehaviour
 
     public bool isLeaving { get; set; }
 
-    public SimpleJoystick joystick;
-
     //private int henchmanLine;
     private void Awake()
     {

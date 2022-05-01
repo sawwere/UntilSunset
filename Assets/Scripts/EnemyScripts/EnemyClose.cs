@@ -9,11 +9,11 @@ public class EnemyClose : EnemyCharacter
     public override void DoDamage(IDamage obj)
     {
         hitTimer -= Time.deltaTime;
-        
         if (obj != null)
         {
             if (hitTimer <= 0)
             {
+                
                 obj.RecieveDamage(damage);
                 hitTimer = hitPeriod;
             }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static System.Math;
 
+using CnControls;
+
 public class MainCameraScript : MonoBehaviour
 {
     public Transform player;
@@ -15,10 +17,16 @@ public class MainCameraScript : MonoBehaviour
     private float zoomFactor = 3f;
     [SerializeField] private float zoomLerpSpeed = 10f;
 
+    GameObject joystick;
+
     private void Awake()
     {
         camera = Camera.main;
         targetZoom = camera.orthographicSize;
+        joystick = GameObject.Find("Joystick");
+#if UNITY_STANDALONE_WIN
+        joystick.SetActive(false);
+#endif
     }
 
     private void LateUpdate()
@@ -77,7 +85,7 @@ public class MainCameraScript : MonoBehaviour
         scrollData = Input.GetAxis("Mouse ScrollWheel");
         targetZoom -= scrollData * zoomFactor;
 
-#if UNITY_ANDROID
+#if (UNITY_EDITOR || UNITY_ANDROID)
         if (Input.touchCount == 2)
         {
             Touch touchFirst = Input.GetTouch(0);
@@ -90,10 +98,11 @@ public class MainCameraScript : MonoBehaviour
             float currentDist = (touchFirst.position - touchSecond.position).magnitude;
 
             float dist = distDelta - currentDist;
-            targetZoom -= dist * zoomFactor/2;
+            targetZoom -= dist * zoomFactor / 2000;
             targetZoom = Mathf.Clamp(targetZoom, 3f, 9f);
         }
 #endif
+
         targetZoom = Mathf.Clamp(targetZoom, 3f, 9f);
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, targetZoom, Time.deltaTime * zoomLerpSpeed);
     }
