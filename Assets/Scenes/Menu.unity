@@ -8040,7 +8040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0.13421978, b: 0.07974362, a: 1}
+  m_Color: {r: 0.7176471, g: 0.05490196, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11964,6 +11964,18 @@ PrefabInstance:
     - target: {fileID: 7382066218621342261, guid: 7cba5c8044fe3d0438bfedaefd160ef2, type: 3}
       propertyPath: m_Text
       value: "    \u041E \u0417\u0430\u0449\u0438\u0442\u0435    "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382066218621342261, guid: 7cba5c8044fe3d0438bfedaefd160ef2, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382066218621342261, guid: 7cba5c8044fe3d0438bfedaefd160ef2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.05490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382066218621342261, guid: 7cba5c8044fe3d0438bfedaefd160ef2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7176471
       objectReference: {fileID: 0}
     - target: {fileID: 7382066219653163505, guid: 7cba5c8044fe3d0438bfedaefd160ef2, type: 3}
       propertyPath: m_Pivot.x
