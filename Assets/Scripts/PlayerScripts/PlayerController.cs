@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
     public bool isTutorial;
     private bool[] sIsPlaying;
     private bool isFlapping;
+    private bool isDancing;
 
     public bool isLeaving { get; set; }
 
@@ -81,12 +82,16 @@ public class PlayerController : MonoBehaviour
         soundIsPlaying = false;
         sIsPlaying = new bool[] { false, false, false };
         isFlapping = false;
+        isDancing = false;
         //SetGodSettings();
     }
 
     protected virtual void Update()
     {
-        if (isTurning || isLeaving) return;
+        if (Input.GetKeyDown(KeyCode.J))
+            StartCoroutine(nameof(Dance));
+
+        if (isTurning || isLeaving || isDancing) return;
 
         Turning();
 
@@ -97,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (isTurning || isLeaving) return;
+        if (isTurning || isLeaving || isDancing) return;
 
         UpdateMotor();
         PlayWalkSound();
@@ -387,7 +392,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual IEnumerator GoRight()
     {
-        while (transform.position.x < -14.5)
+        while (transform.position.x < -14.5 && isLeaving)
         {
             transform.Translate(isBat ? 0.04f : 0.02f, 0, 0);
             yield return new WaitForSeconds(0.01f);
@@ -411,7 +416,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual IEnumerator GoLeft()
     {
-        while (transform.position.x > 14.5)
+        while (transform.position.x > 14.5 && isLeaving)
         {
             transform.Translate(isBat ? -0.04f : -0.02f, 0, 0);
             yield return new WaitForSeconds(0.01f);
@@ -434,4 +439,22 @@ public class PlayerController : MonoBehaviour
         source.Play();
     }
 
+    private IEnumerator Dance()
+    {
+        isLeaving = false;
+        isDancing = true;
+
+        while (isTurning)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        if (isBat)
+        {
+           TurnIntoCharacter();
+           yield return new WaitForSeconds(0.5f);
+        }
+
+        animator.Play("Dancing");
+    }
 }
