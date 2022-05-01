@@ -36,8 +36,9 @@ public class MenuControls : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !Play.activeInHierarchy && !ScrollInfo.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape) && !Play.activeInHierarchy)
         {
+            
             BackToMain();
         }
 
@@ -117,6 +118,7 @@ public class MenuControls : MonoBehaviour
 
     public void BackToMain()
     {
+        ScrollInfo.SetActive(false);
         Exit.SetActive(true);
         Play.SetActive(true);
         Level1.SetActive(false);
@@ -127,6 +129,9 @@ public class MenuControls : MonoBehaviour
         Tutorial.SetActive(false);
         InfoBut.SetActive(true);
         Back.SetActive(false);
+        InfoEnemy1.SetActive(false);
+        InfoEnemy2.SetActive(false);
+        InfoEnemy3.SetActive(false);
     }
     public void Enemy1Info()
     {

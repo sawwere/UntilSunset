@@ -20,8 +20,10 @@ public class PauseMenu : MonoBehaviour
     public PlayerController PlayerController;
     public static bool SpawnClick = false;
     public static bool TurningClick = false;
+    public GameObject InfoEnemy;
 
-    public bool SettingsIsOpened = false; //Открыто ли меню настроек
+    public bool SettingsIsOpened = false;//Открыто ли меню настроек
+    public bool InfoIsOpened = false;
 
     private void Awake()
     {
@@ -29,6 +31,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         GameIsWin = false;
         SettingsIsOpened = false;
+        InfoIsOpened = false;
         Time.timeScale = 1f;
         winMenuUI.SetActive(false);
     }
@@ -43,6 +46,11 @@ public class PauseMenu : MonoBehaviour
                     if (SettingsIsOpened)
                     {
                         BackToPauseMenu();
+                    }
+                    else if (InfoIsOpened)
+                    {
+                        InfoEnemy.SetActive(false);
+                        InfoIsOpened = false;
                     }
                     else
                         Resume();
@@ -210,6 +218,16 @@ public class PauseMenu : MonoBehaviour
     private IEnumerator WaitForSeconds(float value)
     {
         yield return new WaitForSeconds(value);
+    }
+    public void SetInfo()
+    {
+        InfoEnemy.SetActive(true);
+        InfoIsOpened = true;
+    }
+    public void CloseInfo()
+    {
+        InfoEnemy.SetActive(false);
+        InfoIsOpened = false;
     }
 
 }
