@@ -11,16 +11,13 @@ public class UIAbilities : MonoBehaviour
     public Image mask2;
     float originalSize1;
     float originalSize2;
-    private void Awake()
-    {
-        instance = this;
-        mask1.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, mask1.rectTransform.rect.height);
-        mask2.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, mask2.rectTransform.rect.height);
-    }
     void Start()
     {
+        instance = this;
         originalSize1 = mask1.rectTransform.rect.height;
         originalSize2 = mask2.rectTransform.rect.height;
+        mask1.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, mask1.rectTransform.rect.height);
+        mask2.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, mask2.rectTransform.rect.height);
     }
 
     public void SetValue1(float value)

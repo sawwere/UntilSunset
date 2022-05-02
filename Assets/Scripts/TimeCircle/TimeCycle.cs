@@ -103,6 +103,7 @@ public class TimeCycle : MonoBehaviour
                     else if(NumDay == NumOfDay.second)
                         PlayerPrefs.SetInt("Level", 3);
                     PlayerPrefs.Save();
+                    player.StartCoroutine("Dance");
                     StartCoroutine(SetTotem3());
                 }
                 foreach (var spawner in spawners)

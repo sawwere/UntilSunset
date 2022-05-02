@@ -18,7 +18,6 @@ public class Resources : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameStats.Henchman = 0;
         UpdateAll();
     }
 

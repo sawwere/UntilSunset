@@ -10,10 +10,20 @@ public class BloodDropCollectable : MonoBehaviour
     public double borderLeft = -14.5;
     public double borderRight = 14.5;
 
-    private void Start()
+    private BoxCollider2D col;
+
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         resources = GameObject.Find("HenchmenText").GetComponent<Resources>();
+        col = GetComponent<BoxCollider2D>();
+    }
+
+    private void Start()
+    {
+#if UNITY_ANDROID
+        SetPESize(); // for Pocket Edition
+#endif
         StartCoroutine(nameof(DissapearEffect));
 
         Invoke(nameof(Dissapear), 47.5f);
@@ -56,5 +66,10 @@ public class BloodDropCollectable : MonoBehaviour
             resources.UpdateHenchman();
             Destroy(gameObject);
         }
+    }
+    
+    private void SetPESize()
+    {
+        col.size *= 2.3f; 
     }
 }
