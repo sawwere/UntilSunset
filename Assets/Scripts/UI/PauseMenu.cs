@@ -158,7 +158,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SpawnBatPressed()
     {
-        if (!PlayerController.isBat && PlayerController.timeCycle.GetIsDay())
+        if (!PlayerController.isBat && PlayerController.timeCycle.GetIsDay() && !GameIsPaused)
             {
             SpawnClick = true;
             PlayerController.SpawnBat();
@@ -169,12 +169,12 @@ public class PauseMenu : MonoBehaviour
 
     public void SubdueEnemyPressed()
     {
-        if (PlayerController.timeCycle.GetIsDay() && GameStats.Henchman >= 5)
+        if (PlayerController.timeCycle.GetIsDay() && GameStats.Henchman >= 5 && !GameIsPaused)
         {
             ChooseText.SetActive(true);
             Debug.Log("Subdue");
         }
-        else if (PlayerController.timeCycle.GetIsDay() && GameStats.Henchman < 5)
+        else if (PlayerController.timeCycle.GetIsDay() && GameStats.Henchman < 5 && !GameIsPaused)
         {
            NoBloodText.SetActive(true);
            Invoke("DeactiveText",3f);
@@ -188,7 +188,7 @@ public class PauseMenu : MonoBehaviour
 
     public void TurningPressed()
     {
-        if  (!PlayerController.isTurning && !PlayerController.isLeaving)
+        if  (!PlayerController.isTurning && !PlayerController.isLeaving && !GameIsPaused)
         {
             TurningClick = true;
             PlayerController.Turning();
