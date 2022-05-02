@@ -21,7 +21,9 @@ public class BloodDropCollectable : MonoBehaviour
 
     private void Start()
     {
+#if UNITY_ANDROID
         SetPESize(); // for Pocket Edition
+#endif
         StartCoroutine(nameof(DissapearEffect));
 
         Invoke(nameof(Dissapear), 47.5f);

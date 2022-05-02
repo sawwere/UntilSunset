@@ -48,8 +48,9 @@ public class LevelGeneration : MonoBehaviour
 
             spawnedAmount++;
         }*/
-
+#if UNITY_ANDROID
         SetPEValues(); // for Pocket Edition
+#endif
 
         int generalAmount = stonesAmount + treesAmount + bushAmount + tombstoneAmount;
         var randomShuffle = Shuffle(generalAmount, spots.Length);
