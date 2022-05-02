@@ -49,6 +49,8 @@ public class LevelGeneration : MonoBehaviour
             spawnedAmount++;
         }*/
 
+        SetPEValues(); // for Pocket Edition
+
         int generalAmount = stonesAmount + treesAmount + bushAmount + tombstoneAmount;
         var randomShuffle = Shuffle(generalAmount, spots.Length);
 
@@ -120,5 +122,13 @@ public class LevelGeneration : MonoBehaviour
             result.Add(Random.Range(0, have));
 
         return result;
+    }
+
+    private void SetPEValues()
+    {
+        stonesAmount -= stonesAmount / 2;
+        treesAmount -= treesAmount / 2;
+        bushAmount -= bushAmount / 2;
+        tombstoneAmount -= tombstoneAmount / 2;
     }
 }

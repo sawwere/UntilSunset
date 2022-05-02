@@ -2,25 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : ResourceScript
+public class Tree : Wood
 {
     public Animator anim = null;
-
-    protected override void Update()
-    {
-        base.Update();
-
-        if (Input.GetKeyDown(KeyCode.U)) // Чит код для восстановления деревьев преждевременно
-            TurnToTree();
-    }
-
-    protected override void CollectItem()
-    {
-        base.CollectItem();
-
-        GameStats.Wood += 1;
-        resources.UpdateWood();
-    }
 
     protected override void ObjectDie()
     {
@@ -36,5 +20,12 @@ public class Tree : ResourceScript
     public virtual void TurnToTree()
     {
         anim.SetBool("isStump", false);
+    }
+
+    protected override void SetPEValues()
+    {
+        resLim *= 2;
+        DTimeMax *= 0.75f;
+        resInd.transform.localScale *= 1.25f;
     }
 }
