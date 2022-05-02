@@ -342,8 +342,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.1, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchoredPosition: {x: -23.487013, y: 7.4764996}
+  m_SizeDelta: {x: 46, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3895381017018318794
 CanvasRenderer:
@@ -675,6 +675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 337521811617520019}
+  repairButton: {fileID: 0}
+  upgradeButton: {fileID: 0}
   nextwall: {fileID: 4629477879196134430, guid: 484273ae5db18074cb70bc2a33cdf7d2, type: 3}
   source: {fileID: 0}
   rep_wood_cost: 0
@@ -818,8 +820,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.3, y: 0.5235}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchoredPosition: {x: 22.513, y: 7.4764996}
+  m_SizeDelta: {x: 46, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8469445999161152817
 CanvasRenderer:
@@ -950,7 +952,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6765005613229804010}
           m_TargetAssemblyTypeName: WallButton, Assembly-CSharp
-          m_MethodName: MouseEnterButtonRepair
+          m_MethodName: MouseExitButton
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 573342939773862543}
