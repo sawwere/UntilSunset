@@ -34,8 +34,9 @@ public class ResourceScript : MonoBehaviour
         source = GetComponent<AudioSource>();
         sRemove = GameObject.Find("ResSounds").GetComponent<AudioSource>();
         resInd.SetActive(false);
-
+#if UNITY_ANDROID
         SetPEValues(); // for Pocket Edition
+#endif
     }
 
     protected virtual void Start()
