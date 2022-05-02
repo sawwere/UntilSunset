@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5206588376860834731
 Transform:
   m_ObjectHideFlags: 0
@@ -272,7 +272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DTimeMax: 3
-  offset: 0.0975
   resLim: 3
   sp:
   - {fileID: -8940097332086347385, guid: a41f9ebcdf01a0743bb61626f12feaa1, type: 3}
