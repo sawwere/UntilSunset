@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stump : Tree
+public class Stump : Wood
 {
     public Tree tree;
 
@@ -12,7 +12,7 @@ public class Stump : Tree
         Invoke(nameof(TurnToTree), Random.Range(90, 115));
     }
 
-    public override void TurnToTree()
+    private void TurnToTree()
     {
         tree.TurnToTree();
         RenewResource();

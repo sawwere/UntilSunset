@@ -34,16 +34,23 @@ public class ResourceScript : MonoBehaviour
         source = GetComponent<AudioSource>();
         sRemove = GameObject.Find("ResSounds").GetComponent<AudioSource>();
         resInd.SetActive(false);
+
+        SetPEValues(); // for Pocket Edition
     }
 
     protected virtual void Start()
     {
-        res = resLim;
         DTime = DTimeMax;
-        source.volume = 0.5f;
-        DTimeSpriteMax = resLim * DTimeMax / sp.Length;
+        res = resLim;
+
+        DTimeSpriteMax = resLim * DTimeMax / 32; // sp.Length = 29
         DTimeSprite = DTimeSpriteMax;
         spInd = 0;
+
+        source.volume = 0.5f;
+#if UNITY_ANDROID
+        SetPEValues();
+#endif
     }
 
     protected virtual void Update()
@@ -120,5 +127,12 @@ public class ResourceScript : MonoBehaviour
         resSp.sprite = sp[spInd];
         DTimeSprite = DTimeSpriteMax;
         DTime = DTimeMax;
+    }
+
+    protected virtual void SetPEValues()
+    {
+        resLim *= 2;
+        DTimeMax *= 0.65f;
+        resInd.transform.localScale *= 1.85f;
     }
 }
