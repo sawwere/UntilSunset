@@ -85,7 +85,7 @@ public class MainCameraScript : MonoBehaviour
         scrollData = Input.GetAxis("Mouse ScrollWheel");
         targetZoom -= scrollData * zoomFactor;
 
-#if (UNITY_EDITOR || UNITY_ANDROID)
+#if (UNITY_ANDROID)
         if (Input.touchCount == 2)
         {
             Touch touchFirst = Input.GetTouch(0);

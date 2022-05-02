@@ -93,4 +93,9 @@ public class Coffin : Building
     {
         return maxHealth == health;
     }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }
