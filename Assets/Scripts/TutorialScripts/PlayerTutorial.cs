@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerTutorial : PlayerController
 {
@@ -19,6 +20,8 @@ public class PlayerTutorial : PlayerController
         Res = GameObject.Find("CoinsText").GetComponent<Resources>();
         dialogBox1.SetActive(false);
         atHome = false;
+
+
     }
 
     protected override void Update()

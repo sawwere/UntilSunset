@@ -64,7 +64,7 @@ public class Coffin : Building
         if (e)
         {
             RecieveDamage(e.damage);
-            UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
+            UIHealthBar.instance.SetValue(health / (float)maxHealth); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             Destroy(e.gameObject);
         }
     }
@@ -80,7 +80,7 @@ public class Coffin : Building
     new public void RecieveDamage(int amount)
     {
         health -= amount;
-        UIHealthBar.instance.SetValue(health / (float)maxHealth); // устанавливает новое значение для полоски здоровья
+        UIHealthBar.instance.SetValue(health / (float)maxHealth); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (health <= 0)
         {
             Destroy(this);
@@ -92,5 +92,10 @@ public class Coffin : Building
     public bool IsUndamaged()
     {
         return maxHealth == health;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }

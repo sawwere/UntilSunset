@@ -75,14 +75,15 @@ public class BuildHelp : MonoBehaviour
         var b = GameObject.FindGameObjectWithTag("Minion");
         if (b && !flag7 && flag5)
         {
+            SpawnEnemiesForBecomeFriend();
             coffin.GetComponent<Coffin>().Recover();
-            coffin.GetComponent<Coffin>().RecieveDamage(4);
+            coffin.GetComponent<Coffin>().RecieveDamage(10);
             dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "ј если враг все-таки добралс€ до дома, то дом будет тер€ть здоровье, количество которого отображаетс€" +
                 " в правом верхнем углу экрана. ¬ы можете пополнить здоровье, починив гроб. ƒл€ этого нажмите на него и выполните указанное действие.\n “акже о способност€х игрока можно прочитать в меню.";
             flag7 = true;
 
         }
-        if (flag7 && coffin.GetComponent<Coffin>().health == 8)// coffin.GetComponent<Coffin>().maxhealth)
+        if (flag7 && coffin.GetComponent<Coffin>().health == coffin.GetComponent<Coffin>().GetMaxHealth())// coffin.GetComponent<Coffin>().maxhealth)
         {
             FindObjectOfType<PauseMenu>().Win();
             foreach (var e in GameObject.FindGameObjectsWithTag("Friend"))
