@@ -14,7 +14,7 @@ public class Building : MonoBehaviour
     public int health
     {
         get { return currentHealth; }
-        protected set { currentHealth = value; }
+        protected set { currentHealth = value; transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth); }
     }
 
     public int line

@@ -34,7 +34,6 @@ public class Wall : Building, IDamage
     public void DoDamage(IDamage obj)
     {
         obj.RecieveDamage(10);
-        transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
     }
 
     public void DestroyWall()
