@@ -49,9 +49,6 @@ public class ResourceScript : MonoBehaviour
         spInd = 0;
 
         source.volume = 0.5f;
-#if UNITY_ANDROID
-        SetPEValues();
-#endif
     }
 
     protected virtual void Update()
