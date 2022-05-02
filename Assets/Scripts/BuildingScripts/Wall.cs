@@ -5,6 +5,8 @@ using UnityEngine;
 public class Wall : Building, IDamage
 {
     public GameObject dialogBox;
+    public GameObject repairButton;
+    public GameObject upgradeButton;
     private bool upgraded = false;
     private Resources resources;
     public GameObject nextwall;
@@ -92,11 +94,49 @@ public class Wall : Building, IDamage
     public void DisplayDialog()
     {
         dialogBox.SetActive(true);
+        if (transform.tag != "Wall3")
+        {
+            if (maxHealth == health)
+            {
+                upgradeButton.SetActive(true);
+            }
+            else
+            {
+                repairButton.SetActive(true);
+            }
+        }
     }
 
     public void HideDialog()
     {
         dialogBox.SetActive(false);
+        if (transform.tag != "Wall3")
+        {
+            upgradeButton.SetActive(false);
+            repairButton.SetActive(false);
+        }
+    }
+
+    public void UpdateDialog()
+    {
+        if (dialogBox.activeSelf)
+        {
+            if (maxHealth == health)
+            {
+                repairButton.SetActive(false);
+                upgradeButton.SetActive(true);
+            }
+            else if (!repairButton.activeSelf)
+            {
+                repairButton.SetActive(true);
+                upgradeButton.SetActive(false);
+            }
+        }
+    }
+
+    public void UpdateHelthBar()
+    {
+        transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
     }
 
     private void OnCollisionStay2D(Collision2D collision)

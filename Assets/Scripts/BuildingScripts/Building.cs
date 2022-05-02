@@ -14,7 +14,14 @@ public class Building : MonoBehaviour
     public int health
     {
         get { return currentHealth; }
-        protected set { currentHealth = value; transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth); }
+        protected set { 
+            currentHealth = value;
+            UpdateInfo();
+            if (transform.tag == "Wall1" || transform.tag == "Wall2")
+            {
+                transform.GetComponent<Wall>().UpdateDialog();
+            }
+        }
     }
 
     public int line
@@ -37,6 +44,14 @@ public class Building : MonoBehaviour
             if (gameObject.name == "Coffin")
                 FindObjectOfType<PauseMenu>().Lose();
             Debug.Log(name + " has been destoyed");
+        }
+    }
+
+    public void UpdateInfo()
+    {
+        if (transform.GetComponent<Wall>())
+        {
+            transform.GetComponent<Wall>().UpdateHelthBar();
         }
     }
 
