@@ -104,7 +104,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         source.clip = walkSound;
         ChangeAnimationToIdle();
         playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        Debug.Log((1000 - transform.position.y * 10));
+        //Debug.Log((1000 - transform.position.y * 10));
         transform.GetChild(0).GetComponent<Canvas>().sortingOrder = (int)(990 - transform.position.y * 10);
     }
 
