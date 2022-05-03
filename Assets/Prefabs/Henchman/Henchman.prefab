@@ -315,8 +315,6 @@ MonoBehaviour:
   CDeaths:
   - {fileID: 8300000, guid: 6c6e56646b730bc4cb2892e7691fd9a4, type: 3}
   - {fileID: 8300000, guid: 164244f3ba63b72408ba7f5d5752fc8c, type: 3}
-  - {fileID: 8300000, guid: fdd4b1d9cb82c7f43818807b9d1feba9, type: 3}
-  - {fileID: 8300000, guid: a9f02ea27152e51498d089d3a14bf068, type: 3}
 --- !u!95 &-1986338799716144412
 Animator:
   serializedVersion: 3

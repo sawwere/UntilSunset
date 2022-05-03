@@ -133,8 +133,7 @@ public class Bat : MonoBehaviour, IDamage, IMovable
             if (currentHealth <= 0)
             {
                 GameStats.henchmanOnScreen[line + 1] = 0;
-                GameObject.Find("ResSounds").GetComponent<AudioSource>().PlayOneShot(CDeaths[Random.Range(0, CDeaths.Length - 1)], 0.8f);
-                Debug.Log(source.volume + 0.7f);
+                GameObject.Find("ResSounds").GetComponent<AudioSource>().PlayOneShot(CDeaths[Random.Range(0, CDeaths.Length)], 0.8f);
                 Destroy(gameObject);
             }
             immunityTimer = immunityPeriod;
