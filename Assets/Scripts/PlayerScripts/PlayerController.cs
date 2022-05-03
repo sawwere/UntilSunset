@@ -86,8 +86,8 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
-            StartCoroutine(nameof(Dance));
+        /*if (Input.GetKeyDown(KeyCode.J))
+            StartCoroutine(nameof(Dance));*/
 
         if (isTurning || isLeaving || isDancing) return;
 
@@ -437,7 +437,7 @@ public class PlayerController : MonoBehaviour
         source.Play();
     }
 
-    private IEnumerator Dance()
+    public IEnumerator Dance()
     {
         isLeaving = false;
         isDancing = true;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static System.Math;
+using UnityEngine.Rendering;
 
 [System.Serializable]
 public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
@@ -103,7 +104,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         source.clip = walkSound;
         ChangeAnimationToIdle();
         playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
-       
+        Debug.Log((1000 - transform.position.y * 10));
+        transform.GetChild(0).GetComponent<Canvas>().sortingOrder = (int)(990 - transform.position.y * 10);
     }
 
     // Update is called once per frame
