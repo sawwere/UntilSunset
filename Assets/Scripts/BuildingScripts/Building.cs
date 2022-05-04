@@ -49,7 +49,7 @@ public class Building : MonoBehaviour
 
     public void UpdateInfo()
     {
-        if (transform.GetComponent<Wall>())
+        if (transform.GetComponent<Wall>() && transform.tag != "Stakes")
         {
             transform.GetComponent<Wall>().UpdateHelthBar();
         }

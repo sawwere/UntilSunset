@@ -43,10 +43,7 @@ public class TimeCycleTutorial : TimeCycle
                 }
             }
             if (!player.GetIsBat() && !player.GetAtHome())
-            {
-                player.TurnIntoBat();
-                
-            }
+                player.StartCoroutine(nameof(player.TurnIntoBat));
 
             
             //StartCoroutine(SetDay());

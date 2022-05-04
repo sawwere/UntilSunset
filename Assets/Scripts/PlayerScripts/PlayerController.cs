@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     private bool isFlapping;
     private bool isDancing;
 
-    public bool isLeaving { get; set; }
+    public bool isLeaving;
 
     //private int henchmanLine;
     private void Awake()
@@ -127,29 +127,47 @@ public class PlayerController : MonoBehaviour
         {
             if (!isBat)
             {
-                TurnIntoBat();
+                StartCoroutine(nameof(TurnIntoBat));
             }
             else
             {
-                TurnIntoCharacter();
+                StartCoroutine(nameof(TurnIntoCharacter));
             }
         }
     }
 
-    public void TurnIntoBat()
+    public IEnumerator TurnIntoBat()
     {
-        isTurning = true;
-        isBat = true;
-        animator.Play("ToBat");
-        Invoke(nameof(SetBatSettings), 0.55f);
+        while (isTurning)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        if (!isBat)
+        {
+            isTurning = true;
+            isBat = true;
+            animator.Play("ToBat");
+            yield return new WaitForSeconds(0.5f);
+            SetBatSettings();
+        }
     }
 
-    private void TurnIntoCharacter()
+    private IEnumerator TurnIntoCharacter()
     {
-        isTurning = true;
-        isBat = false;
-        animator.Play("ToCharacter");
-        Invoke(nameof(SetCharacterSettings), 0.5f);
+        while (isTurning)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        if (isBat)
+        {
+            isTurning = true;
+            isBat = false;
+            animator.Play("ToCharacter");
+            yield return new WaitForSeconds(0.5f);
+            SetCharacterSettings();
+        }
     }
 
     private void SetBatSettings()
@@ -170,6 +188,28 @@ public class PlayerController : MonoBehaviour
         isBat = false;
         xSpeed = 1.5f;
         ySpeed = 1.25f;
+    }
+
+    public IEnumerator Dance()
+    {
+        isLeaving = false;
+        isDancing = true;
+
+        while (isTurning)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        if (isBat)
+        {
+            isTurning = true;
+            isBat = false;
+            animator.Play("ToCharacter");
+            yield return new WaitForSeconds(0.5f);
+            SetCharacterSettings();
+        }
+
+        animator.Play("Dancing");
     }
 
     public void ActivateCheat()
@@ -288,7 +328,7 @@ public class PlayerController : MonoBehaviour
 
         if (!isBat && timeCycle.GetIsDay())
         {
-            TurnIntoBat();
+            StartCoroutine(nameof(TurnIntoBat));
         }
     }
 
@@ -435,24 +475,5 @@ public class PlayerController : MonoBehaviour
     {
         source.loop = true;
         source.Play();
-    }
-
-    public IEnumerator Dance()
-    {
-        isLeaving = false;
-        isDancing = true;
-
-        while (isTurning)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }
-
-        if (isBat)
-        {
-           TurnIntoCharacter();
-           yield return new WaitForSeconds(0.5f);
-        }
-
-        animator.Play("Dancing");
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -1892225307033977082}
   m_Layer: 0
   m_Name: BrokenStakes
-  m_TagString: Untagged
+  m_TagString: Stakes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

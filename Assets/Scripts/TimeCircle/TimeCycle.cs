@@ -103,7 +103,7 @@ public class TimeCycle : MonoBehaviour
                     else if(NumDay == NumOfDay.second)
                         PlayerPrefs.SetInt("Level", 3);
                     PlayerPrefs.Save();
-                    player.StartCoroutine("Dance");
+                    player.StartCoroutine(nameof(player.Dance));
                     StartCoroutine(SetTotem3());
                 }
                 foreach (var spawner in spawners)
@@ -111,7 +111,7 @@ public class TimeCycle : MonoBehaviour
                 foreach (var line in GameStats.enemyOnScreen)
                     foreach (var enemy in line)
                         enemy.ReturnToBase();
-                Debug.Log("night");
+                //Debug.Log("night");
 
                 fpd = true;
                 //StartCoroutine(SetNight());
@@ -146,12 +146,12 @@ public class TimeCycle : MonoBehaviour
                 if (!player.GetIsBat() && !player.GetAtHome())
                 {
                     //Debug.Log("turning");
-                    player.TurnIntoBat();
+                    player.StartCoroutine(nameof(player.TurnIntoBat));
                 }
 
                 isDay = true;
                 Moonanimator.SetInteger("IsDayInt", 1);
-                Debug.Log("day");
+                //Debug.Log("day");
                 GameTime = 0;
                 //GameStats.Encounter++;
                 //StartCoroutine(sun.day());
