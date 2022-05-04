@@ -29,6 +29,8 @@ public class Merchant : MonoBehaviour
         if (collider.gameObject.tag.CompareTo("Player") == 0)
         {
             displayTimer = displayPeriod;
+            var resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+            resources.ClearPriceOrRefund();
             showDialog = false;
         }
     }
@@ -41,7 +43,7 @@ public class Merchant : MonoBehaviour
         {
             dialogBox.SetActive(false);
             var resources = GameObject.Find("CoinsText").GetComponent<Resources>();
-            resources.ClearPriceOrRefund();
+            //resources.ClearPriceOrRefund();
             resources.UpdateAll();
         }
 

@@ -7,7 +7,7 @@ public class Wall_2 : Wall
 {
     protected override void Start()
     {
-        rep_wood_cost = 1;
+        rep_wood_cost = 2;
         rep_stone_cost = 0;
         upg_wall_cost = 0;
         upg_stone_cost = 2;
