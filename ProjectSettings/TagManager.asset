@@ -22,6 +22,8 @@ TagManager:
   - GrassSquare
   - SandSquare
   - Merchant
+  - Bush
+  - Stakes
   layers:
   - Default
   - TransparentFX
