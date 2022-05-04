@@ -106,6 +106,9 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
         //Debug.Log((1000 - transform.position.y * 10));
         transform.GetChild(0).GetComponent<Canvas>().sortingOrder = (int)(990 - transform.position.y * 10);
+#if UNITY_ANDROID
+        damage = (int)(damage * 0.8);
+#endif
     }
 
     // Update is called once per frame
