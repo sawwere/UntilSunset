@@ -39388,7 +39388,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.66
-  m_Text: "\u041F\u043E\u0437\u0440\u0430\u0432\u043B\u044F\u0435\u043C!\n\u0412\u044B
+  m_Text: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u0435\u043C!\n\u0412\u044B
     \u0441\u043C\u043E\u0433\u043B\u0438 \n\u0414\u043E\u0436\u0438\u0442\u044C \u0414\u043E
     \u0417\u0430\u043A\u0430\u0442\u0430!"
 --- !u!222 &1164411017
@@ -42427,7 +42427,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.66
-  m_Text: "\u041F\u043E\u0437\u0440\u0430\u0432\u043B\u044F\u0435\u043C!\n\u0412\u044B
+  m_Text: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u0435\u043C!\n\u0412\u044B
     \u0441\u043C\u043E\u0433\u043B\u0438 \n\u0414\u043E\u0436\u0438\u0442\u044C \u0414\u043E
     \u0417\u0430\u043A\u0430\u0442\u0430!"
 --- !u!222 &1334826020
