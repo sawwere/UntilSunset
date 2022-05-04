@@ -38,8 +38,14 @@ public class MenuControls : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !Play.activeInHierarchy)
         {
-            
-            BackToMain();
+            if (InfoEnemy1.activeInHierarchy)
+                InfoEnemy1.SetActive(false);
+            else if (InfoEnemy2.activeInHierarchy)
+                InfoEnemy2.SetActive(false);
+            else if (InfoEnemy3.activeInHierarchy)
+                InfoEnemy3.SetActive(false);
+            else
+                BackToMain();
         }
 
     }
