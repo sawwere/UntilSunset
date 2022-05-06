@@ -36,16 +36,23 @@ public class MusicScript : MonoBehaviour
             else if (!timeCycle.GetIsDay() && dayMusicIsPlaying)
             {
                 if (GameStats.Encounter < 2)
-                {
                     SetLevelMusic(0);
-                    dayMusicIsPlaying = false;
-                }
                 else
-                    source.Stop();
+                {
+                    pauseSource.volume = 0;
+                    source.clip = AudioCLips[3];
+                    source.Play();
+                }
+
+                dayMusicIsPlaying = false;
             }
         }
 
         if (PauseMenu.GameIsPaused ^ isPaused) PauseAndPlayMusic();
+
+        if (PauseMenu.GameIsWin)
+            if (pauseSource.volume < 0.4f)
+                pauseSource.volume += 0.0004f;
     }
     /// <summary>
     /// «адает соответсвующий времени суток саундтрек (Night - 0, Day - 1)

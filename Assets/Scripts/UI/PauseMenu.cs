@@ -102,11 +102,14 @@ public class PauseMenu : MonoBehaviour
         foreach (var e in GameObject.FindGameObjectsWithTag("Minion"))
             e.GetComponent<Bat>().PauseFlappingSound();
 
-        GameObject.Find("ResSounds").GetComponent<AudioSource>().Stop();
-        GameObject.Find("PauseMusic").GetComponent<AudioSource>().Stop();
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MusicScript>().PlayLosingMusic();
-        GameObject.Find("PauseMusic").GetComponent<AudioSource>().volume = 0.4f;
-        GameObject.Find("PauseMusic").GetComponent<AudioSource>().Play();
+        if (!GameObject.Find("Main Camera").GetComponent<MusicScript>().isTutorial)
+        {
+            GameObject.Find("ResSounds").GetComponent<AudioSource>().Stop();
+            GameObject.Find("PauseMusic").GetComponent<AudioSource>().Stop();
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MusicScript>().PlayLosingMusic();
+            GameObject.Find("PauseMusic").GetComponent<AudioSource>().volume = 0.4f;
+            GameObject.Find("PauseMusic").GetComponent<AudioSource>().Play();
+        }
     }
 
     public void RestartGame()
@@ -129,11 +132,12 @@ public class PauseMenu : MonoBehaviour
         foreach (var e in GameObject.FindGameObjectsWithTag("Minion"))
             e.GetComponent<Bat>().PauseFlappingSound();
 
-        GameObject.Find("ResSounds").GetComponent<AudioSource>().Stop();
-        GameObject.Find("PauseMusic").GetComponent<AudioSource>().Stop();
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MusicScript>().PlayWinningMusic();
-        GameObject.Find("PauseMusic").GetComponent<AudioSource>().volume = 0.4f;
-        GameObject.Find("PauseMusic").GetComponent<AudioSource>().Play();
+        if (!GameObject.Find("Main Camera").GetComponent<MusicScript>().isTutorial)
+        {
+            GameObject.Find("ResSounds").GetComponent<AudioSource>().Stop();
+            GameObject.Find("PauseMusic").GetComponent<AudioSource>().Stop();
+            GameObject.Find("PauseMusic").GetComponent<AudioSource>().Play();
+        }
     }
     public void Level1Pressed()
     {
