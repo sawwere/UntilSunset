@@ -106,7 +106,10 @@ public class TowerScript : Building, IDamage
 
     public void DisplayDialog()
     {
-        dialogBox.SetActive(true);
+        if (!pause)
+        {
+            dialogBox.SetActive(true);
+        }
     }
 
     public void HideDialog()
