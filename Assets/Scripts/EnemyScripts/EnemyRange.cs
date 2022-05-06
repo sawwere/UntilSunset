@@ -34,6 +34,7 @@ public class EnemyRange : EnemyCharacter
         base.Update();
         if (hasGrenades)
         {
+            //Debug.Log(hitTimer);
             if (hitTimer > 0)
             {
                 hitTimer -= Time.deltaTime;
@@ -100,5 +101,11 @@ public class EnemyRange : EnemyCharacter
         base.ReturnToBase();
         target = null;
         targetPoint = new Vector2(1000, 1000);
+    }
+
+    public override void BecomeFriend()
+    {
+        base.BecomeFriend();
+        target = null;
     }
 }

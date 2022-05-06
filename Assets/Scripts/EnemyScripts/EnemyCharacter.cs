@@ -78,6 +78,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     {
         //speedInit = speed;
         speed = 0.0001f; // если поставить скорость = 0, то застыает на месте и перестает что-либо делать
+        //Debug.Log("to zero");
     }
 
     public void SpeedRestore()
@@ -203,7 +204,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         {
             CalculateParticlesPosition();
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
-
             currentHealth -= amount;
             transform.GetChild(0).GetComponent<UIEnemies>().SetValue(currentHealth / (float)maxHealth);
             if (currentHealth <= 0)
@@ -260,7 +260,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     //делает этого врага союзником игрока
     //разворачивает в обратном направлении и заставляет атаковать других врагов
-    public void BecomeFriend()
+    public virtual void BecomeFriend()
     {
         ReturnToBase();
         hitTimer = 1f;

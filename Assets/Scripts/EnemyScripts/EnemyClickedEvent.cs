@@ -20,8 +20,9 @@ public class EnemyClickedEvent : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
             EnemyCharacter enemy;
-            if (hit.transform != null && (enemy = hit.transform.gameObject.GetComponent<EnemyCharacter>()))
+            if (hit.transform != null && (enemy = hit.transform.gameObject.GetComponent<EnemyCharacter>()) && hit.collider.transform.gameObject.name != "HitBox")
             {
+                Debug.Log(hit.collider.transform.gameObject.name);
                 player.SubdueEnemy(enemy);
                 //Debug.Log("click");
             }
