@@ -67,6 +67,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f ;
         GameIsPaused = false;
+        BuildPlace_1.ResumeBuilding();
     }
 
     void Pause()
@@ -74,6 +75,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        BuildPlace_1.PauseBuilding();
     }
 
     public void LoadMenu()
