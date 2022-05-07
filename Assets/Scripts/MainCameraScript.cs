@@ -98,7 +98,7 @@ public class MainCameraScript : MonoBehaviour
             float currentDist = (touchFirst.position - touchSecond.position).magnitude;
 
             float dist = distDelta - currentDist;
-            targetZoom += dist * zoomFactor / 2000;
+            targetZoom += dist * zoomFactor / 1500;
             targetZoom = Mathf.Clamp(targetZoom, 3f, 9f);
         }
 #endif
