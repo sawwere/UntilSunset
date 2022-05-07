@@ -78,8 +78,8 @@ public class BuildHelp : MonoBehaviour
             SpawnEnemiesForBecomeFriend();
             coffin.GetComponent<Coffin>().Recover();
             coffin.GetComponent<Coffin>().RecieveDamage(10);
-            dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "А если враг все-таки добрался до дома, то дом будет терять здоровье, количество которого отображается" +
-                " в правом верхнем углу экрана. Вы можете пополнить здоровье, починив гроб за 5 монет. Для этого нажмите на иконку наковальни.\n Также о способностях игрока можно прочитать в меню.";
+            dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Если враг добрался до дома, то дом будет терять здоровье,оно отображается" +
+                " в правом верхнем углу экрана. Вы можете пополнить здоровье, починив гроб за 5 монет. Для этого нажмите на иконку наковальни.\n Чтобы пройти игру нужно прожить 3 дня. \n Также о способностях игрока можно прочитать в меню.";
             flag7 = true;
 
         }
