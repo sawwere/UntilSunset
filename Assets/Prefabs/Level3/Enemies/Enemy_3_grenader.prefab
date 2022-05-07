@@ -849,11 +849,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Enemy3_grenader
   price: 2
-  maxHealth: 20
+  maxHealth: 25
   speed: 1
   damage: 10
   immunityPeriod: 2
-  hitPeriod: 5
+  hitPeriod: 4
   _direction: 1
   immunityTimer: 0
   firstHitPeriod: 1.5

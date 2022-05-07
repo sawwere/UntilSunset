@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
 
     public bool isLeaving;
 
+    private float batXSpeed = 10f;
+    private float batYSpeed = 8f;
+
     //private int henchmanLine;
     private void Awake()
     {
@@ -81,8 +84,14 @@ public class PlayerController : MonoBehaviour
         sIsPlaying = new bool[] { false, false, false };
         isFlapping = false;
         isDancing = false;
-        //SetGodSettings();
-    }
+
+#if UNITY_ANDROID
+        batXSpeed = 6f;
+        batYSpeed = 5f;
+#endif
+
+    //SetGodSettings();
+}
 
     protected virtual void Update()
     {
@@ -175,8 +184,8 @@ public class PlayerController : MonoBehaviour
         animator.Play("Bat");
         isTurning = false;
         isBat = true;
-        xSpeed = 10f;
-        ySpeed = 8f;
+        xSpeed = batXSpeed;
+        ySpeed = batYSpeed;
     }
 
     public void SetCharacterSettings()

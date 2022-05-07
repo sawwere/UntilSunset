@@ -573,8 +573,8 @@ MonoBehaviour:
   _name: Enemy3_kamikadze
   price: 3
   maxHealth: 1
-  speed: 3.25
-  damage: 60
+  speed: 3.33
+  damage: 100
   immunityPeriod: 2
   hitPeriod: 0
   _direction: 1

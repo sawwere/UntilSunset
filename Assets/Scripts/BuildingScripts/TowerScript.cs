@@ -16,8 +16,8 @@ public class TowerScript : Building, IDamage
     public int del_wood_re = 1;
     public int del_stone_re = 1;
 
-    public float timerDisplay;
-    float displayTime = 4;
+    public float shotTimer;
+    float defTime = 3;
     public GameObject dialogBox;
 
     protected override void Start()
@@ -34,10 +34,10 @@ public class TowerScript : Building, IDamage
 
     private void Update()
     {
-        if ((timerDisplay >= 0) && (et || etback))
+        if ((shotTimer >= 0) && (et || etback))
         {
-            timerDisplay -= Time.deltaTime;
-            if (timerDisplay < 0)
+            shotTimer -= Time.deltaTime;
+            if (shotTimer < 0)
             {
                 if (et)
                 {
@@ -50,7 +50,7 @@ public class TowerScript : Building, IDamage
                     Shot(-1);
                     Debug.Log(-1);
                 }
-                timerDisplay = displayTime;
+                shotTimer = defTime;
             }
         }
 

@@ -87,6 +87,10 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     // Start is called before the first frame update
     protected virtual void Start()
     {
+#if UNITY_ANDROID
+        speed *= 0.9f;
+        maxHealth = Max((int)(maxHealth * 0.9), 1);
+#endif
         speedInit = speed;
         line = (int)System.Math.Round(transform.position.y);
         GameStats.enemyOnScreen[line+1].Add(this);
@@ -105,9 +109,6 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
         //Debug.Log((1000 - transform.position.y * 10));
         transform.GetChild(0).GetComponent<Canvas>().sortingOrder = (int)(990 - transform.position.y * 10);
-#if UNITY_ANDROID
-        damage = (int)(damage * 0.8);
-#endif
     }
 
     // Update is called once per frame
