@@ -6,9 +6,12 @@ public class EnemyCloseAtack : MonoBehaviour
 {
     EnemyCharacter parentEnemy;
 
+    int colliderCount;
+
     private void Start()
     {
         parentEnemy = transform.parent.gameObject.GetComponent<EnemyCharacter>();
+        colliderCount = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,9 +24,9 @@ public class EnemyCloseAtack : MonoBehaviour
             var movable = collision.gameObject.GetComponent<IMovable>();
             if (movable != null)
             {
-                //Debug.Log("enter");
-                movable.SpeedResetToZero();
+                //movable.SpeedResetToZero();
                 parentEnemy.SpeedResetToZero(); ;
+                colliderCount++;
             }
         }
     }
@@ -31,19 +34,10 @@ public class EnemyCloseAtack : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         var obj = collision.gameObject.GetComponent<IDamage>();
-        //Debug.Log(collision.gameObject);
         if (obj != null && 
             (((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0))
         {
-            //Debug.Log(obj);
-            //Debug.Log("stay");
             transform.parent.gameObject.GetComponent<EnemyCharacter>().DoDamage(obj);
-            //var movable = collision.gameObject.GetComponent<IMovable>();
-            //if (movable != null && !parentEnemy.IsFriend())
-            //{
-            //    movable.SpeedResetToZero();
-            //    parentEnemy.SpeedResetToZero();
-            //}
         }
     }
 
@@ -51,10 +45,14 @@ public class EnemyCloseAtack : MonoBehaviour
     {
         var obj = collision.gameObject.GetComponent<IMovable>();
         if (obj != null &&
-            ((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0)
+            ((1 << collision.gameObject.layer) & (parentEnemy.aviableHitMask.value | (1 << parentEnemy.gameObject.layer))) != 0)
         {
-            obj.SpeedRestore();
-            parentEnemy.SpeedRestore();
+            colliderCount--;
+            if (colliderCount == 0)
+            {
+                //obj.SpeedRestore();
+                parentEnemy.SpeedRestore();
+            }
         }
     }
 }
