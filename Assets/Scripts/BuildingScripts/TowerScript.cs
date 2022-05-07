@@ -117,4 +117,9 @@ public class TowerScript : Building, IDamage
         dialogBox.SetActive(false);
     }
 
+    public void UpdateHelthBar()
+    {
+        transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
+    }
+
 }

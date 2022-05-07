@@ -56,6 +56,11 @@ public class Building : MonoBehaviour
         {
             transform.GetComponent<Wall>().UpdateHelthBar();
         }
+
+        if (transform.GetComponent<TowerScript>() && transform.tag != "Stakes")
+        {
+            transform.GetComponent<TowerScript>().UpdateHelthBar();
+        }
     }
 
     public int GetLine()
