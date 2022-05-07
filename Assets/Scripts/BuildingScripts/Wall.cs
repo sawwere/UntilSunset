@@ -32,6 +32,14 @@ public class Wall : Building, IDamage
         base.Start();
     }
 
+    private void Update()
+    {
+        if (pausecl)
+        {
+            HideDialog();
+            pausecl = true;
+        }
+    }
 
     public void DoDamage(IDamage obj)
     {
@@ -93,16 +101,19 @@ public class Wall : Building, IDamage
 
     public void DisplayDialog()
     {
-        dialogBox.SetActive(true);
-        if (transform.tag != "Wall3")
+        if (!pause)
         {
-            if (maxHealth == health)
+            dialogBox.SetActive(true);
+            if (transform.tag != "Wall3")
             {
-                upgradeButton.SetActive(true);
-            }
-            else
-            {
-                repairButton.SetActive(true);
+                if (maxHealth == health)
+                {
+                    upgradeButton.SetActive(true);
+                }
+                else
+                {
+                    repairButton.SetActive(true);
+                }
             }
         }
     }

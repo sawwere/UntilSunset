@@ -12,7 +12,9 @@ public class BuildPlace_1 : MonoBehaviour
     public GameObject wall;
     public GameObject brstakes;
     public static GameObject obj_struct;
+    public static GameObject obj_struct_add;
     public static GameObject obj_ghost;
+    public static GameObject obj_ghost_add;
     private static GameObject wallg;
     public static int obj_price_wood;
     public static int obj_price_stone;
@@ -147,5 +149,22 @@ public class BuildPlace_1 : MonoBehaviour
     {
         if (col.tag == "Enemy")
             EnemyIsNear = false;
+    }
+
+    public static void PauseBuilding()
+    {
+        Destroy(wallg);
+        obj_struct_add = obj_struct;
+        obj_ghost_add = obj_ghost;
+        obj_ghost = null;
+        obj_struct = null;
+    }
+
+    public static void ResumeBuilding()
+    {
+        obj_struct = obj_struct_add;
+        obj_ghost = obj_ghost_add;
+        obj_ghost_add = null;
+        obj_struct_add = null;
     }
 }

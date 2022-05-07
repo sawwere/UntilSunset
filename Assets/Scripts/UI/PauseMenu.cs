@@ -21,6 +21,7 @@ public class PauseMenu : MonoBehaviour
     public static bool SpawnClick = false;
     public static bool TurningClick = false;
     public GameObject InfoEnemy;
+    private Resources res;
 
     public bool SettingsIsOpened = false;//Открыто ли меню настроек
     public bool InfoIsOpened = false;
@@ -71,6 +72,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f ;
         GameIsPaused = false;
+        BuildPlace_1.ResumeBuilding();
+        Building.ResumeBuildingUI();
     }
 
     void Pause()
@@ -78,6 +81,11 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        BuildPlace_1.PauseBuilding();
+        Building.PauseBuildingUI();
+        res = GameObject.Find("CoinsText").GetComponent<Resources>();
+        res.ClearPriceOrRefund();
+        res.UpdateAll();
     }
 
     public void LoadMenu()

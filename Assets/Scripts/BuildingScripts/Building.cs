@@ -8,7 +8,8 @@ public class Building : MonoBehaviour
 
     protected int _line;
     protected int maxHealth;
-
+    public static bool pause;
+    public static bool pausecl;
     private int currentHealth;
 
     public int health
@@ -31,6 +32,8 @@ public class Building : MonoBehaviour
 
     protected virtual void Start()
     {
+        pause = false;
+        pausecl = false;
         currentHealth = maxHealth;
         _line = (int)transform.position.y;
     }
@@ -53,10 +56,27 @@ public class Building : MonoBehaviour
         {
             transform.GetComponent<Wall>().UpdateHelthBar();
         }
+
+        if (transform.GetComponent<TowerScript>() && transform.tag != "Stakes")
+        {
+            transform.GetComponent<TowerScript>().UpdateHelthBar();
+        }
     }
 
     public int GetLine()
     {
         return line;
+    }
+
+    public static void PauseBuildingUI()
+    {
+        pause = true;
+        pausecl = true;
+    }
+
+    public static void ResumeBuildingUI()
+    {
+        pause = false;
+        pausecl = false;
     }
 }

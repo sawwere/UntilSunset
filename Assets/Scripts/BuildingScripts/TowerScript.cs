@@ -106,12 +106,20 @@ public class TowerScript : Building, IDamage
 
     public void DisplayDialog()
     {
-        dialogBox.SetActive(true);
+        if (!pause)
+        {
+            dialogBox.SetActive(true);
+        }
     }
 
     public void HideDialog()
     {
         dialogBox.SetActive(false);
+    }
+
+    public void UpdateHelthBar()
+    {
+        transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
     }
 
 }
