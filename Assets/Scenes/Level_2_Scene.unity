@@ -15375,7 +15375,7 @@ RectTransform:
   - {fileID: 2077823810}
   - {fileID: 642971796}
   m_Father: {fileID: 896697683}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -17941,9 +17941,9 @@ RectTransform:
   - {fileID: 1387703362}
   - {fileID: 118932210}
   - {fileID: 397409149}
-  - {fileID: 1927666957}
   - {fileID: 1965550662}
   - {fileID: 760330133}
+  - {fileID: 1927666957}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47652,7 +47652,7 @@ SpriteRenderer:
   m_Size: {x: 2.6666667, y: 2.6666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1583176787
@@ -53612,7 +53612,7 @@ RectTransform:
   m_Children:
   - {fileID: 1510517027}
   m_Father: {fileID: 896697683}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -54276,7 +54276,7 @@ RectTransform:
   - {fileID: 1181596552}
   - {fileID: 1911001030}
   m_Father: {fileID: 896697683}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

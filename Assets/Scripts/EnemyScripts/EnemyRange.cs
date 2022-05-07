@@ -101,4 +101,10 @@ public class EnemyRange : EnemyCharacter
         target = null;
         targetPoint = new Vector2(1000, 1000);
     }
+
+    public override void BecomeFriend()
+    {
+        base.BecomeFriend();
+        target = null;
+    }
 }

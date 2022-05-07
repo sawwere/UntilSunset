@@ -17,6 +17,7 @@ public class EnemyShield : EnemyClose
         if (shield)
         {
             shield.RecieveDamage(amount);
+            UpdateHpBar(health + shield.health, GetMaxHealth() + shield.GetMaxHealth());
         }
         else
         {
