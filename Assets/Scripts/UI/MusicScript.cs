@@ -50,7 +50,7 @@ public class MusicScript : MonoBehaviour
 
         if (PauseMenu.GameIsPaused ^ isPaused) PauseAndPlayMusic();
 
-        if (PauseMenu.GameIsWin)
+        if (!isTutorial && PauseMenu.GameIsWin)
             if (pauseSource.volume < 0.4f)
                 pauseSource.volume += 0.0004f;
     }
