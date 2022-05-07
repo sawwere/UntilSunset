@@ -34,6 +34,10 @@ public class PauseMenu : MonoBehaviour
         InfoIsOpened = false;
         Time.timeScale = 1f;
         winMenuUI.SetActive(false);
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            GameObject.Find("ButtonText").SetActive(false);
+        }
     }
 
     // Update is called once per frame
