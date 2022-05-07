@@ -76,9 +76,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     public void SpeedResetToZero()
     {
-        //speedInit = speed;
         speed = 0.0001f; // если поставить скорость = 0, то застыает на месте и перестает что-либо делать
-        //Debug.Log("to zero");
     }
 
     public void SpeedRestore()
@@ -205,7 +203,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
             CalculateParticlesPosition();
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
             currentHealth -= amount;
-            transform.GetChild(0).GetComponent<UIEnemies>().SetValue(currentHealth / (float)maxHealth);
+            UpdateHpBar(health, maxHealth);
             if (currentHealth <= 0)
                 EnemyKilled();
             immunityTimer = immunityPeriod;
@@ -291,10 +289,12 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         isFriend = true;
     }
 
-    /*private void OnCollisionExit2D(Collision2D collision)
-   
-
-    public void PauseWalkSound() => source.Pause();
-    public void ContinueWalkSound() => source.Play();
-    */
+    protected void UpdateHpBar(int current, int max)
+    {
+        transform.GetChild(0).GetComponent<UIEnemies>().SetValue(current / (float)max);
+    }
+    protected int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }

@@ -34,7 +34,6 @@ public class EnemyRange : EnemyCharacter
         base.Update();
         if (hasGrenades)
         {
-            //Debug.Log(hitTimer);
             if (hitTimer > 0)
             {
                 hitTimer -= Time.deltaTime;
