@@ -24,7 +24,7 @@ public class EnemyRangeAtack : MonoBehaviour
             if (obj != null 
                 && obj.GetLine() == parentEnemy.GetLine()
                 && (((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0)
-                && collision.transform.position.x * parentEnemy.transform.position.x > 0)
+                && collision.transform.position.x * parentEnemy.transform.position.x > 0) // чтобы стрелял только по объектам со своей половины карты
             {
                 SetTarget(collision.gameObject);
             }

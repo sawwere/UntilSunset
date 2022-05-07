@@ -52,4 +52,9 @@ public class Shield : MonoBehaviour, IDamage
             immunityTimer = immunityPeriod;
         }
     }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }

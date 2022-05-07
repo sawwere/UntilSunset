@@ -185,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2852742122124623577}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -12.878656}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 1285956112022105943}
@@ -662,7 +662,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00068223476, y: 0.18849812}
+  m_Offset: {x: 0, y: 0.187}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -673,7 +673,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.36057013, y: 0.17382178}
+  m_Size: {x: 0.36, y: 0.18}
   m_EdgeRadius: 0
 --- !u!50 &25924422436917165
 Rigidbody2D:
@@ -849,11 +849,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Enemy3_grenader
   price: 2
-  maxHealth: 20
+  maxHealth: 25
   speed: 1
   damage: 10
   immunityPeriod: 2
-  hitPeriod: 5
+  hitPeriod: 4
   _direction: 1
   immunityTimer: 0
   firstHitPeriod: 1.5
