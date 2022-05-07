@@ -522,8 +522,8 @@ MonoBehaviour:
   maxHealth: 30
   speed: 1
   damage: 20
-  immunityPeriod: 4
-  hitPeriod: 5
+  immunityPeriod: 2.5
+  hitPeriod: 4
   _direction: 1
   immunityTimer: 0
   firstHitPeriod: 5
