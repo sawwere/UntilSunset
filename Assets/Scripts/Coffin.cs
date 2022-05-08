@@ -11,6 +11,7 @@ public class Coffin : Building
     private float displayPeriod = 0.5f;
     private float displayTimer;
     private bool showDialog;
+    private bool playerIsNear;
 
     protected override void Start()
     {
@@ -39,6 +40,7 @@ public class Coffin : Building
         {
             displayTimer = displayPeriod;
             showDialog = false;
+            playerIsNear = false;
         }
     }
 
@@ -55,6 +57,11 @@ public class Coffin : Building
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag.CompareTo("Player") == 0)
+        {
+            playerIsNear = true;
+        }
+
+        if ((other.gameObject.tag.CompareTo("Player") == 0) && (health != maxHealth))
         {
             DisplayDialog();
             showDialog = true;
@@ -75,6 +82,11 @@ public class Coffin : Building
             displayTimer -= Time.deltaTime;
         if (displayTimer <= 0 && !showDialog)
             dialogBox.SetActive(false);
+
+        if ((playerIsNear) && (health != maxHealth))
+        {
+            DisplayDialog();
+        }
     }
 
     new public void RecieveDamage(int amount)
