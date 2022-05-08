@@ -84,11 +84,14 @@ public class EnemyGrenader : EnemyRange
 
         var hitBoxC = transform.GetChild(3);
         hitBoxC.gameObject.SetActive(true);
+        hitBoxC.gameObject.layer = gameObject.layer;
+
+        SpeedRestore();
     }
 
     protected override void ResetAfterMissedTarget()
     {
-        if (!target)
+        if (!target && hasGrenades)
         {
             target = null;
             SpeedRestore();
