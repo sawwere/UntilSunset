@@ -86,6 +86,7 @@ public class EnemyGrenader : EnemyRange
         hitBoxC.gameObject.SetActive(true);
         hitBoxC.gameObject.layer = gameObject.layer;
 
+        target = null;
         SpeedRestore();
     }
 
