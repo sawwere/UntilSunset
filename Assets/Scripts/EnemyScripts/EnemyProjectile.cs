@@ -21,10 +21,10 @@ public class EnemyProjectile : MonoBehaviour
     {
         //Debug.Log("launch");
         this.line = line;
-        rigidbody2d.rotation = 45;
+        rigidbody2d.rotation = 45 * direction;
         //rigidbody2d.AddForce(direction * force, ForceMode2D.Impulse);  
         rigidbody2d.velocity = new Vector2( direction, 1) * force;
-        rigidbody2d.angularVelocity = - 90;
+        rigidbody2d.angularVelocity = - 90 * (direction);
         this.damage = damage;
         parentEnemy = parent;
         if (is_friend)
