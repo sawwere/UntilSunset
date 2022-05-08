@@ -79,6 +79,8 @@ public class GameStats:MonoBehaviour
             enemyOnScreen.Add(new List<EnemyCharacter>());
 
         ResetStats();
+        BuildPlace_1.obj_ghost = null;
+        BuildPlace_1.obj_struct = null;
     }
 
     private void ResetStats()

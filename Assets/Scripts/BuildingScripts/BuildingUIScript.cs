@@ -14,26 +14,35 @@ public class BuildingUIScript : MonoBehaviour
 
     public void BuildWallButton()
     {
-        BuildPlace_1.obj_struct = wll1;
-        BuildPlace_1.obj_ghost = wll1Ghost;
-        BuildPlace_1.obj_price_wood = 3;
-        BuildPlace_1.obj_price_stone = 0;
+        if (!BuildPlace_1.paused)
+        {
+            BuildPlace_1.obj_struct = wll1;
+            BuildPlace_1.obj_ghost = wll1Ghost;
+            BuildPlace_1.obj_price_wood = 3;
+            BuildPlace_1.obj_price_stone = 0;
+        }
     }
 
     public void BuildStakesButton()
     {
-        BuildPlace_1.obj_struct = stakes;
-        BuildPlace_1.obj_ghost = stakesGhost;
-        BuildPlace_1.obj_price_wood = 1;
-        BuildPlace_1.obj_price_stone = 0;
+        if (!BuildPlace_1.paused)
+        {
+            BuildPlace_1.obj_struct = stakes;
+            BuildPlace_1.obj_ghost = stakesGhost;
+            BuildPlace_1.obj_price_wood = 1;
+            BuildPlace_1.obj_price_stone = 0;
+        }
     }
 
     public void BuildTowerButton()
     {
-        BuildPlace_1.obj_struct = tower;
-        BuildPlace_1.obj_ghost = towerGhost;
-        BuildPlace_1.obj_price_wood = 6;
-        BuildPlace_1.obj_price_stone = 2;
+        if (!BuildPlace_1.paused)
+        {
+            BuildPlace_1.obj_struct = tower;
+            BuildPlace_1.obj_ghost = towerGhost;
+            BuildPlace_1.obj_price_wood = 4;
+            BuildPlace_1.obj_price_stone = 2;
+        }
     }
 
     public void NullStruct()

@@ -34,6 +34,13 @@ public class TowerScript : Building, IDamage
 
     private void Update()
     {
+
+        if (pausecl)
+        {
+            HideDialog();
+            pausecl = true;
+        }
+
         if ((shotTimer >= 0) && (et || etback))
         {
             shotTimer -= Time.deltaTime;
