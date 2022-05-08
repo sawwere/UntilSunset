@@ -17,11 +17,11 @@ public class EnemyShield : EnemyClose
         if (shield)
         {
             shield.RecieveDamage(amount);
-            UpdateHpBar(health + shield.health, GetMaxHealth() + shield.GetMaxHealth());
         }
         else
         {
             base.RecieveDamage(amount);
         }
+        UpdateHpBar(health + shield.health, GetMaxHealth() + shield.GetMaxHealth());
     }
 }
