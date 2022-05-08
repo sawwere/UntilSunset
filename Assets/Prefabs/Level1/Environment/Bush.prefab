@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: DTimeMax
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8075885828632597509, guid: 02c1d928b3f32a747bb7c6c1e995c06a, type: 3}
+      propertyPath: offset
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8424214429475557594, guid: 02c1d928b3f32a747bb7c6c1e995c06a, type: 3}
       propertyPath: m_Name
       value: Bush

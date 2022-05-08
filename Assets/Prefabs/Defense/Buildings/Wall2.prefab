@@ -1395,7 +1395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d44b31e465698468d6baf3ccc79847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 9
+  offset: 10.5
 --- !u!82 &-263667485712985945
 AudioSource:
   m_ObjectHideFlags: 0
