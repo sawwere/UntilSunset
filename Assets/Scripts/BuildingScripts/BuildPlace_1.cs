@@ -81,7 +81,18 @@ public class BuildPlace_1 : MonoBehaviour
             resources.ClearPriceOrRefund();
             resources.UpdateAll();
         }
+
+        if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null) && !ghostexist)
+        {
+            resources.SetPrice(obj_price_wood, obj_price_stone);
+            resources.UpdateAll();
+            wallg = Instantiate(obj_ghost, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), transform.rotation);
+            wallg.transform.SetParent(this.transform);
+            ghostexist = true;
+        }
     }
+    
+    /*
     private void OnMouseEnter()
     {
         if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
@@ -93,6 +104,8 @@ public class BuildPlace_1 : MonoBehaviour
             ghostexist = true;
         }
     }
+    */
+    
 
     private void OnMouseExit()
     {
