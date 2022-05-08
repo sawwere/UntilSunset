@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+using CnControls;
 
 public class BuildPlace_1 : MonoBehaviour
 {
@@ -104,10 +107,29 @@ public class BuildPlace_1 : MonoBehaviour
 
     private void OnMouseDown()
     {
+#if UNITY_ANDROID
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            Rect r = new Rect();
+            r.xMin = 0;
+            r.xMax = Screen.width / 6;
+            r.yMin = Screen.height / 4;
+            r.yMax = r.yMin + Screen.height / 2;
+            var touch = Input.GetTouch(i);
+            if (touch.phase == TouchPhase.Began
+                && !EventSystem.current.IsPointerOverGameObject(touch.fingerId)
+                && (obj_struct != null)
+                && !r.Contains(touch.position))
+            {
+                BuildStruct();
+            } 
+        }
+#else
         if (!EventSystem.current.IsPointerOverGameObject() && (obj_struct != null))
         {
             BuildStruct();
         }
+#endif
     }
 
     public void BuildStruct()
