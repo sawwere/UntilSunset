@@ -40,7 +40,7 @@ public class BuildingUIScript : MonoBehaviour
         {
             BuildPlace_1.obj_struct = tower;
             BuildPlace_1.obj_ghost = towerGhost;
-            BuildPlace_1.obj_price_wood = 6;
+            BuildPlace_1.obj_price_wood = 4;
             BuildPlace_1.obj_price_stone = 2;
         }
     }
