@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 6876324288080812311}
   - component: {fileID: 1642148995720193045}
   - component: {fileID: 1029436420599279239}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: ArrowTriggerBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +102,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.5760723, y: 0.34446168}
-  m_Size: {x: 3.8949645, y: 0.37668833}
+  m_Offset: {x: 2.5300357, y: 0.3444615}
+  m_Size: {x: 5.8029094, y: 0.37668848}
   m_Direction: 1
 --- !u!114 &1029436420599279239
 MonoBehaviour:
@@ -356,7 +356,7 @@ MonoBehaviour:
   rep_stone_cost: 1
   del_wood_re: 1
   del_stone_re: 1
-  timerDisplay: 0
+  shotTimer: 0
   dialogBox: {fileID: 601218169032051313}
 --- !u!114 &355100639746203230
 MonoBehaviour:
@@ -594,8 +594,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.020623, y: 0.3444623}
-  m_Size: {x: 4.926297, y: 0.3766877}
+  m_Offset: {x: -3.5275738, y: 0.3444623}
+  m_Size: {x: 7.9403615, y: 0.37668797}
   m_Direction: 1
 --- !u!114 &4251305411070900093
 MonoBehaviour:
