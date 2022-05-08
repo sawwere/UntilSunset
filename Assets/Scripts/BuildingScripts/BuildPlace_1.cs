@@ -11,6 +11,7 @@ public class BuildPlace_1 : MonoBehaviour
     public GameObject dialogBox;
     public GameObject wall;
     public GameObject brstakes;
+    public static bool paused;
     public static GameObject obj_struct;
     public static GameObject obj_struct_add;
     public static GameObject obj_ghost;
@@ -34,6 +35,7 @@ public class BuildPlace_1 : MonoBehaviour
 
     void Start()
     {
+        paused = false;
         IsWalled = false;
         EnemyIsNear = false;
         dialogBox.SetActive(false);
@@ -153,6 +155,7 @@ public class BuildPlace_1 : MonoBehaviour
 
     public static void PauseBuilding()
     {
+        paused = true;
         Destroy(wallg);
         obj_struct_add = obj_struct;
         obj_ghost_add = obj_ghost;
@@ -162,6 +165,7 @@ public class BuildPlace_1 : MonoBehaviour
 
     public static void ResumeBuilding()
     {
+        paused = false;
         obj_struct = obj_struct_add;
         obj_ghost = obj_ghost_add;
         obj_ghost_add = null;
