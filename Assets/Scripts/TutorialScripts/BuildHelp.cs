@@ -75,7 +75,7 @@ public class BuildHelp : MonoBehaviour
         var b = GameObject.FindGameObjectWithTag("Minion");
         if (b && !flag7 && flag5)
         {
-            SpawnEnemiesForBecomeFriend();
+            SpawnEnemiesForHenchman(b.GetComponent<Bat>().GetLine());
             coffin.GetComponent<Coffin>().Recover();
             coffin.GetComponent<Coffin>().RecieveDamage(10);
             dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Если враг добрался до дома, то дом будет терять здоровье,оно отображается" +
@@ -136,9 +136,18 @@ public class BuildHelp : MonoBehaviour
             Instantiate(resoursePrefab2, transform.position + new Vector3(-1, 0, 0), transform.rotation);
         }
     }
+
     EnemyCharacter SpawnEnemiesForBecomeFriend()
     {
         EnemyCharacter enemyObject = Instantiate(enemy, new Vector3(33, 0, transform.position.z), transform.rotation);
+        enemyObject.direction = -1;
+        return enemyObject;
+
+    }
+
+    EnemyCharacter SpawnEnemiesForHenchman(int line)
+    {
+        EnemyCharacter enemyObject = Instantiate(enemy, new Vector3(33, line, transform.position.z), transform.rotation);
         enemyObject.direction = -1;
         return enemyObject;
 
