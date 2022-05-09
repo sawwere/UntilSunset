@@ -46,6 +46,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     protected Rigidbody2D rigidbody2d;
     [SerializeField] private GameObject resoursePrefab; // какой ресурс может выпасть с врага
 
+    private PlayerController player;
+
     public int health 
     { 
         get { return currentHealth; } 
@@ -97,6 +99,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         rigidbody2d = GetComponent<Rigidbody2D>();
         source = GetComponent<AudioSource>();
         currentHealth = maxHealth;
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         immunityTimer = 0;
         hitTimer = firstHitPeriod;
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
@@ -271,6 +274,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         gameObject.tag = "Friend";
         transform.GetChild(1).gameObject.layer = LayerMask.NameToLayer("NPC_Friend");
         GameStats.enemyOnScreen[line + 1].Remove(this);
+        player.LoseSubduingBlood();
     }
 
     public void PauseWalkSound()

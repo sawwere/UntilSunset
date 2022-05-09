@@ -284,6 +284,11 @@ public class PlayerController : MonoBehaviour
         return isBat;
     }
 
+    public bool GetIsDancing()
+    {
+        return isDancing;
+    }
+
     public bool GetAtHome()
     {
         return atHome;
@@ -294,10 +299,6 @@ public class PlayerController : MonoBehaviour
         batSpawnPosition = transform.position;
         batSpawnPosition.y = henchmanLine - 1;
     }
-    /*batSpawnPosition = transform.position;
-    batSpawnPosition.y -= 0.85f;
-    batSpawnPosition.y = Math.Min(batSpawnPosition.y, 1);
-    batSpawnPosition.y = Math.Max(batSpawnPosition.y, -1);*/
 
     private void GetLineForSpawnBat()
     {
@@ -351,9 +352,13 @@ public class PlayerController : MonoBehaviour
             isTurning = true;
             animator.Play("Magic");
             StartCoroutine(ThunderZoneActivate(enemy));
-            GameStats.Henchman -= 5;
-            resources.UpdateHenchman();
         }
+    }
+
+    public void LoseSubduingBlood()
+    {
+        GameStats.Henchman -= 5;
+        resources.UpdateHenchman();
     }
 
     private IEnumerator ThunderZoneActivate(EnemyCharacter enemy)
