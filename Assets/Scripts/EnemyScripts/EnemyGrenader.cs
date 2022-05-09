@@ -98,4 +98,10 @@ public class EnemyGrenader : EnemyRange
             SpeedRestore();
         }
     }
+
+    public override void BecomeFriend()
+    {
+        base.BecomeFriend();
+        transform.GetChild(3).gameObject.layer = gameObject.layer;
+    }
 }
