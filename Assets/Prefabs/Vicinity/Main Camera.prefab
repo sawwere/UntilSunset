@@ -489,4 +489,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraEventMask:
     serializedVersion: 2
-    m_Bits: 800
+    m_Bits: 544
