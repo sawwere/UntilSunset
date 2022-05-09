@@ -13,6 +13,9 @@ public class MenuControls : MonoBehaviour
     public GameObject Level2;
     public GameObject Level3;
     public GameObject Tutorial;
+    public GameObject SettingsMenu;
+    public GameObject SettingsButton;
+    public bool SettingIsOpen;
 
     public GameObject LockLevel2;
     public GameObject LockLevel3;
@@ -29,6 +32,7 @@ public class MenuControls : MonoBehaviour
 
     private void Awake()
     {
+        SettingIsOpen = false;
         if(!PlayerPrefs.HasKey("Level"))
             PlayerPrefs.SetInt("Level", 1);
         else
@@ -47,7 +51,11 @@ public class MenuControls : MonoBehaviour
             else
                 BackToMain();
         }
-
+        if (Input.GetKeyDown(KeyCode.Escape) && SettingIsOpen)
+        {
+            SettingsMenu.SetActive(false);
+            SettingIsOpen = false;
+        }
     }
 
     public void PlayPressed()
@@ -56,6 +64,7 @@ public class MenuControls : MonoBehaviour
         Exit.SetActive(false);
         Play.SetActive(false);
         Level1.SetActive(true);
+        SettingsButton.SetActive(false);
         if (Level > 1)
         {
             Level2.SetActive(true);
@@ -112,6 +121,7 @@ public class MenuControls : MonoBehaviour
         Exit.SetActive(false);
         Back.SetActive(true);
         Play.SetActive(false);
+        SettingsButton.SetActive(false);
         InfoBut.SetActive(false);
         ScrollInfo.SetActive(true);
         MenuLogo.text = "Об Игре";
@@ -120,6 +130,7 @@ public class MenuControls : MonoBehaviour
     {
         Play.SetActive(true);
         InfoBut.SetActive(true);
+        SettingsButton.SetActive(true);
         ScrollInfo.SetActive(false);
         MenuLogo.text = "Меню";
     }
@@ -129,6 +140,7 @@ public class MenuControls : MonoBehaviour
         ScrollInfo.SetActive(false);
         Exit.SetActive(true);
         Play.SetActive(true);
+        SettingsButton.SetActive(true);
         Level1.SetActive(false);
         Level2.SetActive(false);
         Level3.SetActive(false);
@@ -152,6 +164,12 @@ public class MenuControls : MonoBehaviour
     public void Enemy3Info()
     {
         InfoEnemy3.SetActive(true);
+    }
+
+    public void SettingsPressed()
+    {
+        SettingsMenu.SetActive(true);
+        SettingIsOpen = true;
     }
 
 }
