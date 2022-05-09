@@ -9358,6 +9358,9 @@ MonoBehaviour:
   Level2: {fileID: 632769204}
   Level3: {fileID: 688987831}
   Tutorial: {fileID: 1822741465}
+  SettingsMenu: {fileID: 906046430}
+  SettingsButton: {fileID: 1103010086}
+  SettingIsOpen: 0
   LockLevel2: {fileID: 418371115}
   LockLevel3: {fileID: 1172709982}
   InfoBut: {fileID: 1889616403}
