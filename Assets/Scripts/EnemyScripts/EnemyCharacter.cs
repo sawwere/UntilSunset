@@ -48,6 +48,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
 
     private PlayerController player;
 
+    public TimeCycle timeCycle;
+
     public int health 
     { 
         get { return currentHealth; } 
@@ -104,6 +106,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         hitTimer = firstHitPeriod;
         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.x);
         aviableHitMask = LayerMask.GetMask("Buildings") | LayerMask.GetMask("NPC_Friend");
+        timeCycle = GameObject.Find("GameStatsObject").GetComponent<TimeCycle>();
         isFriend = false;
         source.volume = 0f;
         source.loop = true;
@@ -265,6 +268,7 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
     //разворачивает в обратном направлении и заставляет атаковать других врагов
     public virtual void BecomeFriend()
     {
+        if (!timeCycle.GetIsDay()) return;
         ReturnToBase();
         hitTimer = 1f;
         CalculateParticlesPosition();
