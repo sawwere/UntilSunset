@@ -62,7 +62,7 @@ public class EnemyGrenader : EnemyRange
             {
                 if (hitTimer <= 0)
                 {
-                    obj.RecieveDamage(damage);
+                    obj.RecieveDamage(damage, DamageType.close_combat);
                     hitTimer = hitPeriod;
                 }
                 else if ((hitTimer <= 2f && (obj is Wall wall)) || hitTimer <= 1f)

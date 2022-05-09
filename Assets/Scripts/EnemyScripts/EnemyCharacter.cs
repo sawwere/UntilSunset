@@ -197,9 +197,9 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
         Destroy(gameObject);
     }
 
-    virtual public void RecieveDamage(int amount)
+    virtual public void RecieveDamage(int amount, DamageType damageType)
     {
-        if (immunityTimer <= 0)
+        if (damageType != DamageType.wall || immunityTimer <= 0)
         {
             CalculateParticlesPosition();
             Instantiate(BloodParticles, ParticlesSpawnPosition, Quaternion.identity);
@@ -207,7 +207,8 @@ public class EnemyCharacter: MonoBehaviour, IDamage, IMovable
             UpdateHpBar(health, maxHealth);
             if (currentHealth <= 0)
                 EnemyKilled();
-            immunityTimer = immunityPeriod;
+            if (damageType == DamageType.wall)
+                immunityTimer = immunityPeriod;
         }
     }
 

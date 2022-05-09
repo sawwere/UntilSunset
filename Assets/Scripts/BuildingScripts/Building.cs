@@ -38,7 +38,7 @@ public class Building : MonoBehaviour
         _line = (int)transform.position.y;
     }
 
-    public void RecieveDamage(int amount)
+    public void RecieveDamage(int amount, DamageType damageType)
     {
         health -= amount;
         if (health <= 0)

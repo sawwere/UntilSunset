@@ -35,15 +35,14 @@ public class StakesScript : Building
 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length - 0.35f);
 
-        if (!(e is EnemyKamikadze kamikadze))
-            DoDamage(e);
+        DoDamage(e);
         
-        RecieveDamage(5);
+        RecieveDamage(5, DamageType.stakes);
     }
 
     public void DoDamage(EnemyCharacter e)
     {
-        e.RecieveDamage(5);
+        e.RecieveDamage(5, DamageType.stakes);
     }
 
     void OnTriggerEnter2D(Collider2D col)
