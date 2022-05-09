@@ -25,7 +25,7 @@ public class ArrowScript : MonoBehaviour
 
     public void DoDamage(IDamage obj)
     {
-        obj.RecieveDamage(6, DamageType.projectile);
+        obj.RecieveDamage(5, DamageType.projectile);
     }
 
     void OnTriggerEnter2D(Collider2D col)
