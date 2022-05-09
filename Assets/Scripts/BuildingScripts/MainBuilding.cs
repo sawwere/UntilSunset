@@ -26,7 +26,7 @@ public class MainBuilding : MonoBehaviour
         if (enemy)
         {
             enemy.EnterMainBuilding();
-            transform.GetChild(2).GetComponent<Coffin>().RecieveDamage(enemy.damage);
+            transform.GetChild(2).GetComponent<Coffin>().RecieveDamage(enemy.damage, DamageType.close_combat);
         }
 
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();

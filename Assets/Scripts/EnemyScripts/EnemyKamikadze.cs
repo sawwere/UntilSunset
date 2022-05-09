@@ -24,13 +24,19 @@ public class EnemyKamikadze : EnemyClose
             var obj = lst[i].GetComponent<IDamage>();
             if (obj != null && lst[i] != gameObject.GetComponent<Collider2D>())
             {
-                obj.RecieveDamage(damage);
+                obj.RecieveDamage(damage, DamageType.close_combat);
             }
         }
         
         GameObject.Find("ResSounds").GetComponent<AudioSource>().PlayOneShot(CDeath, 1f);
         
         EnemyKilled();
+    }
+
+    public override void RecieveDamage(int amount, DamageType damageType)
+    {
+        if (damageType != DamageType.stakes)
+            base.RecieveDamage(amount, damageType);
     }
 
     public override void DoDamage(IDamage obj)

@@ -2327,6 +2327,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
   volumeParameter: musicVol
   slider: {fileID: 213716136}
+  isCameraScript: 0
 --- !u!114 &213716136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5477,6 +5478,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
   volumeParameter: effects
   slider: {fileID: 576737055}
+  isCameraScript: 0
 --- !u!114 &576737055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6942,6 +6944,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
   volumeParameter: MasterVolume
   slider: {fileID: 811639823}
+  isCameraScript: 0
 --- !u!114 &811639823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7554,6 +7557,9 @@ GameObject:
   - component: {fileID: 944421063}
   - component: {fileID: 944421062}
   - component: {fileID: 944421061}
+  - component: {fileID: 944421066}
+  - component: {fileID: 944421065}
+  - component: {fileID: 944421064}
   m_Layer: 0
   m_Name: GameStatsObject
   m_TagString: Untagged
@@ -7628,6 +7634,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &944421064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944421060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: effects
+  slider: {fileID: 0}
+  isCameraScript: 1
+--- !u!114 &944421065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944421060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: musicVol
+  slider: {fileID: 0}
+  isCameraScript: 1
+--- !u!114 &944421066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944421060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: MasterVolume
+  slider: {fileID: 0}
+  isCameraScript: 1
 --- !u!1001 &965360430
 PrefabInstance:
   m_ObjectHideFlags: 0

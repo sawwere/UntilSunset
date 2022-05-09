@@ -38,7 +38,7 @@ public class EnemyProjectile : MonoBehaviour
             && obj.GetLine() == line
             && (((1 << collision.gameObject.layer) & parentEnemy.aviableHitMask.value) != 0))
         {
-            obj.RecieveDamage(damage);
+            obj.RecieveDamage(damage, DamageType.projectile);
             damage = 0;
             Destroy(gameObject);
 

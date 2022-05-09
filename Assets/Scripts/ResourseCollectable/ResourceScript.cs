@@ -71,7 +71,7 @@ public class ResourceScript : MonoBehaviour
     void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
-            if (pl.GetIsBat() || pl.GetAtHome())
+            if (pl.GetIsBat() || pl.GetAtHome() || pl.GetIsDancing())
             {
                 resIndComponent.isMousePressed = false;
                 resInd.SetActive(false);

@@ -70,14 +70,6 @@ public class Coffin : Building
             DisplayDialog();
             showDialog = true;
         }
-
-        EnemyCharacter e = other.gameObject.GetComponent<EnemyCharacter>();
-        if (e)
-        {
-            RecieveDamage(e.damage);
-            UIHealthBar.instance.SetValue(health / (float)maxHealth); // ������������� ����� �������� ��� ������� ��������
-            Destroy(e.gameObject);
-        }
     }
 
     private void Update()
@@ -93,7 +85,7 @@ public class Coffin : Building
         }
     }
 
-    new public void RecieveDamage(int amount)
+    new public void RecieveDamage(int amount, DamageType damageType)
     {
         health -= amount;
         UIHealthBar.instance.SetValue(health / (float)maxHealth); // ������������� ����� �������� ��� ������� ��������

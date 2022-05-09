@@ -115,13 +115,13 @@ public class Bat : MonoBehaviour, IDamage, IMovable
         {
             if (hitTimer <= 0)
             {
-                obj.RecieveDamage(damage);
+                obj.RecieveDamage(damage, DamageType.close_combat);
                 hitTimer = hitPeriod;
             }
         }
     }
 
-    public void RecieveDamage(int amount)
+    public void RecieveDamage(int amount, DamageType damageType)
     {
         if (immunityTimer <= 0)
         {

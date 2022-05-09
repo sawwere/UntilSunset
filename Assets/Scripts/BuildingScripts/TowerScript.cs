@@ -81,7 +81,7 @@ public class TowerScript : Building, IDamage
 
     public void DoDamage(IDamage obj)
     {
-        obj.RecieveDamage(10);
+        obj.RecieveDamage(10, DamageType.projectile);
     }
 
     public void DestroyStruct()

@@ -15226,6 +15226,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
   volumeParameter: musicVol
   slider: {fileID: 745198883}
+  isCameraScript: 0
 --- !u!114 &745198883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19670,6 +19671,9 @@ GameObject:
   - component: {fileID: 922894793}
   - component: {fileID: 922894792}
   - component: {fileID: 922894794}
+  - component: {fileID: 922894797}
+  - component: {fileID: 922894796}
+  - component: {fileID: 922894795}
   m_Layer: 0
   m_Name: GameStatsObject
   m_TagString: Untagged
@@ -19745,6 +19749,54 @@ MonoBehaviour:
   ShadowTotem2: {fileID: 1207211291}
   ShadowTotem3: {fileID: 305830237}
   NumDay: 2
+--- !u!114 &922894795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922894791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: effects
+  slider: {fileID: 0}
+  isCameraScript: 1
+--- !u!114 &922894796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922894791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: musicVol
+  slider: {fileID: 0}
+  isCameraScript: 1
+--- !u!114 &922894797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922894791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: MasterVolume
+  slider: {fileID: 0}
+  isCameraScript: 1
 --- !u!1001 &926664285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39931,6 +39983,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
   volumeParameter: MasterVolume
   slider: {fileID: 1122874542}
+  isCameraScript: 0
 --- !u!114 &1122874542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46378,6 +46431,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
   volumeParameter: effects
   slider: {fileID: 1473621962}
+  isCameraScript: 0
 --- !u!114 &1473621962
 MonoBehaviour:
   m_ObjectHideFlags: 0
