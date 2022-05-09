@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource source;
     public AudioClip[] walksounds;
+    public AudioClip CHypnosis;
     private bool isWalking;
     private bool soundIsPlaying;
     private bool onTheWay;
@@ -350,6 +351,7 @@ public class PlayerController : MonoBehaviour
             enemy.IsFriendMakeTrue();
             isTurning = true;
             animator.Play("Magic");
+            GameObject.Find("ResSounds").GetComponent<AudioSource>().PlayOneShot(CHypnosis);
             StartCoroutine(ThunderZoneActivate(enemy));
             GameStats.Henchman -= 5;
             resources.UpdateHenchman();

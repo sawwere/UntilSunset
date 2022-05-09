@@ -256,7 +256,9 @@ MonoBehaviour:
   rigidbBody2D: {fileID: 0}
   animator: {fileID: 7946847478852771295}
   isBat: 0
+  isTurning: 0
   atHome: 0
+  timeCycle: {fileID: 0}
   Bat: {fileID: 4329905914580742843, guid: e72ed6eac7406824a8902eb554549346, type: 3}
   nimb: {fileID: 394967960778477766}
   isGod: 0
@@ -265,8 +267,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}
   - {fileID: 8300000, guid: 91344452faff26a47b1878377a61c9f0, type: 3}
   - {fileID: 8300000, guid: de683bca8b960c14f9f76bb84df6ac2f, type: 3}
+  CHypnosis: {fileID: 0}
   isTutorial: 1
-  joystick: {fileID: 0}
+  isLeaving: 0
 --- !u!95 &7946847478852771295
 Animator:
   serializedVersion: 3
@@ -410,7 +413,9 @@ MonoBehaviour:
   rigidbBody2D: {fileID: 0}
   animator: {fileID: 7946847478852771295}
   isBat: 0
+  isTurning: 0
   atHome: 0
+  timeCycle: {fileID: 0}
   Bat: {fileID: 4329905914580742843, guid: e72ed6eac7406824a8902eb554549346, type: 3}
   nimb: {fileID: 394967960778477766}
   isGod: 0
@@ -419,6 +424,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 91344452faff26a47b1878377a61c9f0, type: 3}
   - {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}
   - {fileID: 8300000, guid: de683bca8b960c14f9f76bb84df6ac2f, type: 3}
+  CHypnosis: {fileID: 8300000, guid: 5853349969d801c44abf5fcfc9345daa, type: 3}
   isTutorial: 1
-  joystick: {fileID: 0}
+  isLeaving: 0
   dialogBox1: {fileID: 0}
