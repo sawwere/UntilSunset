@@ -62,7 +62,7 @@ public class EnemyGrenader : EnemyRange
             {
                 if (hitTimer <= 0)
                 {
-                    obj.RecieveDamage(damage);
+                    obj.RecieveDamage(damage, DamageType.close_combat);
                     hitTimer = hitPeriod;
                 }
                 else if ((hitTimer <= 2f && (obj is Wall wall)) || hitTimer <= 1f)
@@ -84,14 +84,24 @@ public class EnemyGrenader : EnemyRange
 
         var hitBoxC = transform.GetChild(3);
         hitBoxC.gameObject.SetActive(true);
+        hitBoxC.gameObject.layer = gameObject.layer;
+
+        target = null;
+        SpeedRestore();
     }
 
     protected override void ResetAfterMissedTarget()
     {
-        if (!target)
+        if (!target && hasGrenades)
         {
             target = null;
             SpeedRestore();
         }
+    }
+
+    public override void BecomeFriend()
+    {
+        base.BecomeFriend();
+        transform.GetChild(3).gameObject.layer = gameObject.layer;
     }
 }

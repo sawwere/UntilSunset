@@ -12,15 +12,15 @@ public class EnemyShield : EnemyClose
         base.Start();
     }
 
-    public  override void RecieveDamage(int amount)
+    public  override void RecieveDamage(int amount, DamageType damageType)
     {
-        if (shield)
+        if (shield && damageType != DamageType.stakes)
         {
-            shield.RecieveDamage(amount);
+            shield.RecieveDamage(amount, damageType);
         }
         else
         {
-            base.RecieveDamage(amount);
+            base.RecieveDamage(amount, damageType);
         }
         UpdateHpBar(health + shield.health, GetMaxHealth() + shield.GetMaxHealth());
     }
