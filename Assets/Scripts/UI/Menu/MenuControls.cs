@@ -121,11 +121,12 @@ public class MenuControls : MonoBehaviour
         Play.SetActive(true);
         InfoBut.SetActive(true);
         ScrollInfo.SetActive(false);
-        MenuLogo.text = "Меню";
+        MenuLogo.text = "Дожить До Заката";
     }
 
     public void BackToMain()
     {
+        MenuLogo.text = "Дожить До Заката";
         ScrollInfo.SetActive(false);
         Exit.SetActive(true);
         Play.SetActive(true);
