@@ -3654,7 +3654,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8944893, y: -5.47736}
+  m_Offset: {x: 0.8944893, y: -5.2228785}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3665,7 +3665,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.955246, y: 7.035681}
+  m_Size: {x: 8.955246, y: 9.395414}
   m_EdgeRadius: 0
 --- !u!4 &398457315
 Transform:
@@ -4222,7 +4222,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8944893, y: -5.47736}
+  m_Offset: {x: 0.8944893, y: -4.948292}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4233,7 +4233,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.3, y: 3}
+  m_Size: {x: 4.3, y: 4.058136}
   m_EdgeRadius: 0
 --- !u!4 &427374843
 Transform:
@@ -5055,7 +5055,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5083,7 +5083,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -34.991806}
+  m_margin: {x: 0, y: 0, z: 0, w: 41.247246}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5920,7 +5920,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 9, y: -5.5005364}
+  m_Offset: {x: 9, y: -5.33756}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5931,7 +5931,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 7.116248}
+  m_Size: {x: 15, y: 9.863561}
   m_EdgeRadius: 0
 --- !u!114 &642046270
 MonoBehaviour:
@@ -6808,7 +6808,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6, y: -5.487517}
+  m_Offset: {x: 6, y: -5.2604823}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6819,7 +6819,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18, y: 6.9560614}
+  m_Size: {x: 18, y: 9.77929}
   m_EdgeRadius: 0
 --- !u!114 &787947004
 MonoBehaviour:
@@ -7841,7 +7841,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7869,7 +7869,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.00000019481968, y: 3.234566, z: 16.184875, w: -46.27974}
+  m_margin: {x: -0.00000019481968, y: 3.234566, z: 16.184875, w: -8.694566}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8559,7 +8559,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0421\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C \u043C\u044B\u0448\u0438
     - \u0442\u0440\u0438 \u043A\u0430\u043F\u043B\u0438 \u043A\u0440\u043E\u0432\u0438.
-    \u0418\u0445 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0435\u0442\u0441\u044F
+    \u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043A\u0430\u043F\u0435\u043B\u044C
+    \u043A\u0440\u043E\u0432\u0438 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0435\u0442\u0441\u044F
     \u0432 \u043B\u0435\u0432\u043E\u043C \u0432\u0435\u0440\u0445\u043D\u0435\u043C
     \u0443\u0433\u043B\u0443. \u0427\u0442\u043E\u0431\u044B \u0432\u044B\u0441\u0442\u0430\u0432\u0438\u0442\u044C
     \u043C\u044B\u0448\u044C \u043D\u0430 \u043B\u0438\u043D\u0438\u044E, \u0433\u0434\u0435
@@ -8610,7 +8611,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -8638,7 +8639,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -55.329422}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8813,7 +8814,7 @@ MonoBehaviour:
     \u0440\u0435\u0441\u0443\u0440\u0441\u044B. \u041E\u043D\u0438 \u043F\u0440\u0438\u0433\u043E\u0434\u044F\u0442\u0441\u044F
     \u0412\u0430\u043C \u0434\u043B\u044F \u043E\u0431\u043E\u0440\u043E\u043D\u044B.
     \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u043D\u0430\u0447\u0430\u0442\u044C
-    \u0441 \u044D\u0442\u043E\u0433\u043E \u0434\u0435\u0440\u0435\u0432\u0430, \u043F\u043D\u044F
+    \u0441 \u044D\u0442\u043E\u0433\u043E \u0434\u0435\u0440\u0435\u0432\u0430, \u043A\u0443\u0441\u0442\u0430
     \u0438 \u043A\u0430\u043C\u043D\u044F. \u041D\u0430\u0436\u043C\u0438\u0442\u0435
     \u043D\u0430 \u043E\u0431\u044A\u0435\u043A\u0442, \u0431\u0443\u0434\u0443\u0447\u0438
     \u0432 \u043E\u0431\u043B\u0438\u043A\u0435 \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430. "
@@ -8851,7 +8852,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -8951,9 +8952,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u0427\u0442\u043E\u0431\u044B \u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E
-    \u043D\u043E\u0447\u044C \u0434\u0435\u0440\u0435\u0432\u043E \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u043B\u043E\u0441\u044C,
-    \u043D\u0443\u0436\u043D\u043E \u0441\u043B\u043E\u043C\u0430\u0442\u044C \u0435\u0433\u043E,
-    \u0430 \u0437\u0430\u0442\u0435\u043C \u043F\u0435\u043D\u044C."
+    \u043D\u043E\u0447\u044C \u0434\u0435\u0440\u0435\u0432\u043E \u0432\u044B\u0440\u043E\u0441\u043B\u043E
+    \u0441\u043D\u043E\u0432\u0430, \u043D\u0443\u0436\u043D\u043E \u0441\u043B\u043E\u043C\u0430\u0442\u044C
+    \u0435\u0433\u043E, \u0430 \u0437\u0430\u0442\u0435\u043C \u043F\u0435\u043D\u044C."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f606da681ebf6549be345b8b8117289, type: 2}
   m_sharedMaterial: {fileID: 9104816170747998812, guid: 7f606da681ebf6549be345b8b8117289, type: 2}
@@ -12048,7 +12049,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -12076,7 +12077,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -28.438766}
+  m_margin: {x: 0, y: 0, z: 0, w: 22.47567}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13123,7 +13124,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.9072065, y: 0.54317594}
+  m_Offset: {x: -3.9072065, y: 0.49344373}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -13134,7 +13135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9530697, y: 7.0943646}
+  m_Size: {x: 0.9530697, y: 9.671566}
   m_EdgeRadius: 0
 --- !u!1001 &1453362439
 PrefabInstance:
@@ -14937,7 +14938,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -17498,7 +17499,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -5.47736}
+  m_Offset: {x: 0, y: -5.224661}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -17509,7 +17510,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 7.0356812}
+  m_Size: {x: 10, y: 9.962799}
   m_EdgeRadius: 0
 --- !u!114 &1914507709
 MonoBehaviour:
@@ -17763,7 +17764,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -47204,8 +47205,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 10, y: 10}
-  m_AnchoredPosition: {x: -2861.5986, y: -693.91}
-  m_SizeDelta: {x: -5700.89, y: -1363.16}
+  m_AnchoredPosition: {x: -2861.5986, y: -675.85}
+  m_SizeDelta: {x: -5700.89, y: -1399.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2108989702
 MonoBehaviour:
