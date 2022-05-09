@@ -86,6 +86,8 @@ MonoBehaviour:
   treesAmount: 4
   bush: {fileID: 2850449910204836096, guid: 8aa1e498848bfbf46b80bd50415f8b68, type: 3}
   bushAmount: 4
+  tombstone: {fileID: 0}
+  tombstoneAmount: 0
 --- !u!1001 &1145361894095896182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -366,11 +368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1650697803020494931, guid: 10cd9eb7b44c2ad4a9f822a40c43c647, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11
+      value: 10.93
       objectReference: {fileID: 0}
     - target: {fileID: 1650697803020494931, guid: 10cd9eb7b44c2ad4a9f822a40c43c647, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.51
+      value: 5.58
       objectReference: {fileID: 0}
     - target: {fileID: 1650697803020494931, guid: 10cd9eb7b44c2ad4a9f822a40c43c647, type: 3}
       propertyPath: m_LocalPosition.z
@@ -661,7 +663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1650697803020494931, guid: 10cd9eb7b44c2ad4a9f822a40c43c647, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.47
+      value: 5.63
       objectReference: {fileID: 0}
     - target: {fileID: 1650697803020494931, guid: 10cd9eb7b44c2ad4a9f822a40c43c647, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1631,7 +1633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1650697803020494931, guid: 10cd9eb7b44c2ad4a9f822a40c43c647, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.49
+      value: 6.38
       objectReference: {fileID: 0}
     - target: {fileID: 1650697803020494931, guid: 10cd9eb7b44c2ad4a9f822a40c43c647, type: 3}
       propertyPath: m_LocalPosition.z

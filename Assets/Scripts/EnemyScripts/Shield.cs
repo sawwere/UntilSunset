@@ -42,14 +42,15 @@ public class Shield : MonoBehaviour, IDamage
         return parentEnemy.GetLine();
     }
 
-    public void RecieveDamage(int amount)
+    public void RecieveDamage(int amount, DamageType damageType)
     {
-        if (immunityTimer <= 0)
+        if (damageType != DamageType.wall || immunityTimer <= 0)
         {
             currentHealth -= amount;
             if (currentHealth <= 0)
                 Destroy(gameObject);
-            immunityTimer = immunityPeriod;
+            if (damageType == DamageType.wall)
+                immunityTimer = immunityPeriod;
         }
     }
 

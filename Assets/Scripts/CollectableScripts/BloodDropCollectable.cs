@@ -10,6 +10,9 @@ public class BloodDropCollectable : MonoBehaviour
     public double borderLeft = -14.5;
     public double borderRight = 14.5;
 
+    private float disappearingTime = 47.5f;
+    private float deltaDisappearingTime;
+
     private BoxCollider2D col;
 
     private void Awake()
@@ -22,11 +25,14 @@ public class BloodDropCollectable : MonoBehaviour
     private void Start()
     {
 #if UNITY_ANDROID
-        SetPESize(); // for Pocket Edition
+        SetPEValues(); // for Pocket Edition
 #endif
+
+        deltaDisappearingTime = disappearingTime / 95;
+
         StartCoroutine(nameof(DissapearEffect));
 
-        Invoke(nameof(Dissapear), 47.5f);
+        Invoke(nameof(Dissapear), disappearingTime);
     }
 
     private void Dissapear()
@@ -43,7 +49,7 @@ public class BloodDropCollectable : MonoBehaviour
             Color color = sprite.material.color;
             color.a = f;
             sprite.material.color = color;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(deltaDisappearingTime);
         }
     }
 
@@ -68,8 +74,9 @@ public class BloodDropCollectable : MonoBehaviour
         }
     }
     
-    private void SetPESize()
+    private void SetPEValues()
     {
-        col.size *= 2.3f; 
+        col.size *= 2.3f;
+        disappearingTime = 60f;
     }
 }

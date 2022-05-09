@@ -13,17 +13,10 @@ public class EnemyFast : EnemyClose
         //gotHit = false;
         base.Start();
     }
-    public override void RecieveDamage(int amount)
+    public override void RecieveDamage(int amount, DamageType damageType)
     {
-        if (immunityTimer <= 0)
-        {
-            //if (immunityTimer <= 0 && !gotHit)
-            //{
-            //    gotHit = true;
-            //    IncreaseSpeed();
-            //}
-            base.RecieveDamage(amount);
-        }
+        
+        base.RecieveDamage(amount, damageType);
     }
 
     private void IncreaseSpeed()

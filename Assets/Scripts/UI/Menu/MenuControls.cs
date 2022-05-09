@@ -109,6 +109,8 @@ public class MenuControls : MonoBehaviour
 
     public void OpenInfo()
     {
+        Exit.SetActive(false);
+        Back.SetActive(true);
         Play.SetActive(false);
         InfoBut.SetActive(false);
         ScrollInfo.SetActive(true);
