@@ -7,6 +7,8 @@ public class Coffin : Building
 {
     public GameObject dialogBox;
     private Resources resources;
+    private AudioSource source;
+    public AudioClip CRecover;
 
     private float displayPeriod = 0.5f;
     private float displayTimer;
@@ -19,6 +21,7 @@ public class Coffin : Building
         maxHealth = 40;
         displayTimer = displayPeriod;
         base.Start();
+        source = GetComponent<AudioSource>();
     }
 
     public void Recover()
@@ -28,6 +31,7 @@ public class Coffin : Building
         {
             health = maxHealth;
             GameStats.Coins -= 5;
+            source.PlayOneShot(CRecover, 0.4f);
             resources.UpdateAll();
             UIHealthBar.instance.SetValue(health);
             HideDialog();
