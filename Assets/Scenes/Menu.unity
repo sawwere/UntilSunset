@@ -4976,7 +4976,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+  m_Text: " \u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 "
 --- !u!222 &846145282
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5970,8 +5970,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35678005, y: 0.1367869}
   m_AnchorMax: {x: 0.64385504, y: 0.22921313}
-  m_AnchoredPosition: {x: 0.01260376, y: -0.56451416}
-  m_SizeDelta: {x: -0.025100231, y: 7.129}
+  m_AnchoredPosition: {x: -0.4320221, y: -17.694}
+  m_SizeDelta: {x: -31.448, y: -0.0000076294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103010088
 MonoBehaviour:
@@ -11799,6 +11799,9 @@ GameObject:
   - component: {fileID: 2134865226}
   - component: {fileID: 2134865229}
   - component: {fileID: 2134865230}
+  - component: {fileID: 2134865233}
+  - component: {fileID: 2134865232}
+  - component: {fileID: 2134865231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11980,6 +11983,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MC: {fileID: 1716066712}
+--- !u!114 &2134865231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134865225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: MasterVolume
+  slider: {fileID: 0}
+  isCameraScript: 1
+--- !u!114 &2134865232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134865225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: musicVol
+  slider: {fileID: 0}
+  isCameraScript: 1
+--- !u!114 &2134865233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134865225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4f14978ead584588919982b65b34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
+  volumeParameter: effects
+  slider: {fileID: 0}
+  isCameraScript: 1
 --- !u!1 &2143411143
 GameObject:
   m_ObjectHideFlags: 0
