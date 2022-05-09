@@ -164,8 +164,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}
   - {fileID: 8300000, guid: 387a80f47e6e9924685f9cf321bf8f5e, type: 3}
   - {fileID: 8300000, guid: de683bca8b960c14f9f76bb84df6ac2f, type: 3}
+  CHypnosis: {fileID: 8300000, guid: 5853349969d801c44abf5fcfc9345daa, type: 3}
   isTutorial: 0
-  joystick: {fileID: 0}
+  isLeaving: 0
 --- !u!95 &353456340
 Animator:
   serializedVersion: 3
