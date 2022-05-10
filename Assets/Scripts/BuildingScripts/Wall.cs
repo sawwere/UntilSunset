@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : Building, IDamage
+public class Wall : Building
 {
     public GameObject dialogBox;
     public GameObject repairButton;
@@ -39,11 +39,6 @@ public class Wall : Building, IDamage
             HideDialog();
             pausecl = true;
         }
-    }
-
-    public void DoDamage(IDamage obj)
-    {
-        obj.RecieveDamage(10, DamageType.wall);
     }
 
     public void DestroyWall()
@@ -148,14 +143,5 @@ public class Wall : Building, IDamage
     public void UpdateHelthBar()
     {
         transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<WallHPBar>().SetValue(health / (float)maxHealth);
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        EnemyCharacter e = collision.gameObject.GetComponent<EnemyCharacter>();
-        if (e != null)
-        {
-            DoDamage(e);
-        }
     }
 }

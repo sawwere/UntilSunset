@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Wall_2 : Wall
+public class Wall_2 : Wall, IDamage
 {
     protected override void Start()
     {
@@ -18,5 +18,19 @@ public class Wall_2 : Wall
         maxHealth = 40;
         base.Start();
         source.PlayOneShot(CUpgrade, 0.5f);
+    }
+
+    public void DoDamage(IDamage obj)
+    {
+        obj.RecieveDamage(11, DamageType.wall);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        EnemyCharacter e = collision.gameObject.GetComponent<EnemyCharacter>();
+        if (e != null)
+        {
+            DoDamage(e);
+        }
     }
 }
