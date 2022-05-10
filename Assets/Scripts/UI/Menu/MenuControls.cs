@@ -8,6 +8,7 @@ public class MenuControls : MonoBehaviour
 {
     public GameObject Exit;
     public GameObject Back;
+    public GameObject Back1;
     public GameObject Play;
     public GameObject Level1;
     public GameObject Level2;
@@ -53,8 +54,7 @@ public class MenuControls : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape) && SettingIsOpen)
         {
-            SettingsMenu.SetActive(false);
-            SettingIsOpen = false;
+            BackPressed();
         }
     }
 
@@ -130,6 +130,8 @@ public class MenuControls : MonoBehaviour
     {
         Play.SetActive(true);
         InfoBut.SetActive(true);
+        Back.SetActive(false);
+        Exit.SetActive(true);
         SettingsButton.SetActive(true);
         ScrollInfo.SetActive(false);
         MenuLogo.text = "Дожить До Заката";
@@ -171,6 +173,16 @@ public class MenuControls : MonoBehaviour
     {
         SettingsMenu.SetActive(true);
         SettingIsOpen = true;
+        Exit.SetActive(false);
+        Back1.SetActive(true);
+    }
+
+    public void BackPressed()
+    {
+        SettingsMenu.SetActive(false);
+        SettingIsOpen = false;
+        Exit.SetActive(true);
+        Back1.SetActive(false);
     }
 
 }
