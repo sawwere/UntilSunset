@@ -174,6 +174,9 @@ public class MenuControls : MonoBehaviour
         SettingsMenu.SetActive(true);
         SettingIsOpen = true;
         Exit.SetActive(false);
+        Play.SetActive(false);
+        InfoBut.SetActive(false);
+        SettingsButton.SetActive(false);
         Back1.SetActive(true);
     }
 
@@ -182,6 +185,9 @@ public class MenuControls : MonoBehaviour
         SettingsMenu.SetActive(false);
         SettingIsOpen = false;
         Exit.SetActive(true);
+        Play.SetActive(true);
+        InfoBut.SetActive(true);
+        SettingsButton.SetActive(true);
         Back1.SetActive(false);
     }
 
