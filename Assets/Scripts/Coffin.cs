@@ -9,6 +9,7 @@ public class Coffin : Building
     private Resources resources;
     private AudioSource source;
     public AudioClip CRecover;
+    public int recoverPrice;
 
     private float displayPeriod = 0.5f;
     private float displayTimer;
@@ -27,14 +28,17 @@ public class Coffin : Building
     public void Recover()
     {
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
-        if ((GameStats.Coins >= 5) && (health < maxHealth))
+        if ((GameStats.Coins >= recoverPrice) && (health < maxHealth))
         {
             health = maxHealth;
-            GameStats.Coins -= 5;
+            GameStats.Coins -= recoverPrice;
+            recoverPrice++;
             source.PlayOneShot(CRecover, 0.4f);
             resources.UpdateAll();
             UIHealthBar.instance.SetValue(health);
             HideDialog();
+            resources.ClearPriceOrRefund();
+            resources.UpdateAll();
         }
     }
 
