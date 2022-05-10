@@ -410,25 +410,25 @@ public class PlayerController : MonoBehaviour
                 source.Play();
             }
         }
-        else
+        else if (isBat)
         {
-            if (isBat)
+            if (!isFlapping)
             {
-                if (!isFlapping)
-                {
-                    isFlapping = true;
-                    source.clip = walksounds[3];
-                    source.Play();
-                    sIsPlaying = new bool[] { false, false, false };
-                }
-            }
-            else
-            {
+                isFlapping = true;
                 source.Stop();
-                soundIsPlaying = false;
+                source.clip = walksounds[3];
+                source.Play();
                 sIsPlaying = new bool[] { false, false, false };
             }
         }
+        else
+        {
+            isFlapping = false;
+            source.Stop();
+            soundIsPlaying = false;
+            sIsPlaying = new bool[] { false, false, false };
+        }
+        
     }
 
     public void ReturnRight()
