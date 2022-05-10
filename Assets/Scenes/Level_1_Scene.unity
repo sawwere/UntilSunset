@@ -44811,10 +44811,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3749287523779596556, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -1886344839752017147, guid: 0801f9a5265ac7849b2796e2181f3f30, type: 2}
     - target: {fileID: 4814823119151912063, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
       propertyPath: m_Size.x
       value: 1.12
@@ -44879,6 +44875,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9160509244416741769, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
+      propertyPath: walksounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 91344452faff26a47b1878377a61c9f0, type: 3}
+    - target: {fileID: 9160509244416741769, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
+      propertyPath: walksounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08f5e2e3ce939d24b8c6f44ae1616e93, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb58646ee5d4b2243b2afb5205124f5a, type: 3}
 --- !u!1 &1579625684
