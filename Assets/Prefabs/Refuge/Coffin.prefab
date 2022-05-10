@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 1308493744553292252}
   CRecover: {fileID: 8300000, guid: 5bde7c3b55a67de4f918e765d5fbb6bc, type: 3}
+  recoverPrice: 5
 --- !u!58 &8182600479693505923
 CircleCollider2D:
   m_ObjectHideFlags: 0

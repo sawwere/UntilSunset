@@ -11,17 +11,17 @@ public class CoffinButton : MonoBehaviour
     public void Start()
     {
         resources = GameObject.Find("CoinsText").GetComponent<Resources>();
+        cof = transform.parent.GetComponent<Coffin>();
     }
 
     public void CoffinButtonPressed()
     {
-        cof = transform.parent.GetComponent<Coffin>();
         cof.Recover();
     }
 
     public void EnterRecoverButton(Button b)
     {
-        resources.SetPriceMerchant(0, 0, 5);
+        resources.SetPriceMerchant(0, 0, cof.recoverPrice);
         resources.UpdateAll();
     }
 

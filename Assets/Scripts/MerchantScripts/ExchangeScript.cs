@@ -5,33 +5,37 @@ using UnityEngine.EventSystems;
 
 public class ExchangeScript : MonoBehaviour
 {
-    private Resources CoinsRes;
-    private Resources WoodRes;
-    private Resources StoneRes;
     private Resources res;
     private AudioSource source;
     public AudioClip CCoin;
     public AudioClip CNo;
 
+    public int StoneToCoinPrice = 1; // цена (сколько потеряем камней)
+    public int StoneToCoinIncome = 1; // доход (сколько получим монет)
+
+    public int CoinToStonePrice = 2; // цена (сколько потеряем монет)
+    public int CoinToStoneIncome = 1; // доход (сколько получим камней)
+
+    public int WoodToCoinPrice = 4; // цена (сколько потеряем дерева)
+    public int WoodToCoinIncome = 1; // доход (сколько получим монет)
+
+    public int CoinToWoodPrice = 1; // цена (сколько потеряем монет)
+    public int CoinToWoodIncome = 3; // доход (сколько получим дерева)
+
     // Start is called before the first frame update
     private void Start()
     {
         res = GameObject.Find("CoinsText").GetComponent<Resources>();
-        //CoinsRes = GameObject.Find("CoinsText").GetComponent<Resources>();
-        //WoodRes = GameObject.Find("WoodText").GetComponent<Resources>();
-        //StoneRes = GameObject.Find("StoneText").GetComponent<Resources>();
         source = GameObject.FindGameObjectWithTag("Merchant").GetComponent<AudioSource>();
     }
 
     public void StoneToCoinButtonPressed()
     {
-        if (GameStats.Stone >= 1)
+        if (GameStats.Stone >= StoneToCoinPrice)
         {
-            GameStats.Stone -= 1;
-            GameStats.Coins += 1;
+            GameStats.Stone -= StoneToCoinPrice;
+            GameStats.Coins += StoneToCoinIncome;
             res.UpdateAll();
-            //StoneRes.UpdateStones();
-            //CoinsRes.UpdateCoins();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
@@ -40,13 +44,11 @@ public class ExchangeScript : MonoBehaviour
 
     public void CoinToStoneButtonPressed()
     {
-        if (GameStats.Coins >= 3)
+        if (GameStats.Coins >= CoinToStonePrice)
         {
-            GameStats.Coins -= 3;
-            GameStats.Stone += 1;
+            GameStats.Coins -= CoinToStonePrice;
+            GameStats.Stone += CoinToStoneIncome;
             res.UpdateAll();
-            //CoinsRes.UpdateCoins();
-            //StoneRes.UpdateStones();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
@@ -55,13 +57,11 @@ public class ExchangeScript : MonoBehaviour
 
     public void WoodToCoinButtonPressed()
     {
-        if (GameStats.Wood >= 3)
+        if (GameStats.Wood >= WoodToCoinPrice)
         {
-            GameStats.Wood -= 3;
-            GameStats.Coins += 1;
+            GameStats.Wood -= WoodToCoinPrice;
+            GameStats.Coins += WoodToCoinIncome;
             res.UpdateAll();
-            //CoinsRes.UpdateCoins();
-            //WoodRes.UpdateWood();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
@@ -70,13 +70,11 @@ public class ExchangeScript : MonoBehaviour
 
     public void CoinToWoodButtonPressed()
     {
-        if (GameStats.Coins >= 3)
+        if (GameStats.Coins >= CoinToWoodPrice)
         {
-            GameStats.Coins -= 3;
-            GameStats.Wood += 5;
+            GameStats.Coins -= CoinToWoodPrice;
+            GameStats.Wood += CoinToWoodIncome;
             res.UpdateAll();
-            //CoinsRes.UpdateCoins();
-            //WoodRes.UpdateWood();
             EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             source.PlayOneShot(CCoin, 0.2f);
         }
