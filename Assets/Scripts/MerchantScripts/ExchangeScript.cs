@@ -10,17 +10,17 @@ public class ExchangeScript : MonoBehaviour
     public AudioClip CCoin;
     public AudioClip CNo;
 
-    private int StoneToCoinPrice = 1; // цена (сколько потеряем камней)
-    private int StoneToCoinIncome = 1; // доход (сколько получим монет)
+    public int StoneToCoinPrice = 1; // цена (сколько потеряем камней)
+    public int StoneToCoinIncome = 1; // доход (сколько получим монет)
 
-    private int CoinToStonePrice = 2; // цена (сколько потеряем монет)
-    private int CoinToStoneIncome = 1; // доход (сколько получим камней)
+    public int CoinToStonePrice = 2; // цена (сколько потеряем монет)
+    public int CoinToStoneIncome = 1; // доход (сколько получим камней)
 
-    private int WoodToCoinPrice = 4; // цена (сколько потеряем дерева)
-    private int WoodToCoinIncome = 1; // доход (сколько получим монет)
+    public int WoodToCoinPrice = 4; // цена (сколько потеряем дерева)
+    public int WoodToCoinIncome = 1; // доход (сколько получим монет)
 
-    private int CoinToWoodPrice = 1; // цена (сколько потеряем монет)
-    private int CoinToWoodIncome = 3; // доход (сколько получим дерева)
+    public int CoinToWoodPrice = 1; // цена (сколько потеряем монет)
+    public int CoinToWoodIncome = 3; // доход (сколько получим дерева)
 
     // Start is called before the first frame update
     private void Start()

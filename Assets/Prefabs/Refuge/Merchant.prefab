@@ -206,9 +206,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4210698636428285952}
   m_Father: {fileID: 5697545414057971360}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2149977258908894154
 MonoBehaviour:
@@ -224,6 +225,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CCoin: {fileID: 8300000, guid: e4c562fab16be714a8485d3601770a67, type: 3}
   CNo: {fileID: 8300000, guid: 0dcee2bec20872142a322fb5a884daaf, type: 3}
+  StoneToCoinPrice: 1
+  StoneToCoinIncome: 1
+  CoinToStonePrice: 2
+  CoinToStoneIncome: 1
+  WoodToCoinPrice: 4
+  WoodToCoinIncome: 1
+  CoinToWoodPrice: 1
+  CoinToWoodIncome: 3
 --- !u!1 &1758740445729094203
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +399,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5860109834240556238}
-  - {fileID: 4210698636428285952}
   - {fileID: 4575812237983721634}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -712,8 +720,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_Children: []
-  m_Father: {fileID: 5697545414057971360}
-  m_RootOrder: 1
+  m_Father: {fileID: 4575812237983721634}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
