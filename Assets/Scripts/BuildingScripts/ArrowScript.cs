@@ -8,10 +8,12 @@ public class ArrowScript : MonoBehaviour
     private float speed = 20;
     private TowerScript tw;
     public Vector3 direction = Vector3.left;
+    public AudioClip CFlight;
 
     private void Start()
     {
         tw = transform.parent.GetComponent<TowerScript>();
+        GameObject.Find("ResSounds").GetComponent<AudioSource>().PlayOneShot(CFlight, 0.55f);
     }
 
     private void Update()

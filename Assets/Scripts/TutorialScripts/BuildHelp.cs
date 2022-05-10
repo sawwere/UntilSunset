@@ -36,12 +36,15 @@ public class BuildHelp : MonoBehaviour
         if (w1.Length == 3 && !flag2)
         {
             dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Стены также можно улучшать, для этого нужно навести на нужную стену мышкой и нажать соответствующую кнопку. Попробуйте улучшить стену до 3 уровня.";
-            
-           /* if (flag1 && GameStats.Wood <= 18 && !flag2)
-            {
-                SpawnWood();
-                SpawnWood();
-            }*/
+#if (UNITY_ANDROID || UNITY_EDITOR)
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Стены также можно улучшать, для этого нужно нажать на стену,а затем на соответствующую кнопку. Попробуйте улучшить стену до 3 уровня.";
+#endif
+
+            /* if (flag1 && GameStats.Wood <= 18 && !flag2)
+             {
+                 SpawnWood();
+                 SpawnWood();
+             }*/
             flag2 = true;
         }
         var w2 = GameObject.FindGameObjectWithTag("Wall3");
@@ -65,7 +68,10 @@ public class BuildHelp : MonoBehaviour
             SpawnEnemiesForBecomeFriend();
             //enemy.RecieveDamage(1);
             dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Поврежденные сооружения можно ремонтировать, для этого нужно навести на нужное строение мышкой и нажать соответствующую кнопку. Также их можно сносить.";
-           // SpawnWood();
+#if (UNITY_ANDROID || UNITY_EDITOR)
+            dialogBox1.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Поврежденные сооружения можно ремонтировать, для этого нужно нажать на строение, а затем соответствующую кнопку. Также их можно сносить.";
+#endif
+            // SpawnWood();
             flag5 = true;
             dialogBox2.SetActive(true);
             /*if (GameStats.Henchman < 3)
@@ -79,7 +85,7 @@ public class BuildHelp : MonoBehaviour
             coffin.GetComponent<Coffin>().Recover();
             coffin.GetComponent<Coffin>().RecieveDamage(10, DamageType.close_combat);
             dialogBox3.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "Если враг добрался до дома, то дом будет терять здоровье,оно отображается" +
-                " в правом верхнем углу экрана. Вы можете пополнить здоровье, починив гроб за 5 монет. Для этого нажмите на иконку наковальни.\n Чтобы пройти игру нужно прожить 3 дня. \n Также о способностях игрока можно прочитать в меню.";
+                " в правом верхнем углу экрана. Вы можете пополнить здоровье, починив гроб за 5 монет. Для этого подойдите к нему и нажмите на иконку наковальни.\n Чтобы пройти игру нужно прожить 3 дня. \n Также о способностях игрока можно прочитать в меню.";
             flag7 = true;
 
         }

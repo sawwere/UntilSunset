@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Wall_1 : Wall
+public class Wall_1 : Wall, IDamage
 {
 
     protected override void Start()
@@ -19,5 +19,17 @@ public class Wall_1 : Wall
         base.Start();
     }
 
+    public void DoDamage(IDamage obj)
+    {
+        obj.RecieveDamage(9, DamageType.wall);
+    }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        EnemyCharacter e = collision.gameObject.GetComponent<EnemyCharacter>();
+        if (e != null)
+        {
+            DoDamage(e);
+        }
+    }
 }

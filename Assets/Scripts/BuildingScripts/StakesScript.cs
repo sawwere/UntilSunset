@@ -42,7 +42,7 @@ public class StakesScript : Building
 
     public void DoDamage(EnemyCharacter e)
     {
-        e.RecieveDamage(5, DamageType.stakes);
+        e.RecieveDamage(4, DamageType.stakes);
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -123,3 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  direction: {x: -1, y: 0, z: 0}
+  CFlight: {fileID: 8300000, guid: 3680a31864671f34bb6b6e2ec6c96c92, type: 3}
